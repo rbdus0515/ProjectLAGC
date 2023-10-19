@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="contentMapper">
+
+	<!-- 
+		resultMap 
+		- SELECT 조회 결과(ResultSet) 
+		컬럼명과 컬럼 값을 옮겨 담을 DTO의 필드명이 같지 않을 때 이를 매핑 시켜 SELECT시 자동으로 담기게하는 역할 
+		
+		-속성 
+		type : 연결할 DTO (패키지명 + 클래스명 또는 별칭) 
+		id : 만들어진 resultMap을 지칭할 식별명(이름) 
+		<id> 태그 : PK 역할 컬럼 - 필드 매핑 
+		<result> 태그 : <id>제외 나머지 
+		
+	-->
+
+	<resultMap type="Content" id="content_rm">
+
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="contentNo" column="CONTENT_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="areaCode" column="AREA_CODE" />
+		<result property="travelName" column="TRAVEL_NAME" />
+		<result property="placeAddress" column="PLACE_ADDRESS" />
+		<result property="ageCode" column="AGE_CODE" />
+		<result property="seasonCode" column="SEASON_CODE" />
+		<result property="memberCode" column="MEMBER_CODE" />
+		<result property="themeCode" column="THEME_CODE" />
+		<result property="contentDelFl" column="CONTENT_DEL_FL" />
+		<result property="contentImg" column="CONTENT_IMG" />
+		
+	</resultMap>
+
+	<select id="selectContentDetail" resultMap="content_rm">
+		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_ADDRESS, 
+				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG
+		FROM CONTENT
+		WHERE AREA_CODE = #{area}
+		ORDER BY CONTENT_NO
+	</select>
+	
+
+
+</mapper>

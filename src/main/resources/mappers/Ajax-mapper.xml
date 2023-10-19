@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="ajaxMapper">
+
+	<select id="selectId" resultType="_int">
+		SELECT COUNT(*) 
+		FROM "MEMBER"
+		WHERE MEMBER_ID = #{memberId}
+		AND MEMBER_DEL_FL = 'N'
+	</select>
+
+	<select id="selectNickname" resultType="_int">
+		SELECT COUNT(*) 
+		FROM "MEMBER"
+		WHERE NICKNAME = #{nickname}
+		AND MEMBER_DEL_FL = 'N'
+	</select>
+	
+	<update id="updateAuthKey">
+		UPDATE "AUTH_KEY" SET
+		AUTH_CODE = #{authKey},
+		CREATE_DATE = sysdate
+		WHERE EMAIL = #{memberEmail}
+	</update>
+
+	<insert id="insertAuthKey">
+		INSERT INTO "AUTH_KEY" 
+		VALUES(SEQ_AUTH_NO.NEXTVAL, #{authKey}, #{memberEmail}, default)
+	</insert>
+
+	<select id="checkAuthKey" resultType="_int">
+		SELECT COUNT(*)
+		FROM "AUTH_KEY"
+		WHERE AUTH_CODE = #{inputKey}
+		AND EMAIL = #{memberEmail}
+	</select>
+
+</mapper>

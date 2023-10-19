@@ -1,0 +1,183 @@
+/* 글꼴 모음 */
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 탑버튼 부드럽게 올리기 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 전체 */
+* {
+    box-sizing: border-box;
+    font-family: 'GowunDodum-Regular';
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body > section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* top */
+#top {
+    font-family: 'Arita-buri-SemiBold';
+    background-image: url("/resources/img/content/jeolla/전라메인이미지.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: auto;
+    line-height: 375px;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* main */
+#main {
+    display: flex;
+    height: auto;
+}
+
+#leftArea, #rightArea {
+    flex-basis: 20%;
+}
+
+.mainArea {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 63px;
+}
+
+.placeSec {
+    flex-basis: calc(100%/4);
+    display: flex;
+    flex-direction: column;
+    margin-bottom:82px;
+}
+
+.blank {
+    flex-basis: 30%;
+}
+
+.placeImg {
+    flex-basis: 50%;
+}
+
+/* 장소이름 영역 */
+.placeTitSec {
+    flex-basis: 20%;
+    display: flex;
+}
+
+.contImg {
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
+
+    transition: 0.3s ease-in-out;
+}
+
+/* 사진 호버시 효과 */
+.contImg:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    opacity: 0.8;
+}
+
+/* 장소이름 */
+.tit {
+    flex-basis: 70%;
+}
+
+/* X(삭제) 버튼 영역 */
+.delArea {
+    flex-basis: 30%;
+}
+
+/* upBtn */
+#upBtn {
+    width: 50px;
+    background-color: transparent;
+    scroll-behavior: smooth;
+    position: fixed;
+    top: 93.8%;
+    left: 98%;
+    transform: translate(-50%, -50%);
+    background-color: #dedede;
+    border-radius: 50px;
+}
+
+#upBtn:hover {
+    cursor: pointer;
+}
+
+/* ------------------ 관리자 ------------------ */
+#plusBtn {
+    border: none;
+    border-radius: 20px;
+    width: 220px;
+    height: 260px;
+    background-color: #ddd;
+    font-size: 40px;
+}
+
+#plusBtn:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    color: white;
+}
+
+/* #addPlus {
+    display: none;
+} */
+
+/* X 버튼 */
+.xBtn {
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-weight: bold;
+}
+
+.xBtn:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    color: white;
+}
+
+/* 반응형 모바일 기준 */
+/* 해상도 767px 이하면 무조건 여기 작성된대로 css 적용 */
+@media all and (max-width:767px) {
+
+    #leftArea, #rightArea {
+        display: none;
+    }
+
+}

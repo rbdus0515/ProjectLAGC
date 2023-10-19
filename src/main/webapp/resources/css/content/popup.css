@@ -1,0 +1,290 @@
+/********** 전체 화면 ******************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Gowun Dodum;
+
+  box-sizing: border-box;
+}
+
+#mainContainer{
+  width: 65rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/********** X버튼 ******************************************************/
+#closeBtnPopup {
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#closeBtnPopup > img{
+  width: 1rem;
+  
+}
+
+/********** 사진  ******************************************************/
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.photoSection {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popupImg {
+  display: flex;
+  justify-content: center;
+  width: 25rem;
+  height: 30rem;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index : 10;
+}
+
+.popupTitle {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+
+.popupFooter {
+  width: 80%;
+  display: flex;
+  
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.popupFooter a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/********** 설명, 후기  ******************************************************/
+
+.explainSection {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.explainContainer {
+  width: 90%;
+  height: 15rem;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+  background-color: #e6e6e6;
+}
+
+.title {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.explain {
+  width: 95%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.explain p {
+  font-size: 0.8rem;
+  margin: 0 10px;
+}
+
+.commentContainer {
+  width: 90%;
+  height: 300px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #e6e6e6;
+}
+
+.comment {
+  width: 95%;
+  height: 10%;
+  background-color: #fff;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.comment > p {
+  font-size: 0.8rem;
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+
+  align-items: end;
+}
+
+.commentArea {
+  width: 27.8rem;
+  height: 5rem;
+  margin-top: 5px;
+  border-radius: 10px;
+
+  padding: 10px;
+  border: none;
+}
+
+.button {
+  width: 3rem;
+  height: 1.5rem;
+  border: none;
+
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.button:hover {
+  background-color: #868686;
+  color: #fff;
+  transition-duration: 0.3s;
+}
+
+
+
+/* -------------------- 하트 이미지 css ------------------------------------*/
+.heart-container {
+  --heart-color: #F44336;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  transition: .3s;
+}
+
+.heart-container .checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.heart-container .svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-container .svg-outline,
+.heart-container .svg-filled {
+  fill: var(--heart-color);
+  position: absolute;
+}
+
+.heart-container .svg-filled {
+  animation: keyframes-svg-filled 1s;
+  display: none;
+}
+
+.heart-container .svg-celebrate {
+  position: absolute;
+  animation: keyframes-svg-celebrate .5s;
+  animation-fill-mode: forwards;
+  display: none;
+  stroke: var(--heart-color);
+  fill: var(--heart-color);
+  stroke-width: 2px;
+}
+
+.heart-container .checkbox:checked~.svg-container .svg-filled {
+  display: block
+}
+
+.heart-container .checkbox:checked~.svg-container .svg-celebrate {
+  display: block
+}
+
+@keyframes keyframes-svg-filled {
+  0% {
+    transform: scale(0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes keyframes-svg-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+    display: none;
+  }
+}
+
+/* -------------------- 하트 이미지 css ------------------------------------*/
+
+#modalContainerPopup {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+
+#modalContainerPopup.hidden {
+	display: none;
+}

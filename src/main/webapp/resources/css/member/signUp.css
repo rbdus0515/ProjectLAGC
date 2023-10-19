@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+button, input {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* -------------------------- */
+
+/* 좌측 상단 홈로고 */
+#logo {
+    width: 47px;
+    height: 57px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+/* ----------------------- */
+
+/* 메인 */
+
+/* 로고 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-section {
+    margin-bottom: 27px;
+}
+
+#input-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+p {
+    margin: 0;
+}
+
+input {
+    width: 348px;
+    height: 46px;
+    border-radius: 15px;
+    font-size: 1rem;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+p {
+    font-size: 1rem;
+    color: black;
+}
+
+p span::after {
+    content: ' *';
+    color: red;
+}
+
+#id-section {
+    display: flex;
+    width: 488px;
+}
+
+#id-margin {
+    flex-basis: 7%;
+}
+
+/* 아이디 중복검사 버튼 */
+#id-btn {
+    width: 100%;
+    max-width: 102px;
+    height: 46px;
+    border-radius: 15px;
+    font-size: 1rem;
+    border: none;
+}
+
+/* 이메일 인증번호 버튼 */
+#sendAuthKeyEmail, #certifyBtnEmail {
+    width: 100%;
+    max-width: 102px;
+    height: 46px;
+    border-radius: 15px;
+    font-size: 1rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#profile {
+    display: flex;
+    align-items: center;
+}
+
+#profile-img {
+    width: 90px;
+}
+
+#profile-margin {
+    flex-basis: 7%;
+}
+
+/* 프로필 이미지 업로드 버튼 */
+label {
+    width: 100%;
+    height: 46px;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+#upload-img-btn {
+    display: none;
+}
+
+#signup-btn {
+    width: 488px;
+    height: 41px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1rem;
+}
+
+#empty {
+    height: 40px;
+}
+
+button{
+    width: 488px;
+    height: 41px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+
+
+button:hover {
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+label:hover {
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }

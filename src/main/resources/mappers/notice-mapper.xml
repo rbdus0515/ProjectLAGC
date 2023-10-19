@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="noticeMapper">
+
+	<!-- 
+		resultMap 
+		- SELECT 조회 결과(ResultSet) 
+		컬럼명과 컬럼 값을 옮겨 담을 DTO의 필드명이 같지 않을 때 이를 매핑 시켜 SELECT시 자동으로 담기게하는 역할 
+		
+		-속성 
+		type : 연결할 DTO (패키지명 + 클래스명 또는 별칭) 
+		id : 만들어진 resultMap을 지칭할 식별명(이름) 
+		<id> 태그 : PK 역할 컬럼 - 필드 매핑 
+		<result> 태그 : <id>제외 나머지 
+		
+	-->
+		
+	<resultMap type="Notice" id="notice_rm">
+
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="noticeNo" column="NOTICE_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="noticeTitle" column="NOTICE_TITLE" />
+		<result property="noticeDetail" column="NOTICE_DETAIL" />
+		<result property="noticeUploadDate" column="NOTICE_UPLOAD_DATE" />
+		
+	</resultMap>
+
+	<select id="selectNoticeList" resultMap="notice_rm">
+		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY.MM.DD') NOTICE_UPLOAD_DATE
+		FROM NOTICE_BOARD
+	</select>
+
+</mapper>

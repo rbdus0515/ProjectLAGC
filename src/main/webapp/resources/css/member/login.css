@@ -1,0 +1,112 @@
+/********** 전체 화면 ******************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Gowun Dodum;
+
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+section{
+    margin: 10px 0;
+}
+
+/********** 홈 로고 ******************************************************/
+#homelogo{
+    width: 47px;
+    height: 57px;
+    margin: 20px;
+}
+
+/********** 내부 로고 ******************************************************/
+.logo {
+    width: 47px;
+    height: 57px;
+    margin: 50px 0 30px 0;
+}
+
+/********** 메인 화면 ******************************************************/
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    width: 600px;
+    height: 610px;
+    background-color: #e6e6e6;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.id, .password{
+    width: 283px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 0 15px;
+}
+
+.loginBtn{
+    width: 286px;
+    height: 34px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.loginBtn:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+
+.findIdPwAndSingup{
+    width: 286px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.findIdPw{
+    display: flex;
+}
+
+.findIdPwAndSingup a{
+    color: #000000;
+    text-decoration: none;
+}
+
+hr{
+    width: 20em;
+    margin: 2em 0;
+    border: 0.1px solid #bebebe;
+}
+
+.snsLogin{
+    width: 286px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.sns{
+    width: 50px;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="communityMapper">
+
+	<resultMap type="Community" id="community_rm">
+		<id property="communityNo" column="COMMUNITY_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="communityTitle" column="COMMUNITY_TITLE"/>
+		<result property="communityContent" column="COMMUNITY_CONTENT"/>
+		<result property="createDt" column="CREATE_DT"/>
+		<result property="readCount" column="READ_COUNT"/>
+		<result property="communityDelFl" column="COMMUNITY_DEL_FL"/>
+	</resultMap>
+	
+	<select id="selectCommunityList" resultMap="community_rm">
+		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, CREATE_DT, READ_COUNT, COMMUNITY_DEL_FL
+		FROM COMMUNITY
+	</select>
+	
+</mapper>

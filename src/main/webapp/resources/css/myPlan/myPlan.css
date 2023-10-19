@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    font-family: "Gowun Dodum";
+}
+
+/* body 크기 설정 */
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* a 태그 밑줄 제거 */
+a {
+    text-decoration: none;
+}
+
+/* button 설정 */
+button {
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+    font-size: 1rem;
+}
+
+/* 컨테이너 크기 설정 */
+.my-plan {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* left-side와 맵 컨테이너 설정 */
+.map-api {
+    display: flex;
+    
+}
+
+
+/* 여행지와 여행 계획 크기 설정 */
+.left-side {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-conteiner {
+    width: 100%;
+    height: 20%;
+    display: flex;
+}
+
+/* 로고와 검색창 위치 설정 */
+.logo-box {
+    display: flex;
+    justify-content:baseline;
+    align-items: center;
+    width: 10%;
+    height: 20%;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 20%;
+}
+
+/* 로고 크기 설정 */
+.logo {
+    width: 47px;
+    height: 57px;
+    margin: 20px;
+    margin-right: 0px;
+    display: flex;
+
+}
+
+.search-box input {
+    padding-left: 10px;
+    align-items: center;
+}
+
+/* 검색창 크기 설정 */
+.search {
+    width: 300px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    margin: 25px;
+    background-image:url(/resources/img/myPage/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: 98% center;
+    
+}
+
+.loca-plan {
+    display: flex;
+
+
+}
+
+/* 여행지 크기 설정 */
+.location {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 여행 계획 크기 설정 */
+.plan {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* 지역 div + 출발지 설정 div + 선택한 여행지 div */
+.출발지설정 {
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+    box-shadow: 0px 1px ;
+}
+
+.출발지설정1 {
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+    box-shadow: 0px 1px ;
+}
+
+/* 펼치기 버튼 설정 */
+.펼치기 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+}
+
+/* 여행 계획 제목 */
+.수도권여행 {
+    width: 60%;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    left: 75px;
+    margin: 15px;
+}
+
+/* 출발지 검색창 크기, 색상 설정 */
+.출발지검색 {
+    width: 60%;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 10px;
+    position: relative;
+    left: 75px;
+    margin: 15px;
+    background-image:url(/resources/img/myPage/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    outline: none;
+}
+
+/* 선택한 여행지 설정 */
+.선택한여행지 {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+.cansle-button {
+    width: 50px;
+    height: 187px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+
+}
+
+/* 선택한 여행지 이미지 설정 */
+.선택한-여행지-이미지 {
+    width: 165px;
+    height: 187px;
+}
+
+/* 선택한 여행지 설명 설정 */
+.메뉴 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 시간의 위치 설정 */
+.시간 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* 누적 시간의 위치 설정 */
+.누적시간 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* 여행지 이름의 위치 설정 */
+.여행지이름 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* 여행지 위치의 위치 설정 */
+.여행지위치 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* 저장 버튼 크기, 색상 설정 */
+.저장 {
+    width: 64px;
+    height: 43px;
+    background-color: black;
+    color: white;
+    align-self: flex-end;
+}
+
+/* 창 숨기기 */
+.storage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 25px;
+    height: 50px;
+    border-radius: 5px;
+    border-top-left-radius:00px;
+    border-bottom-left-radius:00px;
+}
+
+/* 화살표 크기 설정 */
+.left-arrow {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+/* 이용방벙 버튼 크기, 위치 설정*/
+.이용방법 {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    z-index: 10;
+    width: 80px;
+    padding: 1px 3px 5px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+/* 이용방법 글씨 색 설정 */
+.이용방법 > a {
+    color: black;
+}
+
+/* 로그인 버튼 크기, 위치 설정*/
+.log-in {
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    z-index: 10;
+    width: 75px;
+    height: 75px;
+    padding: 1px 3px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.map-profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}

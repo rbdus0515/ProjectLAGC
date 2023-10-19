@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+}
+
+body { 
+    margin: 0;
+    padding: 0;
+    font-family: 'Gowun Dodum', sans-serif;
+    /* background-color: antiquewhite; */
+    position: relative;
+}
+
+#infoBtn {
+ width: 50px;
+    position: fixed;
+    top: 87.3%;
+    left: 98.5%;
+    transform: translate(-50%, -50%);
+    background-color: #d2d2d2;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* -------------------------------- */
+/* ?????????? ???? */
+#main-container {
+    position: relative;
+    height : 100vh;
+}
+
+#mainPage-img {
+	width:100%	
+}
+
+#title-container {
+    font-size: 6.125rem;
+    position: absolute;
+    top: 20%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: 'Anton', sans-serif;
+}
+
+#title-container > span{
+	font-family: 'Exo', sans-serif;
+}
+
+#infoBtn {
+    width: 50px;
+    position: fixed;
+    top: 85%;
+    left: 98.5%;
+    transform: translate(-50%, -50%);
+    background-color: #d2d2d2;
+    border-radius: 50px;
+    z-index: 1;
+    cursor : pointer;
+}
+
+#topBtn {
+    width: 50px;
+    position: fixed;
+    top: 91.5%;
+    left: 98.5%;
+    transform: translate(-50%, -50%);
+    background-color: #d2d2d2;
+    border-radius: 50px;
+    z-index: 1;
+    cursor : pointer;
+}
+
+
+#mainPage-btn1 {
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    border: transparent;
+    position: absolute;
+    top: 85%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size: 1.25rem;
+    cursor : pointer;
+}
+
+#mainPage-btn2 {
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    border: transparent;
+    position: absolute;
+    top: 91.5%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size: 1.25rem;
+    cursor : pointer;
+}
+
+
+.white-text {
+    color: #fefae0;
+}
+
+.black-text {
+    color: black;
+}
+
+/* ------------------------- */
+/* ?????????? ??? ?????? */
+#recommend-place {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.125rem;
+    margin-top: 90px;
+}
+
+#category-menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 230px;
+    margin-top: 55px;
+}
+
+.category button {
+    width: 118px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.3125rem;
+}
+
+.category-empty {
+    flex-basis: 30%;
+}
+
+#recommend-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.recommend-place-btn {
+    width: 640px;
+    height: auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.recommend-place-btn:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    opacity: 0.8;
+}
+
+.recommend-place-btn {
+    transition: 0.3s ease-in-out;
+}
+
+/* ???? ????? ??? ??? */
+.category {
+    display: inline-block;
+    z-index: 1;
+}
+
+.dropdown-category {
+    display: none;
+    background-color: #f9f9f9;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-category a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-category a:hover {
+    background-color: #cccccc
+}
+
+.category:hover .dropdown-category {
+    display: block;
+}
+
+img {
+    z-index: -1;
+}
+
+/* -------------------------- */
+/* ?????????? ?????? ?????? */
+#region-place {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.125rem;
+    margin-top: 90px;
+}
+
+.region-place-btn {
+    display: flex;  
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 24px;
+}
+
+#button-magin{
+    flex-basis: 15%;
+}
+
+.region-btn {
+    width: 180px;
+    height: 65px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.region-place {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.region-empty {
+    flex-basis: 20%;
+}
+
+.region-place img {
+    width: 220px;
+    height: auto;
+}
+
+.region-place p {
+    font-size: 1.25em;
+}
+
+button:hover {
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+    cursor : pointer;
+}
+
+.place-move-motion:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    opacity: 0.8;
+}
+
+.place-move-motion {
+    transition: 0.3s ease-in-out;
+}
+
+#bottom-margin {
+    height: 300px;
+}
+
+
+
+@media all and (max-width:767px) {
+
+    .region-empty {
+        display: none;
+
+    }
+
+    img, p {
+        margin-left: 80px;
+    }
+
+}

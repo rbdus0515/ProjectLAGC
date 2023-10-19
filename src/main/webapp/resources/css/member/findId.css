@@ -1,0 +1,104 @@
+/********** 전체 화면 ******************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Gowun Dodum;
+
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/********** 홈 로고 ******************************************************/
+#homelogo{
+    width: 47px;
+    height: 57px;
+    margin: 20px;
+}
+
+
+/********** 메인 화면 ******************************************************/
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.findIdTitle{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.findIdContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.contentContainer input{
+    border: none;
+    width: 20rem;
+    height: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
+    
+    margin: 0.3rem 0;
+}
+
+.certifyBtn{
+    border: none;
+    background-color: #fff;
+    padding: 0.3rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.certifyBtn:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.findIdRadio{
+    margin-bottom: 1rem;
+}
+
+hr{
+    width: 25rem;
+    margin: 1.5rem 0;
+    border: 0.1px solid #bebebe;
+}
+
+#submitBtn{
+    width: 10rem;
+    background-color: #fff;
+
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    align-self: center;
+}
+
+#submitBtn:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+

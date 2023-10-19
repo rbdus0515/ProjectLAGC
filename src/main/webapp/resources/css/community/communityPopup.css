@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* main(전체 틀) */
+#communityPopup-container {
+    width: 42rem;
+    height: 45rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border: none;
+}
+
+/* 헤더 부분 sec */
+#communityPopup-container > section:nth-of-type(1) {
+    flex-basis: 15%;
+    display: flex;
+}
+
+#com-top-l-sec {
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+#com-top-l-sec > section:nth-of-type(1) {
+    flex-basis: 65%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+#com-top-l-sec > section:nth-of-type(2) {
+    flex-basis: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#com-cuteGhost {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+}
+
+#com-top-m-sec {
+    flex-basis: 78%;
+    display: flex;
+    align-items: center;
+}
+
+#com-top-r-sec {
+    flex-basis: 7%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.8rem;
+}
+
+#com-XIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+#com-top-m-sec > div {
+    width: 32rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    background-color: #E0DEDE;
+    border-radius: 20px;
+}
+
+#Title {
+    width: 100%;
+    height: 2.5rem;
+    resize: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+/* 미드 부분 sec  */
+#communityPopup-container > section:nth-of-type(2){
+    flex-basis: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#com-pop-mainComment {
+    width: 39rem;
+    height: 14rem;
+    border-radius: 20px;
+    background-color: #E0DEDE;
+    display: flex;
+    flex-direction: column;
+}
+
+#com-pop-mainComment > section:nth-of-type(1) {
+    flex-basis: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#com-pop-mainComment > section:nth-of-type(1) > textarea {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+#com-pop-mainComment > section:nth-of-type(2) {
+    display: flex;
+    flex-basis: 20%;
+    justify-content: end;
+    align-items: center;
+}
+
+.editDelete-button {
+    width: 4rem;
+    height: 1.7rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    border: none;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+#edit-button:hover {
+    color: white;
+    background-color: #4B89DC;
+}
+
+#delete-button:hover {
+    color: white;
+    background-color: #FF033E;
+}
+
+
+/* 바텀 sec */
+#communityPopup-container > section:nth-of-type(3) {
+    flex-basis: 50%;
+    display: flex;
+}
+
+#pop-botBox {
+    flex-basis: 100%;
+    height: 100%;
+    background-color: #ADADAD;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem;
+}
+
+.pop-botBox-sec {
+    flex-basis: 22%;
+    display: flex;
+    width: 100%;
+}
+
+#pop-botBox > section:nth-of-type(4) {
+    flex-basis: 7%;
+    border-bottom: 1px solid black;
+}
+
+#pop-botBox > section:nth-of-type(5) {
+    flex-basis: 27%;
+    display: flex;
+    align-items: center;
+}
+
+/* 바텀 부분 클래스 부 */
+.pop-botBox-profileSec {
+    flex-basis: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-botBox-profileImges {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.pop-botBox-profileSec-topSec {
+    flex-basis: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-botBox-profileSec-botSec {
+    flex-basis: 30%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.pop-botBox-doubleComment-sec {
+    flex-basis: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.pop-botBox-doubleComment-box {
+    flex-basis: 90%;
+    height: 3rem;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.pop-botBox-doubleComment-box-left {
+    flex-basis: 95%;
+    display: flex;
+    align-items: center;
+}
+
+.pop-botBox-doubleComment-box-right {
+    flex-basis: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-botBox-doubleComment-box-right > button {
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+.com-doubleComment-XIcon {
+    width: 0.7rem;
+    height: 0.7rem;
+}
+
+/* ----------------------------------------------------- */
+
+#myComment-l-sec {
+    flex-basis: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myComment-r-sec {
+    flex-basis: 90%;
+    display: flex;
+    align-items: center;
+}
+
+#myComment-write-sec {
+    width: 34.5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+}
+
+#myComment-write-sec > section:nth-of-type(1) {
+    flex-basis: 85%;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+#myComment-write-sec > section:nth-of-type(2) {
+    flex-basis: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myComment-write {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    padding-top: 0.7rem;
+
+}
+
+#uploadBtn {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#upload{
+    display: flex;
+    flex-basis: 100%;
+}
+
+#modalContainer {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+
+#modalContainer.hidden {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

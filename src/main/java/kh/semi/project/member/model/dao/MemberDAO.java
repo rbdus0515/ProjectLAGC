@@ -48,4 +48,22 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.selectPw", inputMember);
 	}
 
+	/** 회원 탈퇴 DAO
+	 * @param loginMember
+	 * @return
+	 */
+	public int deleteMember(Member loginMember) {
+	
+		return sqlSession.update("memberMapper.deleteMember", loginMember);
+	}
+
+	/** 비밀번호 변경 DAO
+	 * @param loginMember
+	 * @return
+	 */
+	public int updatePw(Member loginMember) {
+
+		return sqlSession.update("memberMapper.updatePw", loginMember);
+	}
+
 }

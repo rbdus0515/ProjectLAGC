@@ -71,5 +71,17 @@
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_NO = #{memberNo}
 	</select>
+	
+	<update id="deleteMember">
+		UPDATE "MEMBER" SET 
+		MEMBER_DEL_FL = 'Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
+	<update id="updatePw">
+		UPDATE "MEMBER" SET 
+		MEMBER_PW = #{memberPw}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 </mapper>

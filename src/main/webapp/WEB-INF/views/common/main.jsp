@@ -12,9 +12,8 @@
 <link rel="stylesheet" href="/resources/css/common/mainPage.css">
 
 <style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
-	;
+	@import
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 </style>
 
 <style>

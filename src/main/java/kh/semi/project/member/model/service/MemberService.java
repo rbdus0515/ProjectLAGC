@@ -1,5 +1,6 @@
 package kh.semi.project.member.model.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 import kh.semi.project.member.model.dto.Member;
@@ -29,6 +30,8 @@ public interface MemberService {
 	 * @return
 	 */
 	int selectPw(Member inputMember);
+
+	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember);
 
 	/** 회원 탈퇴 서비스
 	 * @param map

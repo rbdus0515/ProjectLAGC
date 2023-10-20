@@ -39,6 +39,7 @@ main {
 }
 
 .input-section {
+    width: 488px;
     margin-bottom: 27px;
 }
 
@@ -111,17 +112,17 @@ p span::after {
     align-items: center;
 }
 
-#profile-img {
+#profileImage {
     width: 90px;
 }
 
 #profile-margin {
-    flex-basis: 7%;
+    flex-basis: 3%;
 }
 
 /* 프로필 이미지 업로드 버튼 */
 label {
-    width: 100%;
+    width: 40%;
     height: 46px;
     background-color: #e6e6e6;
     border-radius: 15px;
@@ -135,8 +136,13 @@ label:hover {
     cursor: pointer;
 }
 
-#upload-img-btn {
+#imageInput {
     display: none;
+}
+
+#deleteImage {
+    border: none;
+    font-size: 1rem;
 }
 
 #signup-btn {
@@ -152,11 +158,6 @@ label:hover {
 }
 
 button{
-    width: 488px;
-    height: 41px;
-    border-radius: 15px;
-    border: none;
-    font-size: 1rem;
     cursor: pointer;
     background-color: #e6e6e6;
 }

@@ -65,7 +65,7 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 
-	<select id="selectPw" resultType="_int">
+	<select id="selectPw" resultType="string">
 		SELECT MEMBER_PW
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'

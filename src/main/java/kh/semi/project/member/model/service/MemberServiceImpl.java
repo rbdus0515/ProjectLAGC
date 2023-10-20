@@ -72,8 +72,9 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int selectPw(Member inputMember) {
 		
-		String savedPw = dao.selectPw(inputMember);
 		int result = 0;
+		
+		String savedPw = dao.selectPw(inputMember);
 		
 		if(bcrypt.matches(inputMember.getMemberPw(), savedPw)) {
 			

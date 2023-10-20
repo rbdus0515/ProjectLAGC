@@ -9,8 +9,7 @@ const share = document.getElementsByClassName('share-button');
     share[i].addEventListener('click', () => {
       modal.classList.toggle('show');
     
-      if (modal.classList.contains('show')) {
-      }
+
     });
 
   }
@@ -25,7 +24,11 @@ const share = document.getElementsByClassName('share-button');
     }
   });
 
+  const deleteBtn = document.querySelector('.delete-button');
+    deleteBtn.addEventListener('click', () => {
 
+      var delConfirm = window.confirm("삭제하시겠습니까?");
+    })
 
 
 

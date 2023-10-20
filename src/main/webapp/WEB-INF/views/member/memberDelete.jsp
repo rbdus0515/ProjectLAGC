@@ -9,10 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프로필 관리</title>
 
-    <link rel="stylesheet" href="/resources/css/myPage/memberDelete.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/member/memberDelete.css" type="text/css">
 </head>
 
 <body>
+
+	<c:if test="${not empty msg}">
+
+	<script>
+	
+		alert('${msg}')
+
+	</script>
+
+	</c:if>
+
 
 <!-- 홈 로고 ---------------------------------------------------------------------------------------->
     <a href="/">
@@ -32,6 +43,11 @@
                         <img id="homelogo" class="logo" src="/resources/img/common/main/logo.png" alt="">
                     </a>
 
+                    <p class="deleteTitle">회원 탈퇴</p>
+
+                    <br>
+                    <br>
+                    
                     <div>
                         <p>비밀번호</p>
                         <input class="input" type="password" name="memberPw" id="memberPw">
@@ -43,7 +59,7 @@
                     </div>
 
                     <div class="confirmArea">
-                        <input type="checkbox" name="deleteConfirm" id="deleteConfirm">
+                        <input type="checkbox" name="deleteConfirm" id="deleteConfirm" value="confirm">
                         <p> 본 사이트에서 탈퇴하는 것에 동의합니다. </p>
                     </div>
 
@@ -51,7 +67,7 @@
 
                 <section class="btnContainer">
                     <button class="btn" type="submit"> 회원 탈퇴</button>
-                    <a href="/" class="btn">돌아가기</a>
+                    <a href="/myPage/managingProfile" class="btn">뒤로가기</a>
                 </section>
 
             </div>

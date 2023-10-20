@@ -35,9 +35,7 @@ public class AjaxController {
 			result = 0;
 			}
 			
-		} else {
-			
-		}
+		} 
 		
 		return result;
 	}
@@ -62,10 +60,7 @@ public class AjaxController {
 				
 			}
 			
-		} else {
-			
 		}
-		
 		
 		return result;
 	}

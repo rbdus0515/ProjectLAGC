@@ -1,5 +1,7 @@
 package kh.semi.project.member.model.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -63,9 +65,9 @@ public class MemberServiceImpl implements MemberService{
 		inputMember.setMemberPw(encPw);
 		
 		return dao.updateMember(inputMember);
+	
 	}
 
-	
 	/** 비밀번호 조회 서비스
 	 *
 	 */
@@ -80,6 +82,59 @@ public class MemberServiceImpl implements MemberService{
 			
 			result = 1;
 			
+		}
+		
+		return result;
+	}
+
+	
+	/** 회원 탈퇴 서비스
+	 *
+	 */
+	@Override
+	public int deleteMember(Member loginMember) {
+
+		
+		String savedPw = dao.selectPw(loginMember);
+		int result = 0;
+		
+		if( bcrypt.matches(loginMember.getMemberPw(), savedPw )) {
+			
+			result = dao.deleteMember(loginMember);
+		
+		} else {
+			
+			result = 0;
+			
+		}
+		
+		return result;
+	}
+
+	/** 비밀번호 변경 서비스
+	 *
+	 */
+	@Override
+	public int updatePw(Map<String, String> map, Member loginMember) {
+		
+		loginMember.setMemberPw(map.get("memberPw"));
+		
+		String savedPw = dao.selectPw(loginMember);
+		
+		int result = 0;
+		
+		
+		if( bcrypt.matches(loginMember.getMemberPw(), savedPw )) {
+		
+			String newPw = bcrypt.encode(map.get("newPw"));
+			
+			loginMember.setMemberPw(newPw);
+			
+			result = dao.updatePw(loginMember);
+			
+		} else {
+			
+			result = 0;
 		}
 		
 		return result;

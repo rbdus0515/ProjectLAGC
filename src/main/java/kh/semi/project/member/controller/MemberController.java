@@ -1,5 +1,8 @@
 package kh.semi.project.member.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.member.model.dto.Member;
 import kh.semi.project.member.model.service.MemberService;
+import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes({"loginMember"})
 @Controller
@@ -158,12 +162,12 @@ public class MemberController {
 		
 		String path = "redirect:";
 		String msg = null;
-				
+		
 		inputMember.setMemberNo( loginMember.getMemberNo() );
 		
 		int pwCheck = service.selectPw(inputMember);
 		
-		if (pwCheck > 0 ) {
+		if (pwCheck == 0 ) {
 			
 			msg = "비밀번호가 일치하지 않습니다.";
 			path += referer;
@@ -208,18 +212,83 @@ public class MemberController {
 	@GetMapping("/delete")
 	public String delete() {
 	
-		return "/myPage/memberDelete";
+		return "/member/memberDelete";
 	}
 	
-	/** 회원 탈퇴로 이동
+	/** 회원 탈퇴
 	 * @return
 	 */
-	@PostMapping("/deleteMember")
-	public String deleteMember() {
-	
-		return "/myPage/memberDelete";
+	@PostMapping("/memberDelete")
+	public String deleteMember(String memberPw,
+							   SessionStatus status,
+							   RedirectAttributes ra,
+							   @SessionAttribute("loginMember") Member loginMember,
+							   @RequestHeader(value = "referer") String referer
+			) {
+		
+		loginMember.setMemberPw(memberPw);
+		
+		String msg= null;
+		String path = "redirect:";
+		
+		int result = service.deleteMember(loginMember);
+		
+		if(result > 0) {
+			
+			msg = "회원 탈퇴가 완료되었습니다.";
+			path += "/";
+			status.setComplete();
+			
+		} else {
+			
+			msg = "본 계정의 암호와 일치하지 않습니다.";
+			path += referer;
+			
+		}
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
 	}
 	
+	/** 비밀번호 수정
+	 * @return
+	 */
+	@PostMapping("/updatePw")
+	public String updatePw(String memberPw,
+						  @RequestParam(value = "newMemberPw") String newPw,
+						  @SessionAttribute("loginMember") Member loginMember,
+						  SessionStatus status,
+						  RedirectAttributes ra,
+						  @RequestHeader(value = "referer") String referer
+			) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("memberPw", memberPw);
+		map.put("newPw", newPw);
+		
+		int result = service.updatePw(map, loginMember);
+
+		String msg= null;
+		String path = "redirect:";
+		
+		if(result > 0) { // 현재 비밀번호가 같을때
 	
+			msg = "비밀번호가 변경되었습니다. 다시 로그인 해주세요";
+			path += "/";
+			status.setComplete();
+			
+		
+		} else { //현재 비밀번호가 다를때
+			
+			msg = "암호가 일치하지 않습니다. 확인 후 다시 시도해주세요";
+			path += referer;
+			
+		}
+		
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
+		
+	}
 	
 }

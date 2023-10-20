@@ -13,6 +13,16 @@
 </head>
 
 <body>
+	<c:if test="${not empty msg}">
+
+	<script>
+	
+		alert('${msg}')
+
+	</script>
+
+	</c:if>
+
 
 <!-- 홈 로고 ---------------------------------------------------------------------------------------->
     <a href="/">
@@ -96,7 +106,7 @@
 
                     <div>
                         <p>비밀번호</p>
-                        <input class="input" type="password" name="memberPwConfirm" id="memberPwConfirm">
+                        <input class="input" type="password" name="memberPw" id="memberPw">
                         <div id="pwMessage"></div><br>
                     </div>
 

@@ -77,6 +77,7 @@
 }
 
 #community-peopleComment-container {
+	overflow: scroll;
     width: 60%;
     height: 35rem;
     background-color: #D9D9D9;
@@ -86,7 +87,7 @@
 }
 
 #community-peopleComment-container > section {
-    flex-basis: 19%;
+    height: 7rem;
     width: 95%;
     display: flex;
     align-items: center;

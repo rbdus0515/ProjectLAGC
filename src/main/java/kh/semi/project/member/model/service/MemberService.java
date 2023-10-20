@@ -1,5 +1,7 @@
 package kh.semi.project.member.model.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import kh.semi.project.member.model.dto.Member;
 
 public interface MemberService {
@@ -23,5 +25,7 @@ public interface MemberService {
 	int updateMember(Member inputMember);
 
 	int selectPw(Member inputMember);
+
+	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember);
 
 }

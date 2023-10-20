@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import kh.semi.project.member.model.dao.MemberDAO;
 import kh.semi.project.member.model.dto.Member;
@@ -45,7 +46,7 @@ public class MemberServiceImpl implements MemberService{
 	@Transactional
 	@Override
 	public int signUp(Member inputMember) {
-		
+
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
 		inputMember.setMemberPw(encPw);
 		
@@ -83,5 +84,11 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 		return result;
+	}
+
+	// 프로필 이미지 설정
+	@Override
+	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) {
+		return 0;
 	}
 }

@@ -1,6 +1,7 @@
 package kh.semi.project.member.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.member.model.dto.Member;
@@ -87,21 +89,21 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String signUp(Member inputMember,
 						RedirectAttributes ra ) {
-		
+
 		int result = service.signUp(inputMember);
 		
 		String path = "redirect:";
-		String message = null;
+		String msg = null;
 		
 		if(result > 0) {
 			path += "/";
-			message = inputMember.getMemberNickname() + "님 가입을 환영합니다.";
+			msg = inputMember.getMemberNickname() + "님 가입을 환영합니다.";
 		} else {
 			path += "signUp";
-			message = "회원가입 실패";
+			msg = "회원 가입 실패";
 		}
 		
-		ra.addFlashAttribute("message",message);
+		ra.addFlashAttribute("msg",msg);
 		
 		return path;
 	}
@@ -220,6 +222,34 @@ public class MemberController {
 		return "/myPage/memberDelete";
 	}
 	
-	
+	// 프로필 이미지 수정
+	@PostMapping("/profile")
+	public String updateProfile(
+				@RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
+				, HttpSession session // 세션 객체
+				, @SessionAttribute("loginMember") Member loginMember
+				, RedirectAttributes ra // 리다이렉 시 메세지 전달
+				) throws Exception{
+			
+			// 웹 접근 경로
+			String webPath = "/resources/images/member/";
+			
+			// 실제로 이미지 파일이 저장되어야하는 서버컴퓨터 경로
+			String filePath = session.getServletContext().getRealPath(webPath);
+			// C:\workspace\6_Framework\boardProject\src\main\webapp\resources\images\member
+			
+			
+			// 프로필 이미지 수정 서비스 호출
+			int result = service.updateProfile(profileImage, webPath, filePath, loginMember);
+			
+			
+			String message = null;
+			if(result > 0) message = "프로필 이미지가 변경되었습니다";
+			else			message = "프로필 변경 실패";
+			
+			ra.addFlashAttribute("message", message);
+			
+			return "redirect:profile";
+		}
 	
 }

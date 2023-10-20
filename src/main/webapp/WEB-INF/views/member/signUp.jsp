@@ -25,7 +25,7 @@
         </section>
 
         <!-- 회원가입 input -->
-        <form action="/member/signUp" method="POST" name="singUpFrm">
+        <form action="/member/signUp" method="POST" name="singUpFrm" enctype="multipart/form-data">
             <section id="input-area">
                 <section class="input-section">
                         <p><span>아이디</span></p>
@@ -48,7 +48,7 @@
                 
                 <section class="input-section">
                     <p><span>이름</span></p>
-                    <input type="text" name="name" id="memberName" placeholder="이름 입력">
+                    <input type="text" name="memberName" id="memberName" placeholder="이름 입력">
                     <div><span id="nameMessage">한글2~5글자 사이로 입력해주세요.</span></div>
                 </section>
                 
@@ -79,24 +79,26 @@
                 
                 <section class="input-section">
                     <p>전화번호</p>
-                    <input type="tel" id="phoneNo" name="phoneNo" placeholder="' - ' 제외" maxlength="11">
+                    <input type="tel" id="phoneNo" name="memberPhone" placeholder="' - ' 제외" maxlength="11">
                     <div id="phoneMessage"></div>
                 </section>
                 
                 <section class="input-section">
                     <p><span>닉네임</span></p>
-                    <input type="text" name="nickname" id="nickname" placeholder="닉네임 입력">
+                    <input type="text" name="memberNickname" id="nickname" placeholder="닉네임 입력">
                     <div id="nicknameMessage"></div>
                 </section>
 
                 
                 <section class="input-section" id="profile">
-                    <img id="profile-img" src="/resources/img/common/main/프로필아이콘.png">
+                    <img id="profileImage" src="/resources/img/common/main/프로필아이콘.png">
                     <section id="profile-margin"></section>
                     <label for="upload-img-btn">
                         프로필 이미지 업로드
                     </label>
-                    <input type="file" name="memberProfileImage" id="upload-img-btn">
+                    <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                    <section id="profile-margin"></section>
+                    <label><button id="deleteImage">이미지 삭제</button></label>
                 </section>
                 
                 <button id="signup-btn">회원가입</button>

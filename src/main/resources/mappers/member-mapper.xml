@@ -32,11 +32,12 @@
 		<result property="memberProfileImage" column="PROFILE_IMG" />
 		<result property="memberDeleteFlag" column="MEMBER_DEL_FL" />
 		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="memberManagerFlag" column="MEMBER_MANAGER_FL" />
 		
 	</resultMap>
 
 	<select id="memberLogin" parameterType="Member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NM, MEMBER_PNO, EMAIL, PHONE, NICKNAME, PROFILE_IMG, ENROLL_DATE
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NM, MEMBER_PNO, EMAIL, PHONE, NICKNAME, PROFILE_IMG, ENROLL_DATE, MEMBER_MANAGER_FL
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_ID = #{memberId}

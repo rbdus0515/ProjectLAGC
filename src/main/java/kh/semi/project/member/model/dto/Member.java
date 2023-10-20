@@ -22,5 +22,6 @@ public class Member {
 	private String memberProfileImage;
 	private String memberDeleteFlag;
 	private String enrollDate;
+	private String memberManagerFlag; 
 	
 }

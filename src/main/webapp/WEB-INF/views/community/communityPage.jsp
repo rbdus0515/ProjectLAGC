@@ -35,9 +35,12 @@
             
             <section>
                 <div id="community-peopleComment-container">
+            	<c:forEach var="com" items="${list}" >        		
                     <section>
                         <div class="com-peopleImg-sec">
-                            <img class="com-peopleImg" src="/semiProjectImage/가면 캐릭.jpg">
+                        	<c:if test="${empty com.profileImg}">                     	
+                            	<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png">
+                        	</c:if>
                         </div>
     
                         <section class="com-peopleComment-sec">           
@@ -45,132 +48,25 @@
                             <section class="com-peopleComment-top-sec">
                                 <div>
                                     <a class="comPeopleTitle" id="test">
-                                        홈페이지 좋지
+                                        ${com.communityTitle}
                                     </a>
                                 </div>
                                 <div></div>
-                                <div>조회수 : 100</div>
-                                <div>작성인 : 임꺽정</div>
-                                <div>날짜 : 2023 10 03</div>
+                                <div>조회수 : ${com.readCount}</div>
+                                <div>작성인 : ${com.nickName}</div>
+                                <div>날짜 : ${com.createDt}</div>
                             </section>
                             
                             <div class="com-peopleComment-bot-sec">
                                 <a class="comPeopleWrite" href="#">
-                                    이정도면 홈페이지 좋아
+                                    ${com.communityContent}
                                 </a>
                             </div>
     
                         </section>
     
                     </section>
-                    
-                    <section>
-                        <div class="com-peopleImg-sec">
-                            <img class="com-peopleImg" src="/semiProjectImage/귀여운 유령.jpg">
-                        </div>
-                        <section class="com-peopleComment-sec">           
-                            
-                            <section class="com-peopleComment-top-sec">
-                                <div>
-                                    <a class="comPeopleTitle" href="#">
-                                        홈페이지 좋지
-                                    </a>
-                                </div>
-                                <div></div>
-                                <div>조회수 : 100</div>
-                                <div>작성인 : 임꺽정</div>
-                                <div>날짜 : 2023 10 03</div>
-                            </section>
-                            
-                            <div class="com-peopleComment-bot-sec">
-                                <a class="comPeopleWrite" href="#">
-                                    이정도면 홈페이지 좋아
-                                </a>
-                            </div>
-    
-                        </section>
-                    </section>
-                    
-                    <section>
-                        <div class="com-peopleImg-sec">
-                            <img class="com-peopleImg" src="/semiProjectImage/로봇.jpg">
-                        </div>
-                        <section class="com-peopleComment-sec">           
-                            
-                            <section class="com-peopleComment-top-sec">
-                                <div>
-                                    <a class="comPeopleTitle" href="#">
-                                        홈페이지 좋지
-                                    </a>
-                                </div>
-                                <div></div>
-                                <div>조회수 : 100</div>
-                                <div>작성인 : 임꺽정</div>
-                                <div>날짜 : 2023 10 03</div>
-                            </section>
-                            
-                            <div class="com-peopleComment-bot-sec">
-                                <a class="comPeopleWrite" href="#">
-                                    이정도면 홈페이지 좋아
-                                </a>
-                            </div>
-    
-                        </section>
-                    </section>
-                    
-                    <section>
-                        <div class="com-peopleImg-sec">
-                            <img class="com-peopleImg" src="/semiProjectImage/애그.jpg">
-                        </div>
-                        <section class="com-peopleComment-sec">           
-                            
-                            <section class="com-peopleComment-top-sec">
-                                <div>
-                                    <a class="comPeopleTitle" href="#">
-                                        홈페이지 좋지
-                                    </a>
-                                </div>
-                                <div></div>
-                                <div>조회수 : 100</div>
-                                <div>작성인 : 임꺽정</div>
-                                <div>날짜 : 2023 10 03</div>
-                            </section>
-                            
-                            <div class="com-peopleComment-bot-sec">
-                                <a class="comPeopleWrite" href="#">
-                                    이정도면 홈페이지 좋아
-                                </a>
-                            </div>
-    
-                        </section>
-                    </section>
-                    
-                    <section>
-                        <div class="com-peopleImg-sec">
-                            <img class="com-peopleImg" src="/semiProjectImage/좀비.jpg">
-                        </div>
-                        <section class="com-peopleComment-sec">           
-                            
-                            <section class="com-peopleComment-top-sec">
-                                <div>
-                                    <a class="comPeopleTitle" href="#">
-                                        홈페이지 좋지
-                                    </a>
-                                </div>
-                                <div></div>
-                                <div>조회수 : 100</div>
-                                <div>작성인 : 임꺽정</div>
-                                <div>날짜 : 2023 10 03</div>
-                            </section>
-                            
-                            <div class="com-peopleComment-bot-sec">
-                                <a class="comPeopleWrite" href="#">
-                                    이정도면 홈페이지 좋아
-                                </a>
-                            </div>
-    
-                        </section>
-                    </section>
+            	</c:forEach>
                 </div>
             </section>
     

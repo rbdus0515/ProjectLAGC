@@ -11,11 +11,16 @@
 		<result property="createDt" column="CREATE_DT"/>
 		<result property="readCount" column="READ_COUNT"/>
 		<result property="communityDelFl" column="COMMUNITY_DEL_FL"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="nickName" column="NICKNAME"/>
 	</resultMap>
 	
 	<select id="selectCommunityList" resultMap="community_rm">
-		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, CREATE_DT, READ_COUNT, COMMUNITY_DEL_FL
+		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, PROFILE_IMG,
+		TO_CHAR(CREATE_DT, 'YYYY. MM. DD') CREATE_DT, NICKNAME
 		FROM COMMUNITY
+		JOIN "MEMBER" USING(MEMBER_NO)
+		ORDER BY CREATE_DT
 	</select>
 	
 </mapper>

@@ -27,12 +27,12 @@ body > section {
 
 /* top(상단 공백 영역) */
 #top {
-    flex-basis: 16%;
+    flex-basis: 12%;
 }
 
 /* content(공지사항 내용) */
 #content {
-    flex-basis: 78%;
+    flex-basis: 82%;
     display: flex;
 }
 
@@ -60,14 +60,18 @@ body > section {
 
 .m_cont {
     display: flex;
-    font-size: 20px;
+    font-size: 1.25rem;
     padding-bottom: 40px;
+}
+
+.m_cont {
+	cursor: pointer;
 }
 
 /* 공지사항 제목 영역 */
 .m_cont_tit {
     flex-basis: 80%;
-    padding-left: 20px;
+    padding-left: 1.25rem;
 }
 
 /* 공지사항 등록일자 영역 */
@@ -81,6 +85,33 @@ body > section {
 #m_tit {
     font-size: 1.9rem;
     font-weight: bold;
+    display: flex;
+}
+
+/* 공지사항 대제목 영역 */
+#m_tit > div:nth-child(1) {
+    flex-basis: 11%;
+}
+
+/* 플러스 버튼 영역 */
+#m_tit > div:nth-child(2) {
+    flex-basis: 89%;
+    display: flex;
+    margin-top: 0.4375rem;
+}
+
+/* 플러스(추가) 버튼 */
+#plus-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+#plus-btn:hover {
+    cursor: pointer;
+    background-color: darkgray;
 }
 
 /* 페이지 번호 영역 */
@@ -98,7 +129,7 @@ body > section {
 
 /* 페이지 넘김 버튼 */
 #left-btn, #right-btn {
-    font-size: 20px;
+    font-size: 1.25rem;
     border: none;
     background-color: transparent;
     color: gray;
@@ -110,4 +141,13 @@ body > section {
 
 #right-btn:hover {
     cursor: pointer;
+}
+
+/* 반응형 모바일 기준 */
+/* 해상도 767px 이하면 무조건 여기 작성된대로 css 적용 */
+@media all and (max-width:767px) {
+
+    #m_tit > div:nth-child(1) {
+        flex-basis: 60%;
+    }
 }

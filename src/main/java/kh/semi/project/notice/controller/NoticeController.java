@@ -32,5 +32,21 @@ public class NoticeController {
 		
 		return "notice/noticeList";
 	}
+	
+	// noticeDetail 조회
+	@GetMapping("/detail")
+	public String selectNoticeDetail(int noticeNo, Model model) {
+		
+		Notice notice = service.selectNoticeDetail(noticeNo);
+		
+		// System.out.println(notice.toString());
+		
+		model.addAttribute("notice", notice);
+		
+		return "notice/noticeDetail";
+		
+	}
+	
+	
 
 }

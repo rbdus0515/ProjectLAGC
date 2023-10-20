@@ -11,4 +11,10 @@ public interface NoticeService {
 	 */
 	List<Notice> selectNoticeList();
 
+	/** noticeDetail 조회
+	 * @param noticeNo
+	 * @return Notice
+	 */
+	Notice selectNoticeDetail(int noticeNo);
+
 }

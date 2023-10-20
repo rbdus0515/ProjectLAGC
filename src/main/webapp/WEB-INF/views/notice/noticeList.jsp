@@ -26,12 +26,15 @@
 
             <!-- center -->
             <div id="main">
-                <div id="m_tit">공지사항</div>
+                <div id="m_tit">
+                    <div>공지사항</div>
+                    <div><button class="fa-solid fa-plus" id="plus-btn"></button></div>
+                </div>
                 <div><hr></div>
 				
 				<!--  for문 돌리기 공지사항 -->
 				<c:forEach var="list" items="${list}" varStatus="vs">
-	                <div class="m_cont">
+	                <div class="m_cont" onclick="noticeDetail(${list.noticeNo})">
 	                    <div class="m_cont_tit">${list.noticeTitle}</div>
 	                    <div class="m_cont_dt">${list.noticeUploadDate}</div>
 	                </div>
@@ -54,5 +57,7 @@
         	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
         </div>
     </section>
+    
+    <script src="/resources/js/notice.js"></script>
 </body>
 </html>

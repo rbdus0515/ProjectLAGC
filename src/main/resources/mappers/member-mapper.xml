@@ -36,7 +36,7 @@
 	</resultMap>
 
 	<select id="memberLogin" parameterType="Member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_PNO, EMAIL, PHONE, NICKNAME, PROFILE_IMG, ENROLL_DATE
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NM, MEMBER_PNO, EMAIL, PHONE, NICKNAME, PROFILE_IMG, ENROLL_DATE
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_ID = #{memberId}
@@ -65,7 +65,7 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 
-	<select id="selectPw" resultType="_int">
+	<select id="selectPw" resultType="string">
 		SELECT MEMBER_PW
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'

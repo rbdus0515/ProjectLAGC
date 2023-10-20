@@ -23,7 +23,7 @@
 				<!-- x 버튼 ----------------------------------------------------------------------------------------->
 
 				<button type="button" id="closeBtn">
-					<img src="/resources/img/X버튼.png" alt="">
+					<img src="/resources/img/common/main/X버튼.png" alt="">
 				</button>
 
 			<div class="wrap">
@@ -43,28 +43,28 @@
 				<ul class="slide">
 
 					<li class="slide_item"><img
-						src="/resources/img/1) 나의 일정 이용방법 1.png" alt=""> <label
+						src="/resources/img/common/main/1) 나의 일정 이용방법 1.png" alt=""> <label
 						class="right" for="radio_2"></label></li>
 					<li class="slide_item"><label class="left" for="radio_1"></label>
-						<img src="/resources/img/2) 팝업창 이용방법.png" alt=""> <label
+						<img src="/resources/img/common/main/2) 팝업창 이용방법.png" alt=""> <label
 						class="right" for="radio_3"></label></li>
 					<li class="slide_item"><label class="left" for="radio_2"></label>
-						<img src="/resources/img/3) 나의 일정 이용방법2.png" alt=""> <label
+						<img src="/resources/img/common/main/3) 나의 일정 이용방법2.png" alt=""> <label
 						class="right" for="radio_4"></label></li>
 					<li class="slide_item"><label class="left" for="radio_3"></label>
-						<img src="/resources/img/4) 나의 일정 이용방법3.png" alt=""> <label
+						<img src="/resources/img/common/main/4) 나의 일정 이용방법3.png" alt=""> <label
 						class="right" for="radio_5"></label></li>
 					<li class="slide_item"><label class="left" for="radio_4"></label>
-						<img src="/resources/img/5) 마이 페이지 이용방법 1.png" alt=""> <label
+						<img src="/resources/img/common/main/5) 마이 페이지 이용방법 1.png" alt=""> <label
 						class="right" for="radio_6"></label></li>
 					<li class="slide_item"><label class="left" for="radio_5"></label>
-						<img src="/resources/img/6) 마이 페이지 이용방법 2.png" alt=""> <label
+						<img src="/resources/img/common/main/6) 마이 페이지 이용방법 2.png" alt=""> <label
 						class="right" for="radio_7"></label></li>
 					<li class="slide_item"><label class="left" for="radio_6"></label>
-						<img src="/resources/img/7) 고객지원 이용방법 1.png" alt=""> <label
+						<img src="/resources/img/common/main/7) 고객지원 이용방법 1.png" alt=""> <label
 						class="right" for="radio_8"></label></li>
 					<li class="slide_item"><label class="left" for="radio_7"></label>
-						<img src="/resources/img/8) 고객지원 이용방법 2.png" alt=""></li>
+						<img src="/resources/img/common/main/8) 고객지원 이용방법 2.png" alt=""></li>
 				</ul>
 
 

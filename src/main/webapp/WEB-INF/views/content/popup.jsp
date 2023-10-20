@@ -21,7 +21,7 @@
 
 			<!-- X버튼 ----------------------------------------------------------------------------------------->
 			<button type="button" id="closeBtnPopup">
-				<img src="/resources/img/X버튼.png" alt="">
+				<img src="/resources/img/common/main/X버튼.png" alt="">
 			</button>
 			<!-- 사진 ------------------------------------------------------------------------------------------->
 
@@ -65,7 +65,7 @@
 					</div>
 
 					<div class="popupImg">
-						<img src="/resources/img/탑평리.jpg">
+						<img src="/resources/img/common/main/탑평리.jpg">
 					</div>
 
 					<div class="popupFooter">

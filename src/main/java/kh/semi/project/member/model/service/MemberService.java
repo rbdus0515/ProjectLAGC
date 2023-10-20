@@ -31,8 +31,6 @@ public interface MemberService {
 	 */
 	int selectPw(Member inputMember);
 
-	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember);
-
 	/** 회원 탈퇴 서비스
 	 * @param map
 	 * @return

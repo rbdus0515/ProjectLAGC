@@ -252,36 +252,6 @@ public class MemberController {
 		return path;
 	}
 
-	// 프로필 이미지 수정
-	@PostMapping("/profile")
-	public String updateProfile(
-				@RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
-				, HttpSession session // 세션 객체
-				, @SessionAttribute("loginMember") Member loginMember
-				, RedirectAttributes ra // 리다이렉 시 메세지 전달
-				) throws Exception{
-			
-			// 웹 접근 경로
-			String webPath = "/resources/images/member/";
-			
-			// 실제로 이미지 파일이 저장되어야하는 서버컴퓨터 경로
-			String filePath = session.getServletContext().getRealPath(webPath);
-			// C:\workspace\6_Framework\boardProject\src\main\webapp\resources\images\member
-			
-			
-			// 프로필 이미지 수정 서비스 호출
-			int result = service.updateProfile(profileImage, webPath, filePath, loginMember);
-			
-			
-			String message = null;
-			if(result > 0) message = "프로필 이미지가 변경되었습니다";
-			else			message = "프로필 변경 실패";
-			
-			ra.addFlashAttribute("message", message);
-			
-			return "redirect:profile";
-		}
-
 	/** 비밀번호 수정
 	 * @return
 	 */
@@ -322,6 +292,6 @@ public class MemberController {
 		return path;
 		
 	}
-
+	
 	
 }

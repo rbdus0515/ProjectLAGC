@@ -22,4 +22,13 @@ public class NoticeDAO {
 		return sqlSession.selectList("noticeMapper.selectNoticeList");
 	}
 
+	/** noticeDetail 조회
+	 * @param noticeNo
+	 * @return Notice
+	 */
+	public Notice selectNoticeDetail(int noticeNo) {
+		
+		return sqlSession.selectOne("noticeMapper.selectNoticeDetail", noticeNo);
+	}
+
 }

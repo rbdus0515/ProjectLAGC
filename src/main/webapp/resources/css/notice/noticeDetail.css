@@ -1,0 +1,208 @@
+/* 글꼴 모음 */
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전체 */
+* {
+    box-sizing: border-box;
+    font-family: 'GowunDodum-Regular';
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body > section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1800px;
+}
+
+/* top(상단 공백 영역) */
+#top {
+    flex-basis: 9%;
+}
+
+#content {
+    flex-basis: 89%;
+    display: flex;
+}
+
+/* content:left(왼쪽 공백 영역), right(오른쪽 공백 영역) */
+#l_blank, #r_blank {
+    flex-basis: 20%;
+}
+
+/* main(공지사항 세부 내용 영역) */
+#main {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 대제목 */
+#subject {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+/* 공지사항 세부 내용 영역(위) */
+#main-t {
+    flex-basis: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 세부 내용 영역(위): 1,3번째 */
+#main-t1, #main-t3 {
+    flex-basis: 10%;
+    color: #ddd;
+}
+
+/* 공지사항 세부 내용 영역(위): 2번째 */
+#main-t2 {
+    flex-basis: 80%;
+    background-color: #ddd;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin: 5px 0px;
+    margin-bottom: 14px;
+}
+
+/* 공지사항 세부 내용 영역(센터) */
+#main-c {
+    flex-basis: 70%;
+    background-color: #ddd;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    padding: 50px;
+    margin: 80px 0px;
+}
+
+/* 공지사항 세부 내용 영역(아래) */
+#main-b {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 세부 내용 영역(아래): 1번째(이전글,다음글) */
+#main-b1 {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 세부 내용 영역(아래): 1번째(이전글,다음글) - 1,3번째 */
+#main-b1-t, #main-b1-b {
+    flex-basis: 13%;
+    color: #ddd;
+}
+
+/* 공지사항 세부 내용 영역(아래): 1번째(이전글,다음글) - 2번째 */
+#main-b1-c {
+    flex-basis: 74%;
+    display: flex;
+    flex-direction: column;
+    border: #ddd;
+    border-radius: 10px;
+    background-color: #ddd;
+    font-size: 0.9rem; 
+    margin-bottom: 13px;
+}
+
+/* 이전 글 */
+#pre-tit {
+    flex-basis: 50%;
+    display: flex;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+/* 이전 글 왼쪽 */
+#pre-tit-l {
+    flex-basis: 10%;
+    padding: 10px;
+}
+
+/* 이전 글 오른쪽 */
+#pre-tit-r {
+    flex-basis: 90%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* 다음 글 */
+#nex-tit {
+    flex-basis: 50%;
+    display: flex;
+}
+
+/* 다음 글 왼쪽 */
+#nex-tit-l {
+    flex-basis: 10%;
+    padding: 10px;
+}
+
+/* 다음 글 오른쪽 */
+#nex-tit-r {
+    flex-basis: 90%;   
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* 공지사항 세부 내용 영역(아래): 2번째(공백) */
+#main-b2 {
+    flex-basis: 45%;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 수정 버튼 */
+#upd-btn {
+    border: none;
+    border-radius: 10%;
+    background-color: #ddd;
+    width: 70px;
+    height: 33px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#upd-btn:hover {
+    cursor: pointer;
+    background-color: darkgray;
+}
+
+/* 삭제 버튼 */
+#del-btn {
+    border: none;
+    border-radius: 10%;
+    background-color: #F98C8C;
+    width: 70px;
+    height: 33px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#del-btn:hover {
+    cursor: pointer;
+    background-color: #f66262;
+}

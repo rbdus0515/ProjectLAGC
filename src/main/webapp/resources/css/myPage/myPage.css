@@ -1,9 +1,9 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Gowun Dodum;
-
 }
-
 
 .modal {
     position: fixed;
@@ -676,4 +676,136 @@ footer {
     margin-left: 40%;
     font-size: 1.5625rem;
     cursor: auto;
+}
+
+
+
+
+/***************************** 관리자 ***************************************/
+
+
+/********** 전체 화면 ******************************************************/
+
+#l_blank, #r_blank {
+    flex-basis: 30%;
+}
+#t_blank, #b_blank{
+    flex-basis: 25%;
+}
+
+#managerSection{
+    display: flex;
+    height: 33.9375rem;
+}
+
+/********** 메인 화면 ******************************************************/
+
+#mainManager {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+/********** 프로필 ******************************************************/
+.profileManager {
+    display: flex;
+    flex-basis: 25%;
+
+    align-items: center;
+}
+
+.profileImgManager {
+    flex-basis: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.imgWrapperManager{
+    margin-bottom: 10px;
+}
+
+.profileImgManager img {
+    width: 7rem;
+}
+
+.managingProfileBtn {
+    width: 7rem;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #000;
+    background-color: #e6e6e6;
+
+    padding: 0.3rem 0.8rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+.managingProfileBtn:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.managerProfile {
+    flex-basis: 70%;
+    flex-wrap: wrap;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.managerProfile > div{
+    flex-basis: 40%;
+    margin: 20px 5px;
+}
+
+.managerInfo{
+    margin-top: 0.3rem;
+    background-color: #e6e6e6;
+    padding: 0.3rem 0.8rem;
+    border-radius: 10px;
+}
+
+/********** 관리 메뉴 ******************************************************/
+.managingContent {
+    flex-basis: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.managingContent a{
+    flex-basis: 45%;
+    height: 5rem;
+    background-color: #e6e6e6;
+    
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+    margin: 0.5rem;
+}
+
+.managingContent a:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+#newAlarm{
+    padding: 0 0.3rem;
+    margin-left: 0.4rem;
+    background-color: #ff0000;
+    border-radius: 5px;
+    color: #fff;
+
+    font-size: 0.8rem;
 }

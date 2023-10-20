@@ -226,7 +226,7 @@
                                         <img src="/resources/img/myPage/프로필 사진(관리자).png" alt="">
                                     </div>
 
-                                    <a href="#" class="managingProfileBtn">프로필 관리</a>
+                                    <a href="/myPage/managingProfile" class="managingProfileBtn">프로필 관리</a>
 
                                 </div>
 
@@ -255,7 +255,7 @@
                             <!----- 관리 메뉴 ----------------------------------------------------------------------------------------->
 
                             <section class="managingContent">
-                                <a href="/team_project/html/managingAskOfAdmin.html">1:1문의 목록
+                                <a href="/manager/managingAsk">1:1문의 목록
                                     <span id="newAlarm">
                                         2
                                     </span>

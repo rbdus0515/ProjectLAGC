@@ -30,12 +30,33 @@
                 <!-- top -->
                 <div id="main-t">
                     <div id="main-t1"><hr></div>
-                    <div id="main-t2">${notice.noticeTitle}</div>
+                    <div id="main-t2">
+	                    <!-- 관리자일 경우 -->
+	                   	<c:if test="${loginMember.memberManagerFlag == 'Y'}">
+	                    	<input type="text" id="noticeTitle" value="${notice.noticeTitle}">
+	                    </c:if>
+                    
+	                    <!-- 관리자가 아닐 경우 -->
+	                    <c:if test="${loginMember.memberManagerFlag != 'Y'}">
+	                    	<input type="text" id="noticeTitle" value="${notice.noticeTitle}" disabled>
+                    	</c:if>
+                    </div>
+                    
                     <div id="main-t3"><hr></div>
                 </div>
 
                 <!-- center -->
-                <div id="main-c">${notice.noticeDetail}</div>
+                <div id="main-c">
+	                    <!-- 관리자일 경우 -->
+	                   	<c:if test="${loginMember.memberManagerFlag == 'Y'}">
+	                    	<textarea id="noticeDetail">${notice.noticeDetail}</textarea>
+	                    </c:if>
+                    
+	                    <!-- 관리자가 아닐 경우 -->
+	                    <c:if test="${loginMember.memberManagerFlag != 'Y'}">
+	                    	<textarea id="noticeDetail" disabled>${notice.noticeDetail}</textarea>
+                    	</c:if>
+                </div>
 
                 <!-- bottom -->
                 <div id="main-b">
@@ -44,19 +65,21 @@
                         <div id="main-b1-c">
                             <div id="pre-tit">
                                 <div id="pre-tit-l">이전 글</div>
-                                <div id="pre-tit-r">9/20(수) 홈페이지 개편 안내</div>
+                                <div id="pre-tit-r"><a href="/notice/detail?noticeNo=${notice.preNoticeNo}">${notice.preNoticeTitle}</a></div>
                             </div>
                             <div id="nex-tit">
                                 <div id="nex-tit-l">다음 글</div>
-                                <div id="nex-tit-r"></div>
+                                <div id="nex-tit-r"><a href="/notice/detail?noticeNo=${notice.nextNoticeNo}">${notice.nextNoticeTitle}</a></div>
                             </div>
                         </div>
                         <div id="main-b1-b"><hr></div>
                     </div>
                     <div id="main-b2">
-                        <!-- 수정/삭제 버튼-->
-                        <button type="button" id="upd-btn">수정</button>
-                        <button type="button" id="del-btn">삭제</button>
+                    	<c:if test="${loginMember.memberManagerFlag == 'Y'}">
+	                        <!-- 수정/삭제 버튼-->
+	                        <button type="button" id="upd-btn">수정</button>
+	                        <button type="button" id="del-btn">삭제</button>
+                        </c:if>
                     </div>
                 </div>
             </div>

@@ -21,5 +21,12 @@ public class ContetServiceImpl implements ContentService{
 		return dao.selectContentDetail(area);
 	}
 
+	// 이미지 삭제
+	@Override
+	public int contentDelete(Content content) {
+		
+		return dao.contentDelete(content);
+	}
+
 	
 }

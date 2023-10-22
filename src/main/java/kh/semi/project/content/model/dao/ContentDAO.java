@@ -24,4 +24,14 @@ public class ContentDAO {
 		return sqlSession.selectList("contentMapper.selectContentDetail", area);
 	}
 
+
+	/** 이미지 삭제
+	 * @param content
+	 * @return int
+	 */
+	public int contentDelete(Content content) {
+		
+		return sqlSession.update("contentMapper.contentDelete", content);
+	}
+
 }

@@ -25,18 +25,36 @@
 		<result property="noticeTitle" column="NOTICE_TITLE" />
 		<result property="noticeDetail" column="NOTICE_DETAIL" />
 		<result property="noticeUploadDate" column="NOTICE_UPLOAD_DATE" />
+		<result property="preNoticeNo" column="PRE_NOTICE_NO" />
+		<result property="preNoticeTitle" column="PRE_NOTICE_TITLE" />
+		<result property="nextNoticeNo" column="NEXT_NOTICE_NO" />
+		<result property="nextNoticeTitle" column="NEXT_NOTICE_TITLE" />
 		
 	</resultMap>
 
+	<!-- noticeList 조회 -->
 	<select id="selectNoticeList" resultMap="notice_rm">
 		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE
 		FROM NOTICE_BOARD
+		ORDER BY NOTICE_NO DESC
 	</select>
 	
+	<!-- noticeDetail 조회 -->
 	<select id="selectNoticeDetail" resultMap="notice_rm">
-		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE
-		FROM NOTICE_BOARD
-		WHERE NOTICE_NO = #{noticeNo}
+		SELECT 
+			A.NOTICE_NO, A.NOTICE_TITLE, A.NOTICE_DETAIL, A.NOTICE_UPLOAD_DATE, A.PRE_NOTICE_NO, A.PRE_NOTICE_TITLE, A.NEXT_NOTICE_NO, A.NEXT_NOTICE_TITLE
+		FROM 
+			(
+				SELECT 
+					NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE
+					, LAG(NOTICE_NO) OVER (ORDER BY NOTICE_NO) PRE_NOTICE_NO
+					, LAG(NOTICE_TITLE) OVER (ORDER BY NOTICE_NO) PRE_NOTICE_TITLE
+					, LEAD(NOTICE_NO) OVER (ORDER BY NOTICE_NO) NEXT_NOTICE_NO
+					, LEAD(NOTICE_TITLE) OVER (ORDER BY NOTICE_NO) NEXT_NOTICE_TITLE
+				FROM NOTICE_BOARD
+				ORDER BY NOTICE_NO
+			) A
+		WHERE A.NOTICE_NO = #{noticeNo}
 	</select>
 
 </mapper>

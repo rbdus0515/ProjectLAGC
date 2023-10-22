@@ -1,0 +1,144 @@
+/* 글꼴 모음 */
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전체 */
+* {
+    box-sizing: border-box;
+    font-family: 'GowunDodum-Regular';
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body > section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1600px;
+}
+
+/* top(상단 공백 영역) */
+#top {
+    flex-basis: 10%;
+}
+
+#content {
+    flex-basis: 82%;
+    display: flex;
+}
+
+/* bottom(하단 공백 영역) */
+#bottom {
+    flex-basis: 8%;
+}
+
+/* content:left(왼쪽 공백 영역), right(오른쪽 공백 영역) */
+#l_blank, #r_blank {
+    flex-basis: 20%;
+}
+
+/* main(공지사항 세부 내용 영역) */
+#main {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 대제목 */
+#subject {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+/* 공지사항 세부 내용 영역(위) */
+#main-t {
+    flex-basis: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공지사항 세부 내용 영역(위): 1,3번째 */
+#main-t1, #main-t3 {
+    flex-basis: 20%;
+    color: #ddd;
+}
+
+/* 공지사항 세부 내용 영역(위): 2번째 -> 제목 입력 영역 */
+#main-c {
+    flex-basis: 70%;
+}
+
+/* 공지사항 세부 내용 영역(위): 2번째 -> 제목 입력 */
+#title {
+    flex-basis: 60%;
+    background-color: #ddd;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    margin: 5px 0px;
+    width: 100%;
+    height: 60px;
+}
+
+/* 공지사항 세부 내용 영역(센터) */
+#content2 {
+    flex-basis: 70%;
+    background-color: #ddd;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    padding: 30px;
+    margin: 80px 0px;
+    resize: none;
+    width: 100%;
+    height: 700px;
+}
+
+/* 공지사항 세부 내용 영역(아래) */
+#main-b {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-b > div:nth-child(1) {
+    color: #ddd;
+}
+
+/* 추가 버튼 영역 */
+#main-b > div:nth-child(2) {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 추가 버튼 */
+#add-btn {
+    border: none;
+    border-radius: 10%;
+    background-color: #ddd;
+    width: 70px;
+    height: 33px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#add-btn:hover {
+    cursor: pointer;
+    background-color: darkgray;
+}

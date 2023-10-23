@@ -23,4 +23,10 @@ public interface NoticeService {
 	 */
 	int insertNotice(Notice notice);
 
+	/** 공지사항 UPDATE
+	 * @param notice
+	 * @return
+	 */
+	int updateNotice(Notice notice);
+
 }

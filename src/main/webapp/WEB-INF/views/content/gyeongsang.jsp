@@ -39,24 +39,28 @@
 	                            <div class="tit">
 	                                ${img.travelName}
 	                            </div>
-	                            <div class="delArea">
-	                                <button type="button" class="xBtn">X</button>
-	                            </div>
+	                            <c:if test="${loginMember.memberManagerFlag == 'Y'}">
+		                            <div class="delArea">
+		                                <a href="/content/delete?contentNo=${img.contentNo}&areaCode=${img.areaCode}"><button type="button" class="xBtn">X</button></a>
+		                            </div>
+	                            </c:if>
 	                        </div>
 	                    </div>
                     </c:forEach>
 
-                    <!-- 세번째 네개 이미지(+) -->
-                    <div class="placeSec" id="addPlus">
-                        <div class="blank"></div>
-                        <div class="placeImg">
-                            <button type="button" id="plusBtn">+</button>
-                        </div>
-                        <div class="placeTitSec">
-                            <div class="tit"></div>
-                            <div class="delArea"></div>
-                        </div>
-                    </div>
+					<c:if test="${loginMember.memberManagerFlag == 'Y'}">
+	                    <!-- 세번째 네개 이미지(+) -->
+	                    <div class="placeSec">
+	                        <div class="blank"></div>
+	                        <div class="placeImg">
+	                            <button type="button" id="plusBtn">+</button>
+	                        </div>
+	                        <div class="placeTitSec">
+	                            <div class="tit"></div>
+	                            <div class="delArea"></div>
+	                        </div>
+	                    </div>
+                    </c:if>
                 </div>    
             </div>
 

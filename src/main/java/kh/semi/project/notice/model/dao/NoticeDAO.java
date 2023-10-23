@@ -31,4 +31,13 @@ public class NoticeDAO {
 		return sqlSession.selectOne("noticeMapper.selectNoticeDetail", noticeNo);
 	}
 
+	/** 공지사항 INSERT
+	 * @param notice
+	 * @return int 
+	 */
+	public int insertNotice(Notice notice) {
+		
+		return sqlSession.insert("noticeMapper.insertNotice", notice);
+	}
+
 }

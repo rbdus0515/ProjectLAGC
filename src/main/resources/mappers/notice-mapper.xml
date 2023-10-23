@@ -56,5 +56,10 @@
 			) A
 		WHERE A.NOTICE_NO = #{noticeNo}
 	</select>
+	
+	<!-- 공지사항 ISNERT -->
+	<insert id="insertNotice">
+		INSERT INTO NOTICE_BOARD VALUES(SEQ_NOTICE_NO.NEXTVAL, #{noticeTitle}, #{noticeDetail}, DEFAULT)
+	</insert>
 
 </mapper>

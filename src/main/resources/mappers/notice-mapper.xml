@@ -70,5 +70,10 @@
 		NOTICE_UPLOAD_DATE = DEFAULT
 		WHERE NOTICE_NO = #{noticeNo}
 	</update>
+	
+	<!-- 공지사항 DELETE -->
+	<update id="deleteNotice">
+		SELECT 1 FROM DUAL
+	</update>
 
 </mapper>

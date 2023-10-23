@@ -49,4 +49,10 @@ public interface MemberService {
 	 */
 	int updatePw(Map<String, String> map, Member loginMember);
 
+	/** 아이디 존재 여부 확인 서비스
+	 * @param memberId
+	 * @return
+	 */
+	int selectId(String memberId);
+
 }

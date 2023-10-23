@@ -115,7 +115,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		return result;
 	}
-
+  
 	/** 회원 탈퇴 서비스
 	 *
 	 */
@@ -167,5 +167,15 @@ public class MemberServiceImpl implements MemberService{
 		
 		return result;
 
+	}
+
+	
+	/** 아이디 존재 여부 확인 서비스
+	 *
+	 */
+	@Override
+	public int selectId(String memberId) {
+
+		return dao.selectId(memberId);
 	}
 }

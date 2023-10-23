@@ -60,10 +60,10 @@ public class MemberController {
 	/** 비밀번호 찾기 이동
 	 * @return
 	 */
-	@GetMapping("/findPassword")
+	@GetMapping("/findPwBeforeId")
 	public String findPassword() {
 	
-		return "/member/findPassword";
+		return "/member/findPwBeforeId";
 	}
 	
 	/** 로그아웃
@@ -301,5 +301,32 @@ public class MemberController {
 		
 	}
 	
+	/** 아이디 입력 후 비밀번호 찾기로 이동
+	 * @param memberId
+	 * @param ra
+	 * @param referer
+	 * @return
+	 */
+	@GetMapping("/findPwAfterId")
+	public String findPwAfterId(String memberId, RedirectAttributes ra, @RequestHeader(value = "referer") String referer) {
 	
+		int result = service.selectId(memberId);
+		String msg = null;
+		String path = null;
+		
+		if(result > 0) {
+		
+			path = "/member/findPwAfterId";
+			
+		} else {
+			
+			msg = "존재하는 아이디가 없습니다.";
+			path = "redirect:" + referer;
+		}
+		
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
+	}
+
 }

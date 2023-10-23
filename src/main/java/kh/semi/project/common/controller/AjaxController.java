@@ -40,7 +40,6 @@ public class AjaxController {
 		return result;
 	}
 	
-	
 	/** 닉네임 중복 검사
 	 * @param memberId
 	 * @return

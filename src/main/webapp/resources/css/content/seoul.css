@@ -68,7 +68,6 @@ body > section {
 .imgArea {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     margin-top: 63px;
 }
 
@@ -136,7 +135,6 @@ body > section {
 }
 
 /* ------------------ 관리자 ------------------ */
-
 #plusBtn {
     border: none;
     border-radius: 20px;
@@ -152,10 +150,6 @@ body > section {
     background-color: darkgray;
     color: white;
 }
-
-/* #addPlus {
-    display: none;
-} */
 
 /* X 버튼 */
 .xBtn {

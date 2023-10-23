@@ -77,7 +77,8 @@
                     <div id="main-b2">
                     	<c:if test="${loginMember.memberManagerFlag == 'Y'}">
 	                        <!-- 수정/삭제 버튼-->
-	                        <button type="button" id="upd-btn">수정</button>
+	                        <input type="hidden" value="${notice.noticeNo}">
+	                        <a href="/notice/update"><button type="button" id="upd-btn">수정</button></a>
 	                        <button type="button" id="del-btn">삭제</button>
                         </c:if>
                     </div>

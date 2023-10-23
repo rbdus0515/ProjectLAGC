@@ -61,5 +61,14 @@
 	<insert id="insertNotice">
 		INSERT INTO NOTICE_BOARD VALUES(SEQ_NOTICE_NO.NEXTVAL, #{noticeTitle}, #{noticeDetail}, DEFAULT)
 	</insert>
+	
+	<!-- 공지사항 UPDATE -->
+	<update id="updateNotice">
+		UPDATE NOTICE_BOARD SET 
+		NOTICE_TITLE = #{noticeTitle},
+		NOTICE_DETAIL = #{noticeDetail},
+		NOTICE_UPLOAD_DATE = DEFAULT
+		WHERE NOTICE_NO = #{noticeNo}
+	</update>
 
 </mapper>

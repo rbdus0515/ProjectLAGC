@@ -40,4 +40,13 @@ public class NoticeDAO {
 		return sqlSession.insert("noticeMapper.insertNotice", notice);
 	}
 
+	/** 공지사항 UPDATE
+	 * @param notice
+	 * @return
+	 */
+	public int updateNotice(Notice notice) {
+		
+		return sqlSession.update("noticeMapper.updateNotice", notice);
+	}
+
 }

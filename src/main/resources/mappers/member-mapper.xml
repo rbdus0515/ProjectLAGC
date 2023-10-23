@@ -53,7 +53,8 @@
 	        , #{memberEmail}
 	        , #{memberPhone}
 	        , #{memberNickname}
-	        ,NULL , DEFAULT, DEFAULT, DEFAULT)
+	        , #{memberProfileImage}
+	        , DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
 	<update id="updateMember">

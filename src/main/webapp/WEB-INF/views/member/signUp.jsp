@@ -93,15 +93,15 @@
                 <section class="input-section" id="profile">
                     <img id="profileImage" src="/resources/img/common/main/프로필아이콘.png">
                     <section id="profile-margin"></section>
-                    <label for="upload-img-btn">
+                    <label for="imageInput">
                         프로필 이미지 업로드
                     </label>
                     <input type="file" name="profileImage" id="imageInput" accept="image/*">
                     <section id="profile-margin"></section>
-                    <label><button id="deleteImage">이미지 삭제</button></label>
+                    <label><button id="deleteImage" type="button">이미지 삭제</button></label>
                 </section>
                 
-                <button id="signup-btn">회원가입</button>
+                <button id="signup-btn" type="submit">회원가입</button>
                 <div id="empty"></div>
             </section>
         </form>

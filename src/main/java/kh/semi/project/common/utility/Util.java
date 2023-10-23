@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 public class Util {
 
-public static String fileRename(String originFileName) {
+	public static String fileRename(String originFileName) {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String date = sdf.format(new java.util.Date(System.currentTimeMillis()));

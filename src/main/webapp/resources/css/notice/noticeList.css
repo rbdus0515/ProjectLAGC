@@ -91,13 +91,13 @@ body > section {
 /* 공지사항 대제목 영역 */
 #m_tit > div:nth-child(1) {
     flex-basis: 11%;
+    padding-top: 6px;
 }
 
 /* 플러스 버튼 영역 */
 #m_tit > div:nth-child(2) {
     flex-basis: 89%;
     display: flex;
-    margin-top: 0.4375rem;
 }
 
 /* 플러스(추가) 버튼 */

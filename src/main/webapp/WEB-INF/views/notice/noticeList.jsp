@@ -28,7 +28,9 @@
             <div id="main">
                 <div id="m_tit">
                     <div>공지사항</div>
-                    <div><button class="fa-solid fa-plus" id="plus-btn"></button></div>
+                    <c:if test="${loginMember.memberManagerFlag == 'Y'}">
+                    	<div><a href="/notice/insertPage"><button class="fa-solid fa-plus" id="plus-btn"></button></a></div>
+                    </c:if>
                 </div>
                 <div><hr></div>
 				

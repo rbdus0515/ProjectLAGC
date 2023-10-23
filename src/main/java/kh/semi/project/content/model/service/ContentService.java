@@ -12,4 +12,10 @@ public interface ContentService {
 	 */
 	List<Content> selectContentDetail(String area);
 
+	/** 이미지 삭제
+	 * @param content
+	 * @return int
+	 */
+	int contentDelete(Content content);
+
 }

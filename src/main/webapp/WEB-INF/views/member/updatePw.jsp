@@ -13,14 +13,13 @@
 
         <body>
 
-	<c:if test="${not empty msg}">
+		<c:if test="${not empty msg}">
 
 		<script>
 			alert('${msg}')
 		</script>
 
-    </c:if>
-
+		</c:if>
 	<!-- 홈 로고 ---------------------------------------------------------------------------------------->
             <a href="/">
                 <img id="homelogo" class="logo" src="/resources/img/common/main/logo.png" alt="">

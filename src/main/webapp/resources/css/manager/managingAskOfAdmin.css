@@ -1,0 +1,182 @@
+/********** 전체 화면 ******************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gowun Dodum;
+}
+
+body>section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1800px;
+}
+
+/* content:left(왼쪽 공백 영역), right(오른쪽 공백 영역) */
+#l_blank,
+#r_blank {
+    flex-basis: 20%;
+}
+
+
+/********** 제목 ******************************************************/
+.topTitle {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+
+/********** 메인 ******************************************************/
+.content {
+    flex-basis: 90%;
+    display: flex;
+}
+
+#main {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+/********** 문의 분류 ******************************************************/
+
+.askBtn {
+    border: none;
+    padding: 0.5rem 2rem;
+    margin: 0 10px 5px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.askBtn:hover {
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+/********** 콘텐츠 ******************************************************/
+.askContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.askDetail {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.askDetail > div {
+    display: flex;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+.category > div{
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.asker {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.asker > div{
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+}
+
+.whatPeopleAsk {
+    width: 100%;
+    height: 100px;
+    border: 0.1rem solid #a6a6a6;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer > p {
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    margin: 10px 0 5px 0;
+    padding: 2px;
+}
+
+.answerArea{
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.answerBtn{
+    width: 10rem;
+    margin-top: 10px;
+
+    border: none;
+    padding: 0.3rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.answerBtn:hover{
+    background-color: #868686;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+/********** 반응형 ******************************************************/
+
+@media all and (max-width:767px) {
+
+    #l_blank, #r_blank {
+        display: none;
+    }
+    .askBtn{
+        width: 7rem;
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .content{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .topTitle{
+        margin: 20px 0;
+    }
+}

@@ -34,14 +34,21 @@
 		
 	</resultMap>
 
+	<!-- content 상세페이지 조회 -->
 	<select id="selectContentDetail" resultMap="content_rm">
 		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_ADDRESS, 
 				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG
 		FROM CONTENT
 		WHERE AREA_CODE = #{area}
+		AND CONTENT_DEL_FL = 'N'
 		ORDER BY CONTENT_NO
 	</select>
 	
-
+	<!-- 이미지 삭제 -->
+	<update id="contentDelete">
+		UPDATE CONTENT SET
+		CONTENT_DEL_FL = 'Y'
+		WHERE CONTENT_NO = #{contentNo}
+	</update>
 
 </mapper>

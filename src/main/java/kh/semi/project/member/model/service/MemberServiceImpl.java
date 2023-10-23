@@ -116,7 +116,6 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
-
 	/** 회원 탈퇴 서비스
 	 *
 	 */

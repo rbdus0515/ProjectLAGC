@@ -1,5 +1,7 @@
 package kh.semi.project.member.model.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import kh.semi.project.common.utility.Util;
 import kh.semi.project.member.model.dao.MemberDAO;
 import kh.semi.project.member.model.dto.Member;
 
@@ -47,12 +50,37 @@ public class MemberServiceImpl implements MemberService{
 	// 회원가입 서비스
 	@Transactional
 	@Override
-	public int signUp(Member inputMember) {
+	public int signUp(Member inputMember, MultipartFile profileImage, String webPath, String filePath) throws Exception, IOException {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
 		inputMember.setMemberPw(encPw);
 		
-		return dao.signUp(inputMember);
+		String temp = inputMember.getMemberProfileImage();
+		String rename = null;
+		
+		if(profileImage.getSize() > 0) {
+		
+			rename = Util.fileRename(profileImage.getOriginalFilename());
+		
+			inputMember.setMemberProfileImage(webPath + rename);
+		
+		} else {
+			inputMember.setMemberProfileImage(null);
+		}
+		
+		int result = dao.signUp(inputMember);
+		
+		if(result > 0) {
+			
+			if(rename != null) {
+				profileImage.transferTo(new File(filePath + rename));
+			}
+			
+		} else {
+			inputMember.setMemberProfileImage(temp);
+		}
+		
+		return result;
 	}
 
 	/** 회원 정보 수정 서비스
@@ -87,8 +115,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		return result;
 	}
-
-
 
 	/** 회원 탈퇴 서비스
 	 *

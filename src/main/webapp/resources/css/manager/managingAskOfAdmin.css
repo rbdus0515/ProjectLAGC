@@ -46,6 +46,15 @@ body>section {
 
 /********** 문의 분류 ******************************************************/
 
+.askBtnContainer > input{
+    visibility: hidden;
+}
+
+.askBtnContainer > input:checked + label{
+    background-color: #868686;
+    color: #fff;
+}
+
 .askBtn {
     border: none;
     padding: 0.5rem 2rem;
@@ -53,6 +62,7 @@ body>section {
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
+    background-color: #e6e6e6;
 }
 
 .askBtn:hover {
@@ -60,6 +70,8 @@ body>section {
     color: #fff;
     transition-duration: 0.3s;
 }
+
+
 
 /********** 콘텐츠 ******************************************************/
 .askContent {

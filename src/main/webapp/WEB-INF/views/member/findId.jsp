@@ -15,7 +15,7 @@
 
 <!-- 홈 로고 --------------------------------------------------------------------------------------->
     <a href="/">
-        <img id="homelogo" class="logo" src="/resources/img/logo.png" alt="">
+        <img id="homelogo" class="logo" src="/resources/img/common/main/logo.png" alt="">
     </a>
 
 <!-- 메인 화면 ------------------------------------------------------------------------------------->

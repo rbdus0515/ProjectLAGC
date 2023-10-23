@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="managerMapper">
+
+	<resultMap type="QNA" id="QNA_rm">
+
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="QNANo" column="QNA_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="QNATitle" column="QNA_TITLE" />
+		<result property="QNAContent" column="QNA_CONTENT" />
+		<result property="QNAAnswer" column="ANSWER" />
+		<result property="answerFlag" column="ANSWER_FL" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberEmail" column="EMAIL" />
+		<result property="memberNickname" column="NICKNAME" />
+		<result property="memberPhone" column="PHONE" />
+
+	</resultMap>
+
+	<select id="QNACount" resultType="_int">
+		SELECT COUNT(*)
+		FROM QNA
+		WHERE ANSWER_FL = 'N'
+	</select>
+
+
+	<select id="selectQNA" resultMap="QNA_rm">
+		SELECT QNA_NO, QNA_TITLE,
+		QNA_CONTENT, ANSWER, ANSWER_FL, MEMBER_NO, EMAIL, NICKNAME, PHONE
+		FROM QNA
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE ANSWER_FL = 'N'
+	</select>
+
+
+	<select id="selectQNADone" resultMap="QNA_rm">
+		SELECT QNA_NO, QNA_TITLE,
+		QNA_CONTENT, ANSWER, ANSWER_FL, MEMBER_NO, EMAIL, NICKNAME, PHONE
+		FROM QNA
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE ANSWER_FL = 'Y'
+	</select>
+
+ 
+</mapper>

@@ -15,41 +15,15 @@
 
 <!-- 홈 로고 ---------------------------------------------------------------------------------------->
 <a href="/">
-    <img id="homelogo" class="logo" src="/resources/img/logo.png" alt="">
+    <img id="homelogo" class="logo" src="/resources/img/common/main/logo.png" alt="">
 </a>
 
 
 <!-- id 입력 ---------------------------------------------------------------------------------------->
 <main>
     
-    <div class="content1">
-        
-        <div class="inputIdContainer">
-            
-            <img class="logo" src="/resources/img/logo.png" alt="">
-            
-            <p class="inputIdEx">비밀번호를 찾고자하는 아이디를 입력해주세요</p>
-            
-            
-            <form action="#" method="post" id="inputIdForm">
-                
-                <p>아이디</p>
-                <input type="text" name="" id="">
-                <a href="#" class="nextBtn">다음</a>
-                
-            </form>
-            
-            <a href="/member/findId" id="findIdTag">아이디 찾기</a>
-
-        </div>
-        
-        
-    </div>
-
-<!-- 비밀번호 찾기 ---------------------------------------------------------------------------------------->
-
-        <br><br><hr><br><br> <!-- 잠시 구획 (나중에 지우기)-->
-
+    
+  
         <div class="content2">
 
             <p class="findPwTitle">비밀번호 찾기</p>
@@ -121,7 +95,10 @@
 
                     </div>
 
-                    <button id="submitBtn">비밀번호 찾기</button>
+                    <div class="btnSection">
+                        <button class="btn">비밀번호 찾기</button>
+                        <a href="/member/findPwBeforeId" class="btn">돌아가기</a>
+                    </div>
 
                 </section>
 

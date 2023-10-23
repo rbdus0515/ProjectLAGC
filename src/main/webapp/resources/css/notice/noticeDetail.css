@@ -137,7 +137,7 @@ body > section {
     border-radius: 10px;
     background-color: #ddd;
     font-size: 0.9rem; 
-    margin-bottom: 13px;
+    margin: 13px 0px;
 }
 
 /* 이전 글 */
@@ -215,9 +215,26 @@ body > section {
     height: 33px;
     font-size: 14px;
     font-weight: bold;
+    margin-right: 20px;
 }
 
 #del-btn:hover {
     cursor: pointer;
     background-color: #f66262;
+}
+
+/* 목록으로 버튼 */
+#list-btn {
+	border: none;
+    border-radius: 10%;
+    background-color: #9da9f1;
+    width: 70px;
+    height: 33px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#list-btn:hover {
+	cursor: pointer;
+	background-color: #7e8ff4;
 }

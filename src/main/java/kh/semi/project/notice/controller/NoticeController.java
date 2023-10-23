@@ -93,30 +93,35 @@ public class NoticeController {
 	
 	// 공지사항 UPDATE
 	@GetMapping("/update")
-	public String updateNotice(Notice notice, Model model, RedirectAttributes ra) {
+	public String updateNotice(Notice notice, Model model) {
 		
-		// 값이 안나오는 것 보니 a태그에 파라미터로 전달 or form태그로 전달해줘야할 것 같은데.. 어떻게 해야할지?
-		System.out.println(notice);
+		// System.out.println(notice);
 		
 		int result = service.updateNotice(notice);
 		
-		String message = null;
+		String path = "notice/";
 		
 		if(result > 0) {
 			System.out.println("공지사항 수정 성공");
 			
-			message = "공지사항 수정 성공";
 			
 		} else {
 			System.out.println("공지사항 수정 실패");
 			
-			message = "공지사항 수정 실패";
-			
 		}
 		
-		ra.addFlashAttribute("message", message);
+		path += "noticeDetail";
 		
-		return "";
+		return path;
+	}
+	
+	// 공지사항 DELETE
+	@GetMapping("/delete")
+	public String deleteNotice(int noticeNo) {
+		
+		int result = service.deleteNotice(noticeNo);
+		
+		return "notice/noticeList";
 	}
 	
 

@@ -1,12 +1,18 @@
 package kh.semi.project.content.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.content.model.dto.Content;
@@ -123,4 +129,62 @@ public class ContentController {
 		
 		return path;
 	}
+
+	@PostMapping("/adminEditPopUp")
+	public String insertContent(Content inputContent,
+								Model model,
+								RedirectAttributes ra,
+								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
+								HttpSession session
+								) throws Exception, IOException {
+	
+		String webPath = "/resources/img/content/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		int result = service.insertContent(inputContent, uploadPlaceImg, webPath, filePath);
+		
+		String path = "redirect:";
+		String msg = null;
+		String area = null;
+		
+		if(result > 0) {
+			model.addAttribute("loginMember", inputContent);
+			path += "/";
+			msg = "업로드 성공!";
+		} else {
+			path += "/";
+			msg = "업로드 실패";
+		}
+		
+		if(area.equals("seo")) {
+			path += "seoul";
+			
+		} else if(area.equals("gyeinc")) {
+			path += "gyeonggiIncheon";
+			
+		} else if(area.equals("gan")) {
+			path += "gangwon";
+			
+		} else if(area.equals("chu")) {
+			path += "chungcheong";
+			
+		} else if(area.equals("jeo")) {
+			path += "jeolla";
+			
+		} else if(area.equals("gye")) {
+			path += "gyeongsang";
+			
+		} else if(area.equals("jej")) {
+			path += "jeju";
+			
+		}
+		
+		ra.addFlashAttribute("msg",msg);
+		
+		return path;
+	}
+	
+
+
+
 }

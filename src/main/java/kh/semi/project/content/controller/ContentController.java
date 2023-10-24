@@ -64,20 +64,17 @@ public class ContentController {
 	
 	// 이미지 삭제
 	@GetMapping("/delete")
-	public String contentDelete(Content content, Model model, RedirectAttributes ra) {
+	public String contentDelete(Content content, Model model) {
 		
 		// System.out.println(content.toString());
 		
 		int result = service.contentDelete(content);
 		
-		String msg = null;
 		String path = "content/";
 		String area = null; 
 		
 		if(result > 0) { // 이미지 삭제 성공
-			System.out.println("이미지 삭제 성공");
-			
-			msg = "이미지 삭제 성공";
+			// System.out.println("이미지 삭제 성공");
 			
 			area = content.getAreaCode();
 			
@@ -91,9 +88,8 @@ public class ContentController {
 			model.addAttribute("list", list);
 			
 		} else { // 이미지 삭제 실패
-			System.out.println("이미지 삭제 실패");
+			// System.out.println("이미지 삭제 실패");
 			
-			msg = "이미지 삭제 실패";
 		}
 		
 		if(area.equals("seo")) {
@@ -118,8 +114,6 @@ public class ContentController {
 			path += "jeju";
 			
 		}
-		
-		ra.addFlashAttribute("msg", msg);
 		
 		return path;
 	}

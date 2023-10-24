@@ -15,6 +15,7 @@ public class Notice {
 	private String noticeTitle;
 	private String noticeDetail;
 	private String noticeUploadDate;
+	private String noticeDelFl;
 	
 	// 이전글, 다음글 가져오기 위한 컬럼
 	private int preNoticeNo;

@@ -28,6 +28,7 @@
 		<typeAlias type="kh.semi.project.community.model.dto.Community" alias="Community"/>
 		<typeAlias type="kh.semi.project.notice.model.dto.Notice" alias="Notice" />
 		<typeAlias type="kh.semi.project.manager.model.dto.QNA" alias="QNA" />
+		<typeAlias type="kh.semi.project.clientService.model.dto.ClientService" alias="ClientService"/>
 
 
 	</typeAliases>
@@ -43,6 +44,7 @@
 		<mapper resource="/mappers/community-mapper.xml" />		
 		<mapper resource="/mappers/notice-mapper.xml" />
 		<mapper resource="/mappers/manager-mapper.xml" />
+		<mapper resource="/mappers/clientService-mapper.xml"/>
 		
 
 	</mappers>

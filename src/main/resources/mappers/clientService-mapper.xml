@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="clientServiceMapper">
+
+	<resultMap type="ClientService" id="clientService_rm">
+		<id property="noticeNo" column="NOTICE_NO"/>
+		<result property="noticeTitle" column="NOTICE_TITLE"/>
+		<result property="noticeUpload" column="NOTICE_UPLOAD_DATE"/>
+		<result property="noticeDelFl" column="NOTICE_DEL_FL"/>
+	</resultMap>
+	
+	<select id="noticeList" resultMap="clientService_rm">
+		<![CDATA[		
+		SELECT NOTICE_NO, NOTICE_TITLE, TO_CHAR(NOTICE_UPLOAD_DATE, 'YY. MM. DD') NOTICE_UPLOAD_DATE, NOTICE_DEL_FL
+		FROM "NOTICE_BOARD"
+		WHERE NOTICE_DEL_FL ='N' AND ROWNUM <= 5
+		ORDER BY NOTICE_NO DESC
+		]]>
+	</select>
+	
+</mapper>

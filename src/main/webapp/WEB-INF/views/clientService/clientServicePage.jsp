@@ -81,11 +81,13 @@
                             </section>
                         </section>
 
-                        <section id="noticeBox-b">
-                            <p>9/27(수) 홈페이지 개편 안내</p>
-                            <div></div>
-                            <p>23. 09. 27</p>
-                        </section>
+						<c:forEach var="noticeList" items="${list}">				
+	                        <section id="noticeBox-b">
+	                            <p>${noticeList.noticeTitle}</p>
+	                            <div></div>
+	                            <p>${noticeList.noticeUpload}</p>
+	                        </section>
+						</c:forEach>
 
                     </section>
 

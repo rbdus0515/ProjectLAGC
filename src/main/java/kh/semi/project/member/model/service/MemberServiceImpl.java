@@ -87,16 +87,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		return result;
 	}
-
-
-
-	// 프로필 이미지 설정
-	@Override
-	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) {
-		
-		return 0;
-	}
-
 	
 
 	/** 회원 탈퇴 서비스

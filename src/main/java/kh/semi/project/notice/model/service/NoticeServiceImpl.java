@@ -42,4 +42,11 @@ public class NoticeServiceImpl implements NoticeService{
 		return dao.updateNotice(notice);
 	}
 
+	// 공지사항 DELETE
+	@Override
+	public int deleteNotice(int noticeNo) {
+		
+		return dao.deleteNotice(noticeNo);
+	}
+
 }

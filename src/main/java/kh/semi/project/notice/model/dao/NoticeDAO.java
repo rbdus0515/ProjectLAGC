@@ -42,11 +42,20 @@ public class NoticeDAO {
 
 	/** 공지사항 UPDATE
 	 * @param notice
-	 * @return
+	 * @return int
 	 */
 	public int updateNotice(Notice notice) {
 		
 		return sqlSession.update("noticeMapper.updateNotice", notice);
+	}
+
+	/** 공지사항 DELETE
+	 * @param noticeNo
+	 * @return int
+	 */
+	public int deleteNotice(int noticeNo) {
+		
+		return sqlSession.update("noticeMapper.deleteNotice", noticeNo);
 	}
 
 }

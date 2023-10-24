@@ -41,7 +41,7 @@
 	                            </div>
 	                            <c:if test="${loginMember.memberManagerFlag == 'Y'}">
 		                            <div class="delArea">
-		                                <a href="/content/delete?contentNo=${img.contentNo}&areaCode=${img.areaCode}"><button type="button" class="xBtn">X</button></a>
+		                                <a href="/content/delete?contentNo=${img.contentNo}&areaCode=${img.areaCode}"><button type="button" class="xBtn" onclick="contentDeleteConfirm()">X</button></a>
 		                            </div>
 	                            </c:if>
 	                        </div>
@@ -76,5 +76,8 @@
     
     	<!-- 관리자 팝업 -->
         <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+
+  <script src="/resources/js/content.js"></script>
+
 </body>
 </html>

@@ -44,5 +44,17 @@
 		WHERE ANSWER_FL = 'Y'
 	</select>
 
+	<update id="insertAnswer">
+		UPDATE QNA SET
+		ANSWER = #{answerArea},
+		ANSWER_FL = 'Y'
+		WHERE QNA_NO = #{qnaNo}
+	</update>
+ 
+ 	<update id="updateAnswer">
+		UPDATE QNA SET
+		ANSWER = #{answerArea}
+		WHERE QNA_NO = #{qnaNo}
+	</update>
  
 </mapper>

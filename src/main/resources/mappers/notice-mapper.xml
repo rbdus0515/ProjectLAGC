@@ -25,6 +25,8 @@
 		<result property="noticeTitle" column="NOTICE_TITLE" />
 		<result property="noticeDetail" column="NOTICE_DETAIL" />
 		<result property="noticeUploadDate" column="NOTICE_UPLOAD_DATE" />
+		<result property="noticeDelFl" column="NOTICE_DEL_FL" />
+		
 		<result property="preNoticeNo" column="PRE_NOTICE_NO" />
 		<result property="preNoticeTitle" column="PRE_NOTICE_TITLE" />
 		<result property="nextNoticeNo" column="NEXT_NOTICE_NO" />
@@ -34,19 +36,20 @@
 
 	<!-- noticeList 조회 -->
 	<select id="selectNoticeList" resultMap="notice_rm">
-		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE
+		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE, NOTICE_DEL_FL
 		FROM NOTICE_BOARD
+		WHERE NOTICE_DEL_FL = 'N'
 		ORDER BY NOTICE_NO DESC
 	</select>
 	
 	<!-- noticeDetail 조회 -->
 	<select id="selectNoticeDetail" resultMap="notice_rm">
 		SELECT 
-			A.NOTICE_NO, A.NOTICE_TITLE, A.NOTICE_DETAIL, A.NOTICE_UPLOAD_DATE, A.PRE_NOTICE_NO, A.PRE_NOTICE_TITLE, A.NEXT_NOTICE_NO, A.NEXT_NOTICE_TITLE
+			A.NOTICE_NO, A.NOTICE_TITLE, A.NOTICE_DETAIL, A.NOTICE_UPLOAD_DATE, A.NOTICE_DEL_FL, A.PRE_NOTICE_NO, A.PRE_NOTICE_TITLE, A.NEXT_NOTICE_NO, A.NEXT_NOTICE_TITLE
 		FROM 
 			(
 				SELECT 
-					NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE
+					NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE, NOTICE_DEL_FL
 					, LAG(NOTICE_NO) OVER (ORDER BY NOTICE_NO) PRE_NOTICE_NO
 					, LAG(NOTICE_TITLE) OVER (ORDER BY NOTICE_NO) PRE_NOTICE_TITLE
 					, LEAD(NOTICE_NO) OVER (ORDER BY NOTICE_NO) NEXT_NOTICE_NO
@@ -59,7 +62,7 @@
 	
 	<!-- 공지사항 ISNERT -->
 	<insert id="insertNotice">
-		INSERT INTO NOTICE_BOARD VALUES(SEQ_NOTICE_NO.NEXTVAL, #{noticeTitle}, #{noticeDetail}, DEFAULT)
+		INSERT INTO NOTICE_BOARD VALUES(SEQ_NOTICE_NO.NEXTVAL, #{noticeTitle}, #{noticeDetail}, DEFAULT, DEFAULT)
 	</insert>
 	
 	<!-- 공지사항 UPDATE -->
@@ -68,6 +71,13 @@
 		NOTICE_TITLE = #{noticeTitle},
 		NOTICE_DETAIL = #{noticeDetail},
 		NOTICE_UPLOAD_DATE = DEFAULT
+		WHERE NOTICE_NO = #{noticeNo}
+	</update>
+	
+	<!-- 공지사항 DELETE -->
+	<update id="deleteNotice">
+		UPDATE NOTICE_BOARD SET 
+		NOTICE_DEL_FL = 'Y'
 		WHERE NOTICE_NO = #{noticeNo}
 	</update>
 

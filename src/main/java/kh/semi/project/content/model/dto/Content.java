@@ -14,7 +14,7 @@ public class Content {
 	private int contentNo;
 	private String areaCode;
 	private String travelName;
-	private String placeAddress;
+	private String placeUrl;
 	private String ageCode;
 	private String seasonCode;
 	private String memberCode;

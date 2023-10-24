@@ -13,6 +13,8 @@
 
         <body>
 
+            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
             <section>
                 <!----- 제목 ------------------------------------------------------------------------------------------>
                 <div class="topTitle">1대1 문의</div>
@@ -29,75 +31,80 @@
                         <!-- top -->
                         <div class="askBtnContainer">
 
-                            <!-- <a href="#"> -->
-                            <input type="radio" name="doneOrYet" id="notYet" value="notYet" class="doneOrYet"
-                                checked></input>
-                            <label for="notYet" class="askBtn">
+                       
+                            <input type="radio" name="doneOrYet" class="doneOrYet" id="notYet" checked ></input>
+                            <label for="notYet" class="askBtn" onclick="showQNA('notYet')">
                                 미처리 문의
                             </label>
-                            <!-- </a> -->
+                           
 
-                            <!-- <a href="#"> -->
-                            <input type="radio" name="doneOrYet" id="done" class="doneOrYet" value="done"></input>
-                            <label for="done" class="askBtn">
+                            <input type="radio" name="doneOrYet" class="doneOrYet" id="done"></input>
+                            <label for="done" class="askBtn" onclick="showQNA('done')">
                                 처리된 문의
                             </label>
-                            <!-- </a> -->
+                    
 
                         </div>
                         <br>
                         <hr>
 
                         <!---- 콘텐츠 ------------------------------------------------------------------------------------------>
-                        <div class="askContent">
+                        <div class="askContent" id="askContent">
 
-                            <div class="askContainer">
+                            <c:forEach var="qna" items="${list}">
 
-                                <div class="askDetail">
+                                    <div class="askDetail">
 
-                                    <div>
+                                        <div class="memberContainer">
 
-                                        <div class="category">
+                                            <div class="category">
 
-                                            <div>이메일</div>
-                                            <div>휴대폰</div>
-                                            <div>제목</div>
-                                            <div>작성자</div>
+                                                <div>이메일</div>
+                                                <div>휴대폰</div>
+                                                <div>제목</div>
+                                                <div>작성자</div>
+
+                                            </div>
+
+                                            <div class="asker">
+
+                                                <div class="askerEmail">${qna.memberEmail}</div>
+                                                <div class="askerPhone">${qna.memberPhone}</div>
+                                                <div class="QNATitle">${qna.QNATitle}</div>
+                                                <div class="askerNickname">${qna.memberNickname}</div>
+
+                                            </div>
 
                                         </div>
 
-                                        <div class="asker">
-
-                                            <div id="askerEmail"></div>
-                                            <div id="askerPhone"></div>
-                                            <div id="QNATitle"></div>
-                                            <div id="askerNickname"> </div>
-
+                                        <div>
+                                            <div class="whatPeopleAsk">${qna.QNAContent}</div>
                                         </div>
+
+                                        <form action="/manager/insert">
+
+                                            <div class="answer">
+                                                <p>답변</p>
+                                                <textarea class="answerArea" name="answerArea" id=""
+                                                    style="resize: none;"></textarea>
+                                                <button class="answerBtn">답변 달기</button>
+                                            </div>
+
+                                            <input type="hidden" name="qnaNo" value="${qna.QNANo}">
+
+                                        </form>
 
                                     </div>
 
-                                    <div>
-                                        <div class="whatPeopleAsk">
+                            </c:forEach>
 
-                                        </div>
-                                    </div>
-
-                                    <form action="">
-
-                                        <div class="answer">
-                                            <p>답변</p>
-                                            <textarea class="answerArea" name="" id="" style="resize: none;"></textarea>
-                                            <button class="answerBtn"></button>
-                                        </div>
-
-                                    </form>
-
-                                </div>
-                            </div>
                         </div>
 
                     </div>
+
+
+
+                </div>
 
 
 
@@ -116,6 +123,8 @@
                 <div id="r_blank"></div>
                 </div>
             </section>
+
+            <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
             <script src="/resources/js/managingAsk.js"></script>
         </body>

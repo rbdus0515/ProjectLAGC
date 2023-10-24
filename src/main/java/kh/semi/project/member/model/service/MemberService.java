@@ -1,6 +1,8 @@
 package kh.semi.project.member.model.service;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.Map;
 
 import kh.semi.project.member.model.dto.Member;
@@ -15,9 +17,12 @@ public interface MemberService {
 
 	/** 회원가입 서비스
 	 * @param inputMember
+	 * @param filePath 
+	 * @param webPath 
+	 * @param profileImage 
 	 * @return result
 	 */
-	int signUp(Member inputMember);
+	int signUp(Member inputMember, MultipartFile profileImage, String webPath, String filePath) throws Exception, IOException;
 
 	/** 회원 정보 수정 서비스
 	 * @param inputMember
@@ -43,5 +48,11 @@ public interface MemberService {
 	 * @return
 	 */
 	int updatePw(Map<String, String> map, Member loginMember);
+
+	/** 아이디 존재 여부 확인 서비스
+	 * @param memberId
+	 * @return
+	 */
+	int selectId(String memberId);
 
 }

@@ -86,32 +86,38 @@
                                 <div class="like-list">
                                     <div class="like-list-title">좋아요 목록</div>
                                     <div class="like-list-main">
-                                        <div>
-                                            <button class="arrow-button"><img class="left-arrow"
-                                                    src="/resources/img/myPage/left-arrow.png"></button>
-                                        </div>
-                                        <div class="like-list-combo">
-                                            <div class="like-list-1">
-                                                <a href="#"><img class="like-list-photo"
-                                                        src="/resources/img/myPage/Rectangle 115.png"></a>
-                                                <div class="like-list-name"><a href="#">감천문화마을</a></div>
-                                            </div>
-                                            <div class="like-list-1">
-                                                <a href="#"><img class="like-list-photo"
-                                                        src="/resources/img/myPage/Rectangle 116.png"></a>
-                                                <div class="like-list-name"><a href="#">호미곶 해맞이광장</a></div>
-                                            </div>
-                                            <div class="like-list-1">
-                                                <a href="#"><img class="like-list-photo"
-                                                        src="/resources/img/myPage/Rectangle 117.png"></a>
-                                                <div class="like-list-name"><a href="#">동궁과 월지</a></div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <button class="arrow-button"><img class="right-arrow"
-                                                    src="/resources/img/myPage/right-arrow.png"></button>
-                                        </div>
+                            <div>
+                                <button class="left-arrow"><img class="arrow-button" src="/resources/img/myPage/left-arrow.png"></button>
+                            </div>
+                            <div class="like-list-combo">
+                                <div class="slideBox">
+
+                                    <div class="like-list-1">
+                                        <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 115.png"></a>
+                                        <div class="like-list-name"><a href="#">감천문화마을</a></div>
                                     </div>
+
+                                    <div class="like-list-1">
+                                        <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 116.png"></a>
+                                        <div class="like-list-name"><a href="#">호미곶 해맞이광장</a></div>
+                                    </div>
+
+                                    <div class="like-list-1"> 
+                                        <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 117.png"></a>
+                                        <div class="like-list-name"><a href="#">동궁과 월지</a></div>
+                                    </div>
+
+                                    <div class="like-list-1"> 
+                                        <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 117.png"></a>
+                                        <div class="like-list-name"><a href="#">동궁과 월</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                           <div>
+                            <button class="right-arrow"><img class="arrow-button" src="/resources/img/myPage/right-arrow.png"></button>
+                           </div>
+                        </div>
                                 </div>
                                 <div class="my-comment">
                                     <div class="comment-title">작성한 후기</div>
@@ -226,7 +232,7 @@
                                         <img src="/resources/img/myPage/프로필 사진(관리자).png" alt="">
                                     </div>
 
-                                    <a href="#" class="managingProfileBtn">프로필 관리</a>
+                                    <a href="/myPage/managingProfile" class="managingProfileBtn">프로필 관리</a>
 
                                 </div>
 
@@ -255,10 +261,14 @@
                             <!----- 관리 메뉴 ----------------------------------------------------------------------------------------->
 
                             <section class="managingContent">
-                                <a href="/team_project/html/managingAskOfAdmin.html">1:1문의 목록
-                                    <span id="newAlarm">
-                                        2
-                                    </span>
+                                <a href="/manager/managingQNA">1:1문의 목록
+                                    <c:if test="${QNACount != 0}">
+                                        <span id="newAlarm">
+                                            ${QNACount}
+                                        </span>
+                                    </c:if>
+
+
                                 </a>
                                 <a href="/notice/noticeList">공지사항</a>
                                 <a href="#">게시물 업로드</a>

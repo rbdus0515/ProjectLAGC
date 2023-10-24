@@ -39,6 +39,8 @@
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 
     transform: translateX(-50%) translateY(-50%);
+    
+    z-index: 1;
 }
 
 .modalBodyTitle {
@@ -437,31 +439,45 @@ footer {
     display: flex;
     justify-content: center;
     background: rgba(0, 0, 0, 0);
+    padding: 1px;
 }
 
 /* 왼쪽 화살표 설정 */
 .left-arrow {
     width: 30px;
     height: 30px;
-}
-
-.like-list-combo {
-    display: flex;
-    flex-direction: row;
-}
-
-/* 좋아요 목록 1번째 사진 */
-.like-list-photo {
-    width: 128px;
-    height: 148px;
-    margin: 15px;
-    margin-bottom: 5px;
+    
 }
 
 /* 오른쪽 화살표 설정 */
 .right-arrow {
     width: 30px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+}
+
+/* 좋아요 목록 */
+.like-list-combo {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+/* 슬라이드 설정 */
+.slideBox {
+    display: flex;
+    width: 2000px;
+    transition: 0.5s;
+}
+
+/* 좋아요 목록 사진 */
+.like-list-photo {
+    width: 128px;
+    height: 148px;
+    margin: 15px;
+    margin-bottom: 5px;
 }
 
 /* 작성한 댓글 제목 설정 */
@@ -574,7 +590,7 @@ footer {
     margin-bottom: 30px;
     background-color: white;
     border-radius: 10px;
-
+	padding-left: 40px;
 }
 
 
@@ -582,8 +598,6 @@ footer {
 .my-plan-img {
     height: 15.625Rem;
     display: flex;
-    margin: 40px;
-
 }
 
 /* 일정 내용 */
@@ -591,7 +605,7 @@ footer {
     width: 60%;
     display: flex;
     flex-direction: column;
-
+	margin-left: 40px;
 }
 
 /* 일정 제목 */

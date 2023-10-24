@@ -17,4 +17,22 @@ public interface NoticeService {
 	 */
 	Notice selectNoticeDetail(int noticeNo);
 
+	/** 공지사항 INSERT
+	 * @param notice
+	 * @return int
+	 */
+	int insertNotice(Notice notice);
+
+	/** 공지사항 UPDATE
+	 * @param notice
+	 * @return int
+	 */
+	int updateNotice(Notice notice);
+
+	/** 공지사항 DELETE
+	 * @param noticeNo
+	 * @return int
+	 */
+	int deleteNotice(int noticeNo);
+
 }

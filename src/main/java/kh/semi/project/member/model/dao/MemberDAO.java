@@ -66,4 +66,13 @@ public class MemberDAO {
 		return sqlSession.update("memberMapper.updatePw", loginMember);
 	}
 
+	/** 아이디 존재 여부 확인 서비스
+	 * @param memberId
+	 * @return
+	 */
+	public int selectId(String memberId) {
+		
+		return sqlSession.selectOne("ajaxMapper.selectId", memberId);
+	}
+
 }

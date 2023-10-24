@@ -31,4 +31,31 @@ public class NoticeDAO {
 		return sqlSession.selectOne("noticeMapper.selectNoticeDetail", noticeNo);
 	}
 
+	/** 공지사항 INSERT
+	 * @param notice
+	 * @return int 
+	 */
+	public int insertNotice(Notice notice) {
+		
+		return sqlSession.insert("noticeMapper.insertNotice", notice);
+	}
+
+	/** 공지사항 UPDATE
+	 * @param notice
+	 * @return int
+	 */
+	public int updateNotice(Notice notice) {
+		
+		return sqlSession.update("noticeMapper.updateNotice", notice);
+	}
+
+	/** 공지사항 DELETE
+	 * @param noticeNo
+	 * @return int
+	 */
+	public int deleteNotice(int noticeNo) {
+		
+		return sqlSession.update("noticeMapper.deleteNotice", noticeNo);
+	}
+
 }

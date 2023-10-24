@@ -1,5 +1,6 @@
 package kh.semi.project.member.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,10 +60,10 @@ public class MemberController {
 	/** 비밀번호 찾기 이동
 	 * @return
 	 */
-	@GetMapping("/findPassword")
+	@GetMapping("/findPwBeforeId")
 	public String findPassword() {
 	
-		return "/member/findPassword";
+		return "/member/findPwBeforeId";
 	}
 	
 	/** 로그아웃
@@ -92,14 +93,21 @@ public class MemberController {
 	// 회원가입 진행
 	@PostMapping("/signUp")
 	public String signUp(Member inputMember,
-						RedirectAttributes ra ) {
+						Model model,
+						RedirectAttributes ra,
+						@RequestParam("profileImage") MultipartFile profileImage,
+						HttpSession session) throws Exception, IOException {
+		
+		String webPath = "/resources/img/member/";
+		String filePath = session.getServletContext().getRealPath(webPath);
 
-		int result = service.signUp(inputMember);
+		int result = service.signUp(inputMember, profileImage, webPath, filePath);
 		
 		String path = "redirect:";
 		String msg = null;
 		
 		if(result > 0) {
+			model.addAttribute("loginMember", inputMember);
 			path += "/";
 			msg = inputMember.getMemberNickname() + "님 가입을 환영합니다.";
 		} else {
@@ -293,5 +301,32 @@ public class MemberController {
 		
 	}
 	
+	/** 아이디 입력 후 비밀번호 찾기로 이동
+	 * @param memberId
+	 * @param ra
+	 * @param referer
+	 * @return
+	 */
+	@GetMapping("/findPwAfterId")
+	public String findPwAfterId(String memberId, RedirectAttributes ra, @RequestHeader(value = "referer") String referer) {
 	
+		int result = service.selectId(memberId);
+		String msg = null;
+		String path = null;
+		
+		if(result > 0) {
+		
+			path = "/member/findPwAfterId";
+			
+		} else {
+			
+			msg = "존재하는 아이디가 없습니다.";
+			path = "redirect:" + referer;
+		}
+		
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
+	}
+
 }

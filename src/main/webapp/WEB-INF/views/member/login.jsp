@@ -61,7 +61,7 @@
                     
                     <p> &nbsp;/&nbsp; </p>
                     
-                    <a href="/member/findPassword">
+                    <a href="/member/findPwBeforeId">
                         비밀번호 찾기
                     </a>
                     </div>

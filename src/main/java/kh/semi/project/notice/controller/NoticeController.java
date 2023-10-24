@@ -58,17 +58,14 @@ public class NoticeController {
 	
 	// 공지사항 INSERT
 	@PostMapping("/insert")
-	public String insertNotice(Notice notice, Model model, RedirectAttributes ra) {
+	public String insertNotice(Notice notice, Model model) {
 		
 		int result = service.insertNotice(notice);
 		
-		String msg = null;
 		String path = "redirect:";
 		
 		if(result > 0) { // 공지사항 추가 성공
-			System.out.println("공지사항 추가 성공");
-			
-			msg = "공지사항 추가 성공";
+			// System.out.println("공지사항 추가 성공");
 			
 			// noticeList 조회
 			List<Notice> list = service.selectNoticeList();
@@ -78,15 +75,11 @@ public class NoticeController {
 			path += "noticeList";
 			
 		} else { // 공지사항 추가 실패
-			System.out.println("공지사항 추가 실패");
-			
-			msg = "공지사항 추가 실패";
+			// System.out.println("공지사항 추가 실패");
 			
 			path += "insertPage";
 			
 		}
-		
-		ra.addFlashAttribute("msg", msg);
 		
 		return path;
 	}
@@ -102,11 +95,11 @@ public class NoticeController {
 		String path = "notice/";
 		
 		if(result > 0) {
-			System.out.println("공지사항 수정 성공");
+			// System.out.println("공지사항 수정 성공");
 			
 			
 		} else {
-			System.out.println("공지사항 수정 실패");
+			// System.out.println("공지사항 수정 실패");
 			
 		}
 		
@@ -117,9 +110,25 @@ public class NoticeController {
 	
 	// 공지사항 DELETE
 	@GetMapping("/delete")
-	public String deleteNotice(int noticeNo) {
+	public String deleteNotice(int noticeNo, Model model) {
 		
 		int result = service.deleteNotice(noticeNo);
+		
+		if(result > 0) {
+			// System.out.println("공지사항 삭제 성공");
+			
+			List<Notice> list = service.selectNoticeList();
+			
+			/* for(Notice nt : list) {
+				System.out.println(nt);
+			} */
+		
+			model.addAttribute("list", list);
+			
+		} else {
+			// System.out.println("공지사항 삭제 실패");
+			
+		}
 		
 		return "notice/noticeList";
 	}

@@ -79,7 +79,7 @@
 	                    	<c:if test="${loginMember.memberManagerFlag == 'Y'}">
 		                        <!-- 수정/삭제 버튼-->
 		                        <button type="submit" id="upd-btn">수정</button>
-		                        <a href="/notice/delete?noticeNo=${notice.noticeNo}"><button type="button" id="del-btn">삭제</button></a>
+		                        <button type="button" id="del-btn" onclick="noticeDeleteConfirm(${notice.noticeNo})">삭제</button>
 		                        <a href="/notice/noticeList"><button type="button" id="list-btn">목록으로</button></a>
 	                        </c:if>
 	                    </div>
@@ -93,6 +93,8 @@
 
         <!-- bottom -->
        	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+       	
+       	<script src="/resources/js/notice.js"></script>
     </section>
 </body>
 </html>

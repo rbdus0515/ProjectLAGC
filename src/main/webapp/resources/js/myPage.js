@@ -5,6 +5,9 @@
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const share = document.getElementsByClassName('share-button');
+const closeBtnPopup = document.getElementById('closeBtnPopup');
+
+
   for (let i = 0; i < share.length; i++) {
     share[i].addEventListener('click', () => {
       modal.classList.toggle('show');
@@ -22,6 +25,10 @@ const share = document.getElementsByClassName('share-button');
         body.style.overflow = 'auto';
       }
     }
+  });
+  
+   closeBtnPopup.addEventListener('click', () => {
+   	modal.classList.remove('show');
   });
 
   // 삭제 alerts
@@ -63,7 +70,10 @@ prev.addEventListener('click', ()=>{
 
 next.addEventListener('click', ()=>{
   if(currentIndex !== slideLangth -1){
-      moveSlide(currentIndex +1)
+      moveSlide(currentIndex +1) 
+  } else {
+  	moveSlide(currentIndex = 0)
   }
+  
 })
 

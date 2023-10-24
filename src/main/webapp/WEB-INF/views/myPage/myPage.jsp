@@ -22,6 +22,12 @@
 
                     <div class="modal">
                         <div class="modal_body">
+                        	<div class="modal_upside">
+	                        	<button type="button" id="closeBtnPopup">
+									<img src="/resources/img/common/main/X버튼.png" alt="">
+								</button>
+                        	</div>
+
                             <div class="modalBodyTitle">공유하기</div>
                             <div class="modalBodyIcon">
                                 <div class="icon"><a href="#"><img src="/resources/img/myPage/카카오톡 아이콘.png">카카오톡</a>
@@ -123,14 +129,14 @@
                                     <div class="comment-title">작성한 후기</div>
                                     <div class="comment-main">
                                         <div class="comment">
-                                            <div class="comment-loca">해운대 블루라인파크</div>
+                                            <div class="comment-loca"><a href="#">해운대 블루라인파크</a></div>
                                             <div class="comment-content">
                                                 <div class="content">좋아요~!</div>
                                                 <button class="comment-delete">x</button>
                                             </div>
                                         </div>
                                         <div class="comment">
-                                            <div class="comment-loca">인천 차이나타운</div>
+                                            <div class="comment-loca"><a href="#">인천 차이나타운</a></div>
                                             <div class="comment-content">
                                                 <div class="content">중식 가게가 많아요 ㅎㅎ</div>
                                                 <button class="comment-delete">x</button>

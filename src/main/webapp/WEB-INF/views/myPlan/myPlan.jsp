@@ -110,7 +110,7 @@
             </div>
             <div id="map" style="width:100%;height:100vh;">
             	<div class="storage">
-                    <button><img class="left-arrow" src="/resources/img/myPage/left-arrow.png"></button>
+                    <img class="left-arrow" src="/resources/img/myPage/left-arrow.png">
                 </div>
                 
                 <div class="이용방법"><a href="#">이용방법</a></div>

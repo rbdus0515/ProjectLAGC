@@ -36,7 +36,7 @@
 
 	<!-- content 상세페이지 조회 -->
 	<select id="selectContentDetail" resultMap="content_rm">
-		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_ADDRESS, 
+		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
 				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG
 		FROM CONTENT
 		WHERE AREA_CODE = #{area}
@@ -51,4 +51,34 @@
 		WHERE CONTENT_NO = #{contentNo}
 	</update>
 
+	<!-- 컨텐츠 추가 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,9 @@
 package kh.semi.project.content.model.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import kh.semi.project.content.model.dto.Content;
 
@@ -17,5 +20,7 @@ public interface ContentService {
 	 * @return int
 	 */
 	int contentDelete(Content content);
+
+	int insertContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException ;
 
 }

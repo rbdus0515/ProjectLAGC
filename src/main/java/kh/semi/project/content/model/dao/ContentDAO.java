@@ -34,4 +34,14 @@ public class ContentDAO {
 		return sqlSession.update("contentMapper.contentDelete", content);
 	}
 
+
+	/** 컨텐츠 추가
+	 * @param inputContent
+	 * @return
+	 */
+	public int insertContent(Content inputContent) {
+		
+		return sqlSession.insert("contentMapper.insertContent", inputContent);
+	}
+
 }

@@ -163,6 +163,8 @@ main {
 
 #noticeBox-t > p {
     flex-basis: 15%;
+    display: flex;
+    align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -182,10 +184,12 @@ main {
     flex-basis: 50%;
     width: 100%;
     display: flex;
+    margin-top: 1.5rem;
 }
 
 #noticeBox-b > p:nth-of-type(1) {
     flex-basis: 50%;
+    font-size: large;
 }
 
 #noticeBox-b > div {

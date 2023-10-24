@@ -11,7 +11,4 @@ public interface CommunityService {
 
 	List<Community> selectCommunityList();
 
-
-	
-
 }

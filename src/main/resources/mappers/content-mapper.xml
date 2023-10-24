@@ -24,7 +24,7 @@
 		<!-- DB의 일반 컬럼들 -->
 		<result property="areaCode" column="AREA_CODE" />
 		<result property="travelName" column="TRAVEL_NAME" />
-		<result property="placeAddress" column="PLACE_ADDRESS" />
+		<result property="placeUrl" column="PLACE_URL" />
 		<result property="ageCode" column="AGE_CODE" />
 		<result property="seasonCode" column="SEASON_CODE" />
 		<result property="memberCode" column="MEMBER_CODE" />

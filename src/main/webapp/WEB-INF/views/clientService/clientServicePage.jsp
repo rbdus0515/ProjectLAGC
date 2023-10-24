@@ -82,7 +82,7 @@
                         </section>
 
 						<c:forEach var="noticeList" items="${list}">				
-	                        <section id="noticeBox-b">
+	                        <section id="noticeBox-b" onclick="noticeDetail(${noticeList.noticeNo})">
 	                            <p>${noticeList.noticeTitle}</p>
 	                            <div></div>
 	                            <p>${noticeList.noticeUpload}</p>
@@ -176,5 +176,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script src="https://kit.fontawesome.com/27d1f811dc.js" crossorigin="anonymous"></script>
+
+    <script src="/resources/js/notice.js"></script>
 </body>
 </html>

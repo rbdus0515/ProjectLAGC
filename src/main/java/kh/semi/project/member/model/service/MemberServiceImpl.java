@@ -168,7 +168,6 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 
 	}
-
 	
 	/** 아이디 존재 여부 확인 서비스
 	 *
@@ -178,4 +177,26 @@ public class MemberServiceImpl implements MemberService{
 
 		return dao.selectId(memberId);
 	}
+
+	
+	/** 좋아요 지우기
+	 *
+	 */
+	@Override
+	public int deleteLike(Map<String, Object> map) {
+
+		return dao.deleteLike(map);
+	}
+
+	/** 좋아요 추가
+	 *
+	 */
+	@Override
+	public int insertLike(Map<String, Object> map) {
+
+		return dao.insertLike(map);
+	}
+
+	
+	
 }

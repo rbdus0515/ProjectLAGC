@@ -26,7 +26,7 @@ import kh.semi.project.member.model.dto.Member;
 
 @Controller
 @RequestMapping("/content")
-@SessionAttributes({"/loginMember"})
+@SessionAttributes({"loginMember"})
 public class ContentController {
 	
 	@Autowired
@@ -195,17 +195,28 @@ public class ContentController {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> mapForLike = new HashMap<String, Object>();
+		int likeYesOrNo  = 0;
+		int likeCount = 0;
 		
 		map.put("contentNo", contentNo);
-		map.put("memberNo", loginMember.getMemberNo());
 		
-		int likeYesOrNo = service.selectLike(map);
-		int likeCount = service.selectLikeCount(map);	
+		if(loginMember != null) {
+			
+			map.put("memberNo", loginMember.getMemberNo());
+			likeYesOrNo = service.selectLike(map);
+			likeCount= service.selectLikeCount(map);	
+			
+		} else {
 		
+			likeCount= service.selectLikeCount(map);
+			
+		}
+				
 		mapForLike.put("likeYesOrNo", likeYesOrNo);
 		mapForLike.put("likeCount", likeCount);
 		
 		return mapForLike;
+		
 	}
 	
 

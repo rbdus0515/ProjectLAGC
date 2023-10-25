@@ -27,9 +27,6 @@ function getWeather(){
         const icon = data.weather[0].icon;
         const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
-        console.log(icon);
-        console.log(iconURL);
-
         weatherIcon.setAttribute('src', iconURL);
     });
 

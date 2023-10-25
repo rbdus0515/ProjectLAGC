@@ -55,4 +55,16 @@ public interface MemberService {
 	 */
 	int selectId(String memberId);
 
+	/** 좋아요 지우기
+	 * @param map
+	 * @return
+	 */
+	int deleteLike(Map<String, Object> map);
+
+	/** 좋아요 추가
+	 * @param map
+	 * @return
+	 */
+	int insertLike(Map<String, Object> map);
+
 }

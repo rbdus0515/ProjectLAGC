@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.notice.model.dto.Notice;
@@ -94,14 +95,14 @@ public class NoticeController {
 		
 		String path = "notice/";
 		
-		if(result > 0) {
-			// System.out.println("공지사항 수정 성공");
+		/* if(result > 0) {
+			System.out.println("공지사항 수정 성공");
 			
 			
 		} else {
-			// System.out.println("공지사항 수정 실패");
+			System.out.println("공지사항 수정 실패");
 			
-		}
+		} */
 		
 		path += "noticeDetail";
 		

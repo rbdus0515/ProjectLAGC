@@ -131,6 +131,7 @@ public class ContentController {
 		return path;
 	}
 
+	// 컨텐츠 추가
 	@PostMapping("/adminEditPopUp")
 	public String insertContent(Content inputContent,
 								Model model,
@@ -138,7 +139,7 @@ public class ContentController {
 								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
 								HttpSession session
 								) throws Exception, IOException {
-	
+		
 		String webPath = "/resources/img/content/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		

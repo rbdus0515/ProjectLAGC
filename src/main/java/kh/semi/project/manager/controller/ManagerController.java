@@ -62,6 +62,12 @@ public class ManagerController {
 		return list;
 	}
 	
+	/** 문의 답변 제출
+	 * @param answerArea
+	 * @param qnaNo
+	 * @param ra
+	 * @return
+	 */
 	@GetMapping("/insert")
 	public String insert(String answerArea, int qnaNo, RedirectAttributes ra) {
 		
@@ -86,7 +92,12 @@ public class ManagerController {
 		return path;
 	}
 	
-	
+	/** 문의 답변 수정
+	 * @param answerArea
+	 * @param qnaNo
+	 * @param ra
+	 * @return
+	 */
 	@GetMapping("/update")
 	public String update(String answerArea, int qnaNo, RedirectAttributes ra) {
 		

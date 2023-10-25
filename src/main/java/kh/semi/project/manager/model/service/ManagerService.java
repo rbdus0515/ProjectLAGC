@@ -18,7 +18,6 @@ public interface ManagerService {
 	 */
 	List<QNA> selectQNA();
 
-
 	/** QNA 목록 조회 서비스(답변 완료)
 	 * @return
 	 */

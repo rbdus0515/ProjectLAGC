@@ -32,7 +32,6 @@ public class ManagerDAO {
 		return sqlSession.selectList("managerMapper.selectQNA");
 	}
 
-
 	/** QNA 목록 조회 DAO(답변 완료)
 	 * @return
 	 */

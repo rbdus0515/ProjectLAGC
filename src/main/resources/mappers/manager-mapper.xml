@@ -35,7 +35,6 @@
 		WHERE ANSWER_FL = 'N'
 	</select>
 
-
 	<select id="selectQNADone" resultMap="QNA_rm">
 		SELECT QNA_NO, QNA_TITLE,
 		QNA_CONTENT, ANSWER, ANSWER_FL, MEMBER_NO, EMAIL, NICKNAME, PHONE

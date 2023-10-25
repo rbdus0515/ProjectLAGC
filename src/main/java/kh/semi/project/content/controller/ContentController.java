@@ -1,7 +1,9 @@
 package kh.semi.project.content.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,14 +14,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.content.model.dto.Content;
 import kh.semi.project.content.model.service.ContentService;
+import kh.semi.project.member.model.dto.Member;
 
 @Controller
 @RequestMapping("/content")
+@SessionAttributes({"/loginMember"})
 public class ContentController {
 	
 	@Autowired
@@ -178,7 +185,27 @@ public class ContentController {
 		return path;
 	}
 	
-
-
+	/** 좋아요 처리
+	 * @return
+	 */
+	@GetMapping("/like")
+	@ResponseBody
+	public Map<String, Object> like(int contentNo, @SessionAttribute(value="loginMember", required = false) Member loginMember ) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> mapForLike = new HashMap<String, Object>();
+		
+		map.put("contentNo", contentNo);
+		map.put("memberNo", loginMember.getMemberNo());
+		
+		int likeYesOrNo = service.selectLike(map);
+		int likeCount = service.selectLikeCount(map);	
+		
+		mapForLike.put("likeYesOrNo", likeYesOrNo);
+		mapForLike.put("likeCount", likeCount);
+		
+		return mapForLike;
+	}
+	
 
 }

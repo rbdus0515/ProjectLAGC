@@ -22,13 +22,13 @@
             <section>
                 <div id="local-hr-box">
                     <select id="localSelect">
-                        <option value="seoul">서울</option>
-                        <option value="gyungiIncheon">경기 인천</option>
-                        <option value="gangwon">강원도</option>
-                        <option value="jeolla">전라도</option>
-                        <option value="gyeongsang">경상도</option>
-                        <option value="chungcheong">충청도</option>
-                        <option value="jeju">제주도</option>
+                        <option value="seo">서울</option>
+                        <option value="gyeinc">경기/인천</option>
+                        <option value="gan">강원도</option>
+                        <option value="jeo">전라도</option>
+                        <option value="gye">경상도</option>
+                        <option value="chu">충청도</option>
+                        <option value="jej">제주도</option>
                     </select>
                 </div>
             </section>
@@ -82,7 +82,7 @@
                         <div id="com-myComment-imgBox">
                         	<c:choose>
                         		<c:when test="${not empty loginMember.profileImg}">
-                        			
+                        			<img src="${loginMember.profileImg}">
                         		</c:when>
                         		<c:otherwise>
                         			<img class="myProfileImage" src="/resources/img/common/main/프로필아이콘.png">
@@ -93,8 +93,16 @@
     
                     <section>
                         <section id="com-input-sec">
-                            <input id="inputCommentTitle" name="inputCommentTitle" placeholder="제목을 입력해 주세요.">
-                            <textarea id="inputComment" placeholder="내용을 입력해주세요."></textarea>
+                        	<c:choose>
+                        		<c:when test="${not empty loginMember}">
+                        			<input id="inputCommentTitle" name="inputCommentTitle" placeholder="제목을 입력해 주세요.">
+                            		<textarea id="inputComment" placeholder="내용을 입력해주세요."></textarea>
+                        		</c:when>
+                        		<c:otherwise>
+                        			<input id="inputCommentTitle" name="inputCommentTitle" readonly="readonly">
+                            		<textarea id="inputComment" placeholder="로그인을 해주세요." readonly="readonly"></textarea>
+                        		</c:otherwise>
+                        	</c:choose>
                         </section>
     
                         <section id="com-upload-sec">

@@ -183,7 +183,11 @@
 
 #likeCount{
   font-size: 0.8rem;
-  margin-left: 16rem;
+  margin-left: 17.5rem;
+}
+#count{
+  font-size: 0.8rem;
+
 }
 
 /* -------------------- 하트 이미지 css ------------------------------------*/
@@ -203,6 +207,7 @@
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  z-index: 21;
 }
 
 .heart-container .svg-container {

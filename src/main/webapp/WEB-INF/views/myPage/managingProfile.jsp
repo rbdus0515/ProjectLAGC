@@ -116,6 +116,7 @@
                     <button class="btn" type="submit">수정</button>
                     <a class="btn" href="/member/updatePw">비밀번호 변경</a>
                     <a class="btn" href="/member/delete">회원 탈퇴</a>
+                    <a class="btn" href="/myPage/myPages">돌아가기</a>
                 </section>
 
             </div>

@@ -1,5 +1,7 @@
 package kh.semi.project.member.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -73,6 +75,24 @@ public class MemberDAO {
 	public int selectId(String memberId) {
 		
 		return sqlSession.selectOne("ajaxMapper.selectId", memberId);
+	}
+
+	/** 좋아요 지우기
+	 * @param map
+	 * @return
+	 */
+	public int deleteLike(Map<String, Object> map) {
+
+		return sqlSession.delete("memberMapper.deleteLike", map);
+	}
+
+	/** 좋아요 추가
+	 * @param map
+	 * @return
+	 */
+	public int insertLike(Map<String, Object> map) {
+
+		return sqlSession.insert("memberMapper.insertLike", map);
 	}
 
 }

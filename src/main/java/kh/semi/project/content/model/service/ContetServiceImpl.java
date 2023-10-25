@@ -3,6 +3,7 @@ package kh.semi.project.content.model.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,35 @@ public class ContetServiceImpl implements ContentService{
 		}
 		
 		return result;
+	}
+
+	
+	/** 메인화면에서 보여줄 컨텐츠 전체 조회
+	 * 
+	 */
+	@Override
+	public List<Content> selectAll() {
+
+		return dao.selectAll();
+	}
+
+	
+	/** 좋아요 여부 조회
+	 *
+	 */
+	@Override
+	public int selectLike(Map<String, Object> map) {
+
+		return dao.selectLike(map);
+	}
+
+	/** 좋아요 개수 조회
+	 *
+	 */
+	@Override
+	public int selectLikeCount(Map<String, Object> map) {
+
+		return dao.selectLikeCount(map);
 	}
 
 	

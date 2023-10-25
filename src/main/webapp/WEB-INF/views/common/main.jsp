@@ -110,6 +110,17 @@
 	</section>
 	<section class="region-place">
 		<div class="region-empty"></div>
+		
+		<c:forEach var="i" items="${list}" end="3">
+			<div id="testContent">
+				<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+				<p>${i.travelName}</p>
+				<input type="hidden" id="contentNo" value="${i.contentNo}">
+			</div>
+		
+		</c:forEach>
+		<div class="region-empty"></div>
+		<%-- 
 		<div id="testContent">
 			<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
 			<p>여의도 한강공원</p>
@@ -127,6 +138,7 @@
 			<p>올림픽공원</p>
 		</div>
 		<div class="region-empty"></div>
+		--%>
 	</section>
 
 	<!-- 경기 / 인천 -->

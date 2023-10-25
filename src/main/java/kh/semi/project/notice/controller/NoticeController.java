@@ -94,14 +94,14 @@ public class NoticeController {
 		
 		String path = "notice/";
 		
-		if(result > 0) {
-			// System.out.println("공지사항 수정 성공");
+		/* if(result > 0) {
+			System.out.println("공지사항 수정 성공");
 			
 			
 		} else {
-			// System.out.println("공지사항 수정 실패");
+			System.out.println("공지사항 수정 실패");
 			
-		}
+		} */
 		
 		path += "noticeDetail";
 		

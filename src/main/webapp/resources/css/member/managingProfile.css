@@ -43,6 +43,10 @@ body{
     border: #e6e6e6 1px solid;
 
     margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-wrapper > img {
@@ -54,7 +58,7 @@ label {
     font-size: 1em;
 }
 
-#chooseFile {
+#imageInput {
     visibility: hidden;
 }
 

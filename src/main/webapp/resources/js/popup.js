@@ -9,6 +9,7 @@ const likeCount = document.getElementById("likeCount");
 const travelName = document.getElementById("travelName")
 const webSite = document.getElementById("webSite")
 const travelImg = document.getElementById("travelImg")
+const explain = document.getElementById("explain")
 
 let temp = 0;
 let temp2 = 0;
@@ -37,6 +38,8 @@ for(var i = 0 ; i < content.length ; i++){
 
         likeCount.innerHTML += data.likeCount;
         temp = likeCount.innerText;
+        explain.innerHTML = data.PLACE_INFO;
+
   
         if (data.likeYesOrNo == -1) { 
           console.log("좋아요 처리 실패");

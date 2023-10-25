@@ -184,7 +184,26 @@ footer {
     display: flex;
     justify-content: center;
     margin: 10px;
+    border-radius: 50%;
 }
+
+.imgWrapperManager{
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: #e6e6e6 1px solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapperManager > img {
+    height: 100%;
+    width: 100%;
+}
+
 
 /* 프로필 관리 버튼 */
 .profile-button{
@@ -759,10 +778,6 @@ footer {
 
 .imgWrapperManager{
     margin-bottom: 10px;
-}
-
-.profileImgManager img {
-    width: 7rem;
 }
 
 .managingProfileBtn {

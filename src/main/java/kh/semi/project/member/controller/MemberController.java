@@ -171,13 +171,20 @@ public class MemberController {
 							   Member inputMember,	 // 수정할 정보 
 							   RedirectAttributes ra,
 							   Model model,
-							   @RequestHeader(value = "referer") String referer
-			) {
+							   @RequestHeader(value = "referer") String referer,
+							   @RequestParam(value="profileImage", required = false) MultipartFile profileImage,
+							   HttpSession session
+			)  throws IllegalStateException, IOException {
 		
 		String path = "redirect:";
 		String msg = null;
 		
 		inputMember.setMemberNo( loginMember.getMemberNo() );
+		
+		
+		String webPath = "/resources/img/member/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+
 		
 		int pwCheck = service.selectPw(inputMember);
 		
@@ -191,23 +198,28 @@ public class MemberController {
 			
 		}
 		
-		int result =  service.updateMember(inputMember);
+		int result =  service.updateMember(inputMember, webPath, filePath, profileImage);
 		
 		if(result > 0 ) {
 			
 			msg = "회원 정보 수정이 완료되었습니다.";
 			path += "/";
 			
-			model.addAttribute("loginMember", inputMember);
-			ra.addFlashAttribute("msg", msg);
+			loginMember.setMemberProfileImage(inputMember.getMemberProfileImage());
+			loginMember.setMemberId(inputMember.getMemberId());
+			loginMember.setMemberName(inputMember.getMemberName());
+			loginMember.setMemberEmail(inputMember.getMemberEmail());
+			loginMember.setMemberPhone(inputMember.getMemberPhone());
+			loginMember.setMemberNickname(inputMember.getMemberNickname());
+			
 			
 		} else {
 			
 			msg = "프로필 수정이 완료되지 않았습니다.";
 			path += referer;
-			ra.addFlashAttribute("msg", msg);
 		}
 		
+		ra.addFlashAttribute("msg", msg);
 		return path;
 	}
 	

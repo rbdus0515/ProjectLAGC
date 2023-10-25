@@ -63,7 +63,8 @@
 		MEMBER_NM = #{memberName}, 
 		EMAIL = #{memberEmail}, 
 		PHONE = #{memberPhone}, 
-		NICKNAME = #{memberNickname} 
+		NICKNAME = #{memberNickname},
+		PROFILE_IMG = #{memberProfileImage}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 

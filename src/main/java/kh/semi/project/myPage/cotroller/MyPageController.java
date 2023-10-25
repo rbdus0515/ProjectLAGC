@@ -27,12 +27,14 @@ public class MyPageController {
 	@GetMapping("/myPages")
 	public String MyPagePage(@SessionAttribute("loginMember") Member loginMember, Model model) {
 		
+		System.out.println(loginMember);
+		
 		if(loginMember.getMemberManagerFlag().equals("Y")) {
 			
 			int QNACount = managerService.QNACount();
 			
 			model.addAttribute("QNACount", QNACount);
-		}
+		} 
 		
 		return "myPage/myPage";
 		

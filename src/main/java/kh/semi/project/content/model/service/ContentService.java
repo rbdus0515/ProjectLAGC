@@ -35,6 +35,10 @@ public interface ContentService {
 	 */
 	int selectLike(Map<String, Object> map);
 
+	/** 좋아요 수 조회
+	 * @param map
+	 * @return
+	 */
 	int selectLikeCount(Map<String, Object> map);
 
 }

@@ -85,5 +85,18 @@
 		MEMBER_PW = #{memberPw}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	<delete id="deleteLike">
+		DELETE FROM "LIKE"
+		WHERE MEMBER_NO = #{memberNo}
+		AND CONTENT_NO = #{contentNo}	
+	</delete>
+
+	<insert id="insertLike">
+		INSERT INTO "LIKE"
+		VALUES(#{contentNo}, #{memberNo})
+	</insert>
+
+	
 
 </mapper>

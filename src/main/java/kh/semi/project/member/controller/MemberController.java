@@ -24,6 +24,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kh.semi.project.content.model.service.ContentService;
 import kh.semi.project.member.model.dto.Member;
 import kh.semi.project.member.model.service.MemberService;
 import oracle.jdbc.proxy.annotation.Post;
@@ -35,6 +36,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -329,4 +333,36 @@ public class MemberController {
 		return path;
 	}
 
+	/** 좋아요 저장
+	 * @return
+	 */
+	@GetMapping("/like")
+	@ResponseBody
+	public int like(int contentNo, @SessionAttribute(value="loginMember", required=false) Member loginMember) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("contentNo", contentNo);
+		map.put("memberNo", loginMember.getMemberNo());
+		
+		int likeCheck = contentService.selectLike(map);
+		int result = 0;
+		
+		if(likeCheck > 0) {
+			
+			result = service.deleteLike(map);
+			
+			if(result > 0) {
+				
+				result = 0;
+				
+			} 
+			
+		} else {
+			
+			result = service.insertLike(map);
+		}
+		
+		return result;
+	}
 }

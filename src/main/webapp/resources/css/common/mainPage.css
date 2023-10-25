@@ -231,8 +231,17 @@ img {
 .region-place {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    overflow: hidden;
+}
+
+.contentContainer{
+    display: flex;
+    flex-basis: 60%;
+    overflow: hidden;
+}
+
+.content{
+    margin: 0 20px;
 }
 
 .region-empty {

@@ -108,38 +108,28 @@
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=seo"><button class="region-btn">서울</button></a>
 	</section>
+
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		
-		<c:forEach var="i" items="${list}" end="3">
-			<div id="testContent">
-				<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
-				<p>${i.travelName}</p>
-				<input type="hidden" id="contentNo" value="${i.contentNo}">
-			</div>
-		
-		</c:forEach>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="seo" items="${seoList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${seo.travelName}</p>
+						<input type="hidden" class="contentNo" value="${seo.contentNo}">
+					</div>
+					
+			</c:forEach>
+		</div>
+
 		<div class="region-empty"></div>
-		<%-- 
-		<div id="testContent">
-			<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
-			<p>여의도 한강공원</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 2.png">
-			<p>남산타워</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 3.png">
-			<p>서울식물원</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 4.png">
-			<p>올림픽공원</p>
-		</div>
-		<div class="region-empty"></div>
-		--%>
+	
 	</section>
+	
 
 	<!-- 경기 / 인천 -->
 	<section class="region-place-btn">
@@ -147,24 +137,24 @@
 		<a href="/content/detail?area=gyeinc"><button class="region-btn">경기 / 인천</button></a>
 	</section>
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경기 인천 추천 콘텐츠 1.png">
-			<p>애버랜드</p>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="gyeinc" items="${gyeincList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${gyeinc.travelName}</p>
+						<input type="hidden" class="contentNo" value="${gyeinc.contentNo}">
+					</div>
+					
+			</c:forEach>
 		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경기 인천 추천 콘텐츠 2.png">
-			<p>캐리비안 베이</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경기 인천 추천 콘텐츠 3.png">
-			<p>한국민속촌</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경기 인천 추천 콘텐츠 4.png">
-			<p>광명 동굴</p>
-		</div>
+
 		<div class="region-empty"></div>
+	
 	</section>
 
 	<!-- 강원 -->
@@ -172,25 +162,26 @@
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=gan"><button class="region-btn">강원</button></a>
 	</section>
+
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/강원 추천 콘텐츠 1.png">
-			<p>정동진 모래시계공원</p>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="gan" items="${ganList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${gan.travelName}</p>
+						<input type="hidden" class="contentNo" value="${gan.contentNo}">
+					</div>
+					
+			</c:forEach>
 		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/강원 추천 콘텐츠 2.png">
-			<p>설악산</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/강원 추천 콘텐츠 3.png">
-			<p>대관령 하늘목장</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/강원 추천 콘텐츠 4.png">
-			<p>영금정</p>
-		</div>
+
 		<div class="region-empty"></div>
+	
 	</section>
 
 	<!-- 충청 -->
@@ -198,25 +189,27 @@
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=chu"><button class="region-btn">충청</button></a>
 	</section>
+
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/충청 추천 콘텐츠 1.png">
-			<p>탑평리</p>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="chu" items="${chuList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${chu.travelName}</p>
+						<input type="hidden" class="contentNo" value="${chu.contentNo}">
+					</div>
+				
+			</c:forEach>
+
 		</div>
-		<div>
-			<img class="place-move-motion"  src="/resources/img/common/main/충청 추천 콘텐츠 2.png">
-			<p>대청호</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/충청 추천 콘텐츠 3.png">
-			<p>청남대</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/충청 추천 콘텐츠 4.png">
-			<p>만리포 해수욕장</p>
-		</div>
+
 		<div class="region-empty"></div>
+	
 	</section>
 
 	<!-- 전라 -->
@@ -224,51 +217,51 @@
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=jeo"><button class="region-btn">전라</button></a>
 	</section>
-	<section class="region-place">
-		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/전라 추천 콘텐츠 1.png">
-			<p>여수 해상케이블카</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/전라 추천 콘텐츠 2.png">
-			<p>오동도</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/전라 추천 콘텐츠 3.png">
-			<p>여수 아쿠아플라넷</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/전라 추천 콘텐츠 4.png">
-			<p>섬진강 기차마을</p>
-		</div>
-		<div class="region-empty"></div>
-	</section>
 
+	<section class="region-place">
+
+		<div class="region-empty"></div>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="jeo" items="${jeoList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${jeo.travelName}</p>
+						<input type="hidden" class="contentNo" value="${jeo.contentNo}">
+					</div>
+					
+			</c:forEach>
+		</div>
+
+		<div class="region-empty"></div>
+	
+	</section>
 	<!-- 경상 -->
 	<section class="region-place-btn">
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=gye"><button class="region-btn">경상</button></a>
 	</section>
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경상 추천 콘텐츠 1.png">
-			<p>해동용궁사</p>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="gye" items="${gyeList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${gye.travelName}</p>
+						<input type="hidden" class="contentNo" value="${gye.contentNo}">
+					</div>
+					
+			</c:forEach>
 		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경상 추천 콘텐츠 2.png">
-			<p>포항 스페이스 워크</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경상 추천 콘텐츠 3.png">
-			<p>감천 문화마을</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/경상 추천 콘텐츠 4.png">
-			<p>호미곶 해맞이광장</p>
-		</div>
+
 		<div class="region-empty"></div>
+	
 	</section>
 
 	<!-- 제주 -->
@@ -276,25 +269,26 @@
 		<div id="button-magin"></div>
 		<a href="/content/detail?area=jej"><button class="region-btn">제주</button></a>
 	</section>
+
 	<section class="region-place">
+
 		<div class="region-empty"></div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/제주 추천 콘텐츠 1.png">
-			<p>오설록 티뮤지엄</p>
+	
+		<div class="contentContainer">
+
+			<c:forEach var="jej" items="${jejList}" end="3">
+				
+					<div class="content">
+						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<p>${jej.travelName}</p>
+						<input type="hidden" class="contentNo" value="${jej.contentNo}">
+					</div>
+					
+			</c:forEach>
 		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/제주 추천 콘텐츠 2.png">
-			<p>동백포레스트</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/제주 추천 콘텐츠 3.png">
-			<p>협재 해수욕장</p>
-		</div>
-		<div>
-			<img class="place-move-motion" src="/resources/img/common/main/제주 추천 콘텐츠 4.png">
-			<p>만장굴</p>
-		</div>
+
 		<div class="region-empty"></div>
+	
 	</section>
 
 	<div style="height: 300px"></div>
@@ -306,6 +300,9 @@
 	<jsp:include page="/WEB-INF/views/content/popup.jsp" />
 
 	<script src="/resources/js/main.js"></script>
+	<script src="/resources/js/popup.js"></script>
+
+
 
 </body>
 </html>

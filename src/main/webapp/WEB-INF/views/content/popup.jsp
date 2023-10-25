@@ -28,12 +28,12 @@
 						<section class="photoSection">
 
 							<div class="popupTitle">
-								<p>충주 탑평리</p>
+								<p>탑평리</p>
 
 								<!-- 하트 이미지 ------------------------------------------------------------------------------------>
 
 									<div id="likeCount"></div>
-									
+									<div id="count">개</div>
 									<div class="heart-container" title="Like">
 										
 										<input type="checkbox" class="checkbox" id="checkbox">
@@ -70,8 +70,7 @@
 							</div>
 
 							<div class="popupFooter">
-								<a href="https://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=1fVzDKMbFpmQaiPCk012CXqgrFBbI2Rra1wIdrV1vvbvRkTyxvitlrkn7JhUGzk8.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1113300060000"
-									target="_blank"> 자세히 보기 </a> <a href="#"> 내 일정 추가 </a>
+								<a href="#"	target="_blank"> 자세히 보기 </a> <a href="#"> 내 일정 추가 </a>
 
 							</div>
 
@@ -128,7 +127,12 @@
 				</div>
 			</div>
 
-			<script src="/resources/js/popup.js"></script>
+			<script>
+
+				const memberNo = "${loginMember.memberNo}";
+
+			</script>
+
 		</body>
 
 		</html>

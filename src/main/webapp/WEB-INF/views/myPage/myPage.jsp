@@ -47,14 +47,26 @@
                             <section class="top-1">
                                 <div class="profile">
                                     <div class="profile-box">
+                                        
+                                            <a href="managingProfile">
                                         <div class="profile-1">
-                                            <a href="managingProfile"><img class="profile-image"
-                                                    src="/resources/img/myPage/프로필 사진.png">
+                                            
+                                            	<c:if test="${empty loginMember.memberProfileImage}">
+ 	                      							<img src="/resources/img/member/signUp/프로필아이콘.png" class = profile-image>
+						                    	</c:if>
+						                    	
+						                    	<c:if test="${not empty loginMember.memberProfileImage}">
+						 	                       <img src="${loginMember.memberProfileImage}" class = profile-image>
+						                    	</c:if>
+						                    	
                                                 <div class="profile-button">
                                                     <a href="managingProfile">프로필 관리</a>
                                                 </div>
-                                            </a>
                                         </div>
+                                                
+                                            </a>
+                                            
+                                            
 
                                         <div class="profile-2">
                                             <div class="profile-2-1">
@@ -235,7 +247,15 @@
 
                                 <div class="profileImgManager">
                                     <div class="imgWrapperManager">
-                                        <img src="/resources/img/myPage/프로필 사진(관리자).png" alt="">
+                                    
+                                  		<c:if test="${empty loginMember.memberProfileImage}">
+                     						<img src="/resources/img/member/signUp/프로필아이콘.png">
+			                    		</c:if>
+			                    	
+				                    	<c:if test="${not empty loginMember.memberProfileImage}">
+				 	                        <img src="${loginMember.memberProfileImage}">
+				                    	</c:if>
+				                    	
                                     </div>
 
                                     <a href="/myPage/managingProfile" class="managingProfileBtn">프로필 관리</a>

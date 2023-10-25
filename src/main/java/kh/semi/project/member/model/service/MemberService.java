@@ -27,12 +27,17 @@ public interface MemberService {
 
 	/** 회원 정보 수정 서비스
 	 * @param inputMember
+	 * @param filePath 
+	 * @param webPath 
+	 * @param profileImage 
 	 * @return
 	 */
-	int updateMember(Member inputMember);
+	int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage) throws IllegalStateException, IOException;
 
 	/** 비밀번호 조회 서비스
 	 * @param inputMember
+	 * @param filePath 
+	 * @param webPath 
 	 * @return
 	 */
 	int selectPw(Member inputMember);

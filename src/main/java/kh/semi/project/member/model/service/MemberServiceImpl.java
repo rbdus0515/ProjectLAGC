@@ -84,17 +84,52 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	/** 회원 정보 수정 서비스
+	 * @throws IOException 
+	 * @throws IllegalStateException 
 	 * 
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int updateMember(Member inputMember) {
+	public int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage) throws IllegalStateException, IOException {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
 		
 		inputMember.setMemberPw(encPw);
 		
-		return dao.updateMember(inputMember);
+		String temp = inputMember.getMemberProfileImage();
+		String rename = null;
+		
+		if(profileImage.getSize() > 0) {
+			
+			rename = Util.fileRename(profileImage.getOriginalFilename());
+			
+			inputMember.setMemberProfileImage(webPath + rename);
+			
+		} else {
+			
+			inputMember.setMemberProfileImage(null);
+			
+		}
+		
+		int result = dao.updateMember(inputMember);
+		
+		if(result > 0) {
+			
+			if(rename != null) {
+				
+				profileImage.transferTo(new File(filePath + rename));
+			}
+			
+		} else {
+			
+			inputMember.setMemberProfileImage(temp);
+			
+		}
+		
+		
+		
+		
+		return result;
 	
 	}
 

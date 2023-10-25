@@ -66,7 +66,7 @@
 							</div>
 
 							<div class="popupImg">
-								<img src="/resources/img/common/main/탑평리.jpg">
+								<img id="travelImg" src="/resources/img/common/main/탑평리.jpg">
 							</div>
 
 							<div class="popupFooter">
@@ -87,10 +87,7 @@
 								<p class="title">설명</p>
 
 								<div class="explain">
-									<p>
-										충청북도 충주시 중앙탑면 탑평리에 있는 통일 시대의 석탑. <br> 8세기에서 9세기 사이에 세워진 것으로
-										추정된다.
-									</p>
+									<p id="explain"></p>
 								</div>
 
 							</div>

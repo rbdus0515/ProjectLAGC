@@ -32,7 +32,7 @@
 <!-- 메인 ---------------------------------------------------------------------------------------->    
     <main class="mainContainer">
 
-        <form action="/member/info" method="post" id="updateFrm">
+        <form action="/member/info" method="post" id="updateFrm" enctype="multipart/form-data">
 
 
 <!--프로필 사진 ---------------------------------------------------------------------------------------->    
@@ -42,15 +42,25 @@
                 <div class="imgContainer">
 
                     <div class="img-wrapper">
-                        <img src="/resources/img/common/main/춘식.png">
+                    	
+                     	<c:if test="${empty loginMember.memberProfileImage}">
+ 	                       <img src="/resources/img/member/signUp/프로필아이콘.png" id="profileImage">
+                    	</c:if>
+                    	
+                    	<c:if test="${not empty loginMember.memberProfileImage}">
+ 	                       <img src="${loginMember.memberProfileImage}" id="profileImage">
+                    	</c:if>
+                    
                     </div>
 
                     <div class="btn">
-                        <label for="chooseFile">
+                        <label for="imageInput">
                             프로필 사진 변경
                         </label>
                     </div>
-                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*"  onchange="loadFile(this)">
+                    <input type="file" id="imageInput" name="profileImage" accept="image/*" >
+
+
 
                 </div>
 

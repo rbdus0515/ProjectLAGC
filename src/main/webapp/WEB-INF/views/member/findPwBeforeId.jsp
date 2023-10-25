@@ -47,7 +47,10 @@
 
 					<p>아이디</p>
 					<input type="text" name="memberId" id="memberId">
-					<button class="nextBtn">다음</button>
+					<section class="btnContainer">
+						<button class="btn">다음</button>
+						<a class="btn" href="/member/login">돌아가기</a>
+					</section>
 
 
 					<a href="/member/findId" id="findIdTag">아이디 찾기</a>

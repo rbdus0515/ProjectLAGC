@@ -83,8 +83,13 @@ hr{
     border: 0.1px solid #bebebe;
 }
 
-#submitBtn{
-    width: 10rem;
+.btnContainer{
+    display: flex;
+    justify-content: end;
+}
+
+.btn{
+    width: 9rem;
     background-color: #fff;
 
     border: none;
@@ -94,9 +99,15 @@ hr{
     cursor: pointer;
 
     align-self: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+    margin: 0 0.3rem;
+    text-align: center;
+
 }
 
-#submitBtn:hover{
+.btn:hover{
     background-color: #868686;
     color: #fff;
     transition-duration: 0.3s;

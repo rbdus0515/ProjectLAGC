@@ -88,8 +88,10 @@
                     </div>
                     
                 <hr>    
-                
-                <button id="submitBtn">아이디 찾기</button>
+                <section class="btnContainer">
+                    <button class="btn">아이디 찾기</button>
+                    <a class="btn" href="/member/login">돌아가기</a>
+                </section>
                 
             </section>
             

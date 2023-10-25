@@ -69,4 +69,13 @@ public class ContentDAO {
 		return sqlSession.selectOne("contentMapper.selectLikeCount", map);
 	}
 
+	/** 게시불 한개 조회
+	 * @param contentNo
+	 * @return
+	 */
+	public Map<String, Object> selcetOne(int contentNo) {
+		
+		return sqlSession.selectOne("contentMapper.selectOne", contentNo);
+	}
+
 }

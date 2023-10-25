@@ -6,6 +6,10 @@ const closeBtnPopup = document.getElementById('closeBtnPopup');
 const contentNo = document.getElementsByClassName("contentNo");
 const checkbox = document.getElementById("checkbox");
 const likeCount = document.getElementById("likeCount");
+const travelName = document.getElementById("travelName")
+const webSite = document.getElementById("webSite")
+const travelImg = document.getElementById("travelImg")
+
 let temp = 0;
 let temp2 = 0;
 
@@ -18,13 +22,19 @@ for(var i = 0 ; i < content.length ; i++){
     temp2 = tempNum;
 
     modalContainerPopup.classList.remove('hidden');
-  
+    
     likeCount.innerHTML = "";
   
     fetch("/content/like?contentNo=" + tempNum)
       .then(response => response.json()) 
       .then(data => {
         
+        console.log(data);
+        console.log(data.travelName);
+
+        travelName.innerText = data.TRAVEL_NAME;
+        webSite.setAttribute("href", data.PLACE_URL)
+
         likeCount.innerHTML += data.likeCount;
         temp = likeCount.innerText;
   

@@ -50,4 +50,10 @@ public interface ContentService {
 	 */
 	int selectLikeCount(Map<String, Object> map);
 
+	/** 게시물 한개 조회
+	 * @param contentNo
+	 * @return
+	 */
+	Map<String, Object> selectOne(int contentNo);
+
 }

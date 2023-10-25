@@ -97,6 +97,15 @@ public class ContetServiceImpl implements ContentService{
 		return dao.selectLikeCount(map);
 	}
 
+	/** 게시물 한개 조회
+	 *
+	 */
+	@Override
+	public Map<String, Object> selectOne(int contentNo) {
+
+		return dao.selcetOne(contentNo);
+	}
+
 	
 }
 

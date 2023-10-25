@@ -62,6 +62,10 @@
   margin: 10px 0;
 }
 
+#travelName{
+  width: 14rem;
+}
+
 
 .popupFooter {
   width: 80%;
@@ -183,7 +187,7 @@
 
 #likeCount{
   font-size: 0.8rem;
-  margin-left: 17.5rem;
+  margin-left: 9em;
 }
 #count{
   font-size: 0.8rem;

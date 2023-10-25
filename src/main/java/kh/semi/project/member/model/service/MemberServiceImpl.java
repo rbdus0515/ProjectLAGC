@@ -48,8 +48,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	// 회원가입 서비스
-	@Transactional
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int signUp(Member inputMember, MultipartFile profileImage, String webPath, String filePath) throws Exception, IOException {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
@@ -87,6 +87,7 @@ public class MemberServiceImpl implements MemberService{
 	 * 
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updateMember(Member inputMember) {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
@@ -120,6 +121,7 @@ public class MemberServiceImpl implements MemberService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteMember(Member loginMember) {
 
 		
@@ -143,6 +145,7 @@ public class MemberServiceImpl implements MemberService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updatePw(Map<String, String> map, Member loginMember) {
 		
 		loginMember.setMemberPw(map.get("memberPw"));
@@ -178,10 +181,10 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectId(memberId);
 	}
 
-	
 	/** 좋아요 지우기
 	 *
 	 */
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int deleteLike(Map<String, Object> map) {
 
@@ -192,6 +195,7 @@ public class MemberServiceImpl implements MemberService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insertLike(Map<String, Object> map) {
 
 		return dao.insertLike(map);

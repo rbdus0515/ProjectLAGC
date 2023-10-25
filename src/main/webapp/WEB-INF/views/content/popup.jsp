@@ -28,7 +28,7 @@
 						<section class="photoSection">
 
 							<div class="popupTitle">
-								<p>탑평리</p>
+								<p id="travelName"></p>
 
 								<!-- 하트 이미지 ------------------------------------------------------------------------------------>
 
@@ -70,7 +70,7 @@
 							</div>
 
 							<div class="popupFooter">
-								<a href="#"	target="_blank"> 자세히 보기 </a> <a href="#"> 내 일정 추가 </a>
+								<a id="webSite" target="_blank"> 자세히 보기 </a> <a href="#"> 내 일정 추가 </a>
 
 							</div>
 
@@ -99,13 +99,13 @@
 								<p class="title">후기</p>
 
 								<div class="comment">
-									<p>후기 1</p>
+									<p></p>
 								</div>
 								<div class="comment">
-									<p>후기 2</p>
+									<p></p>
 								</div>
 								<div class="comment">
-									<p>후기 3</p>
+									<p></p>
 								</div>
 
 								<form action="">

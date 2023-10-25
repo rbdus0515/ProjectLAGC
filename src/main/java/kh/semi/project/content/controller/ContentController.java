@@ -193,29 +193,32 @@ public class ContentController {
 	@ResponseBody
 	public Map<String, Object> like(int contentNo, @SessionAttribute(value="loginMember", required = false) Member loginMember ) {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> mapForLike = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		int likeYesOrNo  = 0;
 		int likeCount = 0;
 		
-		map.put("contentNo", contentNo);
+		mapForLike.put("contentNo", contentNo);
 		
 		if(loginMember != null) {
 			
-			map.put("memberNo", loginMember.getMemberNo());
-			likeYesOrNo = service.selectLike(map);
-			likeCount= service.selectLikeCount(map);	
+			mapForLike.put("memberNo", loginMember.getMemberNo());
+			likeYesOrNo = service.selectLike(mapForLike);
+			likeCount= service.selectLikeCount(mapForLike);	
 			
 		} else {
 		
-			likeCount= service.selectLikeCount(map);
+			likeCount= service.selectLikeCount(mapForLike);
 			
 		}
 				
-		mapForLike.put("likeYesOrNo", likeYesOrNo);
-		mapForLike.put("likeCount", likeCount);
+		map = service.selectOne(contentNo);
 		
-		return mapForLike;
+		map.put("likeYesOrNo", likeYesOrNo);
+		map.put("likeCount", likeCount);
+		
+		
+		return map;
 		
 	}
 	

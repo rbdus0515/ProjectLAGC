@@ -28,26 +28,27 @@ button {
     margin: 0;
     width: 100%;
     height: 100%;
-}
-
-/* left-side와 맵 컨테이너 설정 */
-.map-api {
     display: flex;
-    
 }
 
 
 /* 여행지와 여행 계획 크기 설정 */
 .left-side {
-    width: 100%;
+	width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+.right-side {
+    width: 30%;
+    height: 100%;
+}
+
+
 .search-conteiner {
     width: 100%;
-    height: 20%;
+    height: 100px;
     display: flex;
 }
 
@@ -56,15 +57,14 @@ button {
     display: flex;
     justify-content:baseline;
     align-items: center;
-    width: 10%;
-    height: 20%;
+    width: 20%;
 }
 
 .search-box {
     display: flex;
     justify-content: center;
-    width: 50%;
-    height: 20%;
+    align-items: center;
+    width: 80%;
 }
 
 /* 로고 크기 설정 */
@@ -96,28 +96,35 @@ button {
     
 }
 
-.loca-plan {
-    display: flex;
-
-
-}
 
 /* 여행지 크기 설정 */
 .location {
-    width: 50%;
-    height: 80%;
+    width: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
+}
+
+.destinations {
+    width: 100%;
+    height: 500px;
+    overflow-x: hidden;
+    display: none;
+}
+
+.empty-box {
+    width: 100%;
+    height: 100px;
 }
 
 /* 여행 계획 크기 설정 */
 .plan {
-    width: 50%;
+    width: 100%;
     height: 80%;
     display: flex;
     flex-direction: column;
+    visibility: show;
 }
-
 
 
 /* 지역 div + 출발지 설정 div + 선택한 여행지 div */
@@ -146,11 +153,18 @@ button {
 }
 
 /* 펼치기 버튼 설정 */
-.펼치기 {
+.expend {
     height: 100%;
     display: flex;
     align-items: center;
     font-size: 3rem;
+}
+
+.locaContents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
 }
 
 /* 여행 계획 제목 */
@@ -243,7 +257,7 @@ button {
 }
 
 /* 저장 버튼 크기, 색상 설정 */
-.저장 {
+.save {
     width: 64px;
     height: 43px;
     background-color: black;

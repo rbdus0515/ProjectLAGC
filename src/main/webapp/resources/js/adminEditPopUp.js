@@ -11,34 +11,33 @@ closeBtnPopup.addEventListener('click', () => {
 });
 
 // --------------------------------------------------------------
-// ÄÁÅÙÃ÷ ÀÌ¹ÌÁö °ü·Ã
+// ì»¨í…ì¸  ì´ë¯¸ì§€ ê´€ë ¨
 
-// ÄÁÅÙÃ÷ ÀÌ¹ÌÁö Ãß°¡/º¯°æ/»èÁ¦
-const uploadPlaceImg = document.getElementById("uploadPlaceImg"); // img ÅÂ±×
-const imageInput = document.getElementById("imageInput"); // input ÅÂ±×
-const deleteImage = document.getElementById("deleteImage"); // x¹öÆ°
+// ì»¨í…ì¸  ì´ë¯¸ì§€ ì¶”ê°€/ë³€ê²½/ì‚­ì œ
+const uploadPlaceImg = document.getElementById("uploadPlaceImg"); // img íƒœê·¸
+const imageInput = document.getElementById("imageInput"); // input íƒœê·¸
 
 
-let initCheck; // ÃÊ±â ÄÁÅÙÃ÷ ÀÌ¹ÌÁö »óÅÂ¸¦ ÀúÀåÇÏ´Â º¯¼ö
-                // false == ±âº» ÀÌ¹ÌÁö,  true == ÀÌÀü ¾÷·Îµå ÀÌ¹ÌÁö
+let initCheck; // ì´ˆê¸° ì»¨í…ì¸  ì´ë¯¸ì§€ ìƒíƒœë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+                // false == ê¸°ë³¸ ì´ë¯¸ì§€,  true == ì´ì „ ì—…ë¡œë“œ ì´ë¯¸ì§€
 
 let deleteCheck = -1; 
-// ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ »õ·Î ¾÷·Îµå µÇ°Å³ª »èÁ¦ µÇ¾úÀ½À» ³ªÅ¸³»´Â º¯¼ö
-// -1 == ÃÊ±â°ª ,  0 == ÄÁÅÙÃ÷ »èÁ¦(x¹öÆ°),  1 == »õ ÀÌ¹ÌÁö ¾÷·Îµå
+// ì»¨í…ì¸  ì´ë¯¸ì§€ê°€ ìƒˆë¡œ ì—…ë¡œë“œ ë˜ê±°ë‚˜ ì‚­ì œ ë˜ì—ˆìŒì„ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
+// -1 == ì´ˆê¸°ê°’,  1 == ìƒˆ ì´ë¯¸ì§€ ì—…ë¡œë“œ
 
 
-let originalImage; // ÃÊ±â ÄÁÅÙÃ÷ ÀÌ¹ÌÁö ÆÄÀÏ °æ·Î ÀúÀå
+let originalImage; // ì´ˆê¸° ì»¨í…ì¸  ì´ë¯¸ì§€ íŒŒì¼ ê²½ë¡œ ì €ì¥
 
-if(imageInput != null){ // È­¸é¿¡ imageInputÀÌ ÀÖÀ» °æ¿ì ( if ±»ÀÌ ¾ÈÇØµµ µÇ±ä ÇÔ ) 
+if(imageInput != null){ // í™”ë©´ì— imageInputì´ ìˆì„ ê²½ìš° ( if êµ³ì´ ì•ˆí•´ë„ ë˜ê¸´ í•¨ ) 
 
-    // ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ Ãâ·ÂµÇ´Â imgÅÂ±×ÀÇ src ¼Ó¼ºÀ» ÀúÀå
+    // ì»¨í…ì¸  ì´ë¯¸ì§€ê°€ ì¶œë ¥ë˜ëŠ” imgíƒœê·¸ì˜ src ì†ì„±ì„ ì €ì¥
     originalImage = uploadPlaceImg.getAttribute("src"); 
 
 
-    // È¸¿ø ÄÁÅÙÃ÷ È­¸é ÁøÀÔ ½Ã 
-    // ÇöÀç È¸¿øÀÇ ÄÁÅÙÃ÷ ÀÌ¹ÌÁö »óÅÂ¸¦ È®ÀÎ
-    if(uploadPlaceImg.getAttribute("src") == "/resources/img/common/main/ÇÁ·ÎÇÊ¾ÆÀÌÄÜ.png"){
-        // ±âº» ÀÌ¹ÌÁöÀÎ °æ¿ì
+    // íšŒì› ì»¨í…ì¸  í™”ë©´ ì§„ì… ì‹œ 
+    // í˜„ì¬ íšŒì›ì˜ ì»¨í…ì¸  ì´ë¯¸ì§€ ìƒíƒœë¥¼ í™•ì¸
+    if(uploadPlaceImg.getAttribute("src") == "/resources/img/common/main/ë‹«ê¸°ë²„íŠ¼.png"){
+        // ê¸°ë³¸ ì´ë¯¸ì§€ì¸ ê²½ìš°
         initCheck = false;
     }else{
         initCheck = true;
@@ -47,65 +46,54 @@ if(imageInput != null){ // È­¸é¿¡ imageInputÀÌ ÀÖÀ» °æ¿ì ( if ±»ÀÌ ¾ÈÇØµµ µÇ±ä Ç
 
 
 
-    // change ÀÌº¥Æ® : °ªÀÌ º¯ÇßÀ» ¶§
-    // - input type="file", "checkbox", "radio" ¿¡¼­ ¸¹ÀÌ »ç¿ë
-    // - text/number Çü½Ä »ç¿ë °¡´É
-    //   -> ÀÌ ¶§ input°ª ÀÔ·Â ÈÄ Æ÷Ä¿½º¸¦ ÀÒ¾úÀ» ¶§ 
-    //      ÀÌÀü °ª°ú ´Ù¸£¸é change ÀÌº¥Æ® ¹ß»ı
+    // change ì´ë²¤íŠ¸ : ê°’ì´ ë³€í–ˆì„ ë•Œ
+    // - input type="file", "checkbox", "radio" ì—ì„œ ë§ì´ ì‚¬ìš©
+    // - text/number í˜•ì‹ ì‚¬ìš© ê°€ëŠ¥
+    //   -> ì´ ë•Œ inputê°’ ì…ë ¥ í›„ í¬ì»¤ìŠ¤ë¥¼ ìƒì—ˆì„ ë•Œ 
+    //      ì´ì „ ê°’ê³¼ ë‹¤ë¥´ë©´ change ì´ë²¤íŠ¸ ë°œìƒ
 
     imageInput.addEventListener("change", e => {
 
-        // 2MB·Î ÃÖ´ë Å©±â Á¦ÇÑ 
-        const maxSize = 1 * 1024 * 1024 * 2; // ÆÄÀÏ ÃÖ´ë Å©±â ÁöÁ¤(¹ÙÀÌÆ® ´ÜÀ§)
+        // 2MBë¡œ ìµœëŒ€ í¬ê¸° ì œí•œ 
+        const maxSize = 1 * 1024 * 1024 * 2; // íŒŒì¼ ìµœëŒ€ í¬ê¸° ì§€ì •(ë°”ì´íŠ¸ ë‹¨ìœ„)
 
         console.log(e.target); // input
-        console.log(e.target.value); // ¾÷·ÎµåµÈ ÆÄÀÏ °æ·Î
-        console.log(e.target.files); // ¾÷·ÎµåµÈ ÆÄÀÏÀÇ Á¤º¸°¡ ´ã±ä ¹è¿­
+        console.log(e.target.value); // ì—…ë¡œë“œëœ íŒŒì¼ ê²½ë¡œ
+        console.log(e.target.files); // ì—…ë¡œë“œëœ íŒŒì¼ì˜ ì •ë³´ê°€ ë‹´ê¸´ ë°°ì—´
 
-        const file = e.target.files[0]; // ¾÷·ÎµåÇÑ ÆÄÀÏÀÇ Á¤º¸°¡ ´ã±ä °´Ã¼
+        const file = e.target.files[0]; // ì—…ë¡œë“œí•œ íŒŒì¼ì˜ ì •ë³´ê°€ ë‹´ê¸´ ê°ì²´
 
 
-        // ÆÄÀÏÀ» ÇÑ¹ø ¼±ÅÃÇÑ ÈÄ Ãë¼ÒÇßÀ» ¶§ ( fileÀÌ undefined°¡ µÈ´Ù ) 
-        if(file == undefined){ 
-            console.log("ÆÄÀÏ ¼±ÅÃÀÌ Ãë¼ÒµÊ");
-            deleteCheck = -1; // Ãë¼Ò == ÆÄÀÏ ¾øÀ½ == ÃÊ±â»óÅÂ
-
-            // Ãë¼Ò ½Ã ±âÁ¸ ÄÁÅÙÃ÷ ÀÌ¹ÌÁö·Î º¯°æ ( ±âÁ¸ ÀÌ¹ÌÁö¿¡¼­ º¯°æµÇ´Â°Ô ¾ø°Ô ÇÏ°Ú´Ù´Â°ÅÁÒ ) 
-            uploadPlaceImg.setAttribute("src", originalImage);
-
-            return;
-        }
-
-        if( file.size > maxSize){ // ¼±ÅÃµÈ ÆÄÀÏÀÇ Å©±â°¡ ÃÖ´ë Å©±â¸¦ ÃÊ°úÇÑ °æ¿ì
-            alert("2MB ÀÌÇÏÀÇ ÀÌ¹ÌÁö¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.");
+        if( file.size > maxSize){ // ì„ íƒëœ íŒŒì¼ì˜ í¬ê¸°ê°€ ìµœëŒ€ í¬ê¸°ë¥¼ ì´ˆê³¼í•œ ê²½ìš°
+            alert("2MB ì´í•˜ì˜ ì´ë¯¸ì§€ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");
             imageInput.value = ""; 
-            // input type="file" ÅÂ±×¿¡ ´ëÀÔÇÒ ¼ö ÀÖ´Â value´Â "" (ºóÄ­) »ÓÀÌ´Ù!
-            deleteCheck = -1; // Ãë¼Ò == ÆÄÀÏ ¾øÀ½ == ÃÊ±â»óÅÂ
+            // input type="file" íƒœê·¸ì— ëŒ€ì…í•  ìˆ˜ ìˆëŠ” valueëŠ” "" (ë¹ˆì¹¸) ë¿ì´ë‹¤!
+            deleteCheck = -1; // ì·¨ì†Œ == íŒŒì¼ ì—†ìŒ == ì´ˆê¸°ìƒíƒœ
 
-            // ±âÁ¸ ÄÁÅÙÃ÷ ÀÌ¹ÌÁö·Î º¯°æ
+            // ê¸°ì¡´ ì»¨í…ì¸  ì´ë¯¸ì§€ë¡œ ë³€ê²½
             uploadPlaceImg.setAttribute("src", originalImage);
 
             return;
         }
 
 	
-        // JS¿¡¼­ ÆÄÀÏÀ» ÀĞ´Â °´Ã¼
-        // - ÆÄÀÏÀ» ÀĞ°í Å¬¶óÀÌ¾ğÆ® ÄÄÇ»ÅÍ¿¡ ÆÄÀÏÀ» ÀúÀåÇÒ ¼ö ÀÖÀ½ 
+        // JSì—ì„œ íŒŒì¼ì„ ì½ëŠ” ê°ì²´
+        // - íŒŒì¼ì„ ì½ê³  í´ë¼ì´ì–¸íŠ¸ ì»´í“¨í„°ì— íŒŒì¼ì„ ì €ì¥í•  ìˆ˜ ìˆìŒ 
         const reader = new FileReader();
 
         reader.readAsDataURL(file);
-        // ¸Å°³º¯¼ö¿¡ ÀÛ¼ºµÈ ÆÄÀÏÀ» ÀĞ¾î¼­ ÀúÀå ÈÄ
-        // ÆÄÀÏÀ» ³ªÅ¸³»´Â URLÀ» result ¼Ó¼ºÀ¸·Î ¾ò¾î¿Ã ¼ö ÀÖ°Ô ÇÔ.
+        // ë§¤ê°œë³€ìˆ˜ì— ì‘ì„±ëœ íŒŒì¼ì„ ì½ì–´ì„œ ì €ì¥ í›„
+        // íŒŒì¼ì„ ë‚˜íƒ€ë‚´ëŠ” URLì„ result ì†ì„±ìœ¼ë¡œ ì–»ì–´ì˜¬ ìˆ˜ ìˆê²Œ í•¨.
 
-        // ´Ù ÀĞ¾úÀ» ¶§
+        // ë‹¤ ì½ì—ˆì„ ë•Œ
         reader.onload = e => {
             //console.log(e.target);
-            console.log(e.target.result); // ÀĞÀº ÆÄÀÏÀÇ URL 
-            /* °³¹ßÀÚµµ±¸¿¡¼­ ApplicationÅÇ¿¡¼­ Frames > top > images ¾È¿¡¼­ È®ÀÎ°¡´É */
+            console.log(e.target.result); // ì½ì€ íŒŒì¼ì˜ URL 
+            /* ê°œë°œìë„êµ¬ì—ì„œ Applicationíƒ­ì—ì„œ Frames > top > images ì•ˆì—ì„œ í™•ì¸ê°€ëŠ¥ */
 
             const url = e.target.result;
 
-            // ÄÁÅÙÃ÷ÀÌ¹ÌÁö(img) ÅÂ±×¿¡ src ¼Ó¼ºÀ¸·Î Ãß°¡
+            // ì»¨í…ì¸ ì´ë¯¸ì§€(img) íƒœê·¸ì— src ì†ì„±ìœ¼ë¡œ ì¶”ê°€
             uploadPlaceImg.setAttribute("src", url);
 
             deleteCheck = 1;
@@ -113,46 +101,5 @@ if(imageInput != null){ // È­¸é¿¡ imageInputÀÌ ÀÖÀ» °æ¿ì ( if ±»ÀÌ ¾ÈÇØµµ µÇ±ä Ç
     });
 
 
-    // x¹öÆ° Å¬¸¯ ½Ã
-    deleteImage.addEventListener('click', () => {
-        imageInput.value = ""; // input type="file"ÀÇ value »èÁ¦
-
-        uploadPlaceImg.setAttribute("src", "/resources/img/common/main/ÇÁ·ÎÇÊ¾ÆÀÌÄÜ.png");
-        // ÄÁÅÙÃ÷ ÀÌ¹ÌÁö¸¦ ±âº» ÀÌ¹ÌÁö·Î º¯°æ
-
-        deleteCheck = 0;
-    });
-
-
-    // #profileFrmÀÌ Á¦Ãâ µÇ¾úÀ» ¶§
-    document.getElementById("profileFrm").addEventListener("submit", e => {
-
-        // initCheck
-        // ÃÊ±â ÄÁÅÙÃ÷ ÀÌ¹ÌÁö »óÅÂ¸¦ ÀúÀåÇÏ´Â º¯¼ö
-        // false == ±âº» ÀÌ¹ÌÁö,  true == ÀÌÀü ¾÷·Îµå ÀÌ¹ÌÁö
-
-        // deleteCheck
-        // ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ »õ·Î ¾÷·Îµå µÇ°Å³ª »èÁ¦ µÇ¾úÀ½À» ³ªÅ¸³»´Â º¯¼ö
-        // -1 == ÃÊ±â°ª ,  0 == ÄÁÅÙÃ÷ »èÁ¦(x¹öÆ°),  1 == »õ ÀÌ¹ÌÁö ¾÷·Îµå
-
-        let flag = true; // Á¦ÃâÇÏ¸é ¾ÈµÇ´Â °æ¿ìÀÇ ÃÊ±â°ª ÇÃ·¡±× true·Î ÁöÁ¤
-
-        // ÀÌÀü ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ ¾øÀ¸¸é¼­, »õ ÀÌ¹ÌÁö ¾÷·Îµå¸¦ Çß´Ù -> Ã³À½À¸·Î ÀÌ¹ÌÁö Ãß°¡
-        if(!initCheck && deleteCheck == 1)  flag = false;
-
-        // ÀÌÀü ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ ÀÖÀ¸¸é¼­, »õ ÀÌ¹ÌÁö ¾÷·Îµå¸¦ Çß´Ù -> »õ ÀÌ¹ÌÁö·Î º¯°æ
-        if(initCheck && deleteCheck == 1)   flag = false;
-        
-        // ÀÌÀü ÄÁÅÙÃ÷ ÀÌ¹ÌÁö°¡ ÀÖÀ¸¸é¼­, ÄÁÅÙÃ÷ »èÁ¦ ¹öÆ°À» ´­·¶´Ù -> »èÁ¦
-        if(initCheck && deleteCheck == 0)   flag = false;
-
-        
-        if(flag){ // flag == true -> Á¦ÃâÇÏ¸é ¾ÈµÇ´Â °æ¿ì
-            e.preventDefault(); // form ±âº» ÀÌº¥Æ® Á¦°Å
-            alert("ÀÌ¹ÌÁö º¯°æ ÈÄ Å¬¸¯ÇÏ¼¼¿ä");
-        }
-
-	    return true;
-    });
 
 }

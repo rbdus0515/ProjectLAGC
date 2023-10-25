@@ -24,7 +24,7 @@ button {
     margin-left: 7px;
 }
 /* -------------------------------- */
-/* ë‹«ê¸° ë²„íŠ¼ */
+/* ´Ý±â ¹öÆ° */
 #close-container {
     width: 800px;
     height: 30px;
@@ -49,7 +49,7 @@ button {
 }
 
 /* --------------------------------------------------------------- */
-/* ìž¥ì†Œëª…, ì¹´í…Œê³ ë¦¬, ì§€ì—­, ì´ë¯¸ì§€ íŒŒì¼ ì„ íƒ */
+/* Àå¼Ò¸í, Ä«Å×°í¸®, Áö¿ª, ÀÌ¹ÌÁö ÆÄÀÏ ¼±ÅÃ */
 .container {
     width: 800px;
     height: 500px;
@@ -104,7 +104,7 @@ label:hover {
 }
 
 /* ------------------------------------------- */
-/* ìœ„ë„, ê²½ë„ */
+/* À§µµ, °æµµ */
 #placeZY {
     width: 100%;
     flex-basis: 7%;
@@ -127,7 +127,7 @@ label:hover {
 }
 
 /* ------------------------------------------ */
-/* ì—¬í–‰ì§€ ì´ë¯¸ì§€ */
+/* ¿©ÇàÁö ÀÌ¹ÌÁö */
 
 #place-img {
     display: flex;
@@ -139,7 +139,7 @@ label:hover {
 }
 
 /* --------------------------------------------- */
-/* ë§í¬, ì—…ë¡œë“œ */
+/* ¸µÅ©, ¾÷·Îµå */
 #info-url-upload-btn {
     width: 100%;
     flex-basis: 9%;
@@ -170,7 +170,7 @@ label:hover {
     border: none;
 }
 /* -------------------------------- */
-/* ì„¤ëª…, í›„ê¸° */
+/* ¼³¸í, ÈÄ±â */
 #div2 {
     display: flex;
     flex-direction: column;
@@ -206,11 +206,31 @@ label:hover {
     border-radius: 10px;
 }
 
-#review-controll p {
+#review-controll-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+#review-controll-section p {
     background-color: #e6e6e6;
     width: 90%;
     border-radius: 10px;
 }
+
+#deleteBtn {
+    background-color: transparent;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#deleteBtn > img{
+    width: 1rem;
+}
+
+/* ----------------------------------------- */
 
 #modalContainerPopup {
 	width: 100%;

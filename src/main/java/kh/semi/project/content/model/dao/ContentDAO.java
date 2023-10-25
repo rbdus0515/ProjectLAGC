@@ -43,6 +43,7 @@ public class ContentDAO {
 		return sqlSession.insert("contentMapper.insertContent", inputContent);
 	}
 
+	
 	/** 메인화면에 뿌려줄 전체 컨텐츠 조회
 	 * @return
 	 */
@@ -68,5 +69,7 @@ public class ContentDAO {
 
 		return sqlSession.selectOne("contentMapper.selectLikeCount", map);
 	}
+
+	
 
 }

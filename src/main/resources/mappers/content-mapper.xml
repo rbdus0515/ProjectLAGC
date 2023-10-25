@@ -31,9 +31,14 @@
 		<result property="themeCode" column="THEME_CODE" />
 		<result property="contentDelFl" column="CONTENT_DEL_FL" />
 		<result property="contentImg" column="CONTENT_IMG" />
+		<result property="placeInfo" column="PLACE_INFO" />
+		<result property="latitude" column="LATITUDE"/>
+		<result property="longitude" column="LONGITUDE"/>
+		
 		
 	</resultMap>
-
+	
+	
 	<!-- content 상세페이지 조회 -->
 	<select id="selectContentDetail" resultMap="content_rm">
 		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
@@ -52,8 +57,23 @@
 	</update>
 
 	<!-- 컨텐츠 추가 -->
-
-
+	<insert id="insertContent">
+		INSERT INTO "CONTENT"
+		VALUES(SEQ_CONTENT_NO.NEXTVAL,
+				#{areaCode} ,
+				#{travelName} ,
+				#{placeUrl} ,
+				#{ageCode} ,
+				#{seasonCode} ,
+				#{memberCode} ,
+				#{themeCode} ,
+				DEFAULT ,
+				#{contentImg},
+				#{placeInfo},
+				#{latitude},
+				#{longitude} )
+	</insert>
+	
 	<!-- 컨텐츠 전체조회 -->
 	<select id="selectAll" resultMap="content_rm">
 		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
@@ -77,7 +97,6 @@
 		FROM "LIKE"
 		WHERE CONTENT_NO = #{contentNo}
 	</select>
-
 
 
 

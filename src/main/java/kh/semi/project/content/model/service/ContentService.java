@@ -22,6 +22,15 @@ public interface ContentService {
 	 */
 	int contentDelete(Content content);
 
+	/** 컨텐츠 추가
+	 * @param inputContent
+	 * @param uploadPlaceImg
+	 * @param webPath
+	 * @param filePath
+	 * @return result
+	 * @throws Exception
+	 * @throws IOException
+	 */
 	int insertContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException ;
 
 	/** 메인화면에서 보여줄 콘텐츠 전체 조회

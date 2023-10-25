@@ -80,8 +80,8 @@
 		                        <!-- 수정/삭제 버튼-->
 		                        <button type="submit" id="upd-btn">수정</button>
 		                        <button type="button" id="del-btn" onclick="noticeDeleteConfirm(${notice.noticeNo})">삭제</button>
-		                        <a href="/notice/noticeList"><button type="button" id="list-btn">목록으로</button></a>
-	                        </c:if>
+		                    </c:if>
+		                    <a href="/notice/noticeList"><button type="button" id="list-btn">목록으로</button></a>
 	                    </div>
 	                </div>
                 </form>

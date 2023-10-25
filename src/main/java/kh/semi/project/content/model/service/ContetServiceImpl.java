@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import kh.semi.project.common.utility.Util;
@@ -34,8 +35,10 @@ public class ContetServiceImpl implements ContentService{
 	}
 
 	// 컨텐츠 추가
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insertContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException {
+		
 		
 		String temp = inputContent.getContentImg();
 		String rename = null;

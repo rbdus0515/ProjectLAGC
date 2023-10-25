@@ -21,5 +21,8 @@ public class Content {
 	private String themeCode;
 	private String contentDelFl;
 	private String contentImg;
+	private String placeInfo;
+	private String latitude;
+	private String longitude;
 	
 }

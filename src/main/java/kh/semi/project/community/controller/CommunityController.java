@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.semi.project.community.model.dto.Community;
 import kh.semi.project.community.model.service.CommunityService;
+import kh.semi.project.member.model.dto.Member;
 
 @Controller
 @RequestMapping("/community")
@@ -25,6 +27,7 @@ public class CommunityController {
 		
 		List<Community> list = service.selectCommunityList();
 		model.addAttribute("list", list);
+		
 		
 		
 		return "community/communityPage";

@@ -77,12 +77,11 @@
 }
 
 #community-peopleComment-container {
-	overflow: scroll;
+	overflow-y: scroll;
     width: 60%;
     height: 35rem;
     background-color: #D9D9D9;
     border-radius: 20px;
-    display: flex;
     flex-direction: column;
 }
 
@@ -202,8 +201,8 @@
     margin-left: 1.3rem;
 }
 
-#com-myComment-img {
-    width: 6rem;
+.myProfileImage {
+	width: 6rem;
     height: 6rem;
     border-radius: 50%;
 }

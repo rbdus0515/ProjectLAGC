@@ -148,14 +148,16 @@ main {
 }
 
 #noticeBox {
-    flex-basis: 20%;
+    flex-basis: 100%;
     width: 100%;
     display: flex;
+    align-items: centet;
+    justify-content: center;
     flex-direction: column;
 }
 
 #noticeBox-t {
-    flex-basis: 50%;
+    flex-basis: 10%;
     width: 100%;
     display: flex;
     border-bottom: 1px solid black;
@@ -170,26 +172,35 @@ main {
 }
 
 #noticeBox-t > div {
-    flex-basis: 70%;
+    flex-basis: 75%;
 }
 
 #noticeBtnSec {
-    flex-basis: 15%;
+    flex-basis: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #noticeBox-b {
-    flex-basis: 50%;
+    flex-basis: 10%;
     width: 100%;
     display: flex;
-    margin-top: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#noticeBox-b:hover {
+	background-color: #ADADAD;
+	color: white;
+	cursor: pointer;
 }
 
 #noticeBox-b > p:nth-of-type(1) {
     flex-basis: 50%;
     font-size: large;
+    margin-left: 1rem;
 }
 
 #noticeBox-b > div {
@@ -209,7 +220,6 @@ main {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    margin-left: 2rem;
 }
 
 #noticeBtnSec > a> button:hover {

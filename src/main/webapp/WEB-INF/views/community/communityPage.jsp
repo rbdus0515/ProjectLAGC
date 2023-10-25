@@ -35,8 +35,11 @@
             
             <section>
                 <div id="community-peopleComment-container">
-            	<c:forEach var="com" items="${list}" >        		
+            	
+            	<c:forEach var="com" items="${list}" >    
+            	    		
                     <section>
+                    
                         <div class="com-peopleImg-sec">
                         	<c:if test="${empty com.profileImg}">                     	
                             	<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png">
@@ -47,7 +50,7 @@
                             
                             <section class="com-peopleComment-top-sec">
                                 <div>
-                                    <a class="comPeopleTitle" id="test">
+                                    <a class="comPeopleTitle" id="test" href="/community/">
                                         ${com.communityTitle}
                                     </a>
                                 </div>
@@ -66,7 +69,9 @@
                         </section>
     
                     </section>
+                    
             	</c:forEach>
+            	
                 </div>
             </section>
     
@@ -75,7 +80,14 @@
     
                     <section>
                         <div id="com-myComment-imgBox">
-                            <img id="com-myComment-img" src="/semiProjectImage/좀비.jpg">
+                        	<c:choose>
+                        		<c:when test="${not empty loginMember.profileImg}">
+                        			
+                        		</c:when>
+                        		<c:otherwise>
+                        			<img class="myProfileImage" src="/resources/img/common/main/프로필아이콘.png">
+                        		</c:otherwise>
+                        	</c:choose>
                         </div>
                     </section>
     

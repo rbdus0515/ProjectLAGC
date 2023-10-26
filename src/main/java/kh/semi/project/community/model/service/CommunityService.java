@@ -11,4 +11,6 @@ public interface CommunityService {
 
 	List<Community> selectCommunityList();
 
+	List<Community> selectLocalList(String areaCode);
+
 }

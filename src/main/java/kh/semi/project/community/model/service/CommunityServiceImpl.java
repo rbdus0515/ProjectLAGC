@@ -23,6 +23,12 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectCommunityList();
 	}
 
+	@Override
+	public List<Community> selectLocalList(String areaCode) {
+		
+		return dao.selectLocalList(areaCode);
+	}
+
 	
 
 

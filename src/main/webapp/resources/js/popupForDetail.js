@@ -1,4 +1,4 @@
-const content = document.getElementsByClassName('content');
+const placeSec = document.getElementsByClassName('placeSec');
 
 const modalContainerPopup = document.getElementById('modalContainerPopup');
 const closeBtnPopup = document.getElementById('closeBtnPopup');
@@ -18,11 +18,11 @@ const comment3 = document.getElementById("comment3")
 let temp = 0;
 let temp2 = 0;
 
-for(var i = 0 ; i < content.length ; i++){
+for(var i = 0 ; i < placeSec.length ; i++){
   
   const tempNum = contentNo[i].value
 
-  content[i].addEventListener('click', () => {
+  placeSec[i].addEventListener('click', () => {
     
     temp2 = tempNum;
 
@@ -138,6 +138,8 @@ replyBtn.addEventListener("click", () => {
         } else{
           comment3.innerHTML = "작성된 후기가 없습니다."
         }
+
+        reply.value = "";
       })
 
 

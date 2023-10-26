@@ -44,6 +44,7 @@
 		                                <a href="/content/delete?contentNo=${img.contentNo}&areaCode=${img.areaCode}"><button type="button" class="xBtn" onclick="contentDeleteConfirm()">X</button></a>
 		                            </div>
 		                      	</c:if>
+		                      	<input type="hidden" class="contentNo" value="${img.contentNo}">
 	                        </div>
 	                    </div>
                     </c:forEach>
@@ -74,9 +75,19 @@
     
     <a href="#top"><img src="/resources/img/content/button/탑버튼.png" id="upBtn"></a>
     
-
+	<c:choose>
+    
+    	<c:when test="${loginMember.memberManagerFlag == 'Y'}">
     	<!-- 관리자 팝업 -->
-        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+		</c:when>
+
+		<c:otherwise>
+        	<jsp:include page="/WEB-INF/views/content/popupForDetail.jsp" />
+		</c:otherwise>
+
+	</c:choose>    
+    
 
     <script src="/resources/js/content.js"></script>
 

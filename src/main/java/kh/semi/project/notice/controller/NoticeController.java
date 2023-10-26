@@ -1,6 +1,6 @@
 package kh.semi.project.notice.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.notice.model.dto.Notice;
 import kh.semi.project.notice.model.service.NoticeService;
@@ -23,15 +22,15 @@ public class NoticeController {
 	
 	// noticeList 조회
 	@GetMapping("/noticeList")
-	public String selectNoticeList(Model model) {
+	public String selectNoticeList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp, Model model) {
 		
-		List<Notice> list = service.selectNoticeList();
+		Map<String, Object> map = service.selectNoticeList(cp);
 		
 		/* for(Notice nt : list) {
 			System.out.println(nt);
 		} */
 		
-		model.addAttribute("list", list);
+		model.addAttribute("map", map);
 		
 		return "notice/noticeList";
 	}
@@ -69,9 +68,9 @@ public class NoticeController {
 			// System.out.println("공지사항 추가 성공");
 			
 			// noticeList 조회
-			List<Notice> list = service.selectNoticeList();
+			Map<String, Object> map = service.selectNoticeList(1);
 			
-			model.addAttribute("list", list);
+			model.addAttribute("map", map);
 			
 			path += "noticeList";
 			
@@ -118,13 +117,13 @@ public class NoticeController {
 		if(result > 0) {
 			// System.out.println("공지사항 삭제 성공");
 			
-			List<Notice> list = service.selectNoticeList();
+			Map<String, Object> map = service.selectNoticeList(1);
 			
 			/* for(Notice nt : list) {
 				System.out.println(nt);
 			} */
 		
-			model.addAttribute("list", list);
+			model.addAttribute("map", map);
 			
 		} else {
 			// System.out.println("공지사항 삭제 실패");

@@ -168,7 +168,7 @@
                         <div>출발지 설정</div>
                         <button class="expend">-</button>
                     </div>
-                    <div class="locaContents">
+                    <div class="destinations">
                         <div class="수도권여행">수도권 여행</div>
 
                         <input class="출발지검색" >    
@@ -178,7 +178,8 @@
                         선택한 여행지
                         <button class="expend">-</button>
                     </div>
-                    <div class="locaContents">
+                    <div class="destinations"> 
+                         <div id="rightList" class="locaContents">
                         <div class="수도권여행">출발지 : 서울역</div>
 
                         <div class="선택한여행지">
@@ -203,11 +204,13 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+
 
                 </section>
             </section>
             
-            <div id="map" style="width:100%;height:100vh;">
+            <div id="map" style="width:70%;height:100vh;">
             	<div class="storage">
                     <img id="arrow" class="left-arrow" src="/resources/img/myPage/left-arrow.png">
                 </div>

@@ -27,15 +27,13 @@ hidden.addEventListener('click', () => {
       }
 });
 
-/* 출발지 div 펼치기 */
+/* 오른쪽 div 펼치기 */
 const expend = document.querySelectorAll(".expend");
 const destinations = document.querySelectorAll(".destinations");
 var newContent = "-";
 for (let i = 0; i < expend.length; i++) {
     expend[i].addEventListener('click', () => {
     
-        for(let i = 0; i < destinations.length; i++) {
-
             if(destinations[i].style.display == 'none') {
                 destinations[i].style.display = 'block';
                 expend.innerHTML = newContent;
@@ -45,6 +43,9 @@ for (let i = 0; i < expend.length; i++) {
             }
         }
 
-    })
+    )
 }
+
+
+
 

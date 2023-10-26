@@ -84,7 +84,7 @@ button {
 
 /* 검색창 크기 설정 */
 .search {
-    width: 300px;
+    width: 100%;
     height: 40px;
     border-radius: 50px;
     display: flex;
@@ -107,7 +107,7 @@ button {
 
 .destinations {
     width: 100%;
-    height: 500px;
+    height: 470px;
     overflow-x: hidden;
     display: none;
 }
@@ -152,6 +152,12 @@ button {
     box-shadow: 0px 1px ;
 }
 
+.plan > .destinations {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* 펼치기 버튼 설정 */
 .expend {
     height: 100%;
@@ -165,6 +171,10 @@ button {
     display: flex;
     flex-direction: column;
 
+}
+
+.plan > .destinations:last-child {
+    height: 613px;
 }
 
 /* 여행 계획 제목 */

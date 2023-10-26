@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import kh.semi.project.content.model.dto.Content;
+import kh.semi.project.content.model.dto.Reply;
 
 public interface ContentService {
 
@@ -38,7 +39,7 @@ public interface ContentService {
 	 */
 	List<Content> selectAll();
 
-	/** 좋아요 처리
+	/** 모달창 오픈시 정보 가져오기
 	 * @param map
 	 * @return
 	 */
@@ -55,5 +56,19 @@ public interface ContentService {
 	 * @return
 	 */
 	Map<String, Object> selectOne(int contentNo);
+
+	/** 후기 조회
+	 * @param contentNo
+	 * @return
+	 */
+	List<Reply> selectReply(int contentNo);
+
+	/** 후기 작성
+	 * @param contentNo
+	 * @param reply
+	 * @param memberNo
+	 * @return
+	 */
+	int insertReply(int contentNo, String reply, int memberNo);
 
 }

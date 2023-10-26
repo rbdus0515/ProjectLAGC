@@ -106,8 +106,20 @@
 		WHERE CONTENT_NO = #{contentNo}
 		AND CONTENT_DEL_FL = 'N'
 	</select>
+	
+	<select id="selectReply" resultType="string">
+		SELECT REPLY_CONTENT
+		FROM REPLY
+		WHERE CONTENT_NO = #{contentNo}
+		AND REPLY_DEL_FL = 'N'
+		ORDER BY CREATE_DATE DESC
+	</select>
 
-
+	<insert id="insertReply">
+		INSERT INTO "REPLY"
+		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)
+	</insert>
+	
 
 </mapper>
 

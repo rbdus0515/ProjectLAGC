@@ -1,6 +1,7 @@
 package kh.semi.project.content.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.content.model.dto.Content;
+import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.content.model.service.ContentService;
 import kh.semi.project.member.model.dto.Member;
 
@@ -186,12 +188,15 @@ public class ContentController {
 		return path;
 	}
 	
-	/** 좋아요 처리
+	/** 모달창 오픈시 정보 가져오기
 	 * @return
 	 */
 	@GetMapping("/like")
 	@ResponseBody
-	public Map<String, Object> like(int contentNo, @SessionAttribute(value="loginMember", required = false) Member loginMember ) {
+	public Map<String, Object> like(int contentNo, 
+									@SessionAttribute(value="loginMember", required=false) Member loginMember,
+									Model model
+									) {
 		
 		Map<String, Object> mapForLike = new HashMap<String, Object>();
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -218,9 +223,79 @@ public class ContentController {
 		map.put("likeCount", likeCount);
 		
 		
+		List<Reply> replyList = new ArrayList<Reply>();
+		
+		replyList = service.selectReply(contentNo);
+		
+		if(!replyList.isEmpty()) {
+			
+			for(int i = 0 ; i < replyList.size() ; i ++) {
+
+				map.put("reply" + i, replyList.get(i));
+				
+				}
+			
+				
+		} else {
+			
+			for(int i = 0 ; i < 3 ; i ++) {
+				
+				map.put("reply" + i, "작성된 후기가 없습니다.");
+			}
+		}
+		
+		
 		return map;
 		
 	}
 	
+	@GetMapping("/insert")
+	@ResponseBody
+	public Map<String, Object> insertReply(int contentNo,
+										   String reply, 
+										   @SessionAttribute("loginMember") Member loginMember,
+										   RedirectAttributes ra
+										   ) {
+		
+		int memberNo = loginMember.getMemberNo();
+		int result = service.insertReply(contentNo, reply, memberNo);
+		String msg = null;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(result > 0) {
+			
+			List<Reply> replyList = new ArrayList<Reply>();
+			
+			replyList = service.selectReply(contentNo);
+			
+			if(!replyList.isEmpty()) {
+				
+				for(int i = 0 ; i < replyList.size() ; i ++) {
 
+					map.put("reply" + i, replyList.get(i));
+					
+					}
+				
+					
+			} else {
+				
+				for(int i = 0 ; i < 3 ; i ++) {
+					
+					map.put("reply" + i, "작성된 후기가 없습니다.");
+				}
+			}
+			
+			msg = "후기 작성을 완료하였습니다.";
+			
+		} else {
+			
+			msg = "후기 작성에 실패하였습니다.";
+			
+		}
+	
+		ra.addFlashAttribute("msg", msg);
+		
+		return map;
+	}
 }

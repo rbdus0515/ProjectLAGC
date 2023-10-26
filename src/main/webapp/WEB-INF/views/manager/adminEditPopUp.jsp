@@ -23,7 +23,7 @@
 	            <div class="div1">
 	                <section id="title-category-place-imgFile">
 	                    <select name="ageCode">
-	                        <option selected>연령별</option>
+	                        <option value="">연령별</option>
 	                        <option value="20">20대</option>
 	                        <option value="30">30대</option>
 	                        <option value="40">40대</option>
@@ -31,7 +31,7 @@
 	                    </select>
 	                    
 	                    <select name="memberCode">
-	                        <option selected>구성원별</option>
+	                        <option value="">구성원별</option>
 	                        <option value="solo">개인</option>
 	                        <option value="friend">친구</option>
 	                        <option value="couple">연인</option>
@@ -39,7 +39,7 @@
 	                    </select>
 	                    
 	                    <select name="seasonCode">
-	                        <option selected>계절별</option>
+	                        <option value="">계절별</option>
 	                        <option value="spring">봄</option>
 	                        <option value="summer">여름</option>
 	                        <option value="autumn">가을</option>
@@ -47,7 +47,7 @@
 	                    </select>
 	                    
 	                    <select name="themeCode">
-	                        <option selected>테마별</option>
+	                        <option value="">테마별</option>
 	                        <option value="nature">자연</option>
 	                        <option value="downtown">도심</option>
 	                        <option value="tradition">전통</option>
@@ -95,7 +95,7 @@
 	                </section>
 	
 	                <section id="place-img">
-	                    <img id="uploadPlaceImg" src="/resources/img/common/main/닫기버튼.png">
+	                    <img id="uploadPlaceImg" src="${img.contentImg}">
 	                </section>
 	
 	                <section id="info-url-upload-btn">

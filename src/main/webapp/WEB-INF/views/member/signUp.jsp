@@ -96,7 +96,7 @@
                     <label for="imageInput">
                         프로필 이미지 업로드
                     </label>
-                    <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                    <input type="file" name=" " id="imageInput" accept="image/*">
                     <section id="profile-margin"></section>
                     <label><button id="deleteImage" type="button">이미지 삭제</button></label>
                 </section>

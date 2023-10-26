@@ -87,7 +87,12 @@
                         <div id="com-myComment-imgBox">
                         	<c:choose>
                         		<c:when test="${not empty loginMember.memberProfileImage}">
-                        			<img src="${loginMember.memberProfileImage}">
+                       			
+
+                              
+                        			<img class="myProfileImage" src="${loginMember.memberProfileImage}">
+
+
                         		</c:when>
                         		<c:otherwise>
                         			<img class="myProfileImage" src="/resources/img/common/main/프로필아이콘.png">

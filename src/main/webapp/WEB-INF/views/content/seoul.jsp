@@ -44,13 +44,15 @@
 		                                <button type="button" class="xBtn" onclick="contentDeleteConfirm(${img.contentNo}, '${img.areaCode}')">X</button>
 		                            </div>
 	                            </c:if>
+	                            <input type="hidden" class="contentNo" value="${img.contentNo}">
 	                        </div>
+	                        <input type="hidden" class="contentNo" value="${seo.contentNo}">
 	                    </div>
 					</c:forEach>
 	
 					<c:if test="${loginMember.memberManagerFlag == 'Y'}">
 	                    <!-- 네번째 네개 이미지(+) -->
-	                    <div id="testContent" class="placeSec">
+	                    <div class="placeSec">
 	                        <div class="blank"></div>
 	                        <div class="placeImg">
 	                            <button type="button" id="plusBtn">+</button>
@@ -74,10 +76,21 @@
     
     <a href="#top"><img src="/resources/img/content/button/탑버튼.png" id="upBtn"></a>
         
+	<c:choose>
+    
+    	<c:when test="${loginMember.memberManagerFlag == 'Y'}">
     	<!-- 관리자 팝업 -->
-        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+		</c:when>
+
+		<c:otherwise>
+        	<jsp:include page="/WEB-INF/views/content/popupForDetail.jsp" />
+		</c:otherwise>
+
+	</c:choose>    
         
     <script src="/resources/js/content.js"></script>
+    <script src="/resources/js/adminEditPopUp.js"></script>
   
 </body>
 </html>

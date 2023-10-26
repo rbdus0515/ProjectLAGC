@@ -42,7 +42,8 @@
 	<!-- content 상세페이지 조회 -->
 	<select id="selectContentDetail" resultMap="content_rm">
 		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
-				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG
+				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG,
+				PLACE_INFO, LATITUDE, LONGITUDE
 		FROM CONTENT
 		WHERE AREA_CODE = #{area}
 		AND CONTENT_DEL_FL = 'N'
@@ -106,8 +107,21 @@
 		WHERE CONTENT_NO = #{contentNo}
 		AND CONTENT_DEL_FL = 'N'
 	</select>
+	
+	<select id="selectReply" resultType="string">
+		SELECT REPLY_CONTENT
+		FROM REPLY
+		WHERE CONTENT_NO = #{contentNo}
+		AND REPLY_DEL_FL = 'N'
+		ORDER BY CREATE_DATE DESC
+	</select>
 
-
+	<!-- 후기 -->
+	<insert id="insertReply">
+		INSERT INTO "REPLY"
+		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)
+	</insert>
+	
 
 </mapper>
 

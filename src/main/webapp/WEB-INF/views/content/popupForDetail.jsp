@@ -129,7 +129,7 @@
 
 			</script>
 
-		<script src="/resources/js/popup.js"></script>
+		<script src="/resources/js/popupForDetail.js"></script>
 		</body>
 
 		</html>

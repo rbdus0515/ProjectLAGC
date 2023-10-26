@@ -1,10 +1,28 @@
-const testContent = document.getElementById('testContent');
+const placeSec = document.getElementsByClassName('placeSec');
+
 const modalContainerPopup = document.getElementById('modalContainerPopup');
 const closeBtnPopup = document.getElementById('closeBtnPopup');
 
-testContent.addEventListener('click', () => {
-  modalContainerPopup.classList.remove('hidden');
-});
+
+// 팝업창 관련
+let temp1 = 0;
+let temp2 = 0;
+
+for(var i = 0; i < placeSec.length; i ++) {
+    
+    const tempNum = placeSec[i].value;
+
+    placeSec[i].addEventListener('click', () => {
+
+        temp2 = tempNum;
+
+        modalContainerPopup.classList.remove('hidden');
+
+    });
+
+
+}
+
 
 closeBtnPopup.addEventListener('click', () => {
   modalContainerPopup.classList.add('hidden');

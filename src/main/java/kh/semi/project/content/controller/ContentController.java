@@ -1,6 +1,7 @@
 package kh.semi.project.content.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,15 +13,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.content.model.dto.Content;
+import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.content.model.service.ContentService;
 import kh.semi.project.member.model.dto.Member;
 
@@ -75,7 +79,7 @@ public class ContentController {
 		
 	}
 	
-	// 이미지 삭제
+	// 컨텐츠 삭제
 	@GetMapping("/delete")
 	public String contentDelete(Content content, Model model) {
 		
@@ -137,7 +141,8 @@ public class ContentController {
 								Model model,
 								RedirectAttributes ra,
 								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
-								HttpSession session
+								HttpSession session,
+								@RequestHeader("referer") String referer
 								) throws Exception, IOException {
 		
 		String webPath = "/resources/img/content/";
@@ -147,51 +152,30 @@ public class ContentController {
 		
 		String path = "redirect:";
 		String msg = null;
-		String area = null;
 		
 		if(result > 0) {
-			model.addAttribute("loginMember", inputContent);
-			path += "/";
+			path += referer;
 			msg = "업로드 성공!";
 		} else {
-			path += "/";
+			path += referer;
 			msg = "업로드 실패";
 		}
 		
-		if(area.equals("seo")) {
-			path += "seoul";
-			
-		} else if(area.equals("gyeinc")) {
-			path += "gyeonggiIncheon";
-			
-		} else if(area.equals("gan")) {
-			path += "gangwon";
-			
-		} else if(area.equals("chu")) {
-			path += "chungcheong";
-			
-		} else if(area.equals("jeo")) {
-			path += "jeolla";
-			
-		} else if(area.equals("gye")) {
-			path += "gyeongsang";
-			
-		} else if(area.equals("jej")) {
-			path += "jeju";
-			
-		}
 		
 		ra.addFlashAttribute("msg",msg);
 		
 		return path;
 	}
 	
-	/** 좋아요 처리
+	/** 모달창 오픈시 정보 가져오기
 	 * @return
 	 */
 	@GetMapping("/like")
 	@ResponseBody
-	public Map<String, Object> like(int contentNo, @SessionAttribute(value="loginMember", required = false) Member loginMember ) {
+	public Map<String, Object> like(int contentNo, 
+									@SessionAttribute(value="loginMember", required=false) Member loginMember,
+									Model model
+									) {
 		
 		Map<String, Object> mapForLike = new HashMap<String, Object>();
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -218,9 +202,79 @@ public class ContentController {
 		map.put("likeCount", likeCount);
 		
 		
+		List<Reply> replyList = new ArrayList<Reply>();
+		
+		replyList = service.selectReply(contentNo);
+		
+		if(!replyList.isEmpty()) {
+			
+			for(int i = 0 ; i < replyList.size() ; i ++) {
+
+				map.put("reply" + i, replyList.get(i));
+				
+				}
+			
+				
+		} else {
+			
+			for(int i = 0 ; i < 3 ; i ++) {
+				
+				map.put("reply" + i, "작성된 후기가 없습니다.");
+			}
+		}
+		
+		
 		return map;
 		
 	}
 	
+	@GetMapping("/insert")
+	@ResponseBody
+	public Map<String, Object> insertReply(int contentNo,
+										   String reply, 
+										   @SessionAttribute("loginMember") Member loginMember,
+										   RedirectAttributes ra
+										   ) {
+		
+		int memberNo = loginMember.getMemberNo();
+		int result = service.insertReply(contentNo, reply, memberNo);
+		String msg = null;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(result > 0) {
+			
+			List<Reply> replyList = new ArrayList<Reply>();
+			
+			replyList = service.selectReply(contentNo);
+			
+			if(!replyList.isEmpty()) {
+				
+				for(int i = 0 ; i < replyList.size() ; i ++) {
 
+					map.put("reply" + i, replyList.get(i));
+					
+					}
+				
+					
+			} else {
+				
+				for(int i = 0 ; i < 3 ; i ++) {
+					
+					map.put("reply" + i, "작성된 후기가 없습니다.");
+				}
+			}
+			
+			msg = "후기 작성을 완료하였습니다.";
+			
+		} else {
+			
+			msg = "후기 작성에 실패하였습니다.";
+			
+		}
+	
+		ra.addFlashAttribute("msg", msg);
+		
+		return map;
+	}
 }

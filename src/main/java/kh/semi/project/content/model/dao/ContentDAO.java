@@ -1,5 +1,6 @@
 package kh.semi.project.content.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.semi.project.content.model.dto.Content;
+import kh.semi.project.content.model.dto.Reply;
 
 @Repository
 public class ContentDAO {
@@ -52,7 +54,7 @@ public class ContentDAO {
 		return sqlSession.selectList("contentMapper.selectAll");
 	}
 
-	/** 좋아요 여부 조회
+	/** 모달창 오픈시 정보 가져오기
 	 * @param map
 	 * @return
 	 */
@@ -77,6 +79,32 @@ public class ContentDAO {
 	public Map<String, Object> selcetOne(int contentNo) {
 		
 		return sqlSession.selectOne("contentMapper.selectOne", contentNo);
+	}
+
+	/** 후기 조회
+	 * @param contentNo
+	 * @return
+	 */
+	public List<Reply> seletReply(int contentNo) {
+
+		return sqlSession.selectList("contentMapper.selectReply", contentNo);
+	}
+	
+	/** 후기 삽입
+	 * @param contentNo
+	 * @param reply
+	 * @param memberNo
+	 * @return
+	 */
+	public int insertReply(int contentNo, String reply, int memberNo) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("contentNo", contentNo);
+		map.put("reply", reply);
+		map.put("memberNo", memberNo);
+		
+		return sqlSession.insert("contentMapper.insertReply", map);
 	}
 	
 }

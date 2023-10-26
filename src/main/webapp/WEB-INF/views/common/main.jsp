@@ -118,7 +118,7 @@
 			<c:forEach var="seo" items="${seoList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${seo.contentImg}">
 						<p>${seo.travelName}</p>
 						<input type="hidden" class="contentNo" value="${seo.contentNo}">
 					</div>
@@ -145,7 +145,7 @@
 			<c:forEach var="gyeinc" items="${gyeincList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${gyeinc.contentImg}">
 						<p>${gyeinc.travelName}</p>
 						<input type="hidden" class="contentNo" value="${gyeinc.contentNo}">
 					</div>
@@ -172,7 +172,7 @@
 			<c:forEach var="gan" items="${ganList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${gan.contentImg}">
 						<p>${gan.travelName}</p>
 						<input type="hidden" class="contentNo" value="${gan.contentNo}">
 					</div>
@@ -199,7 +199,7 @@
 			<c:forEach var="chu" items="${chuList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${chu.contentImg}">
 						<p>${chu.travelName}</p>
 						<input type="hidden" class="contentNo" value="${chu.contentNo}">
 					</div>
@@ -227,7 +227,7 @@
 			<c:forEach var="jeo" items="${jeoList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${jeo.contentImg}">
 						<p>${jeo.travelName}</p>
 						<input type="hidden" class="contentNo" value="${jeo.contentNo}">
 					</div>
@@ -252,7 +252,7 @@
 			<c:forEach var="gye" items="${gyeList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${gye.contentImg}">
 						<p>${gye.travelName}</p>
 						<input type="hidden" class="contentNo" value="${gye.contentNo}">
 					</div>
@@ -279,7 +279,7 @@
 			<c:forEach var="jej" items="${jejList}" end="3">
 				
 					<div class="content">
-						<img class="place-move-motion" src="/resources/img/common/main/서울 추천 콘텐츠 1.png">
+						<img class="place-move-motion" src="${jej.contentImg}">
 						<p>${jej.travelName}</p>
 						<input type="hidden" class="contentNo" value="${jej.contentNo}">
 					</div>
@@ -302,6 +302,7 @@
 	<script src="/resources/js/main.js"></script>
 	<script src="/resources/js/popup.js"></script>
 
+	
 
 
 </body>

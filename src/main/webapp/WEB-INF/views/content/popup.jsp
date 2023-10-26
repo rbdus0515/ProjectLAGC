@@ -66,7 +66,7 @@
 							</div>
 
 							<div class="popupImg">
-								<img id="travelImg" src="/resources/img/common/main/탑평리.jpg">
+								<img id="travelImg">
 							</div>
 
 							<div class="popupFooter">
@@ -93,27 +93,26 @@
 							</div>
 
 							<div class="commentContainer">
+					
 								<p class="title">후기</p>
-
-								<div class="comment">
-									<p></p>
-								</div>
-								<div class="comment">
-									<p></p>
-								</div>
-								<div class="comment">
+									
+								<div class="comment" id="comment1">
 									<p></p>
 								</div>
 
-								<form action="">
+								<div class="comment" id="comment2">
+									<p></p>
+								</div>
 
-									<div class="textArea">
-										<textarea class="commentArea" id="" placeholder="글을 입력해주세요"
-											style="resize: none;"></textarea>
-										<button class="button" type="submit">올리기</button>
-									</div>
+								<div class="comment" id="comment3">
+									<p></p>
+								</div>
 
-								</form>
+								<div class="textArea">
+									<textarea class="commentArea" id="reply" placeholder="글을 입력해주세요"
+										style="resize: none;"></textarea>
+									<button class="button" id="replyBtn">올리기</button>
+								</div>
 
 							</div>
 

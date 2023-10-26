@@ -144,11 +144,12 @@
   margin: 5px 0;
   padding: 5px;
   border-radius: 10px;
+  font-size: 0.8rem;
+
+  overflow: hidden;
+
 }
 
-.comment > p {
-  font-size: 0.8rem;
-}
 
 .textArea {
   display: flex;

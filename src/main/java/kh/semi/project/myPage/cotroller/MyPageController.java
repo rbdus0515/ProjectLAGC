@@ -24,10 +24,13 @@ public class MyPageController {
 	@Autowired
 	private ManagerService managerService;
 	
+	/** 마이페이지 이동 컨트롤러
+	 * @param loginMember
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/myPages")
 	public String MyPagePage(@SessionAttribute("loginMember") Member loginMember, Model model) {
-		
-		System.out.println(loginMember);
 		
 		if(loginMember.getMemberManagerFlag().equals("Y")) {
 			
@@ -40,7 +43,7 @@ public class MyPageController {
 		
 	}
 	
-	/** 마이페이지 이동 컨트롤러
+	/** 프로필 수정 이동 컨트롤러
 	 * @return
 	 */
 	@GetMapping("/managingProfile")

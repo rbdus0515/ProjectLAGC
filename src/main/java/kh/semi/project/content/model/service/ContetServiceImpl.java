@@ -2,6 +2,7 @@ package kh.semi.project.content.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kh.semi.project.common.utility.Util;
 import kh.semi.project.content.model.dao.ContentDAO;
 import kh.semi.project.content.model.dto.Content;
+import kh.semi.project.content.model.dto.Reply;
 
 @Service
 public class ContetServiceImpl implements ContentService{
@@ -79,7 +81,7 @@ public class ContetServiceImpl implements ContentService{
 	}
 
 	
-	/** 좋아요 여부 조회
+	/** 모달창 오픈시 정보 가져오기
 	 *
 	 */
 	@Override
@@ -104,6 +106,27 @@ public class ContetServiceImpl implements ContentService{
 	public Map<String, Object> selectOne(int contentNo) {
 
 		return dao.selcetOne(contentNo);
+	}
+
+	
+	/** 후기 조회 서비스
+	 *
+	 */
+	@Override
+	public List<Reply> selectReply(int contentNo) {
+
+		return dao.seletReply(contentNo);
+	}
+
+	/** 후기 작성
+	 *
+	 */
+	@Override
+	public int insertReply(int contentNo, String reply, int memberNo) {
+
+		
+		
+		return dao.insertReply(contentNo, reply, memberNo);
 	}
 
 	

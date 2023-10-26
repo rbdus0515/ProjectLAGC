@@ -24,7 +24,7 @@ button {
     margin-left: 7px;
 }
 /* -------------------------------- */
-/* ´Ý±â ¹öÆ° */
+/* ï¿½Ý±ï¿½ ï¿½ï¿½Æ° */
 #close-container {
     width: 800px;
     height: 30px;
@@ -49,7 +49,7 @@ button {
 }
 
 /* --------------------------------------------------------------- */
-/* Àå¼Ò¸í, Ä«Å×°í¸®, Áö¿ª, ÀÌ¹ÌÁö ÆÄÀÏ ¼±ÅÃ */
+/* ï¿½ï¿½Ò¸ï¿½, Ä«ï¿½×°ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .container {
     width: 800px;
     height: 500px;
@@ -68,7 +68,7 @@ button {
     margin-top: 10px;
 }
 
-#input-place {
+#inputPlace {
     width: 120px;
     height: 25px;
     background-color: #a6a6a6;
@@ -104,7 +104,7 @@ label:hover {
 }
 
 /* ------------------------------------------- */
-/* À§µµ, °æµµ */
+/* ï¿½ï¿½ï¿½ï¿½, ï¿½æµµ */
 #placeZY {
     width: 100%;
     flex-basis: 7%;
@@ -127,7 +127,7 @@ label:hover {
 }
 
 /* ------------------------------------------ */
-/* ¿©ÇàÁö ÀÌ¹ÌÁö */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ */
 
 #place-img {
     display: flex;
@@ -139,7 +139,7 @@ label:hover {
 }
 
 /* --------------------------------------------- */
-/* ¸µÅ©, ¾÷·Îµå */
+/* ï¿½ï¿½Å©, ï¿½ï¿½ï¿½Îµï¿½ */
 #info-url-upload-btn {
     width: 100%;
     flex-basis: 9%;
@@ -153,7 +153,7 @@ label:hover {
     align-items: center;
 }
 
-#place-info-url {
+#placeInfoUrl {
     width: 250px;
     height: 25px;
     background-color: #a6a6a6;
@@ -170,7 +170,7 @@ label:hover {
     border: none;
 }
 /* -------------------------------- */
-/* ¼³¸í, ÈÄ±â */
+/* ï¿½ï¿½ï¿½ï¿½, ï¿½Ä±ï¿½ */
 #div2 {
     display: flex;
     flex-direction: column;
@@ -189,7 +189,7 @@ label:hover {
     border-radius: 10px;
 }
 
-#input-info {
+#inputInfo {
     display: flex;
     width: 95%;
     height: 85%;

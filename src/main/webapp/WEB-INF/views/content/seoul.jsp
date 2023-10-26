@@ -45,6 +45,7 @@
 		                            </div>
 	                            </c:if>
 	                        </div>
+	                        <input type="hidden" class="contentNo" value="${seo.contentNo}">
 	                    </div>
 					</c:forEach>
 	
@@ -78,6 +79,7 @@
         <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
         
     <script src="/resources/js/content.js"></script>
+    <script src="/resources/js/adminEditPopUp.js"></script>
   
 </body>
 </html>

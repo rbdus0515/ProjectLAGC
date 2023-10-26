@@ -3,6 +3,7 @@ const placeSec = document.getElementsByClassName('placeSec');
 const modalContainerPopup = document.getElementById('modalContainerPopup');
 const closeBtnPopup = document.getElementById('closeBtnPopup');
 
+
 // 팝업창 관련
 let temp1 = 0;
 let temp2 = 0;

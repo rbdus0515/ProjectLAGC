@@ -116,6 +116,7 @@
 		ORDER BY CREATE_DATE DESC
 	</select>
 
+	<!-- 후기 -->
 	<insert id="insertReply">
 		INSERT INTO "REPLY"
 		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)

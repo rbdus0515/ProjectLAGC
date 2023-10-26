@@ -1,15 +1,17 @@
 package kh.semi.project.notice.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kh.semi.project.notice.model.dto.Notice;
 
 public interface NoticeService {
 
 	/** noticeList 조회
-	 * @return List
+	 * @param cp
+	 * @return Map
 	 */
-	List<Notice> selectNoticeList();
+	Map<String, Object> selectNoticeList(int cp);
 
 	/** noticeDetail 조회
 	 * @param noticeNo

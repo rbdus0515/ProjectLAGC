@@ -64,6 +64,11 @@ body > section {
     padding-bottom: 40px;
 }
 
+/* 게시글 목록 조회 결과 비어있을 때 */
+#emptyNotice {
+	justify-content: center;
+}
+
 .m_cont {
 	cursor: pointer;
 }
@@ -114,33 +119,34 @@ body > section {
     background-color: darkgray;
 }
 
-/* 페이지 번호 영역 */
-#p_move {
+/* 페이지 영역 */
+.pagination{
+    list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 0;
 }
 
-/* 페이지 번호 */
-#num {
-    padding: 0px 100px;
-    font-size: 20px;
-}
-
-/* 페이지 넘김 버튼 */
-#left-btn, #right-btn {
+.pagination li{
+    width: 35px;
+    height: 35px;
+    margin: 0 20px;
+    text-align: center;
     font-size: 1.25rem;
-    border: none;
-    background-color: transparent;
-    color: gray;
 }
 
-#left-btn:hover {
-    cursor: pointer;
+.pagination a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-#right-btn:hover {
-    cursor: pointer;
+.current{
+    font-weight: bold;
+    background-color: #ddd;
+    border-radius: 50%;
+    color: black !important;
+    letter-spacing: 0 !important;
 }
 
 /* 반응형 모바일 기준 */

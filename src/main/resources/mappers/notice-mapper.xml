@@ -42,6 +42,12 @@
 		ORDER BY NOTICE_NO DESC
 	</select>
 	
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM NOTICE_BOARD
+		WHERE NOTICE_DEL_FL = 'N'
+	</select>
+	
 	<!-- noticeDetail 조회 -->
 	<select id="selectNoticeDetail" resultMap="notice_rm">
 		SELECT 

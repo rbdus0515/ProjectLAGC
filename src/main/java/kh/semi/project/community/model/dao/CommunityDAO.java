@@ -19,6 +19,11 @@ public class CommunityDAO {
 		
 		return sqlSession.selectList("communityMapper.selectCommunityList");
 	}
+
+	public List<Community> selectLocalList(String areaCode) {
+		
+		return sqlSession.selectList("communityMapper.selectLocalList", areaCode);
+	}
 	
 
 }

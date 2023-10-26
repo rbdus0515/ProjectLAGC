@@ -38,26 +38,31 @@
             	
             	<c:forEach var="com" items="${list}" >    
             	    		
-                    <section>
+                    <section class="repeatSection">
                     
                         <div class="com-peopleImg-sec">
-                        	<c:if test="${empty com.profileImg}">                     	
-                            	<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png">
-                        	</c:if>
+                        	<c:choose>
+                        		<c:when test="${empty com.profileImg}">
+                        			<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png">
+                        		</c:when>
+                        		<c:otherwise>
+                        			<img class="com-peopleImg" src="${com.profileImg}">
+                        		</c:otherwise>
+                        	</c:choose>
                         </div>
     
                         <section class="com-peopleComment-sec">           
                             
                             <section class="com-peopleComment-top-sec">
-                                <div>
+                                <div class="PCDiv1">
                                     <a class="comPeopleTitle" id="test" href="/community/">
                                         ${com.communityTitle}
                                     </a>
                                 </div>
-                                <div></div>
-                                <div>조회수 : ${com.readCount}</div>
-                                <div>작성인 : ${com.nickName}</div>
-                                <div>날짜 : ${com.createDt}</div>
+                                <div class="PCDiv2"></div>
+                                <div class="PCDiv3">조회수 : ${com.readCount}</div>
+                                <div class="PCDiv4">작성인 : ${com.nickName}</div>
+                                <div class="PCDiv5">날짜 : ${com.createDt}</div>
                             </section>
                             
                             <div class="com-peopleComment-bot-sec">
@@ -82,8 +87,11 @@
                         <div id="com-myComment-imgBox">
                         	<c:choose>
                         		<c:when test="${not empty loginMember.memberProfileImage}">
+                       			
+
                               
                         			<img class="myProfileImage" src="${loginMember.memberProfileImage}">
+
 
                         		</c:when>
                         		<c:otherwise>

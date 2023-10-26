@@ -47,7 +47,7 @@ public class ContetServiceImpl implements ContentService{
 			
 			rename = Util.fileRename(uploadPlaceImg.getOriginalFilename());
 		
-			inputContent.setContentImg(rename);
+			inputContent.setContentImg(webPath + rename);
 		
 		} else {
 			inputContent.setContentImg(null);

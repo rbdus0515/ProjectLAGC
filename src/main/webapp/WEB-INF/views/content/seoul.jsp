@@ -46,6 +46,7 @@
 	                            </c:if>
 	                            <input type="hidden" class="contentNo" value="${img.contentNo}">
 	                        </div>
+	                        <input type="hidden" class="contentNo" value="${seo.contentNo}">
 	                    </div>
 					</c:forEach>
 	
@@ -89,6 +90,7 @@
 	</c:choose>    
         
     <script src="/resources/js/content.js"></script>
+    <script src="/resources/js/adminEditPopUp.js"></script>
   
 </body>
 </html>

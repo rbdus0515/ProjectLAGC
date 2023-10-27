@@ -30,13 +30,13 @@ body > section {
 }
 
 #content {
-    flex-basis: 82%;
+    flex-basis: 85%;
     display: flex;
 }
 
 /* bottom(하단 공백 영역) */
 #bottom {
-    flex-basis: 8%;
+	flex-basis: 5%;
 }
 
 /* content:left(왼쪽 공백 영역), right(오른쪽 공백 영역) */
@@ -70,7 +70,7 @@ body > section {
 
 /* 공지사항 세부 내용 영역(위): 1,3번째 */
 #main-t1, #main-t3 {
-    flex-basis: 20%;
+    flex-basis: 10%;
     color: #ddd;
 }
 

@@ -95,6 +95,21 @@
 					</c:otherwise>
 					
 				</c:choose>
+				
+				<!-- 검색창 -->
+				<form action="#" method="GET" id="noticeSearch">
+					
+					<select name="key" id="searchKey">
+						<option value="t">제목</option>
+						<option value="c">내용</option>
+						<option value="tc">제목+내용</option>
+					</select>
+					
+					<input type="text" name="query" id="searchQuery" placeholder="검색어를 입력해주세요.">
+					
+					<button type="submit" id="search-btn">검색</button>
+					
+				</form>
 
             </div>
 

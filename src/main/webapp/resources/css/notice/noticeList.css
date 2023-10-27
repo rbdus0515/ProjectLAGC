@@ -91,6 +91,7 @@ body > section {
     font-size: 1.9rem;
     font-weight: bold;
     display: flex;
+    margin-bottom: 30px;
 }
 
 /* 공지사항 대제목 영역 */
@@ -147,6 +148,34 @@ body > section {
     border-radius: 50%;
     color: black !important;
     letter-spacing: 0 !important;
+}
+
+/* 검색창 */
+#noticeSearch {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+#searchQuery {
+	margin: 0px 10px;
+	width: 350px;
+	height: 35px;
+	padding-left: 10px;
+}
+
+#search-btn {
+	width: 80px;
+	height: 35px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	background-color: #ddd;
+}
+
+#search-btn:hover {
+	cursor: pointer;
+    background-color: darkgray;
 }
 
 /* 반응형 모바일 기준 */

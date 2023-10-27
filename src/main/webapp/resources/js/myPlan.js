@@ -62,7 +62,6 @@ for (let i = 0; i < cansle.length; i++) {
             rightList.appendChild(selectedDestination);
         } 
         
-        
     });
 }
 
@@ -71,7 +70,10 @@ for (let i = 0; i < cansle.length; i++) {
         const selectedRightList = rightList.querySelector(".선택한여행지");
  
         
-
+        if (selectedRightList) {
+            rightList.removeChild(selectedRightList);
+            divDes.appendChild(selectedRightList);
+        }
     });
 }
 

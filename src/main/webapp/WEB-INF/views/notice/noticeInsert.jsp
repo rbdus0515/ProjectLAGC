@@ -12,6 +12,8 @@
 </head>
 <body>
     <section>
+    	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+    
         <!-- top -->
         <div id="top"></div>
 
@@ -51,7 +53,11 @@
         </div>
 
         <!-- bottom -->
-        <div id="bottom"></div>
+        <div id="bottom">
+        	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+        </div>
     </section>
+    
+    <script src="/resources/js/notice.js"></script>
 </body>
 </html>

@@ -94,7 +94,8 @@
         <!-- bottom -->
        	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
        	
-       	<script src="/resources/js/notice.js"></script>
     </section>
+    
+    <script src="/resources/js/notice.js"></script>
 </body>
 </html>

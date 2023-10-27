@@ -222,7 +222,7 @@
     justify-content: center;
 }
 
-#inputCommentTitle {
+#inputComTitle {
     align-self: self-start;
     margin-left: 2rem;
     height: 2.2rem;
@@ -233,7 +233,7 @@
     font-weight: bold;
 }
 
-#inputComment {
+#inputCom {
     width: 95%;
     height: 60%;
     font-size: 1.2rem;

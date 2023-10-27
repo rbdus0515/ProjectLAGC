@@ -24,6 +24,12 @@ public class CommunityDAO {
 		
 		return sqlSession.selectList("communityMapper.selectLocalList", areaCode);
 	}
-	
+
+	public int insertCom(Community inputCom) {
+		
+		return sqlSession.insert("communityMapper.insertCom", inputCom);
+	}
+
+
 
 }

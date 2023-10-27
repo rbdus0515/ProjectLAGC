@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +27,7 @@ public class CommunityController {
 	@Autowired
 	private CommunityService service;
 	
+	// 커뮤니티 페이지 이동
 	@GetMapping("/communityPage")
 	public String selectCommunityList(Model model) {
 		
@@ -36,6 +38,7 @@ public class CommunityController {
 		return "community/communityPage";
 	}
 	
+	// 지역 조회 ajax
 	@GetMapping("/selectLocal")
 	@ResponseBody
 	public List<Community> selectLocalList(String areaCode) {
@@ -45,8 +48,24 @@ public class CommunityController {
 		
 		list = service.selectLocalList(areaCode);
 		
+		System.out.println(list);
+		System.out.println(areaCode);
+		
 		
 		return list;
+	}
+	
+	// 커뮤니티 추가
+	@PostMapping("/insertCom")
+	public String insertCom(Community inputCom, @SessionAttribute("loginMember") Member loginMember) {
+		
+		inputCom.setMemberNo(loginMember.getMemberNo());
+		
+		
+		
+		int result = service.insertCom(inputCom);
+		
+		return "community/communityPage";
 	}
 
 }

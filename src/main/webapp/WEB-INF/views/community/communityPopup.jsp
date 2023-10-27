@@ -22,7 +22,7 @@
                 <section id="com-top-l-sec">
                     
                     <section>
-                        <img src="/semiProjectImage/귀여운 유령.jpg" id="com-cuteGhost">
+                        <img src="" id="com-cuteGhost">
                     </section>
     
                     <section>
@@ -69,7 +69,7 @@
                         <section class="pop-botBox-profileSec">
     
                             <section class="pop-botBox-profileSec-topSec">
-                                <img src="/semiProjectImage/가면 캐릭.jpg" class="pop-botBox-profileImges">
+                                <img src="" class="pop-botBox-profileImges">
                             </section>
     
                             <section class="pop-botBox-profileSec-botSec">
@@ -100,7 +100,7 @@
                         <section class="pop-botBox-profileSec">
     
                             <section class="pop-botBox-profileSec-topSec">
-                                <img src="/semiProjectImage/돌쇠.png" class="pop-botBox-profileImges">
+                                <img src="" class="pop-botBox-profileImges">
                             </section>
     
                             <section class="pop-botBox-profileSec-botSec">
@@ -131,7 +131,7 @@
                         <section class="pop-botBox-profileSec">
     
                             <section class="pop-botBox-profileSec-topSec">
-                                <img src="/semiProjectImage/로봇.jpg" class="pop-botBox-profileImges">
+                                <img src="" class="pop-botBox-profileImges">
                             </section>
     
                             <section class="pop-botBox-profileSec-botSec">
@@ -164,7 +164,7 @@
                         <form id="upload" name="upload">
                             
                             <section id="myComment-l-sec">
-                                <img src="/semiProjectImage/귀여운 유령.jpg" class="pop-botBox-profileImges">
+                                <img src="" class="pop-botBox-profileImges">
                             </section>
         
                             <section id="myComment-r-sec">

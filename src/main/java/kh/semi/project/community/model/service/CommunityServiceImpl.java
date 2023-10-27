@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import kh.semi.project.community.model.dao.CommunityDAO;
@@ -29,8 +30,16 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectLocalList(areaCode);
 	}
 
+	@Override
+	@Transactional
+	public int insertCom(Community inputCom) {
+		
+		return dao.insertCom(inputCom);
+	}
+
+	
 	
 
-
+	
 
 }

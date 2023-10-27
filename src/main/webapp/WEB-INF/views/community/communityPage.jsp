@@ -14,14 +14,14 @@
 
 <body>
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-	<form>
+	<form action="/community/insertCom" method="post">
 
         <secion id="communityPage">
             <section>커뮤니티</section>
             
             <section>
                 <div id="local-hr-box">
-                    <select id="localSelect">
+                    <select id="localSelect" name="areaCode">
                         <option value="seo">서울</option>
                         <option value="gyeinc">경기/인천</option>
                         <option value="gan">강원도</option>
@@ -105,12 +105,12 @@
                         <section id="com-input-sec">
                         	<c:choose>
                         		<c:when test="${not empty loginMember}">
-                        			<input id="inputCommentTitle" name="inputCommentTitle" placeholder="제목을 입력해 주세요.">
-                            		<textarea id="inputComment" placeholder="내용을 입력해주세요."></textarea>
+                        			<input id="inputComTitle" name="communityTitle" placeholder="제목을 입력해 주세요.">
+                            		<textarea id="inputCom" placeholder="내용을 입력해주세요." name="communityContent"></textarea>
                         		</c:when>
                         		<c:otherwise>
-                        			<input id="inputCommentTitle" name="inputCommentTitle" readonly="readonly">
-                            		<textarea id="inputComment" placeholder="로그인을 해주세요." readonly="readonly"></textarea>
+                        			<input id="inputComTitle" name="communityTitle" readonly="readonly">
+                            		<textarea id="inputCom" placeholder="로그인을 해주세요." readonly="readonly" name="communityContent"></textarea>
                         		</c:otherwise>
                         	</c:choose>
                         </section>

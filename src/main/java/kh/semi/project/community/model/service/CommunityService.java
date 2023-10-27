@@ -13,4 +13,7 @@ public interface CommunityService {
 
 	List<Community> selectLocalList(String areaCode);
 
+	int insertCom(Community inputCom);
+
+
 }

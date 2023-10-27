@@ -21,9 +21,10 @@ localSelect.addEventListener('change', () => {
   .then(resp => resp.json())
   .then(list => {
 
-    const contentContainer = document.getElementById(community-peopleComment-container);
+    const contentContainer = document.getElementById("community-peopleComment-container");
     contentContainer.innerHTML = "";
 
+    console.log(list);
     for(var i in list) {
       
       const RSection = document.createElement("div");
@@ -35,7 +36,7 @@ localSelect.addEventListener('change', () => {
       const peopleImg = document.createElement("img");
       peopleImg.classList.add("com-peopleImg");
 
-      if(!list[i].profileImage) {
+      if(list[i].profileImage) {
         peopleImg.src = "/resources/img/common/main/프로필아이콘.png";
       } else {
         peopleImg.src = list[i].profileImage;
@@ -58,25 +59,33 @@ localSelect.addEventListener('change', () => {
 
       const PCDiv3 = document.createElement("div");
       PCDiv3.classList.add("PCDiv3");
-      PCDiv3.innerText = "조회수" + list[i].readCount;
+      PCDiv3.innerText = "조회수 : " + list[i].readCount;
 
       const PCDiv4 = document.createElement("div");
       PCDiv4.classList.add("PCDiv4");
-      PCDiv4.innerText = "작성인" + list[i].nickName;
+      PCDiv4.innerText = "작성인 : " + list[i].nickName;
 
       const PCDiv5 = document.createElement("div");
       PCDiv5.classList.add("PCDiv5");
-      PCDiv5.innerText = "날짜" + list[i].createDt;
+      PCDiv5.innerText = "날짜 : " + list[i].createDt;
 
       const PCBSection = document.createElement("div");
       PCBSection.classList.add("com-peopleComment-bot-sec");
       PCBSection.innerText = list[i].communityContent;
 
-      PCSection.append(PCTSection, PCBSection);
-
+      RSection.append(peopleImgSec);
+      
+      
       PCTSection.append(PCDiv1, PCDiv2, PCDiv3, PCDiv4, PCDiv5);
+     
+      PCSection.appendChild(PCTSection);
+      PCSection.appendChild(PCBSection);
 
-      RSection.append(PCSection, PCTSection);
+
+
+      RSection.append(PCSection);
+
+      contentContainer.append(RSection);
 
     }
 

@@ -32,4 +32,8 @@
 		WHERE AREA_CODE = #{areaCode}
 		ORDER BY CREATE_DT
 	</select>
+	
+	<insert id="insertCom">
+		INSERT 
+	</insert>
 </mapper>

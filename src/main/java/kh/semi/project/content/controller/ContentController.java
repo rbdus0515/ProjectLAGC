@@ -158,11 +158,67 @@ public class ContentController {
 			msg = "업로드 성공!";
 		} else {
 			path += referer;
-			msg = "업로드 실패";
+			msg = "업로드 실패...";
 		}
 		
-		
 		ra.addFlashAttribute("msg",msg);
+		
+		return path;
+	}
+	
+	// 컨텐츠 업데이트를 위한 조회
+	@GetMapping("/searchContent")
+	@ResponseBody
+	public String searchContent(int contentNo,
+								Content inputContent,
+								 Model model,
+								 RedirectAttributes ra,
+								 @RequestHeader("referer") String referer,
+								 HttpSession session,
+								 @RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg
+								 ) throws Exception, IOException  {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("contentNo", contentNo);
+		
+		String webPath = "/resources/img/content/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		Content content = service.searchContent(map);
+		
+		String path = "redirect:";
+		String msg = null;
+		
+		if( content == null ) {
+			
+			int result = service.insertContent(inputContent, uploadPlaceImg, webPath, filePath);
+			
+			if(result > 0) {
+				path += referer;
+				msg = "업로드 성공!";
+			} else {
+				path += referer;
+				msg = "업로드 실패...";
+			}
+			
+			ra.addFlashAttribute("msg",msg);
+			
+		
+		} else {
+			
+			int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
+			
+			if(result > 0) {
+				path += referer;
+				msg = "업데이트 성공!";
+			} else {
+				path += referer;
+				msg = "업데이트 실패...";
+			}
+			
+			ra.addFlashAttribute("msg",msg);
+			
+		}
 		
 		return path;
 	}

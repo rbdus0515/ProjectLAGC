@@ -1,38 +1,83 @@
 const placeSec = document.getElementsByClassName('placeSec');
+const placePlusSec = document.getElementsByClassName('placePlusSec');
 
 const modalContainerPopup = document.getElementById('modalContainerPopup');
 const closeBtnPopup = document.getElementById('closeBtnPopup');
+
+const contentNo = document.getElementsByClassName("contentNo");
+const ageCode = document.getElementById('ageCode');
+const memberCode = document.getElementById('memberCode');
+const seasonCode = document.getElementById('seasonCode');
+const themeCode = document.getElementById('themeCode');
+const inputPlace = document.getElementById('inputPlace');
+const areaCode = document.getElementById('areaCode');
+const latitude = document.getElementById('latitude');
+const longitude = document.getElementById('longitude');
+const uploadPlaceImg = document.getElementById('uploadPlaceImg');
+const placeInfoUrl = document.getElementById('placeInfoUrl');
+const inputInfo = document.getElementById('inputInfo');
 
 
 // 팝업창 관련
 let temp1 = 0;
 let temp2 = 0;
 
-for(var i = 0; i < placeSec.length; i ++) {
-    
-    const tempNum = placeSec[i].value;
 
+const placePlus = document.getElementById("placePlus")
+
+placePlus.addEventListener("click", () => {
+
+    modalContainerPopup.classList.remove('hidden');
+
+});
+
+
+closeBtnPopup.addEventListener('click', () => {
+    modalContainerPopup.classList.add('hidden');
+});
+
+
+
+for(var i = 0; i < placeSec.length; i ++) {
+
+    const tempNum = contentNo[i].value;
+    
+    console.log(tempNum)
+    
     placeSec[i].addEventListener('click', () => {
 
         temp2 = tempNum;
 
         modalContainerPopup.classList.remove('hidden');
 
-    });
+        fetch("/content/searchContent?contentNo=" + tempNum)
+        .then(resp => resp.json())
+        .then(data => {
 
+            console.log(data)
+            ageCode.value = data.AGE_CODE;
+            memberCode.value = data.MEMBER_CODE;
+            seasonCode.value = data.SEASON_CODE;
+            themeCode.value = data.THEME_CODE;
+            inputPlace.value = data.TRAVEL_NAME;
+            areaCode.value = data.AREA_CODE;
+            latitude.value = data.LATITUDE;
+            longitude.value = data.LONGITUDE;
+            uploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
+            placeInfoUrl.value = data.PLACE_URL;
+            inputInfo.value = data.PLACE_INFO;
+
+        });
+
+    });
 
 }
 
-
-closeBtnPopup.addEventListener('click', () => {
-  modalContainerPopup.classList.add('hidden');
-});
 
 // --------------------------------------------------------------
 // 컨텐츠 이미지 관련
 
 // 컨텐츠 이미지 추가/변경/삭제
-const uploadPlaceImg = document.getElementById("uploadPlaceImg"); // img 태그
 const imageInput = document.getElementById("imageInput"); // input 태그
 
 

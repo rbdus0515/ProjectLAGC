@@ -46,13 +46,12 @@
 	                            </c:if>
 	                            <input type="hidden" class="contentNo" value="${img.contentNo}">
 	                        </div>
-	                        <input type="hidden" class="contentNo" value="${seo.contentNo}">
 	                    </div>
 					</c:forEach>
 	
 					<c:if test="${loginMember.memberManagerFlag == 'Y'}">
 	                    <!-- 네번째 네개 이미지(+) -->
-	                    <div class="placeSec">
+	                    <div class="placeSec" id="placePlus">
 	                        <div class="blank"></div>
 	                        <div class="placeImg">
 	                            <button type="button" id="plusBtn">+</button>

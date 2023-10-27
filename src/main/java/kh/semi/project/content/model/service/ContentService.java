@@ -71,4 +71,20 @@ public interface ContentService {
 	 */
 	int insertReply(int contentNo, String reply, int memberNo);
 
+	/** 컨텐츠 상세조회
+	 * @param map
+	 * @return
+	 */
+	Content searchContent(Map<String, Object> map);
+
+	/** 컨텐츠 업데이트
+	 * @param inputContent
+	 * @param uploadPlaceImg
+	 * @param webPath
+	 * @param filePath
+	 * @return
+	 */
+	int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException ;
+
+
 }

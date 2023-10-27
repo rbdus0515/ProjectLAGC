@@ -70,7 +70,6 @@ public class ContetServiceImpl implements ContentService{
 		return result;
 	}
 
-	
 	/** 메인화면에서 보여줄 컨텐츠 전체 조회
 	 * 
 	 */
@@ -80,7 +79,6 @@ public class ContetServiceImpl implements ContentService{
 		return dao.selectAll();
 	}
 
-	
 	/** 모달창 오픈시 정보 가져오기
 	 *
 	 */
@@ -107,7 +105,6 @@ public class ContetServiceImpl implements ContentService{
 
 		return dao.selcetOne(contentNo);
 	}
-
 	
 	/** 후기 조회 서비스
 	 *

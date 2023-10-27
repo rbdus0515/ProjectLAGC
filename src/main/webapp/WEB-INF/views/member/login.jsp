@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
 	<c:if test="${not empty msg}">
 
 	<script>

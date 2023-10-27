@@ -148,4 +148,14 @@ public class AjaxServiceImpl implements AjaxService{
 	    return dao.checkAuthKey(map);
 	}
 
+	
+	/** 이메일 중복 확인
+	 *
+	 */
+	@Override
+	public int dupCheck(String memberEmail) {
+
+		return dao.dupCheck(memberEmail);
+	}
+
 }

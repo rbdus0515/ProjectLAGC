@@ -287,7 +287,7 @@ public class MemberController {
 						  RedirectAttributes ra,
 						  @RequestHeader(value = "referer") String referer
 			) {
-		
+				
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("memberPw", memberPw);
 		map.put("newPw", newPw);
@@ -324,7 +324,11 @@ public class MemberController {
 	 * @return
 	 */
 	@GetMapping("/findPwAfterId")
-	public String findPwAfterId(String memberId, RedirectAttributes ra, @RequestHeader(value = "referer") String referer) {
+	public String findPwAfterId(String memberId, 
+								RedirectAttributes ra, 
+								@RequestHeader(value = "referer") String referer,
+								Model model
+			) {
 	
 		int result = service.selectId(memberId);
 		String msg = null;
@@ -333,6 +337,7 @@ public class MemberController {
 		if(result > 0) {
 		
 			path = "/member/findPwAfterId";
+			model.addAttribute("memberId", memberId);
 			
 		} else {
 			
@@ -377,4 +382,126 @@ public class MemberController {
 		
 		return result;
 	}
+
+	/** 아이디 찾기
+	 * @param memberName
+	 * @param memberEmail
+	 * @param model
+	 * @param ra
+	 * @return
+	 */
+	@PostMapping("/findId")
+	public String findId(String memberName, String memberEmail, RedirectAttributes ra, @RequestHeader(value = "referer") String referer) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("memberName", memberName);
+		map.put("memberEmail", memberEmail);
+		
+		String id = service.findId(map);
+		String msg = null;
+		String path = "redirect:";
+		
+		if(id != null) {
+			
+			msg = "회원님의 아이디는" + id + "입니다.";
+			path += "/";
+			
+		}else {
+			
+			msg = "일치하는 회원 정보가 없습니다.";
+			path += referer;
+			
+		}
+		
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
+	}
+	
+	/** 비밀번호 변경 이동
+	 * @param memberName
+	 * @param memberEmail
+	 * @param ra
+	 * @return
+	 */
+	@PostMapping("/changePw")
+	public String changePw(String memberName, 
+						   String memberEmail, 
+						   String memberId,
+						   RedirectAttributes ra,
+						   Model model,
+						   @RequestHeader(value = "referer") String referer
+							) {
+		
+		Member member = new Member();
+		
+		member.setMemberName(memberName);
+		member.setMemberEmail(memberEmail);
+		member.setMemberId(memberId);
+		
+		String path = "redirect:";
+		String msg = "";
+		
+		int result = service.selectMember(member);
+
+		if(result > 0) {
+			
+			model.addAttribute("member", member);
+			path += "/";
+		
+		} else {
+			
+			msg = "일치하는 회원 정보가 없습니다.";
+			path += referer;
+		}
+		
+		ra.addFlashAttribute("msg",msg);
+		
+		return path;
+	}
+	
+	/** 비밀번호 변경
+	 * @param memberName
+	 * @param memberEmail
+	 * @param ra
+	 * @return
+	 */
+	@PostMapping("/changePw2")
+	public String changePw2(String memberName, 
+						   String memberEmail, 
+						   String newMemberPw,
+						   RedirectAttributes ra,
+						   @RequestHeader(value = "referer") String referer
+						   ) {
+		
+		Member member = new Member();
+		String path = "redirect:";
+		String msg = "";
+		
+		
+		member.setMemberName(memberName);
+		member.setMemberEmail(memberEmail);
+		member.setMemberPw(newMemberPw);
+		
+		int result = service.changePw(member);
+
+		if(result > 0) {
+			
+			msg = "비밀번호 변경이 완료되었습니다.";
+			path += "/";
+		
+		} else {
+			
+			msg = "비밀번호 변경에 실패하였습니다.";
+			path += referer;
+			
+		}
+		
+		ra.addFlashAttribute("msg", msg);
+		
+		return path;
+	}
+
+
 }

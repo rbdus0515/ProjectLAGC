@@ -216,17 +216,17 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectId(memberId);
 	}
 
-	/** 좋아요 지우기
+	/** 좋아요 지우기 서비스
 	 *
 	 */
-	@Transactional(rollbackFor = Exception.class)
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteLike(Map<String, Object> map) {
 
 		return dao.deleteLike(map);
 	}
 
-	/** 좋아요 추가
+	/** 좋아요 추가 서비스
 	 *
 	 */
 	@Override
@@ -235,6 +235,42 @@ public class MemberServiceImpl implements MemberService{
 
 		return dao.insertLike(map);
 	}
+
+	/** 아이디 찾기 서비스
+	 *
+	 */
+	@Override
+	public String findId(Map<String, Object> map) {
+
+		return dao.findId(map);
+	}
+
+	
+	/** 비밀번호 변경 서비스
+	 *
+	 */
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int changePw(Member member) {
+		
+		String newPw = bcrypt.encode(member.getMemberPw());
+		
+		member.setMemberPw(newPw);
+		
+		return dao.changePw(member);
+	}
+
+	/** 회원 존재 여부 조회
+	 *
+	 */
+	@Override
+	public int selectMember(Member member) {
+
+		return dao.selectMember(member);
+	}
+
+	
+
 
 	
 	

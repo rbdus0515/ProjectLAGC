@@ -6,7 +6,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>프로필 관리</title>
+            <title>비밀번호 변경</title>
 
             <link rel="stylesheet" href="/resources/css/member/updatePw.css" type="text/css">
         </head>
@@ -28,7 +28,7 @@
             <!-- 메인 ---------------------------------------------------------------------------------------->
             <main class="mainContainer">
 
-                <form action="/member/updatePw" method="post" id="updatePw">
+                <form action="/member/changePw2" method="post" id="changePw">
 
 
                     <!-- 정보 입력 ---------------------------------------------------------------------------------------->
@@ -42,16 +42,7 @@
                         <p class="updatePwTitle">비밀번호 변경</p>
 
                         <br><br>
-	
-                        <div>
-                            <p>현재 비밀번호</p>
-                            <input class="input" type="password" name="memberPw" id="memberPw">
-                        </div>
-                        
-                        <br>
-                        <hr>
-                        <br>
-				
+					
                         <div>
                             <p>바꿀 비밀번호</p>
                             <input class="input" type="password" name="newMemberPw" id="newMemberPw">
@@ -61,13 +52,14 @@
                             <p>바꿀 비밀번호 확인</p>
                             <input class="input" type="password" name="newMemberPwConfirm" id="newMemberPwConfirm">
                         </div>
-                    </section>
+                        </section>
 
                     <div><span id="pwMessage">영어,숫자,기호(!,@,#,-,_) 6~20글자 사이로 입력하세요.</span></div>
-                    
+                    <input type="hidden" name="memberName" value="${member.memberName}">
+                    <input type="hidden" name="memberEmail" value="${member.memberEmail}">
                     <section class="btnContainer">
                         <button class="btn" type="submit">수정</button>
-                        <a class="btn" href="/myPage/managingProfile">뒤로가기</a>
+                        <a class="btn" href="/">홈으로</a>
                     </section>
 
                     </div>
@@ -75,7 +67,7 @@
                 </form>
             </main>
 
-            <script src="/resources/js/updatePw.js"></script>
+            <script src="/resources/js/changePw.js"></script>
 
 
     

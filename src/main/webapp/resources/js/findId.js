@@ -1,37 +1,3 @@
-const checkObj = {
-    "memberName" : false,
-    "memberEmail" : false,
-    "authKey" : false
-};
-
-const memberId = document.getElementById("memberId");
-const inputIdForm = document.getElementById("inputIdForm")
-
-if(inputIdForm != null){ // 비밀번호 변경 페이지인 경우
-
-    inputIdForm.addEventListener("submit", e => {
-        
-        // 현재 비밀번호 미작성 시
-        if(memberId.value.trim() == ""){
-            alert("아이디를 입력해주세요");
-            e.preventDefault();
-            memberId.focus();
-            return;
-        } else{
-        }
-
-    });
-}
-
-
-
-const noUse = document.getElementById("noUse")
-noUse.addEventListener("click", () => {
-
-    alert("더 나은 서비스를 위헤 점검 중입니다.\n\n이메일 인증으로 진행해주세요")
-        return;
-})
-
 // 인증번호 발송
 const sendAuthKeyEmail = document.getElementById("sendAuthKeyEmail");
 const authKeyMessage = document.getElementById("authKeyMessage");
@@ -42,6 +8,16 @@ let authSec = 59;
 
 // 인증번호를 발송한 이메일 저장
 let tempEmail;
+
+
+const checkObj = {
+    "memberName" : false,
+    "memberEmail" : false,
+    "authKey" : false
+};
+
+const memberName = document.getElementById("memberName");
+
 
 sendAuthKeyEmail.addEventListener("click", e => {
 
@@ -109,11 +85,10 @@ certifyBtnEmail.addEventListener("click",  () => {
             if(result > 0){
                 clearInterval(authTimer);
                 alert("인증되었습니다.");
-                checkObj.authKey = true;
+                checkObj.authKey =true;
 
             } else{
                 alert("인증번호가 일치하지 않습니다.")
-                checkObj.authKey = false;
             }
         })
         .catch(err => console.log(err));
@@ -125,16 +100,26 @@ certifyBtnEmail.addEventListener("click",  () => {
 
 });
 
-const emailFrm = document.getElementById("emailFrm");
+const findIdFrm = document.getElementById("findIdFrm")
+const findIdByPhone = document.getElementById("findIdByPhone")
+const noUse = document.getElementById("noUse")
 
-emailFrm.addEventListener("submit", e=>{
+noUse.addEventListener("click", () => {
+
+    alert("더 나은 서비스를 위헤 점검 중입니다.\n\n이메일 인증으로 진행해주세요")
+        return;
+})
+
+
+findIdFrm.addEventListener("submit", e=>{
 
     if(memberName.value.trim() == ""){
         alert("이름을 입력해주세요");
         e.preventDefault();
         memberName.focus();
+        checkObj.memberName = false;
         return;
-    } else{
+    } else {
         checkObj.memberName = true;
     }
 
@@ -142,15 +127,15 @@ emailFrm.addEventListener("submit", e=>{
         alert("이메일을 입력해주세요");
         e.preventDefault();
         memberEmail.focus();
+        checkObj.memberEmail = false;
         return;
-    } else{
-        checkObj.memberEmail = true;
-    }
+    } 
 
     if(checkEmail.value.trim() == ""){
         alert("이메일 인증을 진행해주세요");
         e.preventDefault();
         checkEmail.focus();
+        checkObj.authKey = false;
         return;
     } 
 
@@ -164,6 +149,9 @@ emailFrm.addEventListener("submit", e=>{
 
             case "memberEmail": 
                 alert("이메일이 유효하지 않습니다"); break;
+
+            case "authKey": 
+                alert("인증 확인이 유효하지 않습니다."); break;
 
             document.getElementById(key).focus();
 

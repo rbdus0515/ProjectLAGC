@@ -8,6 +8,10 @@ import java.util.Map;
 
 import kh.semi.project.member.model.dto.Member;
 
+/**
+ * @author user1
+ *
+ */
 public interface MemberService {
 
 	/** 로그인 서비스
@@ -73,4 +77,23 @@ public interface MemberService {
 	 */
 	int insertLike(Map<String, Object> map);
 
+	/** 아이디 찾기
+	 * @param map
+	 * @return
+	 */
+	String findId(Map<String, Object> map);
+
+	/** 비밀번호 변경
+	 * @param map
+	 * @return
+	 */
+	int changePw(Member member);
+
+	/** 회원 존재 여부 조회
+	 * @param member
+	 * @return
+	 */
+	int selectMember(Member member);
+
+	
 }

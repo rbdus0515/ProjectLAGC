@@ -86,5 +86,27 @@ public class AjaxController {
 		return service.checkAuthKey(inputKey, memberEmail);
 	}
 	
-	
+	/** 아이디 찾기를 위한 인증키 전송
+	 * @param memberEmail
+	 * @return
+	 */
+	@GetMapping("/email/sendAuthKeyForId")
+	@ResponseBody
+	public int sendAuthKeyForId(String memberEmail) {
+		
+		int dupCheck = service.dupCheck(memberEmail);
+		int result = 0;
+		
+		if(dupCheck == 0) {
+			
+			result = -1;
+			
+		} else {
+			
+			result = service.sendAuthKey(memberEmail);
+			
+		}
+		
+		return result;
+	}
 }

@@ -12,13 +12,13 @@
 
 </head>
 <body>
-    <form action="#" name="myPlan" method="get"></form>
+    <form action="myPlan/myPlans" name="myPlan" method="get"></form>
     <main class="my-plan">
 
             <section class="left-side">
                 <section class="search-conteiner">
                     <div class="logo-box">
-                        <img class="logo" src="/resources/img/myPage/LAGC-logo.png">
+                        <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                     </div>
                     <div class="search-box">
                         <input class="search" type="text" placeholder="여행지 검색">

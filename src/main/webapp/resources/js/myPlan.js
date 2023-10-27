@@ -47,5 +47,36 @@ for (let i = 0; i < expend.length; i++) {
 }
 
 
+/* 헷갈리는 부분 */
+const cansle = document.querySelectorAll(".cansle-button");
+const divDes = document.querySelector('.destinations');
+const rightList = document.getElementById('rightList');
+
+for (let i = 0; i < cansle.length; i++) {
+    cansle[i].addEventListener('click', () => {
+        const selectedDestination = divDes.querySelector(".선택한여행지");
+
+ 
+        if (selectedDestination) {
+            divDes.removeChild(selectedDestination);
+            rightList.appendChild(selectedDestination);
+        } 
+        
+    });
+}
+
+for (let i = 0; i < cansle.length; i++) {
+    cansle[i].addEventListener('click', () => {
+        const selectedRightList = rightList.querySelector(".선택한여행지");
+ 
+        
+        if (selectedRightList) {
+            rightList.removeChild(selectedRightList);
+            divDes.appendChild(selectedRightList);
+        }
+    });
+}
+
+
 
 

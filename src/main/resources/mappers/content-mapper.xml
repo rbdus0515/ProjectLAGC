@@ -56,24 +56,6 @@
 		CONTENT_DEL_FL = 'Y'
 		WHERE CONTENT_NO = #{contentNo}
 	</update>
-
-	<!-- 컨텐츠 추가 -->
-	<insert id="insertContent">
-		INSERT INTO "CONTENT"
-		VALUES(SEQ_CONTENT_NO.NEXTVAL,
-				#{areaCode} ,
-				#{travelName} ,
-				#{placeUrl} ,
-				#{ageCode} ,
-				#{seasonCode} ,
-				#{memberCode} ,
-				#{themeCode} ,
-				DEFAULT ,
-				#{contentImg},
-				#{placeInfo},
-				#{latitude},
-				#{longitude} )
-	</insert>
 	
 	<!-- 컨텐츠 전체조회 -->
 	<select id="selectAll" resultMap="content_rm">
@@ -122,6 +104,51 @@
 		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)
 	</insert>
 	
+	<!-- 컨텐츠 상세 조회 -->
+	<select id="searchContent" resultType="hashmap">
+		SELECT AREA_CODE ,TRAVEL_NAME ,PLACE_URL ,
+			   AGE_CODE ,SEASON_CODE ,MEMBER_CODE ,
+			   THEME_CODE ,CONTENT_IMG ,PLACE_INFO ,
+			   LATITUDE ,LONGITUDE
+		FROM CONTENT
+		WHERE CONTENT_NO = 	#{contentNo}
+		AND CONTENT_DEL_FL = 'N'
+	</select>
+	
+	<!-- 컨텐츠 추가 -->
+	<insert id="insertContent">
+		INSERT INTO "CONTENT"
+		VALUES(SEQ_CONTENT_NO.NEXTVAL,
+				#{areaCode} ,
+				#{travelName} ,
+				#{placeUrl} ,
+				#{ageCode} ,
+				#{seasonCode} ,
+				#{memberCode} ,
+				#{themeCode} ,
+				DEFAULT ,
+				#{contentImg},
+				#{placeInfo},
+				#{latitude},
+				#{longitude} )
+	</insert>
+	
+	<!-- 컨텐츠 업데이트 -->
+	<update id="updateContent">
+		UPDATE "CONTENT" SET
+			AREA_CODE = #{areaCode} ,
+			TRAVEL_NAME = #{travelName} ,
+			PLACE_URL = #{placeUrl} ,
+			AGE_CODE = #{ageCode} ,
+			SEASON_CODE = #{seasonCode} ,
+			MEMBER_CODE = #{memberCode} ,
+			THEME_CODE = #{themeCode} ,
+			CONTENT_IMG = #{contentImg},
+			PLACE_INFO = #{placeInfo},
+			LATITUDE = #{latitude},
+			LONGITUDE = #{longitude}
+		WHERE CONTENT_NO = #{contentNo}
+	</update>
 
 </mapper>
 

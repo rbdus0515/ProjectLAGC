@@ -126,6 +126,45 @@ public class ContetServiceImpl implements ContentService{
 		return dao.insertReply(contentNo, reply, memberNo);
 	}
 
+	// 컨텐츠 상세 조회
+	@Override
+	public Content searchContent(Map<String, Object> map) {
+		return dao.searchContent(map);
+	}
+
+	// 컨텐츠 업데이트
+	@Override
+	public int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException {
+		
+		String temp = inputContent.getContentImg();
+		String rename = null;
+		
+		if(uploadPlaceImg.getSize() > 0) {
+			
+			rename = Util.fileRename(uploadPlaceImg.getOriginalFilename());
+		
+			inputContent.setContentImg(webPath + rename);
+		
+		} else {
+			inputContent.setContentImg(null);
+		}
+		
+		int result = dao.updateContent(inputContent);
+		
+		if(result > 0) {
+			
+			if(rename != null) {
+				uploadPlaceImg.transferTo(new File(filePath + rename));
+			}
+			
+		} else {
+			inputContent.setContentImg(temp);
+		}
+		
+		return result;
+	}
+
+
 	
 }
 

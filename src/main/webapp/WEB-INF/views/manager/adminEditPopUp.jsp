@@ -100,7 +100,7 @@
 	
 	                <section id="info-url-upload-btn">
 	                    <div>링크 : 
-	                        <input type="url" name="placeUrl" id="placeInfoUrl"  placeholder="관련 사이트 링크">
+	                        <input type="url" name="placeUrl" id="placeInfoUrl" placeholder="관련 사이트 링크">
 	                    </div>
 	                    <button type="submit" id="upload-btn">업로드</button>
 	                </section>

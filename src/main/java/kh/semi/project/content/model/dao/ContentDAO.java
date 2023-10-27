@@ -106,5 +106,21 @@ public class ContentDAO {
 		
 		return sqlSession.insert("contentMapper.insertReply", map);
 	}
+
+	/** 컨텐츠 상세 조회
+	 * @param map
+	 * @return
+	 */
+	public Content searchContent(Map<String, Object> map) {
+		return sqlSession.selectOne("contentMapper.searchContent", map);
+	}
+
+	/** 업데이트 컨텐츠
+	 * @param inputContent
+	 * @return
+	 */
+	public int updateContent(Content inputContent) {
+		return sqlSession.update("contentMapper.updateContent", inputContent);
+	}
 	
 }

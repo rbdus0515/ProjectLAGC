@@ -111,6 +111,15 @@
                                 <div class="slideBox">
 
                                     <div class="like-list-1">
+                                    	<!-- 좋아요를 누른 곳이 없을 경우 -->
+                                    	<c:if test="${empty loginMember}">
+                                    		<p>좋아요를 누른 여행지가 없습니다</p>
+                                    	</c:if>
+                                    	
+                                    	<!-- 좋아요를 누른 곳이 있을 경우 -->
+                                    	<c:if test="${not empty loginMember}">
+                                    		<foreach
+                                    	</c:if>
                                         <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 115.png"></a>
                                         <div class="like-list-name"><a href="#">감천문화마을</a></div>
                                     </div>

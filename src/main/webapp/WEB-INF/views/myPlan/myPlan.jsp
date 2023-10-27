@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <form action="#" name="myPlan" method="get"></form>
+    <form action="myPlan/myPlans" name="myPlan" method="get"></form>
     <main class="my-plan">
 
             <section class="left-side">

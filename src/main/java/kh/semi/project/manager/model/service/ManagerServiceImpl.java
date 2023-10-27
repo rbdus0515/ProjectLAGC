@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kh.semi.project.manager.model.dao.ManagerDAO;
 import kh.semi.project.manager.model.dto.QNA;
@@ -47,6 +48,7 @@ public class ManagerServiceImpl implements ManagerService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insertAnswer(Map<String, Object> map) {
 
 		return dao.insertAnswer(map);
@@ -56,6 +58,7 @@ public class ManagerServiceImpl implements ManagerService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updateAnswer(Map<String, Object> map) {
 		
 		return dao.updateAnswer(map);

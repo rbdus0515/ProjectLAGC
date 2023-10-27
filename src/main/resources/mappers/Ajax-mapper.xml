@@ -35,5 +35,12 @@
 		WHERE AUTH_CODE = #{inputKey}
 		AND EMAIL = #{memberEmail}
 	</select>
+	
+	<select id="dupCheck" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE EMAIL = #{memberEmail}
+		AND MEMBER_DEL_FL = 'N'
+	</select>
 
 </mapper>

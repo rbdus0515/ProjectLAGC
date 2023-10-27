@@ -42,7 +42,7 @@
 
 					<img class="logo" src="/resources/img/common/main/logo.png" alt="">
 
-					<p class="inputIdEx">비밀번호를 찾고자하는 계정의 아이디를 입력해주세요</p>
+					<p class="inputIdEx">비밀번호를 분실한 계정의 아이디를 입력해주세요</p>
 
 
 					<p>아이디</p>

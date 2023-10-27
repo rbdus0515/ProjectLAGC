@@ -46,7 +46,6 @@
 	                            </c:if>
 	                            <input type="hidden" class="contentNo" value="${img.contentNo}">
 	                        </div>
-	                        <input type="hidden" class="contentNo" value="${seo.contentNo}">
 	                    </div>
 					</c:forEach>
 	

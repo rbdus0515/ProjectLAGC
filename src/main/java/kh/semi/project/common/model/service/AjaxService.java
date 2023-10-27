@@ -10,4 +10,6 @@ public interface AjaxService {
 
 	int checkAuthKey(String inputKey, String memberEmail);
 
+	int dupCheck(String memberEmail);
+
 }

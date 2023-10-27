@@ -59,5 +59,14 @@ public class AjaxDAO {
 		return sqlSession.selectOne("ajaxMapper.checkAuthKey", map);
 	}
 
+	/** 이메일 중복 검사 DAO
+	 * @param memberEmail
+	 * @return
+	 */
+	public int dupCheck(String memberEmail) {
+
+		return sqlSession.selectOne("ajaxMapper.dupCheck", memberEmail);
+	}
+
 	
 }

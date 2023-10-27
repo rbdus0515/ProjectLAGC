@@ -98,6 +98,29 @@
 		VALUES(#{contentNo}, #{memberNo})
 	</insert>
 
+	<select id="findId" resultType="string">
+		SELECT MEMBER_ID
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_NM = #{memberName}
+		AND EMAIL = #{memberEmail}
+	</select>
 	
+	<update id="changePw">
+		UPDATE "MEMBER" SET 
+		MEMBER_PW = #{memberPw}
+		WHERE EMAIL = #{memberEmail}
+		AND MEMBER_DEL_FL = 'N'
+		AND MEMBER_NM = #{memberName}
+	</update>
+
+	<select id="selectMember" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_ID = #{memberId}
+		AND EMAIL = #{memberEmail}
+		AND MEMBER_NM = #{memberName}
+	</select>
 
 </mapper>

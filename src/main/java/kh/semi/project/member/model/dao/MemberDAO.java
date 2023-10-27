@@ -95,4 +95,33 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.insertLike", map);
 	}
 
+	/** 아이디 찾기
+	 * @param map
+	 * @return
+	 */
+	public String findId(Map<String, Object> map) {
+
+		return sqlSession.selectOne("memberMapper.findId", map);
+	}
+
+	/** 비밀번호 변경
+	 * @param member
+	 * @return
+	 */
+	public int changePw(Member member) {
+
+		return sqlSession.update("memberMapper.changePw", member);
+	}
+
+	/** 회원 존재 여부 조회
+	 * @param member
+	 * @return
+	 */
+	public int selectMember(Member member) {
+		
+		return sqlSession.selectOne("memberMapper.selectMember", member);
+	}
+
+	
+
 }

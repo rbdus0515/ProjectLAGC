@@ -18,7 +18,7 @@
             <section class="left-side">
                 <section class="search-conteiner">
                     <div class="logo-box">
-                        <img class="logo" src="/resources/img/myPage/LAGC-logo.png">
+                        <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                     </div>
                     <div class="search-box">
                         <input class="search" type="text" placeholder="여행지 검색">

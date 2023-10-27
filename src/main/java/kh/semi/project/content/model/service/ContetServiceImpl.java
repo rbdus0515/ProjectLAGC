@@ -119,10 +119,9 @@ public class ContetServiceImpl implements ContentService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insertReply(int contentNo, String reply, int memberNo) {
 
-		
-		
 		return dao.insertReply(contentNo, reply, memberNo);
 	}
 

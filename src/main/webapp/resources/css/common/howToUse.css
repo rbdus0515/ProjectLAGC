@@ -61,12 +61,12 @@
 
 .left {
 	left: 0%;
-	background: url('/resources/img/left.png') center center/30% no-repeat;
+	background: url('/resources/img/common/main/left.png') center center/40% no-repeat;
 }
 
 .right {
 	right: 0%;
-	background: url('/resources/img/right.png') center center/30% no-repeat;
+	background: url('/resources/img/common/main/right.png') center center/40% no-repeat;
 }
 
 .radio_button:nth-child(1):checked ~.slide .slide_item {

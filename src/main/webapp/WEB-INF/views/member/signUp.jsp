@@ -20,7 +20,7 @@
     </header>
 
     <main>
-        <section class="input-section">
+        <section class="input-section" id="main-logo">
             <img id="input-logo" src="/resources/img/common/main/로고.png">
         </section>
 

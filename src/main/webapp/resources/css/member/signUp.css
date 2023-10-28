@@ -43,6 +43,11 @@ main {
     margin-bottom: 27px;
 }
 
+#main-logo {
+    display: flex;
+    justify-content: center;
+}
+
 #input-logo {
     width: 100px;
     height: auto;

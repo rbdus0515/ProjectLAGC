@@ -19,11 +19,11 @@ public class NoticeServiceImpl implements NoticeService{
 
 	// noticeList 조회
 	@Override
-	public Map<String, Object> selectNoticeList(int cp) {
+	public Map<String, Object> selectNoticeList(Map<String, Object> paramMap, int cp) {
 		
 		// 1. 특정 게시판의 삭제되지 않은 게시글 수 조회
-		int listCount = dao.getListCount();
-
+		int listCount = dao.getListCount(paramMap);
+		// System.out.println(listCount);
 		// 2. 1번 조회 결과 + cp 를 이용해서 Pagination 객체 생성
 		// -> 내부 필드가 모두 계산되어 초기화됨
 		Pagination pagination = new Pagination(listCount, cp);
@@ -37,7 +37,7 @@ public class NoticeServiceImpl implements NoticeService{
 		// 어떤 게시판에서(boardCode)
 		// 몇페이지(pagination.currentPage)에 대한
 		// 게시글 몇개(pagination.limit)인지 조회
-		List<Notice> noticeList = dao.selectNoticeList(pagination);
+		List<Notice> noticeList = dao.selectNoticeList(pagination, paramMap);
 
 		// 4. pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<String, Object>();

@@ -1,6 +1,7 @@
 package kh.semi.project.notice.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,7 +21,7 @@ public class NoticeDAO {
 	 * @param pagination
 	 * @return List
 	 */
-	public List<Notice> selectNoticeList(Pagination pagination) {
+	public List<Notice> selectNoticeList(Pagination pagination, Map<String, Object> paramMap) {
 		
 		// RowBounds 객체
 		// - 마이바티스에서 페이징처리를 위해 제공하는 객체
@@ -34,12 +35,12 @@ public class NoticeDAO {
 		// 2) RowBounds 객체 생성
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("noticeMapper.selectNoticeList", null, rowBounds);
+		return sqlSession.selectList("noticeMapper.selectNoticeList", paramMap, rowBounds);
 	}
 	
-	public int getListCount() {
+	public int getListCount(Map<String, Object> paramMap) {
 		
-		return sqlSession.selectOne("noticeMapper.getListCount");
+		return sqlSession.selectOne("noticeMapper.getListCount", paramMap);
 	}
 
 	/** noticeDetail 조회

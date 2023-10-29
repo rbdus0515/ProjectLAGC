@@ -1,5 +1,6 @@
 package kh.semi.project.notice.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.semi.project.notice.model.dto.Notice;
 import kh.semi.project.notice.model.service.NoticeService;
@@ -22,16 +24,14 @@ public class NoticeController {
 	
 	// noticeList 조회
 	@GetMapping("/noticeList")
-	public String selectNoticeList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp, Model model) {
+	public String selectNoticeList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp, @RequestParam Map<String, Object> paramMap, Model model) {
 		
-		Map<String, Object> map = service.selectNoticeList(cp);
+		Map<String, Object> map = service.selectNoticeList(paramMap, cp);
 		
-		/* for(Notice nt : list) {
-			System.out.println(nt);
-		} */
+		// System.out.println(map);
 		
 		model.addAttribute("map", map);
-		
+
 		return "notice/noticeList";
 	}
 	
@@ -58,17 +58,22 @@ public class NoticeController {
 	
 	// 공지사항 INSERT
 	@PostMapping("/insert")
-	public String insertNotice(Notice notice, Model model) {
+	public String insertNotice(Notice notice, Model model, RedirectAttributes ra) {
 		
 		int result = service.insertNotice(notice);
 		
 		String path = "redirect:";
+		String message = "";
 		
 		if(result > 0) { // 공지사항 추가 성공
 			// System.out.println("공지사항 추가 성공");
 			
+			message = "공지사항 추가 성공";
+			
 			// noticeList 조회
-			Map<String, Object> map = service.selectNoticeList(1);
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			
+			Map<String, Object> map = service.selectNoticeList(paramMap, 1);
 			
 			model.addAttribute("map", map);
 			
@@ -77,9 +82,13 @@ public class NoticeController {
 		} else { // 공지사항 추가 실패
 			// System.out.println("공지사항 추가 실패");
 			
+			message = "공지사항 추가 실패";
+			
 			path += "insertPage";
 			
 		}
+		
+		ra.addFlashAttribute("msg", message);
 		
 		return path;
 	}
@@ -116,8 +125,10 @@ public class NoticeController {
 		
 		if(result > 0) {
 			// System.out.println("공지사항 삭제 성공");
+
+			Map<String, Object> paramMap = new HashMap<String, Object>();
 			
-			Map<String, Object> map = service.selectNoticeList(1);
+			Map<String, Object> map = service.selectNoticeList(paramMap, 1);
 			
 			/* for(Notice nt : list) {
 				System.out.println(nt);

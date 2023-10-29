@@ -39,6 +39,26 @@
 		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_DETAIL, TO_CHAR(NOTICE_UPLOAD_DATE, 'YYYY. MM. DD') NOTICE_UPLOAD_DATE, NOTICE_DEL_FL
 		FROM NOTICE_BOARD
 		WHERE NOTICE_DEL_FL = 'N'
+		
+		<!-- 제목 검색 -->
+		<if test='key == "t"' >
+			AND NOTICE_TITLE LIKE '%' || #{query} || '%'
+		</if>
+		
+		<!-- 내용 검색 -->	
+		<if test='key == "c"' >
+			AND NOTICE_DETAIL LIKE '%' || #{query} || '%'
+		</if>
+		
+		<!-- 제목+내용 검색 -->	
+		<if test='key == "tc"' >
+			AND (NOTICE_TITLE LIKE '%' || #{query} || '%' OR NOTICE_DETAIL LIKE '%' || #{query} || '%')
+		</if>
+		
+		<!-- <if test="key == 'tc'" >
+			AND NOTICE_TITLE || NOTICE_DETAIL LIKE '%' || #{query} || '%'
+		</if> -->
+		
 		ORDER BY NOTICE_NO DESC
 	</select>
 	
@@ -46,6 +66,22 @@
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM NOTICE_BOARD
 		WHERE NOTICE_DEL_FL = 'N'
+		
+		<!-- 제목 검색 -->
+		<if test='key == "t"' >
+			AND NOTICE_TITLE LIKE '%' || #{query} || '%'
+		</if>
+		
+		<!-- 내용 검색 -->	
+		<if test='key == "c"' >
+			AND NOTICE_DETAIL LIKE '%' || #{query} || '%'
+		</if>
+		
+		<!-- 제목+내용 검색 -->	
+		<if test='key == "tc"' >
+			AND (NOTICE_TITLE LIKE '%' || #{query} || '%' OR NOTICE_DETAIL LIKE '%' || #{query} || '%')
+		</if>
+		
 	</select>
 	
 	<!-- noticeDetail 조회 -->

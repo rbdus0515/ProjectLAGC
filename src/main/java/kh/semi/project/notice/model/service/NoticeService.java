@@ -8,10 +8,10 @@ import kh.semi.project.notice.model.dto.Notice;
 public interface NoticeService {
 
 	/** noticeList 조회
-	 * @param cp
+	 * @param Map
 	 * @return Map
 	 */
-	Map<String, Object> selectNoticeList(int cp);
+	Map<String, Object> selectNoticeList(Map<String, Object> paramMap, int cp);
 
 	/** noticeDetail 조회
 	 * @param noticeNo

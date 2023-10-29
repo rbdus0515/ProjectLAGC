@@ -25,7 +25,7 @@
             <!-- center -->
             <div id="main">
                 <div id="subject">공지사항</div>
-                <form action="/notice/insert" method="POST">
+                <form action="/notice/insert" method="POST" id="insertForm">
                     <!-- top -->
                     <div id="main-t">
                         <div id="main-t1"><hr></div>

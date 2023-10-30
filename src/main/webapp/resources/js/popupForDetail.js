@@ -104,7 +104,6 @@ closeBtnPopup.addEventListener('click', () => {
 const replyBtn = document.getElementById("replyBtn");
 const reply = document.getElementById("reply")
 
-
 replyBtn.addEventListener("click", () => {
 
   if (memberNo == "") {
@@ -139,10 +138,11 @@ replyBtn.addEventListener("click", () => {
           comment3.innerHTML = "작성된 후기가 없습니다."
         }
 
-        reply.value = "";
+       
       })
 
-
+      reply.value = "";
     }
-
+    
+    
 })

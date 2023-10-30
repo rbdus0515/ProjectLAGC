@@ -379,16 +379,24 @@ footer {
     left: 983px;
     top: 260px;
     display: flex;
+    flex-direction: column;
 
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow: scroll;
 }
+
+.qnaContainer{
+    display: flex;
+    margin: 5px 10px;
+}
+
 
 /* 문의 날짜 */
 .mtm-date {
     width: 15%;
-    height: 10%;
-    margin: 10px;
+    height: 2rem;
+    margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -401,9 +409,7 @@ footer {
 /* 문의 제목 */
 .mtm-title {
     width: 65%;
-    height: 10%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -416,8 +422,8 @@ footer {
 /* 문의 답변 상태 */
 .mtm-status {
     width: 15%;
-    height: 10%;
-    margin: 10px;
+    height: 2rem;
+    margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -537,20 +543,18 @@ footer {
     width: 631px;
     height: 221px;
     display: flex;
-    justify-content: start;
-    align-items: center;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow: scroll;
 }
 
 /* 댓글 컨테이너 */
 .comment {
     display: flex;
-    width: 90%;
+    width: 98%;
     height: 15%;
-    align-items: center;
-    margin: 20px
+    margin: 5px 0;
 }
 
 /* 댓글 여행지 */
@@ -558,7 +562,11 @@ footer {
     display: flex;
     width: 30%;
     align-items: center;
+    justify-content: center;
     margin-right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
 }
 
 .content {

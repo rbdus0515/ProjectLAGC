@@ -96,12 +96,12 @@ public class ContentDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int insertReply(int contentNo, String reply, int memberNo) {
+	public int insertReply(int contentNo, String XSSreply, int memberNo) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("contentNo", contentNo);
-		map.put("reply", reply);
+		map.put("XSSreply", XSSreply);
 		map.put("memberNo", memberNo);
 		
 		return sqlSession.insert("contentMapper.insertReply", map);

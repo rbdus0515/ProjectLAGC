@@ -122,7 +122,9 @@ public class ContetServiceImpl implements ContentService{
 	@Transactional(rollbackFor = Exception.class)
 	public int insertReply(int contentNo, String reply, int memberNo) {
 
-		return dao.insertReply(contentNo, reply, memberNo);
+		String XSSreply = Util.XSSHandling(reply);
+		
+		return dao.insertReply(contentNo, XSSreply, memberNo);
 	}
 
 	// 컨텐츠 상세 조회

@@ -101,7 +101,7 @@
 	<!-- 후기 -->
 	<insert id="insertReply">
 		INSERT INTO "REPLY"
-		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)
+		VALUES(#{contentNo}, #{XSSreply}, #{memberNo},	DEFAULT, DEFAULT)
 	</insert>
 	
 	<!-- 컨텐츠 상세 조회 -->

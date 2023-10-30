@@ -503,5 +503,4 @@ public class MemberController {
 		return path;
 	}
 
-
 }

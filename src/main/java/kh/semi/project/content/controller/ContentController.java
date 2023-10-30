@@ -284,6 +284,13 @@ public class ContentController {
 		
 	}
 	
+	/** 후기 작성
+	 * @param contentNo
+	 * @param reply
+	 * @param loginMember
+	 * @param ra
+	 * @return
+	 */
 	@GetMapping("/insert")
 	@ResponseBody
 	public Map<String, Object> insertReply(int contentNo,

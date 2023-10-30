@@ -133,6 +133,7 @@ emailFrm.addEventListener("submit", e=>{
         alert("이름을 입력해주세요");
         e.preventDefault();
         memberName.focus();
+        checkObj.memberName = false;
         return;
     } else{
         checkObj.memberName = true;
@@ -142,6 +143,7 @@ emailFrm.addEventListener("submit", e=>{
         alert("이메일을 입력해주세요");
         e.preventDefault();
         memberEmail.focus();
+        checkObj.memberEmail = false;
         return;
     } else{
         checkObj.memberEmail = true;

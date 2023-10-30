@@ -3,5 +3,28 @@
 
 <mapper namespace="myPageMapper">
 
+	<select id="selectQNAAll" resultType="hashmap">
+		SELECT QNA_TITLE, QNA_CONTENT, TO_CHAR(CREATE_DATE, 'YY.MM.DD') AS CREATE_DATE, ANSWER_FL
+		FROM QNA 
+		WHERE MEMBER_NO = #{memberNo}
+		ORDER BY CREATE_DATE DESC
+	</select>
+
+
+	<select id="selectLikeAll" resultType="hashmap">
+		SELECT TRAVEL_NAME, CONTENT_IMG, AREA_CODE 
+		FROM "LIKE"
+		JOIN CONTENT USING(CONTENT_NO)
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+	<select id="selectReplyAll" resultType="hashmap">
+		SELECT REPLY_CONTENT, TRAVEL_NAME, TO_CHAR(CREATE_DATE, 'YY.MM.DD.') AS CREATE_DATE
+		FROM REPLY
+		JOIN CONTENT USING(CONTENT_NO)
+		WHERE MEMBER_NO = #{memberNo}
+		AND REPLY_DEL_FL = 'N'
+		ORDER BY CREATE_DATE DESC
+	</select>
 
 </mapper>

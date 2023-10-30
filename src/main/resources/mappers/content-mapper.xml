@@ -101,19 +101,8 @@
 	<!-- 후기 -->
 	<insert id="insertReply">
 		INSERT INTO "REPLY"
-		VALUES(#{contentNo}, #{reply}, #{memberNo},	DEFAULT, DEFAULT)
+		VALUES(#{contentNo}, #{XSSreply}, #{memberNo},	DEFAULT, DEFAULT)
 	</insert>
-	
-	<!-- 컨텐츠 상세 조회 -->
-	<select id="searchContent" resultType="hashmap">
-		SELECT AREA_CODE ,TRAVEL_NAME ,PLACE_URL ,
-			   AGE_CODE ,SEASON_CODE ,MEMBER_CODE ,
-			   THEME_CODE ,CONTENT_IMG ,PLACE_INFO ,
-			   LATITUDE ,LONGITUDE
-		FROM CONTENT
-		WHERE CONTENT_NO = 	#{contentNo}
-		AND CONTENT_DEL_FL = 'N'
-	</select>
 	
 	<!-- 컨텐츠 추가 -->
 	<insert id="insertContent">
@@ -132,6 +121,17 @@
 				#{latitude},
 				#{longitude} )
 	</insert>
+	
+	<!-- 컨텐츠 상세 조회 -->
+	<select id="searchContent" resultType="hashmap">
+		SELECT AREA_CODE ,TRAVEL_NAME ,PLACE_URL ,
+			   AGE_CODE ,SEASON_CODE ,MEMBER_CODE ,
+			   THEME_CODE ,CONTENT_IMG ,PLACE_INFO ,
+			   LATITUDE ,LONGITUDE
+		FROM CONTENT
+		WHERE CONTENT_NO = 	#{contentNo}
+		AND CONTENT_DEL_FL = 'N'
+	</select>
 	
 	<!-- 컨텐츠 업데이트 -->
 	<update id="updateContent">

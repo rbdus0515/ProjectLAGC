@@ -18,22 +18,22 @@ const comment3 = document.getElementById("comment3")
 let temp = 0;
 let temp2 = 0;
 
-for(var i = 0 ; i < content.length ; i++){
-  
+for (var i = 0; i < content.length; i++) {
+
   const tempNum = contentNo[i].value
 
   content[i].addEventListener('click', () => {
-    
+
     temp2 = tempNum;
 
     modalContainerPopup.classList.remove('hidden');
-    
+
     likeCount.innerHTML = "";
-  
+
     fetch("/content/like?contentNo=" + tempNum)
-      .then(response => response.json()) 
+      .then(response => response.json())
       .then(data => {
-        
+
         travelName.innerText = data.TRAVEL_NAME;
         webSite.setAttribute("href", data.PLACE_URL);
         travelImg.setAttribute("src", data.CONTENT_IMG);
@@ -46,8 +46,8 @@ for(var i = 0 ; i < content.length ; i++){
         likeCount.innerHTML += data.likeCount;
 
         temp = likeCount.innerText;
-  
-        if (data.likeYesOrNo == -1) { 
+
+        if (data.likeYesOrNo == -1) {
           console.log("좋아요 처리 실패");
           return;
         } else if (data.likeYesOrNo == 1) {
@@ -55,9 +55,9 @@ for(var i = 0 ; i < content.length ; i++){
         } else {
           checkbox.checked = false;
         }
-        
+
       })
-      
+
 
 
 
@@ -84,7 +84,7 @@ checkbox.addEventListener("click", () => {
           likeCount.innerText = temp + 1;
           temp = likeCount.innerText;
           return;
-          
+
         } else {
           likeCount.innerText = temp - 1;
           temp = likeCount.innerText;
@@ -121,26 +121,27 @@ replyBtn.addEventListener("click", () => {
         comment2.innerHTML = ""
         comment3.innerHTML = ""
 
-        if(replys.reply0 != null){
+        if (replys.reply0 != null) {
           comment1.innerHTML = replys.reply0
-        } else{
+        } else {
           comment1.innerHTML = "작성된 후기가 없습니다."
         }
 
-        if(replys.reply1 != null){
+        if (replys.reply1 != null) {
           comment2.innerHTML = replys.reply1
-        } else{
+        } else {
           comment2.innerHTML = "작성된 후기가 없습니다."
         }
 
-        if(replys.reply2 != null){
+        if (replys.reply2 != null) {
           comment3.innerHTML = replys.reply2
-        } else{
+        } else {
           comment3.innerHTML = "작성된 후기가 없습니다."
         }
       })
 
+    reply.value = "";
 
-    }
+  }
 
 })

@@ -110,6 +110,8 @@ public class MemberController {
 		String path = "redirect:";
 		String msg = null;
 		
+		System.out.println("test");
+		
 		if(result > 0) {
 			model.addAttribute("loginMember", inputMember);
 			path += "/";
@@ -502,6 +504,5 @@ public class MemberController {
 		
 		return path;
 	}
-
 
 }

@@ -18,4 +18,15 @@ public class Util {
 		return date + str + ext;
 	}
 	
+	public static String XSSHandling(String content) {
+		
+		content = content.replaceAll("&", "&amp;");
+		content = content.replaceAll("<", "&lt;");
+		content = content.replaceAll(">", "&gt;");
+		content = content.replaceAll("\"", "&quot;");
+		
+		
+		return content;
+	}
+	
 }

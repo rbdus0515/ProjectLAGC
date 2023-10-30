@@ -119,16 +119,17 @@ public class ContetServiceImpl implements ContentService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insertReply(int contentNo, String reply, int memberNo) {
 
+		String XSSreply = Util.XSSHandling(reply);
 		
-		
-		return dao.insertReply(contentNo, reply, memberNo);
+		return dao.insertReply(contentNo, XSSreply, memberNo);
 	}
 
 	// 컨텐츠 상세 조회
 	@Override
-	public Content searchContent(Map<String, Object> map) {
+	public Map<String, Object> searchContent(Map<String, Object> map) {
 		return dao.searchContent(map);
 	}
 

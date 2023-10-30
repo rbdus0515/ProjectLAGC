@@ -379,16 +379,24 @@ footer {
     left: 983px;
     top: 260px;
     display: flex;
+    flex-direction: column;
 
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow: scroll;
 }
+
+.qnaContainer{
+    display: flex;
+    margin: 5px 10px;
+}
+
 
 /* 문의 날짜 */
 .mtm-date {
     width: 15%;
-    height: 10%;
-    margin: 10px;
+    height: 2rem;
+    margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -401,9 +409,7 @@ footer {
 /* 문의 제목 */
 .mtm-title {
     width: 65%;
-    height: 10%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -416,8 +422,8 @@ footer {
 /* 문의 답변 상태 */
 .mtm-status {
     width: 15%;
-    height: 10%;
-    margin: 10px;
+    height: 2rem;
+    margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -537,20 +543,18 @@ footer {
     width: 631px;
     height: 221px;
     display: flex;
-    justify-content: start;
-    align-items: center;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow: scroll;
 }
 
 /* 댓글 컨테이너 */
 .comment {
     display: flex;
-    width: 90%;
+    width: 98%;
     height: 15%;
-    align-items: center;
-    margin: 20px
+    margin: 5px 0;
 }
 
 /* 댓글 여행지 */
@@ -558,7 +562,11 @@ footer {
     display: flex;
     width: 30%;
     align-items: center;
+    justify-content: center;
     margin-right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
 }
 
 .content {
@@ -624,13 +632,23 @@ footer {
     width: 80%;
     height: 25%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
     background-color: white;
     border-radius: 10px;
-	padding-left: 40px;
 }
 
+.myPlanDetailContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+    margin-top: 10px;
+}
 
 /* 일정 여행지 이미지 */
 .my-plan-img {
@@ -686,7 +704,6 @@ footer {
 
 /* 공유/삭제 버튼 컨테이너 */
 .share-delete {
-    height: 330px;
     display: flex;
     align-items: end;
     justify-content: end;
@@ -723,11 +740,12 @@ footer {
 }
 
 /* 일정 추가 버튼 */
-.plan-add {
+#plan-add {
 	height: 330px;
-    margin-left: 40%;
     font-size: 1.5625rem;
     cursor: auto;
+    margin: 0;
+    padding: 0;
 }
 
 

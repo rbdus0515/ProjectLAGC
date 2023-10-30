@@ -75,7 +75,7 @@ public interface ContentService {
 	 * @param map
 	 * @return
 	 */
-	Content searchContent(Map<String, Object> map);
+	Map<String, Object> searchContent(Map<String, Object> map);
 
 	/** 컨텐츠 업데이트
 	 * @param inputContent

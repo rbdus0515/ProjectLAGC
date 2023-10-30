@@ -96,12 +96,12 @@ public class ContentDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int insertReply(int contentNo, String reply, int memberNo) {
+	public int insertReply(int contentNo, String XSSreply, int memberNo) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("contentNo", contentNo);
-		map.put("reply", reply);
+		map.put("XSSreply", XSSreply);
 		map.put("memberNo", memberNo);
 		
 		return sqlSession.insert("contentMapper.insertReply", map);
@@ -111,7 +111,7 @@ public class ContentDAO {
 	 * @param map
 	 * @return
 	 */
-	public Content searchContent(Map<String, Object> map) {
+	public Map<String, Object> searchContent(Map<String, Object> map) {
 		return sqlSession.selectOne("contentMapper.searchContent", map);
 	}
 
@@ -120,6 +120,7 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int updateContent(Content inputContent) {
+		System.out.println("test");
 		return sqlSession.update("contentMapper.updateContent", inputContent);
 	}
 	

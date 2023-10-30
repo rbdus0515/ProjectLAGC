@@ -136,9 +136,8 @@ public class ContentController {
 	}
 
 	// 컨텐츠 추가
-	@PostMapping("/adminEditPopUp")
+	@PostMapping("/insertContent")
 	public String insertContent(Content inputContent,
-								Model model,
 								RedirectAttributes ra,
 								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
 								HttpSession session,
@@ -169,56 +168,43 @@ public class ContentController {
 	// 컨텐츠 업데이트를 위한 조회
 	@GetMapping("/searchContent")
 	@ResponseBody
-	public String searchContent(int contentNo,
-								Content inputContent,
-								 Model model,
-								 RedirectAttributes ra,
-								 @RequestHeader("referer") String referer,
-								 HttpSession session,
-								 @RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg
+	public Map<String, Object> searchContent(int contentNo
 								 ) throws Exception, IOException  {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("contentNo", contentNo);
 		
+		map = service.searchContent(map);
+		
+		return map;
+	}
+	
+	// 컨텐츠 업데이트
+	@GetMapping("/updateContent")
+	public String updateContent(Content inputContent,
+								RedirectAttributes ra,
+								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
+								HttpSession session,
+								@RequestHeader("referer") String referer
+								) throws IOException, Exception {
+		
 		String webPath = "/resources/img/content/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		Content content = service.searchContent(map);
+		int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
 		
 		String path = "redirect:";
 		String msg = null;
 		
-		if( content == null ) {
-			
-			int result = service.insertContent(inputContent, uploadPlaceImg, webPath, filePath);
-			
-			if(result > 0) {
-				path += referer;
-				msg = "업로드 성공!";
-			} else {
-				path += referer;
-				msg = "업로드 실패...";
-			}
-			
-			ra.addFlashAttribute("msg",msg);
-			
-		
+		if(result > 0) {
+			path += referer;
+			msg = "업로드 성공!";
 		} else {
-			
-			int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
-			
-			if(result > 0) {
-				path += referer;
-				msg = "업데이트 성공!";
-			} else {
-				path += referer;
-				msg = "업데이트 실패...";
-			}
-			
-			ra.addFlashAttribute("msg",msg);
-			
+			path += referer;
+			msg = "업로드 실패...";
 		}
+		
+		ra.addFlashAttribute("msg",msg);
 		
 		return path;
 	}
@@ -284,6 +270,13 @@ public class ContentController {
 		
 	}
 	
+	/** 후기 작성
+	 * @param contentNo
+	 * @param reply
+	 * @param loginMember
+	 * @param ra
+	 * @return
+	 */
 	@GetMapping("/insert")
 	@ResponseBody
 	public Map<String, Object> insertReply(int contentNo,

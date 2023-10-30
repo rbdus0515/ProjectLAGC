@@ -20,8 +20,13 @@
 	       <!-- 카테고리, 닫기 버튼 -->
 	      <div id="close-container">
 	        
-	            <div class="div1">
+	            <div class="div1" id="popup-top">
 	                <section id="title-category-place-imgFile">
+	                
+	                	<section>
+   			            	<input type="text" name="insertInputAddress" id="insertInputAddress"  placeholder="주소">
+	                	</section>
+	                
 	                    <select name="ageCode" id="ageCode">
 	                        <option value="">연령별</option>
 	                        <option value="20">20대</option>
@@ -102,7 +107,7 @@
 	                    <div>링크 : 
 	                        <input type="url" name="placeUrl" id="placeInfoUrl" placeholder="관련 사이트 링크">
 	                    </div>
-	                    <button type="button" id="upload-btn">업로드</button>
+	                    <button type="submit" id="upload-btn">업로드</button>
 	                </section>
 	            </div> 
 	            

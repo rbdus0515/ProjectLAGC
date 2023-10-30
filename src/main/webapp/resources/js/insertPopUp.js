@@ -20,6 +20,7 @@ closeBtnPopup.addEventListener('click', () => {
 // 컨텐츠 이미지 관련
 
 // 컨텐츠 이미지 추가/변경/삭제
+const uploadPlaceImg = document.getElementById("uploadPlaceImg"); // input 태그
 const imageInput = document.getElementById("imageInput"); // input 태그
 
 let initCheck; // 초기 컨텐츠 이미지 상태를 저장하는 변수
@@ -32,15 +33,17 @@ let deleteCheck = -1;
 
 let originalImage; // 초기 컨텐츠 이미지 파일 경로 저장
 
+
+
 if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안해도 되긴 함 ) 
 
-    // 컨텐츠 이미지가 출력되는 img태그의 src 속성을 저장
-    originalImage = imageInput.getAttribute("src"); 
+    // 프로필 이미지가 출력되는 img태그의 src 속성을 저장
+    originalImage = uploadPlaceImg.getAttribute("src"); 
 
 
-    // 회원 컨텐츠 화면 진입 시 
-    // 현재 회원의 컨텐츠 이미지 상태를 확인
-    if(imageInput.getAttribute("src") == "/resources/img/common/main/닫기버튼.png"){
+    // 회원 프로필 화면 진입 시 
+    // 현재 회원의 프로필 이미지 상태를 확인
+    if(uploadPlaceImg.getAttribute("src") == "/resources/img/common/main/프로필아이콘.png"){
         // 기본 이미지인 경우
         initCheck = false;
     }else{
@@ -68,14 +71,25 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
         const file = e.target.files[0]; // 업로드한 파일의 정보가 담긴 객체
 
 
+        // 파일을 한번 선택한 후 취소했을 때 ( file이 undefined가 된다 ) 
+        if(file == undefined){ 
+            console.log("파일 선택이 취소됨");
+            deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
+
+            // 취소 시 기존 프로필 이미지로 변경 ( 기존 이미지에서 변경되는게 없게 하겠다는거죠 ) 
+            uploadPlaceImg.setAttribute("src", originalImage);
+
+            return;
+        }
+
         if( file.size > maxSize){ // 선택된 파일의 크기가 최대 크기를 초과한 경우
             alert("2MB 이하의 이미지를 선택해주세요.");
             imageInput.value = ""; 
             // input type="file" 태그에 대입할 수 있는 value는 "" (빈칸) 뿐이다!
             deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
 
-            // 기존 컨텐츠 이미지로 변경
-            imageInput.setAttribute("src", originalImage);
+            // 기존 프로필 이미지로 변경
+            uploadPlaceImg.setAttribute("src", originalImage);
 
             return;
         }
@@ -97,8 +111,8 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
 
             const url = e.target.result;
 
-            // 컨텐츠이미지(img) 태그에 src 속성으로 추가
-            imageInput.setAttribute("src", url);
+            // 프로필이미지(img) 태그에 src 속성으로 추가
+            uploadPlaceImg.setAttribute("src", url);
 
             deleteCheck = 1;
         }

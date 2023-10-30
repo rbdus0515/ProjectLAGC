@@ -23,6 +23,18 @@ button {
     align-items: center;
     margin-left: 7px;
 }
+
+#popup-top {
+    flex-basis: 100%;
+}
+
+#insertInputAddress {
+    width: 200px;
+    height: 25px;
+    background-color: #a6a6a6;
+    border-radius: 10px;
+    border: none;
+}
 /* -------------------------------- */
 /* �ݱ� ��ư */
 #close-container {
@@ -232,7 +244,7 @@ label:hover {
 
 /* ----------------------------------------- */
 
-#modalContainerPopup {
+#insertPopUp {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -246,6 +258,6 @@ label:hover {
 }
 
 
-#modalContainerPopup.hidden {
+#insertPopUp.hidden {
 	display: none;
 }

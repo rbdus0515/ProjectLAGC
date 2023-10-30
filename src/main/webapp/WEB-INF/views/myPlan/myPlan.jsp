@@ -1,26 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <!DOCTYPE html>
-        <html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 일정</title>
+    <link rel="stylesheet" href="/resources/css/myPlan/myPlan.css">
+    
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>나의 일정</title>
-            <link rel="stylesheet" href="/resources/css/myPlan/myPlan.css">
+</head>
+<body>
+    <form action="myPlan/myPlans" name="myPlan" method="get"></form>
+    <main class="my-plan">
 
-        </head>
+            <section class="left-side">
+                <section class="search-conteiner">
+                    <div class="logo-box">
+                        <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
+                    </div>
+                    <div class="search-box">
+                    	<form action="#" method="GET">
+	                        <input class="search" type="text" autocapitalize="off" placeholder="여행지 검색">
+	                        <button class=search-btn>
+	                        	<img id="search-img" src="/resources/img/common/main/Vector.png">
+	                        </button>
+                        </form>
+                    </div>
+                </section>
+                    <section class="location">
+                        
+                        <div class="locaContents">
+                            <div class="출발지설정">
+                                서울
+                                <button class="expend">+</button>
 
-        <body>
-
-            <form action="myPlan/myPlans" name="myPlan" method="get">
-                <main class="my-plan">
-
-                    <section class="left-side">
-                        <section class="search-conteiner">
-                            <div class="logo-box">
-                                <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                             </div>
 
                             <div class="search-box">
@@ -216,11 +233,26 @@
 
 
                     </section>
-                    <section class="right-side">
-                        <section class="empty-box">
+                    
 
-                            <a href="/myPage/myPages" class="save">돌아가기</a>
-                            <button class="save">저장</button>
+            </section>
+            <section class="right-side">
+                <section class="empty-box"></section>
+                <section class="plan">
+                    <div class="출발지설정1">
+                        <div>출발지 설정</div>
+                        <button class="expend">-</button>
+                    </div>
+                    <div class="destinations">
+                    	
+	                    <div class="수도권여행"></div>
+	                    
+	                    <form method="https://dapi.kakao.com/v2/local/search/address.json">
+	                        <input class="출발지검색" placeholder="출발지 검색">    
+                    	</form>
+
+                    </div>
+
 
                         </section>
                         <section class="plan">

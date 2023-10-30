@@ -90,8 +90,6 @@
 	</c:choose>    
         
     <script src="/resources/js/content.js"></script>
-    <script src="/resources/js/insertPopUp.js"></script>
-    <script src="/resources/js/updatePopUp.js"></script>
   
 </body>
 </html>

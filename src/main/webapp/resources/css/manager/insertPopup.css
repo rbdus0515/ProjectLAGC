@@ -35,7 +35,7 @@ button {
     border-start-start-radius: 20px;
 }
 
-#closeBtnUpdatePopup {
+#closeBtnPopup {
     background-color: transparent;
     border: none;
     justify-content: flex-end;
@@ -44,7 +44,7 @@ button {
     cursor: pointer;
 }
   
-#closeBtnUpdatePopup > img{
+#closeBtnPopup > img{
     width: 1rem;
 }
 
@@ -68,7 +68,7 @@ button {
     margin-top: 10px;
 }
 
-#updateInputPlace {
+#inputPlace {
     width: 120px;
     height: 25px;
     background-color: #a6a6a6;
@@ -99,7 +99,7 @@ label:hover {
     cursor: pointer;
 }
 
-#closeBtnUpdatePopup {
+#imageInput {
     display: none;
 }
 
@@ -153,7 +153,7 @@ label:hover {
     align-items: center;
 }
 
-#updatePlaceInfoUrl {
+#placeInfoUrl {
     width: 250px;
     height: 25px;
     background-color: #a6a6a6;
@@ -189,7 +189,7 @@ label:hover {
     border-radius: 10px;
 }
 
-#updateInputInfo {
+#inputInfo {
     display: flex;
     width: 95%;
     height: 85%;
@@ -219,7 +219,7 @@ label:hover {
     border-radius: 10px;
 }
 
-#closeBtnUpdatePopup {    
+#deleteBtn {
     background-color: transparent;
     border: none;
     margin-top: 5px;

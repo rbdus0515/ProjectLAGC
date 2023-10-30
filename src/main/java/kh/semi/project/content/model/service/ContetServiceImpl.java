@@ -127,7 +127,7 @@ public class ContetServiceImpl implements ContentService{
 
 	// 컨텐츠 상세 조회
 	@Override
-	public Content searchContent(Map<String, Object> map) {
+	public Map<String, Object> searchContent(Map<String, Object> map) {
 		return dao.searchContent(map);
 	}
 

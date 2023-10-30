@@ -111,7 +111,7 @@ public class ContentDAO {
 	 * @param map
 	 * @return
 	 */
-	public Content searchContent(Map<String, Object> map) {
+	public Map<String, Object> searchContent(Map<String, Object> map) {
 		return sqlSession.selectOne("contentMapper.searchContent", map);
 	}
 
@@ -120,6 +120,7 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int updateContent(Content inputContent) {
+		System.out.println("test");
 		return sqlSession.update("contentMapper.updateContent", inputContent);
 	}
 	

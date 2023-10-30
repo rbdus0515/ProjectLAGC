@@ -83,6 +83,11 @@ public class MyPlanController {
 	}
 
 	
+	@GetMapping("/myPlans")
+	public String mapSearch() {
+		
+		return service.mapSearch();
+		
 	/** 지도 핀 꽂기
 	 * @return
 	 */
@@ -95,5 +100,6 @@ public class MyPlanController {
 		System.out.println(list);
 		
 		return list;
+
 	}
 }

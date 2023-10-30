@@ -257,7 +257,7 @@
 
                             <div class="destinations">
                                 <div id="rightList" class="locaContents">
-                                    <div class="수도권여행">출발지 : 서울역</div>
+                                    <div class="수도권여행"><span>출발지 :</span> ${query}</div>
 
                                     <div class="선택한여행지">
                                         <button class="cansle-button" type="button">-</button>

@@ -94,6 +94,50 @@ window.onload = function () {
             });
         }
 
+// 지도 검색
+const apiKey = '246a0fc52dbb0ac008083682df20832d'; // 발급받은 API 키를 사용하세요.
+const targetInput = document.querySelector(".출발지검색");
+const searchResult = document.querySelector(".수도권여행");
+
+// API 호출 URL 생성
+const apiUrl = `https://dapi.kakao.com/v2/local/search/address.json?query=${query}`;
+
+
+targetInput.addEventListener("input", e => {
+
+	const query = e.target.value.trim();
+	
+	if(query.length == 0){
+		resultArea.innerHTML = ""; // 이전 검색 결과 비우기
+		return;
+	}
+	
+	if(query.length > 0) {
+		// API 호출
+		fetch("/myPlans?query=${query}", {
+		    method: 'GET',
+		    headers: {
+		        'Authorization': `KakaoAK ${apiKey}`
+		    }
+		})
+		.then(response => response.text())
+		.then(data => {
+		    // API 응답 데이터 처리
+		    console.log(data);
+		})
+		.catch(error => {
+		    // 오류 처리
+		    console.error('API 호출 중 오류 발생:', error);
+		});
+	
+	}
+	
+	
+	}
+
+
+
+
 
         
 

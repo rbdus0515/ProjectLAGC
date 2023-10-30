@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 일정</title>
     <link rel="stylesheet" href="/resources/css/myPlan/myPlan.css">
+    
 
 </head>
 <body>
@@ -21,7 +22,12 @@
                         <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                     </div>
                     <div class="search-box">
-                        <input class="search" type="text" placeholder="여행지 검색">
+                    	<form action="#" method="GET">
+	                        <input class="search" type="text" autocapitalize="off" placeholder="여행지 검색">
+	                        <button class=search-btn>
+	                        	<img id="search-img" src="/resources/img/common/main/Vector.png">
+	                        </button>
+                        </form>
                     </div>
                 </section>
                     <section class="location">
@@ -169,9 +175,13 @@
                         <button class="expend">-</button>
                     </div>
                     <div class="destinations">
-                        <div class="수도권여행">수도권 여행</div>
+                    	
+	                    <div class="수도권여행"></div>
+	                    
+	                    <form method="https://dapi.kakao.com/v2/local/search/address.json">
+	                        <input class="출발지검색" placeholder="출발지 검색">    
+                    	</form>
 
-                        <input class="출발지검색" >    
                     </div>
 
                     <div class="출발지설정1">

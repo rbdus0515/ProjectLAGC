@@ -50,6 +50,8 @@ button {
     width: 100%;
     height: 100px;
     display: flex;
+    justify-content:baseline;
+    align-items: center;
 }
 
 /* 로고와 검색창 위치 설정 */
@@ -62,9 +64,11 @@ button {
 
 .search-box {
     display: flex;
-    justify-content: center;
+    position: relative;
     align-items: center;
-    width: 80%;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
 }
 
 /* 로고 크기 설정 */
@@ -84,16 +88,23 @@ button {
 
 /* 검색창 크기 설정 */
 .search {
-    width: 100%;
-    height: 40px;
+    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 50px;
     display: flex;
-    align-items: center;
-    margin: 25px;
-    background-image:url(/resources/img/myPage/search-icon.png);
-    background-repeat: no-repeat;
-    background-position: 98% center;
+    position: relative;
+    width: 344px;
+	align-items: center;
     
+}
+
+.search-btn {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: 9px;
+    right: 20px;
+    cursor: pointer;
 }
 
 

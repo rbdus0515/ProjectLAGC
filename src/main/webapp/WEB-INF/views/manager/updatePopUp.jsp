@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="updatePopup" class="hidden">
-	    <form action="/content/updateContent" method="POST" enctype="multipart/form-data">
+	    <form action="/content/updateContent" id="updatePopup" method="POST" enctype="multipart/form-data">
 	       <!-- 카테고리, 닫기 버튼 -->
 	      <div id="close-container">
 	        

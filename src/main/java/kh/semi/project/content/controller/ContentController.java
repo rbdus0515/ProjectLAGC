@@ -191,6 +191,9 @@ public class ContentController {
 		String webPath = "/resources/img/content/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
+		System.out.println(inputContent);
+		System.out.println(uploadPlaceImg);
+		
 		int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
 		
 		String path = "redirect:";

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="updatePopup" class="hidden">
-	    <form action="/content/updateContent" method="POST" enctype="multipart/form-data">
+	    <form action="/content/updateContent" id="updatePopup" method="POST" enctype="multipart/form-data">
 	       <!-- 카테고리, 닫기 버튼 -->
 	      <div id="close-container">
 	        
@@ -24,7 +24,7 @@
 	                <section id="address-category">
 	                
 	                	<section>
-   			            	<input type="text" name="updateInputAddress" id="updateInputAddress"  placeholder="주소">
+   			            	<input type="text" name="placeAddress" id="updateInputAddress"  placeholder="주소">
 	                	</section>
 	                	
 	                    <select name="ageCode" id="updateAgeCode">
@@ -126,6 +126,7 @@
                 	</section>
 	            </div> 
 	        </div>
+			<input type="hidden" name="contentNo" id="contentNum">
 	    </form>
    	</div> 
    	

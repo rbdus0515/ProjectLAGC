@@ -24,7 +24,7 @@
 	                <section id="title-category-place-imgFile">
 	                
 	                	<section>
-   			            	<input type="text" name="insertInputAddress" id="insertInputAddress"  placeholder="주소">
+   			            	<input type="text" name="placeAddress" id="insertInputAddress"  placeholder="주소">
 	                	</section>
 	                
 	                    <select name="ageCode" id="ageCode">

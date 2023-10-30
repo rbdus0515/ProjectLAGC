@@ -123,5 +123,13 @@ public class ContentDAO {
 		System.out.println("test");
 		return sqlSession.update("contentMapper.updateContent", inputContent);
 	}
+
+	/** 지도 핀 꽂기
+	 * @return
+	 */
+	public List<Content> selectPlace() {
+
+		return sqlSession.selectList("contentMapper.selectPlace");
+	}
 	
 }

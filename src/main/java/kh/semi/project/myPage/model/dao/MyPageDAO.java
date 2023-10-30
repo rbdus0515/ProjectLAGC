@@ -42,6 +42,11 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectReplyAll", memberNo);
 	}
 
+	public List<Map<String, Object>> selectMyPlanAll(int memberNo) {
+	
+		return sqlSession.selectList("myPageMapper.selectMyPlanAll", memberNo);
+	}
+
 
 	
 }

@@ -42,5 +42,14 @@ public class MyPageServiceImpl implements MyPageService{
 		return dao.selectReplyAll(memberNo);
 	}
 
+	/** 나의 여행 조회
+	 *
+	 */
+	@Override
+	public List<Map<String, Object>> selectMyPlanAll(int memberNo) {
+
+		return dao.selectMyPlanAll(memberNo);
+	}
+
 
 }

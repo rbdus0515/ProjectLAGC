@@ -41,7 +41,6 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int insertContent(Content inputContent) {
-		
 		return sqlSession.insert("contentMapper.insertContent", inputContent);
 	}
 
@@ -120,7 +119,6 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int updateContent(Content inputContent) {
-		System.out.println("test");
 		return sqlSession.update("contentMapper.updateContent", inputContent);
 	}
 

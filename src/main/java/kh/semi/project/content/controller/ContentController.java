@@ -134,7 +134,7 @@ public class ContentController {
 		
 		return path;
 	}
-
+	
 	// 컨텐츠 추가
 	@PostMapping("/insertContent")
 	public String insertContent(Content inputContent,
@@ -180,7 +180,7 @@ public class ContentController {
 	}
 	
 	// 컨텐츠 업데이트
-	@GetMapping("/updateContent")
+	@PostMapping("/updateContent")
 	public String updateContent(Content inputContent,
 								RedirectAttributes ra,
 								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
@@ -198,10 +198,10 @@ public class ContentController {
 		
 		if(result > 0) {
 			path += referer;
-			msg = "업로드 성공!";
+			msg = "업데이트 성공!";
 		} else {
 			path += referer;
-			msg = "업로드 실패...";
+			msg = "업데이트 실패...";
 		}
 		
 		ra.addFlashAttribute("msg",msg);

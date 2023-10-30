@@ -120,7 +120,8 @@
 				#{contentImg},
 				#{placeInfo},
 				#{latitude},
-				#{longitude} )
+				#{longitude},
+				#{placeAddress} )
 	</insert>
 	
 	<!-- 컨텐츠 상세 조회 -->
@@ -147,7 +148,8 @@
 			CONTENT_IMG = #{contentImg},
 			PLACE_INFO = #{placeInfo},
 			LATITUDE = #{latitude},
-			LONGITUDE = #{longitude}
+			LONGITUDE = #{longitude},
+			PLACE_ADDRESS = #{placeAddress}
 		WHERE CONTENT_NO = #{contentNo}
 	</update>
 

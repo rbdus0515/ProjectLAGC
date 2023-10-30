@@ -21,6 +21,7 @@ import kh.semi.project.community.model.service.CommunityService;
 import kh.semi.project.member.model.dto.Member;
 
 @Controller
+@SessionAttributes({"loginMember"})
 @RequestMapping("/community")
 public class CommunityController {
 	
@@ -61,11 +62,10 @@ public class CommunityController {
 		
 		inputCom.setMemberNo(loginMember.getMemberNo());
 		
-		
-		
+
 		int result = service.insertCom(inputCom);
 		
-		return "community/communityPage";
+		return "redirect:/community/communityPage";
 	}
 
 }

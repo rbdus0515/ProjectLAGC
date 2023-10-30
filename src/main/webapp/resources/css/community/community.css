@@ -91,17 +91,10 @@
     display: flex;
     align-items: center;
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 /* 커뮤니티 글 메인 클래스부 */
-
-.comPeopleTitle , .comPeopleWrite {
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-}
-
-
 
 .com-peopleImg {
     width: 4rem;

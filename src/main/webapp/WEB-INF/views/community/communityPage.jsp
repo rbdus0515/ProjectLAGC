@@ -22,7 +22,7 @@
             <section>
                 <div id="local-hr-box">
                     <select id="localSelect" name="areaCode">
-                        <option value="seo">서울</option>
+                        <option value="seo" selected>서울</option>
                         <option value="gyeinc">경기/인천</option>
                         <option value="gan">강원도</option>
                         <option value="jeo">전라도</option>
@@ -38,7 +38,7 @@
             	
             	<c:forEach var="com" items="${list}" >    
             	    		
-                    <section class="repeatSection">
+                    <section id="rep-${com.communityNO}" class="repeatSection">
                     
                         <div class="com-peopleImg-sec">
                         	<c:choose>
@@ -55,16 +55,14 @@
                             
                             <section class="com-peopleComment-top-sec">
                                 <div class="PCDiv1">
-                                    <a class="comPeopleTitle" id="test" href="/community/">
-                                        ${com.communityTitle}
-                                    </a>
+                                	${com.communityTitle}
                                 </div>
                                 <div class="PCDiv2"></div>
                                 <div class="PCDiv3">조회수 : ${com.readCount}</div>
                                 <div class="PCDiv4">작성인 : ${com.nickName}</div>
                                 <div class="PCDiv5">날짜 : ${com.createDt}</div>
                             </section>
-                            
+                            <input type="hidden" value="${com.communityNo}">
                             <div class="com-peopleComment-bot-sec">
                                 <a class="comPeopleWrite" href="#">
                                     ${com.communityContent}
@@ -74,6 +72,7 @@
                         </section>
     
                     </section>
+                    <%-- <input type="hidden" value="${com.communityNo}" --%>
                     
             	</c:forEach>
             	

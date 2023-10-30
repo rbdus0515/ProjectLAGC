@@ -15,6 +15,8 @@ const updateLongitude = document.getElementById('updateLongitude');
 const updateUploadPlaceImg = document.getElementById('updateUploadPlaceImg');
 const updatePlaceInfoUrl = document.getElementById('updatePlaceInfoUrl');
 const updateInputInfo = document.getElementById('updateInputInfo');
+const updateInputAddress = document.getElementById('updateInputAddress');
+const contentNum = document.getElementById('contentNum');
 
 // 팝업창 관련
 let temp1 = 0;
@@ -37,6 +39,8 @@ for(var i = 0; i < placeSec.length; i ++) {
         .then(data => {
 
             console.log(data)
+
+            contentNum.value = tempNum;
             updateAgeCode.value = data.AGE_CODE;
             updateMemberCode.value = data.MEMBER_CODE;
             updateSeasonCode.value = data.SEASON_CODE;
@@ -48,18 +52,11 @@ for(var i = 0; i < placeSec.length; i ++) {
             updateUploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
             updatePlaceInfoUrl.value = data.PLACE_URL;
             updateInputInfo.value = data.PLACE_INFO;
+            updateInputAddress.value = data.PLACE_ADDRESS;
 
         });
         
-        closeBtnUpdatePopup.addEventListener('click', () => {
-            updatePopup.classList.add('hidden');
-        });
-        
-    });
-}
-
-
-// --------------------------------------------------------------
+        // --------------------------------------------------------------
 // 컨텐츠 이미지 관련
 
 // 컨텐츠 이미지 추가/변경/삭제
@@ -160,5 +157,43 @@ if(imageInputUpdate != null){ // 화면에 imageInput이 있을 경우 ( if 굳�
     });
 
 
+ // #profileFrm이 제출 되었을 때
+ document.getElementById("updatePopup").addEventListener("submit", e => {
 
+    // initCheck
+    // 초기 프로필 이미지 상태를 저장하는 변수
+    // false == 기본 이미지,  true == 이전 업로드 이미지
+
+    // deleteCheck
+    // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
+    // -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
+
+    let flag = true; // 제출하면 안되는 경우의 초기값 플래그 true로 지정
+
+    // 이전 프로필 이미지가 없으면서, 새 이미지 업로드를 했다 -> 처음으로 이미지 추가
+    if(!checkInit && checkDelete == 1)  flag = false;
+
+    // 이전 프로필 이미지가 있으면서, 새 이미지 업로드를 했다 -> 새 이미지로 변경
+    if(checkInit && checkDelete == 1)   flag = false;
+    
+    // 이전 프로필 이미지가 있으면서, 프로필 삭제 버튼을 눌렀다 -> 삭제
+    if(checkInit && checkDelete == 0)   flag = false;
+
+    
+    if(flag){ // flag == true -> 제출하면 안되는 경우
+        e.preventDefault(); // form 기본 이벤트 제거
+        alert("이미지 변경 후 클릭하세요");
+    }
+
+    return true;
+});
 }
+
+        closeBtnUpdatePopup.addEventListener('click', () => {
+            updatePopup.classList.add('hidden');
+        });
+        
+    });
+}
+
+

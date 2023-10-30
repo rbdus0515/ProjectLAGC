@@ -31,20 +31,7 @@
                         </form>
                     </div>
                 </section>
-                    <section class="location">
-                        
-                        <div class="locaContents">
-                            <div class="출발지설정">
-                                서울
-                                <button class="expend">+</button>
-
-                            </div>
-
-                            <div class="search-box">
-                                <input class="search" type="text" placeholder="여행지 검색">
-                            </div>
-
-                        </section>
+                  
                         <section class="location">
 
                             <div class="locaContents">
@@ -237,24 +224,12 @@
 
             </section>
             <section class="right-side">
-                <section class="empty-box"></section>
-                <section class="plan">
-                    <div class="출발지설정1">
-                        <div>출발지 설정</div>
-                        <button class="expend">-</button>
-                    </div>
-                    <div class="destinations">
-                    	
-	                    <div class="수도권여행"></div>
-	                    
-	                    <form method="https://dapi.kakao.com/v2/local/search/address.json">
-	                        <input class="출발지검색" placeholder="출발지 검색">    
-                    	</form>
+                <section class="empty-box">
+                    <button class="save">저장</button>
+                    <a class="save" href="/myPage/myPages">돌아가기</a>
 
-                    </div>
-
-
-                        </section>
+                </section>
+               
                         <section class="plan">
                             <div class="출발지설정1">
                                 <div>출발지 설정</div>
@@ -271,7 +246,7 @@
 
                                 </div>
 
-                                <input class="출발지검색">
+                                <input type="text" class="출발지검색" name="dapartPlace" placeholder="출발지를 설정해주세요">
                             </div>
 
                             <div class="출발지설정1">

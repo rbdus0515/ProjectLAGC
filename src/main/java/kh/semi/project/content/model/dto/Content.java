@@ -24,5 +24,6 @@ public class Content {
 	private String placeInfo;
 	private String latitude;
 	private String longitude;
+	private String placeAddress;
 	
 }

@@ -63,10 +63,6 @@ public class MyPageController {
 			replyList = service.selectReplyAll(memberNo);
 			myPlanList = service.selectMyPlanAll(memberNo);
 			
-			System.out.println(myPlanList);
-			
-			
-			
 			model.addAttribute("QNAList", QNAList);
 			model.addAttribute("likeList", likeList);
 			model.addAttribute("replyList", replyList);

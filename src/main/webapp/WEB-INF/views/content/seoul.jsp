@@ -79,7 +79,8 @@
     
     	<c:when test="${loginMember.memberManagerFlag == 'Y'}">
     	<!-- 관리자 팝업 -->
-	        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/insertPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/updatePopUp.jsp" />
 		</c:when>
 
 		<c:otherwise>
@@ -89,7 +90,8 @@
 	</c:choose>    
         
     <script src="/resources/js/content.js"></script>
-    <script src="/resources/js/adminEditPopUp.js"></script>
+    <script src="/resources/js/insertPopUp.js"></script>
+    <script src="/resources/js/updatePopUp.js"></script>
   
 </body>
 </html>

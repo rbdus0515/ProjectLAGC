@@ -165,6 +165,12 @@ public class ContetServiceImpl implements ContentService{
 		return result;
 	}
 
+//	@Override
+//	public String mapSearch() {
+//		
+//		return dao.selectList(null);
+//	}
+
 
 	
 }

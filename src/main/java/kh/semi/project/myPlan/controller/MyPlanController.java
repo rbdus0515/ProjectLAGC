@@ -73,4 +73,12 @@ public class MyPlanController {
 		
 		return "myPlan/myPlan";
 	}
+	
+	
+	@GetMapping("/myPlans")
+	public String mapSearch() {
+		
+		return service.mapSearch();
+		
+	}
 }

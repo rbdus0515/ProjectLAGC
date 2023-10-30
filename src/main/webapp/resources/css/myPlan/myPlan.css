@@ -203,6 +203,7 @@ button {
     position: relative;
     left: 75px;
     margin: 15px;
+    border: transparent;
 }
 
 /* 출발지 검색창 크기, 색상 설정 */

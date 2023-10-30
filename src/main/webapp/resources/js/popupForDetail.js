@@ -18,7 +18,7 @@ const comment3 = document.getElementById("comment3")
 let temp = 0;
 let temp2 = 0;
 
-for(var i = 0 ; i < placeSec.length ; i++){
+for(var i = 0 ; i < placeSec.length ; i++) {
   
   const tempNum = contentNo[i].value
 

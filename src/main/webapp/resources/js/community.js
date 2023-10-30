@@ -1,8 +1,8 @@
-const test = document.getElementById('test');
+const repeatSection = document.getElementById('repeatSection');
 const modalContainer = document.getElementById('modalContainer');
 const comXIcon = document.getElementById('com-XIcon');
 
-test.addEventListener('click', () => {
+repeatSection.addEventListener('click', () => {
   modalContainer.classList.remove('hidden');
 });
 
@@ -29,6 +29,7 @@ localSelect.addEventListener('change', () => {
       
       const RSection = document.createElement("div");
       RSection.classList.add("repeatSection");
+      RSection.setAttribute("id", `rep-${list[i].communityNo}`);
 
       const peopleImgSec = document.createElement("div");
       peopleImgSec.classList.add("com-peopleImg-sec");
@@ -39,7 +40,7 @@ localSelect.addEventListener('change', () => {
       if(list[i].profileImage) {
         peopleImg.src = "/resources/img/common/main/프로필아이콘.png";
       } else {
-        peopleImg.src = list[i].profileImage;
+        peopleImg.src = list[i].profileImg;
       }
 
       peopleImgSec.append(peopleImg);
@@ -89,8 +90,20 @@ localSelect.addEventListener('change', () => {
 
     }
 
-
-
   })
   .catch(err => console.log(err));
+});
+
+document.addEventListener("click", (e) => {
+
+  if(e.target.className == "repeatSection"){
+    modalContainer.classList.remove('hidden');
+
+    const commNo = e.target.id.split("-")[1];
+
+    fetch("/community/modal?communityNo=" + commNo)
+    .then(resp => resp.json())
+    .then()
+    .catch(err => console.log(err));
+  }
 });

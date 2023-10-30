@@ -21,7 +21,8 @@
 		TO_CHAR(CREATE_DT, 'YYYY. MM. DD') CREATE_DT, NICKNAME
 		FROM COMMUNITY
 		JOIN "MEMBER" USING(MEMBER_NO)
-		ORDER BY CREATE_DT
+		WHERE AREA_CODE = 'seo'
+		ORDER BY COMMUNITY_NO DESC
 	</select>
 	
 	<select id="selectLocalList" resultMap="community_rm">
@@ -30,10 +31,10 @@
 		FROM COMMUNITY
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE AREA_CODE = #{areaCode}
-		ORDER BY CREATE_DT
+		ORDER BY COMMUNITY_NO DESC
 	</select>
 	
 	<insert id="insertCom">
-		INSERT 
+		INSERT INTO COMMUNITY VALUES(SEQ_COMMUNITY_NO.NEXTVAL, #{memberNo}, #{communityTitle}, #{communityContent}, DEFAULT, DEFAULT, DEFAULT, #{areaCode})
 	</insert>
 </mapper>

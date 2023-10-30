@@ -1,21 +1,20 @@
 const placeSec = document.getElementsByClassName('placeSec');
-const placePlusSec = document.getElementsByClassName('placePlusSec');
 
 const updatePopup = document.getElementById('updatePopup');
-const closeBtnPopup = document.getElementById('closeBtnPopup');
+const closeBtnUpdatePopup = document.getElementById('closeBtnUpdatePopup');
 
 const contentNo = document.getElementsByClassName("contentNo");
-const ageCode = document.getElementById('ageCode');
-const memberCode = document.getElementById('memberCode');
-const seasonCode = document.getElementById('seasonCode');
-const themeCode = document.getElementById('themeCode');
-const inputPlace = document.getElementById('inputPlace');
-const areaCode = document.getElementById('areaCode');
-const latitude = document.getElementById('latitude');
-const longitude = document.getElementById('longitude');
-const uploadPlaceImg = document.getElementById('uploadPlaceImg');
-const placeInfoUrl = document.getElementById('placeInfoUrl');
-const inputInfo = document.getElementById('inputInfo');
+const updateAgeCode = document.getElementById('updateAgeCode');
+const updateMemberCode = document.getElementById('updateMemberCode');
+const updateSeasonCode = document.getElementById('updateSeasonCode');
+const themeCode = document.getElementById('updateThemeCode');
+const updateInputPlace = document.getElementById('updateInputPlace');
+const updateAreaCode = document.getElementById('updateAreaCode');
+const updateLatitude = document.getElementById('updateLatitude');
+const updateLongitude = document.getElementById('updateLongitude');
+const updateUploadPlaceImg = document.getElementById('updateUploadPlaceImg');
+const updatePlaceInfoUrl = document.getElementById('updatePlaceInfoUrl');
+const updateInputInfo = document.getElementById('updateInputInfo');
 
 // 팝업창 관련
 let temp1 = 0;
@@ -38,55 +37,52 @@ for(var i = 0; i < placeSec.length; i ++) {
         .then(data => {
 
             console.log(data)
-            ageCode.value = data.AGE_CODE;
-            memberCode.value = data.MEMBER_CODE;
-            seasonCode.value = data.SEASON_CODE;
+            updateAgeCode.value = data.AGE_CODE;
+            updateMemberCode.value = data.MEMBER_CODE;
+            updateSeasonCode.value = data.SEASON_CODE;
             themeCode.value = data.THEME_CODE;
-            inputPlace.value = data.TRAVEL_NAME;
-            areaCode.value = data.AREA_CODE;
-            latitude.value = data.LATITUDE;
-            longitude.value = data.LONGITUDE;
-            uploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
-            placeInfoUrl.value = data.PLACE_URL;
-            inputInfo.value = data.PLACE_INFO;
+            updateInputPlace.value = data.TRAVEL_NAME;
+            updateAreaCode.value = data.AREA_CODE;
+            updateLatitude.value = data.LATITUDE;
+            updateLongitude.value = data.LONGITUDE;
+            updateUploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
+            updatePlaceInfoUrl.value = data.PLACE_URL;
+            updateInputInfo.value = data.PLACE_INFO;
 
         });
-
-        closeBtnPopup.addEventListener('click', () => {
-            updatePopup.classList.add('hidden');
-        });
-
-
+        
     });
-
-
 }
+
+closeBtnUpdatePopup.addEventListener('click', () => {
+    updatePopup.classList.add('hidden');
+});
 
 // --------------------------------------------------------------
 // 컨텐츠 이미지 관련
 
 // 컨텐츠 이미지 추가/변경/삭제
-const imageInput = document.getElementById("imageInput"); // input 태그
+const uploadPlaceImg = document.getElementById("uploadPlaceImg"); // input 태그
 
 let initCheck; // 초기 컨텐츠 이미지 상태를 저장하는 변수
                 // false == 기본 이미지,  true == 이전 업로드 이미지
 
-let deleteCheck = -1; 
+let deleteCheck = -1;
 // 컨텐츠 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
 // -1 == 초기값,  1 == 새 이미지 업로드
 
 
 let originalImage; // 초기 컨텐츠 이미지 파일 경로 저장
 
-if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안해도 되긴 함 ) 
+if(uploadPlaceImg != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안해도 되긴 함 ) 
 
     // 컨텐츠 이미지가 출력되는 img태그의 src 속성을 저장
-    originalImage = imageInput.getAttribute("src"); 
+    originalImage = uploadPlaceImg.getAttribute("src"); 
 
 
     // 회원 컨텐츠 화면 진입 시 
     // 현재 회원의 컨텐츠 이미지 상태를 확인
-    if(imageInput.getAttribute("src") == "/resources/img/common/main/닫기버튼.png"){
+    if(uploadPlaceImg.getAttribute("src") == "/resources/img/common/main/닫기버튼.png"){
         // 기본 이미지인 경우
         initCheck = false;
     }else{
@@ -102,7 +98,7 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
     //   -> 이 때 input값 입력 후 포커스를 잃었을 때 
     //      이전 값과 다르면 change 이벤트 발생
 
-    imageInput.addEventListener("change", e => {
+    uploadPlaceImg.addEventListener("change", e => {
 
         // 2MB로 최대 크기 제한 
         const maxSize = 1 * 1024 * 1024 * 2; // 파일 최대 크기 지정(바이트 단위)
@@ -116,12 +112,12 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
 
         if( file.size > maxSize){ // 선택된 파일의 크기가 최대 크기를 초과한 경우
             alert("2MB 이하의 이미지를 선택해주세요.");
-            imageInput.value = ""; 
+            uploadPlaceImg.value = ""; 
             // input type="file" 태그에 대입할 수 있는 value는 "" (빈칸) 뿐이다!
             deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
 
             // 기존 컨텐츠 이미지로 변경
-            imageInput.setAttribute("src", originalImage);
+            uploadPlaceImg.setAttribute("src", originalImage);
 
             return;
         }
@@ -144,7 +140,7 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
             const url = e.target.result;
 
             // 컨텐츠이미지(img) 태그에 src 속성으로 추가
-            imageInput.setAttribute("src", url);
+            uploadPlaceImg.setAttribute("src", url);
 
             deleteCheck = 1;
         }

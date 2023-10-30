@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 업로드 팝업</title>
 
-    <link rel="stylesheet" href="/resources/css/manager/adminEditPopUp.css">
+    <link rel="stylesheet" href="/resources/css/manager/insertPopup.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
@@ -124,5 +124,6 @@
 	    </form>
    	</div> 
     
+    <script src="/resources/js/insertPopUp.js"></script>
 </body>
 </html>

@@ -165,11 +165,22 @@ public class ContetServiceImpl implements ContentService{
 		return result;
 	}
 
+
 //	@Override
 //	public String mapSearch() {
 //		
 //		return dao.selectList(null);
 //	}
+
+	/** 지도 핀 꽂기
+	 *
+	 */
+	@Override
+	public List<Content> selectPlace() {
+
+		return dao.selectPlace();
+	}
+
 
 
 	

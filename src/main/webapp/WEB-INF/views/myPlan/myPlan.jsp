@@ -11,9 +11,11 @@
     <title>나의 일정</title>
     <link rel="stylesheet" href="/resources/css/myPlan/myPlan.css">
     
+   
 
 </head>
 <body>
+
     <form action="myPlan/myPlans" name="myPlan" method="get"></form>
     <main class="my-plan">
 
@@ -225,9 +227,8 @@
             </section>
             <section class="right-side">
                 <section class="empty-box">
-                    <button class="save">저장</button>
-                    <a class="save" href="/myPage/myPages">돌아가기</a>
-
+                	
+                
                 </section>
                
                         <section class="plan">
@@ -246,7 +247,7 @@
 
                                 </div>
 
-                                <input type="text" class="출발지검색" name="dapartPlace" placeholder="출발지를 설정해주세요">
+                                <input class="출발지검색">
                             </div>
 
                             <div class="출발지설정1">
@@ -286,6 +287,8 @@
                         </section>
                     </section>
 
+
+                   
                     <div id="map" style="width:70%;height:100vh;">
                         <div class="storage">
                             <img id="arrow" class="left-arrow" src="/resources/img/myPage/left-arrow.png">
@@ -297,9 +300,14 @@
                                     src="/resources/img/myPage/프로필 사진.png"></a></div>
 
                     </div>
-                    <script type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d"></script>
 
+                    <!-- 지도 영역 -->
+
+                    <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d">
+                    
+                    </script>
+ 
                     </section>
 
                 </main>

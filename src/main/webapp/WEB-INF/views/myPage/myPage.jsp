@@ -94,7 +94,7 @@
                                     <div class="man-to-man-bar">1:1 문의</div>
                                     <div class="man-to-man">
                                         <div class="mtm-date">23.09.19</div>
-                                        <div class="mtm-title"><a href="#">${qna.QNATitle}</a></div>
+                                        <div class="mtm-title"><a href="#">동궁과 월지 문의</a></div>
                                         <!-- hidden 넣은 관리자 1대1 문의에 연결  -->
                                         <div class="mtm-status">답변완료</div>
                                     </div>
@@ -110,17 +110,16 @@
                             <div class="like-list-combo">
                                 <div class="slideBox">
 
-                                    
+                                    <div class="like-list-1">
                                     	<!-- 좋아요를 누른 곳이 없을 경우 -->
-                                    	<c:if test="${empty likeCheck}">
+                                    	<c:if test="${empty loginMember}">
                                     		<p>좋아요를 누른 여행지가 없습니다</p>
                                     	</c:if>
                                     	
                                     	<!-- 좋아요를 누른 곳이 있을 경우 -->
-                                    	<c:if test="${not empty likeCheck}">
+                                    	<c:if test="${not empty loginMember}">
                                     		<foreach
                                     	</c:if>
-                                    <div class="like-list-1">
                                         <a href="#"><img class="like-list-photo" src="/resources/img/myPage/Rectangle 115.png"></a>
                                         <div class="like-list-name"><a href="#">감천문화마을</a></div>
                                     </div>

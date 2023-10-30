@@ -55,27 +55,24 @@ const rightList = document.getElementById('rightList');
 for (let i = 0; i < cansle.length; i++) {
     cansle[i].addEventListener('click', () => {
         const selectedDestination = divDes.querySelector(".선택한여행지");
+        const selectedRightList = rightList.querySelector(".선택한여행지");
 
  
         if (selectedDestination) {
             divDes.removeChild(selectedDestination);
             rightList.appendChild(selectedDestination);
-        } 
+        } else {
+        
+        if(selectedRightList){
+        	rightList.removeChild(selectedRightList);
+            divDes.appendChild(selectedRightList);
+            }
+        }
         
     });
 }
 
-for (let i = 0; i < cansle.length; i++) {
-    cansle[i].addEventListener('click', () => {
-        const selectedRightList = rightList.querySelector(".선택한여행지");
- 
-        
-        if (selectedRightList) {
-            rightList.removeChild(selectedRightList);
-            divDes.appendChild(selectedRightList);
-        }
-    });
-}
+
 
 
 

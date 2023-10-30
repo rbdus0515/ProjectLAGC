@@ -55,14 +55,22 @@ public class MyPageController {
 			List<Map<String, Object>> QNAList = new ArrayList<Map<String, Object>>(); 
 			List<Map<String, Object>> likeList = new ArrayList<Map<String, Object>>(); 
 			List<Map<String, Object>> replyList = new ArrayList<Map<String, Object>>(); 
+			List<Map<String, Object>> myPlanList = new ArrayList<Map<String, Object>>(); 
+			
 			
 			QNAList = service.selectQNAAll(memberNo);
 			likeList = service.selectLikeAll(memberNo);
 			replyList = service.selectReplyAll(memberNo);
-		
+			myPlanList = service.selectMyPlanAll(memberNo);
+			
+			System.out.println(myPlanList);
+			
+			
+			
 			model.addAttribute("QNAList", QNAList);
 			model.addAttribute("likeList", likeList);
 			model.addAttribute("replyList", replyList);
+			model.addAttribute("myPlanList", myPlanList);
 			
 		}
 		

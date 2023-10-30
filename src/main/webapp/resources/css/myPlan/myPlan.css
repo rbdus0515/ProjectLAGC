@@ -115,6 +115,9 @@ button {
 .empty-box {
     width: 100%;
     height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 /* 여행 계획 크기 설정 */
@@ -267,12 +270,26 @@ button {
 }
 
 /* 저장 버튼 크기, 색상 설정 */
+
+
 .save {
-    width: 64px;
+    width: 5rem;
     height: 43px;
-    background-color: black;
-    color: white;
-    align-self: flex-end;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    transition-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 10px;
+
+}
+
+.save:hover{
+    background-color: #868686;
+    color: #fff;
+
 }
 
 /* 창 숨기기 */
@@ -342,4 +359,26 @@ button {
     height: 100%;
     object-fit: cover;
 
+}
+
+.dateContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.travelDate{
+    height: 2rem;
+
+}
+
+#tild{ 
+    margin: 0;
+}
+
+.travelDate{
+    border: none;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    padding: 0 5px;
 }

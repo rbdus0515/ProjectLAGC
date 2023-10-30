@@ -25,5 +25,11 @@ public interface MyPageService {
 	 */
 	List<Map<String, Object>> selectReplyAll(int memberNo);
 
+	/** 나의 여행 조회
+	 * @param memberNo
+	 * @return
+	 */
+	List<Map<String, Object>> selectMyPlanAll(int memberNo);
+
 
 }

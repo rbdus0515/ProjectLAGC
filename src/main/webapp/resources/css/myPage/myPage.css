@@ -632,13 +632,23 @@ footer {
     width: 80%;
     height: 25%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
     background-color: white;
     border-radius: 10px;
-	padding-left: 40px;
 }
 
+.myPlanDetailContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+    margin-top: 10px;
+}
 
 /* 일정 여행지 이미지 */
 .my-plan-img {
@@ -694,7 +704,6 @@ footer {
 
 /* 공유/삭제 버튼 컨테이너 */
 .share-delete {
-    height: 330px;
     display: flex;
     align-items: end;
     justify-content: end;
@@ -731,11 +740,12 @@ footer {
 }
 
 /* 일정 추가 버튼 */
-.plan-add {
+#plan-add {
 	height: 330px;
-    margin-left: 40%;
     font-size: 1.5625rem;
     cursor: auto;
+    margin: 0;
+    padding: 0;
 }
 
 

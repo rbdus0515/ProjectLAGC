@@ -30,7 +30,7 @@
 		<typeAlias type="kh.semi.project.notice.model.dto.Notice" alias="Notice" />
 		<typeAlias type="kh.semi.project.manager.model.dto.QNA" alias="QNA" />
 		<typeAlias type="kh.semi.project.clientService.model.dto.ClientService" alias="ClientService"/>
-
+		<typeAlias type="kh.semi.project.search.model.dto.Search" alias="Search"/>
 
 	</typeAliases>
 
@@ -46,7 +46,7 @@
 		<mapper resource="/mappers/notice-mapper.xml" />
 		<mapper resource="/mappers/manager-mapper.xml" />
 		<mapper resource="/mappers/clientService-mapper.xml"/>
-		
+		<mapper resource="/mappers/search-mapper.xml"/>
 
 	</mappers>
 

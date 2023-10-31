@@ -16,7 +16,7 @@
     <footer class="footer">
 
         <section class="logoSection">
-            <a href="#">
+            <a href="/">
                 <img class="logo" src="/resources/img/common/main/로고.png">
             </a>
         </section>
@@ -30,7 +30,7 @@
         <section class="footerInformation">
 
             <div>
-                <a href="#">
+                <a href="/clientService/clientServicePage">
                     홈페이지 관련 정보
                 </a>
             </div>

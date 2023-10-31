@@ -62,7 +62,7 @@
 	                </section>
 	            </div>
 	            
-	            <button type="submit" id="closeBtnUpdatePopup">
+	            <button id="closeBtnUpdatePopup">
 	                <img src="/resources/img/common/main/닫기버튼.png" alt="">
 	            </button>
 	        </div> 

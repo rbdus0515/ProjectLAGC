@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import kh.semi.project.community.model.dto.Community;
+import kh.semi.project.community.model.dto.CommunityComment;
 
 @Repository
 public class CommunityDAO {
@@ -29,6 +30,12 @@ public class CommunityDAO {
 		
 		return sqlSession.insert("communityMapper.insertCom", inputCom);
 	}
+
+	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+		return sqlSession.selectList("communityMapper.selectCCommentList", communityNo);
+	}
+
+	
 
 
 

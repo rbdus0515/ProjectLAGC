@@ -53,7 +53,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${seo.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${seo.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -79,7 +79,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gyeinc.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gyeinc.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -105,7 +105,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gan.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gan.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -130,7 +130,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${chu.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${chu.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -155,7 +155,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${jeo.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${jeo.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -180,7 +180,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gye.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gye.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -206,7 +206,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${jej.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${jej.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -227,8 +227,8 @@
             </section>
             <section class="right-side">
                 <section class="empty-box">
-                	
-                
+                	<a class="save" href="/myPage/myPages"> 돌아가기</a>
+                	<button class="save">저장</button>
                 </section>
                
                         <section class="plan">
@@ -256,6 +256,9 @@
 									</div>
 
 								</form>
+
+
+                                <input class="출발지검색" placeholder="출발지를 검색해주세요"></input>
 
                             </div>
 
@@ -305,8 +308,11 @@
 
                         <div class="이용방법"><a href="#">이용방법</a></div>
 
-                        <div class="log-in"><a href="/myPage/myPages"><img class="map-profile"
-                                    src="/resources/img/myPage/프로필 사진.png"></a></div>
+                        <div class="log-in">
+                        	<a href="/myPage/myPages" class="imgWrapperMyPlan">
+                        		<img class="map-profile" src="${loginMember.memberProfileImage}">
+                        	</a>
+                       	</div>
 
                     </div>
 

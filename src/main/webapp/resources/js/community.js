@@ -1,10 +1,5 @@
-const repeatSection = document.getElementById('repeatSection');
 const modalContainer = document.getElementById('modalContainer');
 const comXIcon = document.getElementById('com-XIcon');
-
-repeatSection.addEventListener('click', () => {
-  modalContainer.classList.remove('hidden');
-});
 
 comXIcon.addEventListener('click', () => {
   modalContainer.classList.add('hidden');
@@ -21,15 +16,15 @@ localSelect.addEventListener('change', () => {
   .then(resp => resp.json())
   .then(list => {
 
+    console.log(list);
+    
     const contentContainer = document.getElementById("community-peopleComment-container");
     contentContainer.innerHTML = "";
-
-    console.log(list);
+  
     for(var i in list) {
       
       const RSection = document.createElement("div");
       RSection.classList.add("repeatSection");
-      RSection.setAttribute("id", `rep-${list[i].communityNo}`);
 
       const peopleImgSec = document.createElement("div");
       peopleImgSec.classList.add("com-peopleImg-sec");
@@ -53,6 +48,7 @@ localSelect.addEventListener('change', () => {
 
       const PCDiv1 = document.createElement("div");
       PCDiv1.classList.add("PCDiv1");
+      PCDiv1.setAttribute("id", `rep-${list[i].communityNo}`);
       PCDiv1.innerText = list[i].communityTitle;
 
       const PCDiv2 = document.createElement("div");
@@ -94,16 +90,101 @@ localSelect.addEventListener('change', () => {
   .catch(err => console.log(err));
 });
 
+
+
 document.addEventListener("click", (e) => {
 
-  if(e.target.className == "repeatSection"){
+  console.log(e.target);
+
+  if(e.target.className == "PCDiv1"){
     modalContainer.classList.remove('hidden');
 
     const commNo = e.target.id.split("-")[1];
 
+    console.log(commNo);
+
     fetch("/community/modal?communityNo=" + commNo)
     .then(resp => resp.json())
-    .then()
+    .then(ccomentList => {
+
+      console.log(ccomentList)
+      // ajax 컨테이너
+      const ajaxSec = document.getElementById("ajaxSec");
+      ajaxSec.innerHTML = "";
+      ajaxSec.classList.add("CCViewSec");
+      ajaxSec.setAttribute("id", "ajaxSec");
+
+      for(var cc in ccomentList){
+        
+        // 반복 section
+        const PBS = document.createElement("section");
+        PBS.classList.add("pop-botBox-sec");
+
+        // -------------------------------------------------------
+
+        // 프로필 부분 sec
+        const PBP = document.createElement("section");
+        PBP.classList.add("pop-botBox-profileSec");
+
+        // 프로필 부분 img sec
+        const PBPTSec = document.createElement("section");
+        PBPTSec.classList.add("pop-botBox-profileSec-topSec");
+
+        // 프로필 부분 img
+        const peopleProfile = document.createElement("img");
+        peopleProfile.setAttribute("src", ccommentList[cc].profileImage);
+
+        // 프로필 이름 부분
+        const PBPBSec = document.createElement("section");
+        PBPBSec.innerText = ccomentList[cc].memberNickName;
+
+        PBP.append(PBPTSec);
+        PBP.append(PBPBSec);
+
+        PBPTSec.append(peopleProfile);
+      
+        // -----------------------------------------------------------
+
+        // 댓글 부분 sec
+        const CCommentSec = document.createElement("section");
+        CCommentSec.classList.add("pop-botBox-doubleComment-sec");
+
+        // 댓글 부분 div
+        const CCommentBox = document.createElement("div");
+        CCommentBox.classList.add("pop-botBox-doubleComment-box");
+
+        // 댓글 컨텐트
+        const CCommentContent = document.createElement("section");
+        CCommentContent.innerText = ccomentList[cc].communityCommentContent;
+
+        // 삭제 버튼 sec
+        const deleteBtnSec = document.createElement("section");
+        deleteBtnSec.classList.add("pop-botBox-doubleComment-box-right");
+
+        // 삭제 버튼
+        const deleteBtn = document.createElement("button");
+        
+        // 삭제 버튼 이미지
+        const deleteBtnImg = document.createElement("img");
+        deleteBtnImg.setAttribute("src", "semiProjectImage/Vector.png");
+        deleteBtnImg.classList("com-doubleComment-XIcon");
+
+        CCommentSec.append(CCommentBox);
+        deleteBtn.append(deleteBtnImg);
+        deleteBtnSec.append(deleteBtn);
+        CCommentBox.append(CCommentContent, deleteBtnSec);
+
+        // --------------------------------------------------------------------------------
+
+        PBS.append(PBP, CCommentSec);
+        ajaxSec.append(PBS);
+
+
+
+
+      }
+
+    })
     .catch(err => console.log(err));
   }
 });

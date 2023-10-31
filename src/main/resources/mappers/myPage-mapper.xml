@@ -3,8 +3,26 @@
 
 <mapper namespace="myPageMapper">
 
+	<resultMap type="QNA" id="QNA_rm">
+
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="QNANo" column="QNA_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="QNATitle" column="QNA_TITLE" />
+		<result property="QNAContent" column="QNA_CONTENT" />
+		<result property="QNAAnswer" column="ANSWER" />
+		<result property="answerFlag" column="ANSWER_FL" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberEmail" column="EMAIL" />
+		<result property="memberNickname" column="NICKNAME" />
+		<result property="memberPhone" column="PHONE" />
+
+	</resultMap>
+
+
 	<select id="selectQNAAll" resultType="hashmap">
-		SELECT QNA_TITLE, QNA_CONTENT, TO_CHAR(CREATE_DATE, 'YY.MM.DD') AS CREATE_DATE, ANSWER_FL
+		SELECT QNA_NO, QNA_TITLE, QNA_CONTENT, TO_CHAR(CREATE_DATE, 'YY.MM.DD') AS CREATE_DATE, ANSWER_FL
 		FROM QNA 
 		WHERE MEMBER_NO = #{memberNo}
 		ORDER BY CREATE_DATE DESC
@@ -16,10 +34,11 @@
 		FROM "LIKE"
 		JOIN CONTENT USING(CONTENT_NO)
 		WHERE MEMBER_NO = #{memberNo}
+		AND CONTENT_DEL_FL = 'N'
 	</select>
 
 	<select id="selectReplyAll" resultType="hashmap">
-		SELECT REPLY_CONTENT, TRAVEL_NAME, TO_CHAR(CREATE_DATE, 'YY.MM.DD.') AS CREATE_DATE
+		SELECT REPLY_CONTENT, TRAVEL_NAME, TO_CHAR(CREATE_DATE, 'YY.MM.DD.') AS CREATE_DATE, REPLY_NO
 		FROM REPLY
 		JOIN CONTENT USING(CONTENT_NO)
 		WHERE MEMBER_NO = #{memberNo}
@@ -30,12 +49,29 @@
 	<select id="selectMyPlanAll" resultType="hashmap">
 		SELECT MYPLAN_NAME, TO_CHAR(DEPART_DATE, 'YY.MM.DD') 
 			AS DEPART_DATE, TO_CHAR(ARRIVAL_DATE, 'YY.MM.DD') AS ARRIVAL_DATE, 
-			CONTENT_NO, TRAVEL_NAME, DEPART_PLACE, AREA_CODE 
+			DEPART_PLACE, CEIL(SYSDATE - DEPART_DATE) AS DDAY, PLAN_NO 
 		FROM MYPLAN
-		JOIN MYPLAN_DETAIL USING(PLAN_NO)
 		WHERE MEMBER_NO = #{memberNo}
 		ORDER BY DEPART_DATE DESC
 	</select>
+	
+	<update id="replyDelete">
+		UPDATE "REPLY" SET
+		REPLY_DEL_FL = 'Y'
+		WHERE REPLY_NO = #{replyNo}	
+	</update>
+	
+	<select id="selectMyPlanDetailAll" resultType="hashmap">
+		SELECT PLAN_NO, CONTENT_NO, M.TRAVEL_NAME, C.AREA_CODE, C.CONTENT_IMG 
+		FROM MYPLAN_DETAIL M
+		JOIN CONTENT C USING(CONTENT_NO)
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<delete id="deleteMyPlan">
+		DELETE FROM MYPLAN
+		WHERE PLAN_NO = #{myPlanNo}		
+	</delete>
 	
 
 </mapper>

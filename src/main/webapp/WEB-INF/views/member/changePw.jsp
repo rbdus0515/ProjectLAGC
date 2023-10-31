@@ -13,14 +13,14 @@
 
         <body>
 
-		<c:if test="${not empty msg}">
+            <c:if test="${not empty msg}">
 
-		<script>
-			alert('${msg}')
-		</script>
+                <script>
+                    alert('${msg}')
+                </script>
 
-		</c:if>
-	<!-- 홈 로고 ---------------------------------------------------------------------------------------->
+            </c:if>
+            <!-- 홈 로고 ---------------------------------------------------------------------------------------->
             <a href="/">
                 <img id="homelogo" class="logo" src="/resources/img/common/main/logo.png" alt="">
             </a>
@@ -42,7 +42,7 @@
                         <p class="updatePwTitle">비밀번호 변경</p>
 
                         <br><br>
-					
+
                         <div>
                             <p>바꿀 비밀번호</p>
                             <input class="input" type="password" name="newMemberPw" id="newMemberPw">
@@ -52,11 +52,13 @@
                             <p>바꿀 비밀번호 확인</p>
                             <input class="input" type="password" name="newMemberPwConfirm" id="newMemberPwConfirm">
                         </div>
-                        </section>
+                    </section>
 
                     <div><span id="pwMessage">영어,숫자,기호(!,@,#,-,_) 6~20글자 사이로 입력하세요.</span></div>
+                    
                     <input type="hidden" name="memberName" value="${member.memberName}">
                     <input type="hidden" name="memberEmail" value="${member.memberEmail}">
+                    
                     <section class="btnContainer">
                         <button class="btn" type="submit">수정</button>
                         <a class="btn" href="/">홈으로</a>
@@ -70,6 +72,6 @@
             <script src="/resources/js/changePw.js"></script>
 
 
-    
+        </body>
 
         </html>

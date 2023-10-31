@@ -13,6 +13,7 @@
 		<result property="QNAContent" column="QNA_CONTENT" />
 		<result property="QNAAnswer" column="ANSWER" />
 		<result property="answerFlag" column="ANSWER_FL" />
+		<result property="createDate" column="CREATE_DATE" />
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="memberEmail" column="EMAIL" />
 		<result property="memberNickname" column="NICKNAME" />
@@ -55,5 +56,13 @@
 		ANSWER = #{answerArea}
 		WHERE QNA_NO = #{qnaNo}
 	</update>
+	
+	<select id="selectQNAOne" resultMap="QNA_rm">
+		SELECT QNA_NO, QNA_TITLE,
+		QNA_CONTENT, ANSWER, ANSWER_FL, MEMBER_NO, EMAIL, NICKNAME, PHONE, TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
+		FROM QNA
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE QNA_NO = #{qnaNo}
+	</select>
  
 </mapper>

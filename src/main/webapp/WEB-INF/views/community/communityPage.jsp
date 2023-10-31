@@ -38,15 +38,15 @@
             	
             	<c:forEach var="com" items="${list}" >    
             	    		
-                    <section id="rep-${com.communityNO}" class="repeatSection">
+                    <section class="repeatSection">
                     
                         <div class="com-peopleImg-sec">
                         	<c:choose>
                         		<c:when test="${empty com.profileImg}">
-                        			<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png">
+                        			<img class="com-peopleImg" src="/resources/img/common/main/프로필아이콘.png"/>
                         		</c:when>
                         		<c:otherwise>
-                        			<img class="com-peopleImg" src="${com.profileImg}">
+                        			<img class="com-peopleImg" src="${com.profileImg}"/>
                         		</c:otherwise>
                         	</c:choose>
                         </div>
@@ -54,7 +54,7 @@
                         <section class="com-peopleComment-sec">           
                             
                             <section class="com-peopleComment-top-sec">
-                                <div class="PCDiv1">
+                                <div class="PCDiv1" id="rep-${com.communityNo}" >
                                 	${com.communityTitle}
                                 </div>
                                 <div class="PCDiv2"></div>
@@ -62,9 +62,9 @@
                                 <div class="PCDiv4">작성인 : ${com.nickName}</div>
                                 <div class="PCDiv5">날짜 : ${com.createDt}</div>
                             </section>
-                            <input type="hidden" value="${com.communityNo}">
-                            <div class="com-peopleComment-bot-sec">
-                                <a class="comPeopleWrite" href="#">
+                            
+                            <div class="com-peopleComment-bot-sec" >
+                                <a class="comPeopleWrite">
                                     ${com.communityContent}
                                 </a>
                             </div>
@@ -72,8 +72,7 @@
                         </section>
     
                     </section>
-                    <%-- <input type="hidden" value="${com.communityNo}" --%>
-                    
+        
             	</c:forEach>
             	
                 </div>
@@ -86,11 +85,8 @@
                         <div id="com-myComment-imgBox">
                         	<c:choose>
                         		<c:when test="${not empty loginMember.memberProfileImage}">
-                       			
-
-                              
+           
                         			<img class="myProfileImage" src="${loginMember.memberProfileImage}">
-
 
                         		</c:when>
                         		<c:otherwise>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.semi.project.content.model.dto.Reply;
+import kh.semi.project.manager.model.dto.QNA;
 
 @Repository
 public class MyPageDAO {
@@ -42,9 +43,45 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectReplyAll", memberNo);
 	}
 
+	/** 나의 일정 목록 조회
+	 * @param memberNo
+	 * @return
+	 */
 	public List<Map<String, Object>> selectMyPlanAll(int memberNo) {
 	
 		return sqlSession.selectList("myPageMapper.selectMyPlanAll", memberNo);
+	}
+
+	/** 후기 삭제
+	 * @param replyNo
+	 * @return
+	 */
+	public int replyDelete(int replyNo) {
+
+		return sqlSession.update("myPageMapper.replyDelete", replyNo);
+	}
+
+	/** 문의 한개 조회
+	 * @param qnaNo
+	 * @return
+	 */
+	public QNA selectQNA(int qnaNo) {
+
+		return sqlSession.selectOne("managerMapper.selectQNAOne", qnaNo);
+	}
+
+	/** 나의 일정 세부 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Map<String, Object>> selectMyPlanDetailAll(int memberNo) {
+
+		return sqlSession.selectList("myPageMapper.selectMyPlanDetailAll", memberNo);
+	}
+
+	public int deleteMyPlan(int myPlanNo) {
+		
+		return sqlSession.delete("myPageMapper.deleteMyPlan", myPlanNo);
 	}
 
 

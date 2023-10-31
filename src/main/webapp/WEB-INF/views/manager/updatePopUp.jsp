@@ -62,8 +62,8 @@
 	                </section>
 	            </div>
 	            
-	            <button type="submit" id="closeBtnUpdatePopup">
-	                <img src="/resources/img/common/main/닫기버튼.png" alt="">
+	            <button id="closeBtnUpdatePopup" type="button">
+	                <img src="/resources/img/common/main/닫기버튼.png">
 	            </button>
 	        </div> 
 
@@ -107,7 +107,7 @@
 	                    <div>링크 : 
 	                        <input type="url" name="placeUrl" id="updatePlaceInfoUrl" placeholder="관련 사이트 링크">
 	                    </div>
-	                    <button type="s" id="upload-btn">업로드</button>
+	                    <button type="submit" id="upload-btn">업로드</button>
 	                </section>
 	            </div>
 	            

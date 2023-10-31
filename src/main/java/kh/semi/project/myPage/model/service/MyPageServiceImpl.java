@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kh.semi.project.content.model.dto.Reply;
+import kh.semi.project.manager.model.dto.QNA;
 import kh.semi.project.myPage.model.dao.MyPageDAO;
 
 @Service
@@ -49,6 +50,43 @@ public class MyPageServiceImpl implements MyPageService{
 	public List<Map<String, Object>> selectMyPlanAll(int memberNo) {
 
 		return dao.selectMyPlanAll(memberNo);
+	}
+
+	/** 후기 삭제
+	 *
+	 */
+	@Override
+	public int replyDelete(int replyNo) {
+		
+		return dao.replyDelete(replyNo);
+	}
+
+	/** 문의 1개 조회
+	 *
+	 */
+	@Override
+	public QNA selectQNA(int qnaNo) {
+
+		return dao.selectQNA(qnaNo);
+	}
+
+	
+	/** 나의 일정 세부 조회
+	 *
+	 */
+	@Override
+	public List<Map<String, Object>> selectMyPlanDetailAll(int memberNo) {
+
+		return dao.selectMyPlanDetailAll(memberNo);
+	}
+
+	/** 나의 일정 지우기
+	 *
+	 */
+	@Override
+	public int deleteMyPlan(int myPlanNo) {
+
+		return dao.deleteMyPlan(myPlanNo);
 	}
 
 

@@ -522,41 +522,10 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
         }
     });
 
-    // #profileFrm이 제출 되었을 때
-    document.getElementById("profileFrm").addEventListener("submit", e => {
-
-        // initCheck
-        // 초기 프로필 이미지 상태를 저장하는 변수
-        // false == 기본 이미지,  true == 이전 업로드 이미지
-
-        // deleteCheck
-        // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
-        // -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
-
-        let flag = true; // 제출하면 안되는 경우의 초기값 플래그 true로 지정
-
-        // 이전 프로필 이미지가 없으면서, 새 이미지 업로드를 했다 -> 처음으로 이미지 추가
-        if(!initCheck && deleteCheck == 1)  flag = false;
-
-        // 이전 프로필 이미지가 있으면서, 새 이미지 업로드를 했다 -> 새 이미지로 변경
-        if(initCheck && deleteCheck == 1)   flag = false;
-        
-        // 이전 프로필 이미지가 있으면서, 프로필 삭제 버튼을 눌렀다 -> 삭제
-        if(initCheck && deleteCheck == 0)   flag = false;
-
-        
-        if(flag){ // flag == true -> 제출하면 안되는 경우
-            e.preventDefault(); // form 기본 이벤트 제거
-            alert("이미지 변경 후 클릭하세요");
-        }
-
-	    return true;
-    });
-
 }
 
 // 회원 가입 form태그가 제출 되었을 때
-document.getElementById("updateFrm").addEventListener("submit", e=>{
+document.getElementById("singUpFrm").addEventListener("submit", e=>{
 
     for(let key in checkObj){
 

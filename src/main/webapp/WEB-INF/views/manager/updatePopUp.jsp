@@ -117,14 +117,15 @@
 	                    <textarea name="placeInfo" id="updateInputInfo" style="resize: none;"></textarea>
 	                </section>
 	                <section id="review-controll">후기
-	                	<
-	                    <section id="review-controll-section">
-	                        <p>DB에서 리스트 뽑아오기</p>
-	                        <button type="button" id="deleteBtn">
-					                <img src="/resources/img/common/main/닫기버튼.png" alt="">
-	                        </button>
-	                    </section>
-                	</section>
+	                		<!-- 후기 삭제 부분 -->
+		                    <section id="review-controll-section">
+		                        <p>불러온 후기 노출</p>
+		                        <button type="button" id="deleteBtn">
+						                <img src="/resources/img/common/main/닫기버튼.png" alt="">
+		                        </button>
+		                    </section>
+	                	
+	                </section>
 	            </div> 
 	        </div>
 			<input type="hidden" name="contentNo" id="contentNum">

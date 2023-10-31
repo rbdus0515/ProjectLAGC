@@ -42,7 +42,9 @@
 
 			<!-- 검색창 부분 -->
 			<section>
+
 				<form action="/search" method="POST" id=searchForm>
+
 					<div class="search-bar">
 						<input type="text" id="input-search" name="inputSearch" autocapitalize="off">
 						<button id="searchBtn">

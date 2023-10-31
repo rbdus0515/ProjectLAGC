@@ -99,6 +99,7 @@ window.onload = function () {
 
         }
 
+
         function makeOverListener(map, marker, infowindow) {
             return function() {
                 infowindow.open(map, marker);
@@ -120,6 +121,7 @@ window.onload = function () {
 // const targetInput = document.querySelector(".출발지검색");
 // const searchResult = document.querySelector(".수도권여행");
 
+
 // // API 호출 URL 생성
 // const apiUrl = `https://dapi.kakao.com/v2/local/search/address.json?query=${query}`;
 
@@ -133,27 +135,11 @@ window.onload = function () {
 // 		return;
 // 	}
 	
-// 	if(query.length > 0) {
-// 		// API 호출
-// 		fetch("/myPlans?query=${query}", {
-// 		    method: 'GET',
-// 		    headers: {
-// 		        'Authorization': `KakaoAK ${apiKey}`
-// 		    }
-// 		})
-// 		.then(response => response.text())
-// 		.then(data => {
-// 		    // API 응답 데이터 처리
-// 		    console.log(data);
-// 		})
-// 		.catch(error => {
-// 		    // 오류 처리
-// 		    console.error('API 호출 중 오류 발생:', error);
-// 		});
+
 	
 // 	}
 	
-	
+
 // 	}
 
 

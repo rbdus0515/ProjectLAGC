@@ -82,12 +82,20 @@ public class MyPlanController {
 		return "myPlan/myPlan";
 	}
 
+
+	/*
+	@GetMapping("/myPlan")
+	public String mapSearch() {
+		
+	return service.mapSearch();
+	}
+	*/
+
 	
 //	@GetMapping("/myPlans")
 //	public String mapSearch() {
 //		
 //		return service.mapSearch();
-//		
 
 	/** 지도 핀 꽂기
 	 * @return

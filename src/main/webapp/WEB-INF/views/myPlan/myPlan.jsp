@@ -246,8 +246,20 @@
                                     <input class="travelDate" type="date" name="arrivalDate" id="arrivalDate">
 
                                 </div>
+                                
+								<form name=mapSearch autocomplete="off">
+									<div class="mapSearchBox">
+										<input class="출발지검색" placeholder="출발지검색">
+										<button class=mapSearch-btn onclick="mapSearchList()">
+											<img id="search-img" src="/resources/img/common/main/Vector.png">
+										</button>
+									</div>
+
+								</form>
+
 
                                 <input class="출발지검색" placeholder="출발지를 검색해주세요"></input>
+
                             </div>
 
                             <div class="출발지설정1">

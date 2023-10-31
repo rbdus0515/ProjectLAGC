@@ -1,4 +1,5 @@
 const placeSec = document.getElementsByClassName('placeSec');
+const placeImg = document.getElementsByClassName("placeImg");
 
 const updatePopup = document.getElementById('updatePopup');
 const closeBtnUpdatePopup = document.getElementById('closeBtnUpdatePopup');
@@ -35,7 +36,7 @@ for(var i = 0; i < placeSec.length; i ++) {
     
     console.log(tempNum)
     
-    placeSec[i].addEventListener('click', () => {
+    placeImg[i].addEventListener('click', () => {
 
         temp2 = tempNum;
 

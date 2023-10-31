@@ -258,8 +258,6 @@
 								</form>
 
 
-                                <input class="출발지검색" placeholder="출발지를 검색해주세요"></input>
-
                             </div>
 
                             <div class="출발지설정1">
@@ -319,7 +317,7 @@
                     <!-- 지도 영역 -->
 
                     <script type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d">
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d&libraries=services">
                     
                     </script>
  

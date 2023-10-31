@@ -178,11 +178,6 @@ public class ContentServiceImpl implements ContentService{
 	}
 
 
-//	@Override
-//	public String mapSearch() {
-//		
-//		return dao.selectList(null);
-//	}
 
 
 

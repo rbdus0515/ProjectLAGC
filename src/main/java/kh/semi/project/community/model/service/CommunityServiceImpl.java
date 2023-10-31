@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 
 import kh.semi.project.community.model.dao.CommunityDAO;
 import kh.semi.project.community.model.dto.Community;
+import kh.semi.project.community.model.dto.CommunityComment;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {
@@ -36,6 +37,15 @@ public class CommunityServiceImpl implements CommunityService {
 		
 		return dao.insertCom(inputCom);
 	}
+
+	@Override
+	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+		return dao.selectCCommentList(communityNo);
+	}
+
+	
+
+	
 
 	
 	

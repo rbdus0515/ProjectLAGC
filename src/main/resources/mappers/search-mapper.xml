@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="searchMapper">
+
+	<!-- 
+		resultMap 
+		- SELECT 조회 결과(ResultSet) 
+		컬럼명과 컬럼 값을 옮겨 담을 DTO의 필드명이 같지 않을 때 이를 매핑 시켜 SELECT시 자동으로 담기게하는 역할 
+		
+		-속성 
+		type : 연결할 DTO (패키지명 + 클래스명 또는 별칭) 
+		id : 만들어진 resultMap을 지칭할 식별명(이름) 
+		<id> 태그 : PK 역할 컬럼 - 필드 매핑 
+		<result> 태그 : <id>제외 나머지 
+		
+	-->
+		
+	<resultMap type="Search" id="search_rm">
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="contentImg" column="CONTENT_IMG" />
+		<result property="travelName" column="TRAVEL_NAME" />
+		<result property="placeUrl" column="PLACE_URL" />
+		<result property="placeInfo" column="PLACE_INFO" />
+		<result property="area" column="AREA" />
+		<result property="likeCount" column="LIKE_COUNT" />
+		
+	</resultMap>
+	
+	<!-- 검색 조회 -->
+	<select id="searchResult" resultMap="search_rm">
+		SELECT C.CONTENT_IMG, C.TRAVEL_NAME, C.PLACE_URL, C.PLACE_INFO, L.AREA,
+			(
+			SELECT COUNT(*)
+			FROM "LIKE"
+			WHERE CONTENT_NO = C.CONTENT_NO
+			) AS LIKE_COUNT
+		FROM CONTENT C
+		JOIN LOCATION L USING (AREA_CODE)
+		WHERE C.CONTENT_DEL_FL = 'N'
+		AND C.TRAVEL_NAME || C.PLACE_INFO LIKE '%' || #{inputSearch} || '%'
+	</select>
+
+</mapper>

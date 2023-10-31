@@ -102,7 +102,7 @@
 	<!-- 후기 -->
 	<insert id="insertReply">
 		INSERT INTO "REPLY"
-		VALUES(#{contentNo}, #{XSSreply}, #{memberNo},	DEFAULT, DEFAULT)
+		VALUES(SEQ_REPLY_NO.NEXTVAL, #{contentNo}, #{XSSreply}, #{memberNo}, DEFAULT, DEFAULT)
 	</insert>
 	
 	<!-- 컨텐츠 추가 -->

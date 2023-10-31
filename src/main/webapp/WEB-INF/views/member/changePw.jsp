@@ -30,7 +30,6 @@
 
                 <form action="/member/changePw2" method="post" id="changePw">
 
-
                     <!-- 정보 입력 ---------------------------------------------------------------------------------------->
 
                     <section class="delete">
@@ -68,10 +67,8 @@
 
                 </form>
             </main>
-
+            
             <script src="/resources/js/changePw.js"></script>
-
-
         </body>
 
         </html>

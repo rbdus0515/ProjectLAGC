@@ -16,7 +16,7 @@
 	<div id="modalContainer" class="hidden">
 
         <main id="communityPopup-container">
-            <form action="" method="post">
+            <form class="popupForm" action="" method="post">
                        
 	            <section class="CCSec1">
 	    

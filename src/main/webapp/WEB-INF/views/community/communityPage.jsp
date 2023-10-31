@@ -64,9 +64,7 @@
                             </section>
                             
                             <div class="com-peopleComment-bot-sec" >
-                                <a class="comPeopleWrite">
                                     ${com.communityContent}
-                                </a>
                             </div>
     
                         </section>

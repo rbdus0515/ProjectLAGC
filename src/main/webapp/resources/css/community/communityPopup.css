@@ -352,7 +352,11 @@
 
 #modalContainer.hidden {
 	display: none;
-} 
+}
+
+.popupForm {
+	flex-basis: 50%;
+}
 
 
 

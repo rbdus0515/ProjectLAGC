@@ -60,10 +60,10 @@
 	                                <!-- 자세히 보기 / 내 일정 추가 영역 -->
 	                                <div class="linkSection">
 	                                    <!-- 자세히 보기 -->
-	                                    <div class="linkDetail"><a href="${list.placeUrl}">자세히 보기</a></div>
+	                                    <div class="linkDetail"><a href="${list.placeUrl}" target="_blank">자세히 보기</a></div>
 	
 	                                    <!-- 내 일정 추가 -->
-	                                    <div class="addMyPlan"><a href="#">내 일정 추가</a></div>
+	                                    <div class="addMyPlan"><a href="#" id="addMyPlan">내 일정 추가</a></div>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -79,13 +79,24 @@
             <div id="rightArea"></div>
         </div>
 
+	    <!-- bottom -->
+	    <div style="position: absolute; bottom: 0px">
+	    	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		</div>
         
     </section>
     
-    <!-- bottom -->
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
+	
     <a href="#top"><img src="/resources/img/content/button/탑버튼.png" id="upBtn"></a>
-  
+  	
+  	
+	<script>
+
+		const memberNo = "${loginMember.memberNo}";
+
+	</script>
+	
+	<script src="/resources/js/search.js"></script>
+	
 </body>
 </html>

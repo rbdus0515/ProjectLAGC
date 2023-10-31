@@ -16,6 +16,7 @@ public class QNA {
 	private String QNAContent;
 	private String QNAAnswer;
 	private String answerFlag;
+	private String createDate;
 	private int memberNo;
 	
 	private String memberEmail;

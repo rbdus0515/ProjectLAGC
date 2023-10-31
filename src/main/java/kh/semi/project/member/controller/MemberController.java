@@ -450,12 +450,12 @@ public class MemberController {
 		if(result > 0) {
 			
 			model.addAttribute("member", member);
-			path += "/";
+			path = "/member/changePw";
 		
 		} else {
 			
 			msg = "일치하는 회원 정보가 없습니다.";
-			path += referer;
+			path = "redirect:" + referer;
 		}
 		
 		ra.addFlashAttribute("msg",msg);
@@ -486,8 +486,12 @@ public class MemberController {
 		member.setMemberEmail(memberEmail);
 		member.setMemberPw(newMemberPw);
 		
+		System.out.println(newMemberPw);
+		
 		int result = service.changePw(member);
 
+		System.out.println(result);
+		
 		if(result > 0) {
 			
 			msg = "비밀번호 변경이 완료되었습니다.";

@@ -92,6 +92,4 @@ public interface ContentService {
 	List<Content> selectPlace();
 
 
-  String mapSearch();
-
 }

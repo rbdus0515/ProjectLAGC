@@ -284,7 +284,6 @@ memberEmail.addEventListener("input", () => {
         emailMessage.innerText = "사용 가능한 이메일입니다";
         emailMessage.classList.add("confirm"); // .confirm 스타일 적용
         emailMessage.classList.remove("error"); // .error 스타일 제거
-
         checkObj.memberEmail = true;
         checkObj.authKey = true;
 
@@ -369,6 +368,7 @@ sendAuthKeyEmail.addEventListener("click", function(){
         
         authKeyMessage.innerText = "03:00";
         authKeyMessage.classList.remove("confirm");
+        console.log(checkObj)
 
         authTimer = window.setInterval(()=>{
 													// 삼항연산자  :  조건 	  ?   	true : false
@@ -440,13 +440,11 @@ certifyBtnEmail.addEventListener("click", function(){
 // 프로필 이미지 추가/변경/삭제
 const profileImage = document.getElementById("profileImage"); // img 태그
 const imageInput = document.getElementById("imageInput"); // input 태그
-const deleteImage = document.getElementById("deleteImage"); // x버튼
 
 
 let initCheck; // 초기 프로필 이미지 상태를 저장하는 변수
                 // false == 기본 이미지,  true == 이전 업로드 이미지
 
-let deleteCheck = -1; 
 // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
 // -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
 
@@ -492,7 +490,6 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
         // 파일을 한번 선택한 후 취소했을 때 ( file이 undefined가 된다 ) 
         if(file == undefined){ 
             console.log("파일 선택이 취소됨");
-            deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
 
             // 취소 시 기존 프로필 이미지로 변경 ( 기존 이미지에서 변경되는게 없게 하겠다는거죠 ) 
             profileImage.setAttribute("src", originalImage);
@@ -504,7 +501,6 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
             alert("2MB 이하의 이미지를 선택해주세요.");
             imageInput.value = ""; 
             // input type="file" 태그에 대입할 수 있는 value는 "" (빈칸) 뿐이다!
-            deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
 
             // 기존 프로필 이미지로 변경
             profileImage.setAttribute("src", originalImage);
@@ -532,19 +528,7 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
             // 프로필이미지(img) 태그에 src 속성으로 추가
             profileImage.setAttribute("src", url);
 
-            deleteCheck = 1;
         }
-    });
-
-
-    // x버튼 클릭 시
-    deleteImage.addEventListener('click', () => {
-        imageInput.value = ""; // input type="file"의 value 삭제
-
-        profileImage.setAttribute("src", "/resources/img/common/main/프로필아이콘.png");
-        // 프로필 이미지를 기본 이미지로 변경
-
-        deleteCheck = 0;
     });
 
 
@@ -553,22 +537,15 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
 
         // initCheck
         // 초기 프로필 이미지 상태를 저장하는 변수
-        // false == 기본 이미지,  true == 이전 업로드 이미지
-
-        // deleteCheck
-        // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
-        // -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
+        // false == 기본 이미지,  true == 이전 업로드 이미지드
 
         let flag = true; // 제출하면 안되는 경우의 초기값 플래그 true로 지정
 
         // 이전 프로필 이미지가 없으면서, 새 이미지 업로드를 했다 -> 처음으로 이미지 추가
-        if(!initCheck && deleteCheck == 1)  flag = false;
+        if(!initCheck)  flag = false;
 
-        // 이전 프로필 이미지가 있으면서, 새 이미지 업로드를 했다 -> 새 이미지로 변경
-        if(initCheck && deleteCheck == 1)   flag = false;
-        
         // 이전 프로필 이미지가 있으면서, 프로필 삭제 버튼을 눌렀다 -> 삭제
-        if(initCheck && deleteCheck == 0)   flag = false;
+        if(initCheck)   flag = false;
 
         
         if(flag){ // flag == true -> 제출하면 안되는 경우
@@ -584,7 +561,7 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
 
 
 // 회원 가입 form태그가 제출 되었을 때
-document.getElementById("updateFrm").addEventListener("submit", e=>{
+document.getElementById("updateFrm").addEventListener("submit", e => {
 
     for(let key in checkObj){
 

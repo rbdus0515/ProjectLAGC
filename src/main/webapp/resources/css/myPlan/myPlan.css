@@ -366,6 +366,18 @@ button {
     border-radius: 5px;
 }
 
+.imgWrapperMyPlan{
+    width: 100px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: #e6e6e6 1px solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .map-profile {
     width: 100%;
     height: 100%;

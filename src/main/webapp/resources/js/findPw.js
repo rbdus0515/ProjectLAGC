@@ -167,6 +167,9 @@ emailFrm.addEventListener("submit", e=>{
             case "memberEmail": 
                 alert("이메일이 유효하지 않습니다"); break;
 
+            case "authkey": 
+                alert("이메일 인증이 유효하지 않습니다"); break;    
+
             document.getElementById(key).focus();
 
             e.preventDefault(); // form 태그 기본 이벤트 제거

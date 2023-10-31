@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kh.semi.project.content.model.dto.Reply;
+import kh.semi.project.manager.model.dto.QNA;
 
 public interface MyPageService {
 
@@ -30,6 +31,30 @@ public interface MyPageService {
 	 * @return
 	 */
 	List<Map<String, Object>> selectMyPlanAll(int memberNo);
+
+	/** 후기 삭제
+	 * @param replyNo
+	 * @return
+	 */
+	int replyDelete(int replyNo);
+
+	/** 문의 1개 조회
+	 * @param qnaNo
+	 * @return
+	 */
+	QNA selectQNA(int qnaNo);
+
+	/** 나의 여행 세부 조회
+	 * @param memberNo
+	 * @return
+	 */
+	List<Map<String, Object>> selectMyPlanDetailAll(int memberNo);
+
+	/** 나의 일정 지우기
+	 * @param myPlanNo
+	 * @return
+	 */
+	int deleteMyPlan(int myPlanNo);
 
 
 }

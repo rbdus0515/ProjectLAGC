@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detailPageSe</title>
+    <title>detailPageSeo</title>
 
     <link rel="stylesheet" href="/resources/css/content/seoul.css">
 

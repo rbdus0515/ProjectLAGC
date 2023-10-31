@@ -145,13 +145,19 @@ public class ContentServiceImpl implements ContentService{
 			rename = Util.fileRename(uploadPlaceImg.getOriginalFilename());
 		
 			inputContent.setContentImg(webPath + rename);
+
 		System.out.println(inputContent);
+ 
 		} else {
 			inputContent.setContentImg(null);
 		}
 		
 		int result = dao.updateContent(inputContent);
+
+		
+
 		System.out.println(result);
+
 		if(result > 0) {
 			
 			if(rename != null) {

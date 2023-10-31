@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.ui.Model;
 
 import kh.semi.project.community.model.dto.Community;
+import kh.semi.project.community.model.dto.CommunityComment;
 
 public interface CommunityService {
 
@@ -14,6 +15,10 @@ public interface CommunityService {
 	List<Community> selectLocalList(String areaCode);
 
 	int insertCom(Community inputCom);
+
+	List<CommunityComment> selectCCommentList(CommunityComment communityNo);
+
+	
 
 
 }

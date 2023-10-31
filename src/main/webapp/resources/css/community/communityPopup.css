@@ -6,7 +6,7 @@
     font-family: 'Gowun Dodum', sans-serif;
 }
 
-/* main(전체 틀) */
+/* main */
 #communityPopup-container {
     width: 42rem;
     height: 45rem;
@@ -19,7 +19,7 @@
 }
 
 /* 헤더 부분 sec */
-#communityPopup-container > section:nth-of-type(1) {
+.CCSec1 {
     flex-basis: 15%;
     display: flex;
 }
@@ -68,7 +68,6 @@
 #com-XIcon {
     width: 1.2rem;
     height: 1.2rem;
-    cursor: pointer;
 }
 
 #com-top-m-sec > div {
@@ -92,7 +91,7 @@
 }
 
 /* 미드 부분 sec  */
-#communityPopup-container > section:nth-of-type(2){
+.CCSec2{
     flex-basis: 35%;
     display: flex;
     align-items: center;
@@ -157,7 +156,7 @@
 
 
 /* 바텀 sec */
-#communityPopup-container > section:nth-of-type(3) {
+.CCSec3 {
     flex-basis: 50%;
     display: flex;
 }
@@ -172,18 +171,29 @@
     padding: 1.2rem;
 }
 
+.CCViewSec {
+    width: 100%;
+    height: 17rem;
+    overflow-y: scroll;
+}
+
+.pop-botBox-sec {
+    height: 5rem;
+}
+
+
 .pop-botBox-sec {
     flex-basis: 22%;
     display: flex;
     width: 100%;
 }
 
-#pop-botBox > section:nth-of-type(4) {
-    flex-basis: 7%;
+#blankForHorizon {
+    flex-basis: 5%;
     border-bottom: 1px solid black;
 }
 
-#pop-botBox > section:nth-of-type(5) {
+#insertCCommentSec {
     flex-basis: 27%;
     display: flex;
     align-items: center;
@@ -340,10 +350,9 @@
 	background: rgba(0, 0, 0, 0.5);
 }
 
-
 #modalContainer.hidden {
 	display: none;
-}
+} 
 
 
 

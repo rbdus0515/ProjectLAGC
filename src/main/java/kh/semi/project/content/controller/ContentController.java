@@ -134,7 +134,7 @@ public class ContentController {
 		
 		return path;
 	}
-
+	
 	// 컨텐츠 추가
 	@PostMapping("/insertContent")
 	public String insertContent(Content inputContent,
@@ -180,33 +180,65 @@ public class ContentController {
 	}
 	
 	// 컨텐츠 업데이트
-	@GetMapping("/updateContent")
+	@PostMapping("/updateContent")
 	public String updateContent(Content inputContent,
 								RedirectAttributes ra,
-								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg,
+								@RequestParam("uploadPlaceImg") MultipartFile uploadPlaceImg, // 변경할 이미지
+								@RequestParam(value = "originImg", required = false) String originImg, // 변경하지 않은 이미지
 								HttpSession session,
 								@RequestHeader("referer") String referer
 								) throws IOException, Exception {
 		
-		String webPath = "/resources/img/content/";
-		String filePath = session.getServletContext().getRealPath(webPath);
+		if(uploadPlaceImg.getSize() == 0) {
+			// uploadPlaceImg에 값이 없다면 ( == 이미지 변경 안함 )
+			// -> 기존 이미지를 저장한 값을 가지고 업데이트 sql 구문
+			
+			
+			inputContent.setContentImg(originImg);
+			int result = service.updateContentOriginImg(inputContent);
+			
+
+			String path = "redirect:";
+			String msg = null;
+			
+			if(result > 0) {
+				path += referer;
+				msg = "내용 업데이트 성공!";
+			} else {
+				path += referer;
+				msg = "내용 업데이트 실패...";
+			}
+			
+			ra.addFlashAttribute("msg",msg);
+			
+			return path;
 		
-		int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
-		
-		String path = "redirect:";
-		String msg = null;
-		
-		if(result > 0) {
-			path += referer;
-			msg = "업로드 성공!";
 		} else {
-			path += referer;
-			msg = "업로드 실패...";
+			// uploadPlaceImg에 값이 있다면 ( == 이미지 변경함 )
+			// -> 업데이트 한 이미지를 저장한 값을 가지고 업데이트 sql 구문
+			String webPath = "/resources/img/content/";
+			String filePath = session.getServletContext().getRealPath(webPath);
+			
+			int result = service.updateContent(inputContent, uploadPlaceImg, webPath, filePath);
+		
+			String path = "redirect:";
+			String msg = null;
+			
+			if(result > 0) {
+				path += referer;
+				msg = "이미지 변경 및 내용 업데이트 성공!";
+			} else {
+				path += referer;
+				msg = "이미지 변경 및 내용 업데이트 실패...";
+			}
+			
+			ra.addFlashAttribute("msg",msg);
+			
+			
+			return path;
 		}
 		
-		ra.addFlashAttribute("msg",msg);
 		
-		return path;
 	}
 	
 	/** 모달창 오픈시 정보 가져오기

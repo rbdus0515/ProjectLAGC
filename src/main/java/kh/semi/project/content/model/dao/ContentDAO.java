@@ -41,7 +41,6 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int insertContent(Content inputContent) {
-		
 		return sqlSession.insert("contentMapper.insertContent", inputContent);
 	}
 
@@ -115,12 +114,20 @@ public class ContentDAO {
 		return sqlSession.selectOne("contentMapper.searchContent", map);
 	}
 
-	/** 업데이트 컨텐츠
+	/** 이미지 변경 후 컨텐츠 업데이트
 	 * @param inputContent
 	 * @return
 	 */
 	public int updateContent(Content inputContent) {
-		System.out.println("test");
+		return sqlSession.update("contentMapper.updateContent", inputContent);
+	}
+	
+	/** 이미지 변경없이 컨텐츠 업데이트
+	 * @param inputContent
+	 * @param originImg
+	 * @return
+	 */
+	public int updateContentOriginImg(Content inputContent) {
 		return sqlSession.update("contentMapper.updateContent", inputContent);
 	}
 
@@ -131,5 +138,7 @@ public class ContentDAO {
 
 		return sqlSession.selectList("contentMapper.selectPlace");
 	}
+
+
 	
 }

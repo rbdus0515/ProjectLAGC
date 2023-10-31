@@ -133,7 +133,9 @@ public class ContentServiceImpl implements ContentService{
 		return dao.searchContent(map);
 	}
 
-	// 컨텐츠 업데이트
+
+	// 이미지 변경있이 컨텐츠 업데이트
+
 	@Override
 	public int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException {
 		
@@ -145,13 +147,20 @@ public class ContentServiceImpl implements ContentService{
 			rename = Util.fileRename(uploadPlaceImg.getOriginalFilename());
 		
 			inputContent.setContentImg(webPath + rename);
-		
+
+
+		System.out.println(inputContent);
+ 
+
 		} else {
 			inputContent.setContentImg(null);
 		}
 		
 		int result = dao.updateContent(inputContent);
-		
+
+
+		System.out.println(result);
+
 		if(result > 0) {
 			
 			if(rename != null) {
@@ -164,6 +173,20 @@ public class ContentServiceImpl implements ContentService{
 		
 		return result;
 	}
+	
+	// 이미지 변경없이 컨텐츠 업데이트
+	@Override
+	public int updateContentOriginImg(Content inputContent) {
+		return dao.updateContentOriginImg(inputContent);
+	}
+
+
+//	@Override
+//	public String mapSearch() {
+//		
+//		return dao.selectList(null);
+//	}
+
 
 	/** 지도 핀 꽂기
 	 *
@@ -173,7 +196,6 @@ public class ContentServiceImpl implements ContentService{
 
 		return dao.selectPlace();
 	}
-
 
 
 

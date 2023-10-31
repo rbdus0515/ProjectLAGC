@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.semi.project.community.model.dto.Community;
+import kh.semi.project.community.model.dto.CommunityComment;
 import kh.semi.project.community.model.service.CommunityService;
 import kh.semi.project.member.model.dto.Member;
 
@@ -66,6 +67,19 @@ public class CommunityController {
 		int result = service.insertCom(inputCom);
 		
 		return "redirect:/community/communityPage";
+	}
+	
+	@GetMapping("/modal")
+	@ResponseBody
+	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+		
+		List<CommunityComment> ccomentList = new ArrayList<CommunityComment>();
+		
+		ccomentList = service.selectCCommentList(communityNo);
+		
+		System.out.println(ccomentList);
+		
+		return ccomentList;
 	}
 
 }

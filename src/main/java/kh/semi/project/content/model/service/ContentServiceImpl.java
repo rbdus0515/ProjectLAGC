@@ -145,13 +145,19 @@ public class ContentServiceImpl implements ContentService{
 			rename = Util.fileRename(uploadPlaceImg.getOriginalFilename());
 		
 			inputContent.setContentImg(webPath + rename);
-		
+
+		System.out.println(inputContent);
+ 
 		} else {
 			inputContent.setContentImg(null);
 		}
 		
 		int result = dao.updateContent(inputContent);
+
 		
+
+		System.out.println(result);
+
 		if(result > 0) {
 			
 			if(rename != null) {
@@ -164,6 +170,23 @@ public class ContentServiceImpl implements ContentService{
 		
 		return result;
 	}
+
+
+//	@Override
+//	public String mapSearch() {
+//		
+//		return dao.selectList(null);
+//	}
+
+	/** 지도 핀 꽂기
+	 *
+	 */
+	@Override
+	public List<Content> selectPlace() {
+
+		return dao.selectPlace();
+	}
+
 
 
 	

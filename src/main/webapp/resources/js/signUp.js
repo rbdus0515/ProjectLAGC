@@ -427,7 +427,6 @@ certifyBtnEmail.addEventListener("click", function(){
 // 프로필 이미지 추가/변경/삭제
 const profileImage = document.getElementById("profileImage"); // img 태그
 const imageInput = document.getElementById("imageInput"); // input 태그
-const deleteImage = document.getElementById("deleteImage"); // x버튼
 
 
 let initCheck; // 초기 프로필 이미지 상태를 저장하는 변수
@@ -523,18 +522,6 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
         }
     });
 
-
-    // x버튼 클릭 시
-    deleteImage.addEventListener('click', () => {
-        imageInput.value = ""; // input type="file"의 value 삭제
-
-        profileImage.setAttribute("src", "/resources/img/common/main/프로필아이콘.png");
-        // 프로필 이미지를 기본 이미지로 변경
-
-        deleteCheck = 0;
-    });
-
-
     // #profileFrm이 제출 되었을 때
     document.getElementById("profileFrm").addEventListener("submit", e => {
 
@@ -567,3 +554,42 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
     });
 
 }
+
+// 회원 가입 form태그가 제출 되었을 때
+document.getElementById("updateFrm").addEventListener("submit", e=>{
+
+    for(let key in checkObj){
+
+        if(!checkObj[key]){ // 각 key에 대한 value(true/false)를 얻어와
+                            // false인 경우 == 유효하지 않다!
+
+            switch(key){
+            case "memberId": 
+                alert("아이디가 유효하지 않습니다"); break;
+            
+            case "memberName" : 
+                alert("이름이 유효하지 않습니다"); break;
+            
+            case "memberEmail" : 
+                alert("이메일 주소가 유효하지 않습니다"); break;
+           
+            case "memberPhone" : 
+                alert("전화번호가 유효하지 않습니다"); break;
+            
+            case "memberNickname" : 
+                alert("닉네임이 유효하지 않습니다"); break;
+            
+            case "authKey" : 
+                alert("이메일 인증이 유효하지 않습니다"); break;
+           
+            }
+
+            e.preventDefault(); // form 태그 기본 이벤트 제거
+            return; // 함수 종료
+        } else {
+
+        }
+
+
+    }
+});

@@ -1,13 +1,16 @@
 package kh.semi.project.myPlan.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -23,6 +26,11 @@ public class MyPlanController {
 	@Autowired
 	private ContentService service;
 	
+	/** 나의 일정 이동
+	 * @param model
+	 * @param loginMember
+	 * @return
+	 */
 	@GetMapping("/myPlans")
 	public String MyPlanPage(Model model,
 							 @SessionAttribute("loginMember") Member loginMember
@@ -72,5 +80,26 @@ public class MyPlanController {
 		
 		
 		return "myPlan/myPlan";
+	}
+
+	
+//	@GetMapping("/myPlans")
+//	public String mapSearch() {
+//		
+//		return service.mapSearch();
+		
+	/** 지도 핀 꽂기
+	 * @return
+	 */
+	@GetMapping("/selectPlace")
+	@ResponseBody
+	public List<Content> selectPlace() {
+		
+		List<Content> list = service.selectPlace();
+		
+		System.out.println(list);
+		
+		return list;
+
 	}
 }

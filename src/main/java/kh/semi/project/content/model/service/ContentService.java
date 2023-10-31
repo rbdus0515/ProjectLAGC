@@ -86,5 +86,12 @@ public interface ContentService {
 	 */
 	int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException ;
 
+	/** 지도 핀 꽂기
+	 * @return
+	 */
+	List<Content> selectPlace();
+
+
+//  String mapSearch();
 
 }

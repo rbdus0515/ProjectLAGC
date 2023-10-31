@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,6 +117,7 @@
 	                    <textarea name="placeInfo" id="updateInputInfo" style="resize: none;"></textarea>
 	                </section>
 	                <section id="review-controll">후기
+	                	<
 	                    <section id="review-controll-section">
 	                        <p>DB에서 리스트 뽑아오기</p>
 	                        <button type="button" id="deleteBtn">

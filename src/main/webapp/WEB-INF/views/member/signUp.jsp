@@ -53,7 +53,7 @@
                 </section>
                 
                 <section class="input-section">
-                    <p>생년월일</p>
+                    <p><span>생년월일</span></p>
                     <input type="date" name="memberPno" placeholder="아이디 입력">
                 </section>
                 

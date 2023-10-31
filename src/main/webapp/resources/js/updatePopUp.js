@@ -18,6 +18,7 @@ const updateInputInfo = document.getElementById('updateInputInfo');
 const updateInputAddress = document.getElementById('updateInputAddress');
 const contentNum = document.getElementById('contentNum');
 
+
 closeBtnUpdatePopup.addEventListener('click', () => {
     updatePopup.classList.add('hidden');
 });
@@ -69,6 +70,7 @@ for(var i = 0; i < placeSec.length; i ++) {
             updateUploadPlaceImg.append(imgHidden);
 
             console.log(imgHidden);
+
 
         });
         

@@ -90,8 +90,9 @@ public interface ContentService {
 	 * @return
 	 */
 	List<Content> selectPlace();
-
-/*
-  String mapSearch();
-*/
 }
+
+
+//  String mapSearch();
+
+

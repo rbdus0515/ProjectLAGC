@@ -16,12 +16,17 @@
 </head>
 <body>
 	<div id="updatePopup" class="hidden">
-	    <form action="/content/updateContent" method="POST" enctype="multipart/form-data">
+	    <form action="/content/updateContent" id="updatePopup" method="POST" enctype="multipart/form-data">
 	       <!-- 카테고리, 닫기 버튼 -->
 	      <div id="close-container">
 	        
-	            <div class="div1">
-	                <section id="title-category-place-imgFile">
+	            <div class="div1" id="popup-top">
+	                <section id="address-category">
+	                
+	                	<section>
+   			            	<input type="text" name="placeAddress" id="updateInputAddress"  placeholder="주소">
+	                	</section>
+	                	
 	                    <select name="ageCode" id="updateAgeCode">
 	                        <option value="">연령별</option>
 	                        <option value="20">20대</option>
@@ -57,7 +62,7 @@
 	                </section>
 	            </div>
 	            
-	            <button type="button" id="closeBtnUpdatePopup">
+	            <button type="submit" id="closeBtnUpdatePopup">
 	                <img src="/resources/img/common/main/닫기버튼.png" alt="">
 	            </button>
 	        </div> 
@@ -82,10 +87,10 @@
 	                        <option value="jej">제주</option>
 	                    </select>
 	
-	                    <label for="closeBtnUpdatePopup">
+	                    <label for="imageInputUpdate">
 	                        파일선택
 	                    </label>
-	                    <input type="file" name="uploadPlaceImg" id="closeBtnUpdatePopup" accept="image/*">
+	                    <input type="file" name="uploadPlaceImg" id="imageInputUpdate" accept="image/*">
 	
 	                </section>
 	
@@ -102,9 +107,9 @@
 	                    <div>링크 : 
 	                        <input type="url" name="placeUrl" id="updatePlaceInfoUrl" placeholder="관련 사이트 링크">
 	                    </div>
-	                    <button type="button" id="upload-btn">업로드</button>
+	                    <button type="s" id="upload-btn">업로드</button>
 	                </section>
-	            </div> 
+	            </div>
 	            
 	            <!-- 오른쪽 부분 (설명, 후기) -->
 	            <div id="div2">
@@ -121,6 +126,7 @@
                 	</section>
 	            </div> 
 	        </div>
+			<input type="hidden" name="contentNo" id="contentNum">
 	    </form>
    	</div> 
    	

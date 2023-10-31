@@ -42,7 +42,7 @@
 
 			<!-- 검색창 부분 -->
 			<section>
-				<form action="#" method="GET">
+				<form action="#" method="GET">s
 					<div class="search-bar">
 						<input type="text" id="input-search" name="" autocapitalize="off"
 							placeholder="">

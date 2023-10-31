@@ -206,10 +206,15 @@ button {
     border: transparent;
 }
 
+.mapSearchBox {
+	display: flex;
+	position: relative;
+}
+
 /* 출발지 검색창 크기, 색상 설정 */
 .출발지검색 {
     width: 60%;
-    height: 36px;
+    height: 30px;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -219,11 +224,17 @@ button {
     position: relative;
     left: 75px;
     margin: 15px;
-    background-image:url(/resources/img/myPage/search-icon.png);
-    background-repeat: no-repeat;
-    background-position: 97% center;
     outline: none;
 }
+
+.mapSearch-btn {
+	position: absolute;
+    border: none;
+    cursor: pointer;
+    top:18px;
+    right: 90px;
+}
+
 
 /* 선택한 여행지 설정 */
 .선택한여행지 {

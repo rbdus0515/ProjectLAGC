@@ -131,5 +131,12 @@ public class ContentDAO {
 
 		return sqlSession.selectList("contentMapper.selectPlace");
 	}
+
+	/*
+	public String mapSearch(Object object) {
+		
+		return sqlSession.selectOne("contentMapper.mapSearch");
+	}
+	*/
 	
 }

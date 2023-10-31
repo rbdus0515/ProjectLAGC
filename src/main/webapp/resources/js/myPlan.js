@@ -95,6 +95,7 @@ window.onload = function () {
         }
 
 // 지도 검색
+/*
 const apiKey = '246a0fc52dbb0ac008083682df20832d'; // 발급받은 API 키를 사용하세요.
 const targetInput = document.querySelector(".출발지검색");
 const searchResult = document.querySelector(".수도권여행");
@@ -114,7 +115,7 @@ targetInput.addEventListener("input", e => {
 	
 	if(query.length > 0) {
 		// API 호출
-		fetch("/myPlans?query=${query}", {
+		fetch('/myPlans?query=${query}', {
 		    method: 'GET',
 		    headers: {
 		        'Authorization': `KakaoAK ${apiKey}`
@@ -123,7 +124,7 @@ targetInput.addEventListener("input", e => {
 		.then(response => response.text())
 		.then(data => {
 		    // API 응답 데이터 처리
-		    console.log(data);
+		    resultArea.innerHTML = data;
 		})
 		.catch(error => {
 		    // 오류 처리
@@ -143,7 +144,7 @@ targetInput.addEventListener("input", e => {
 
     }); 
 
-
+*/
     
 
     

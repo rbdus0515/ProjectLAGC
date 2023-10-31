@@ -17,7 +17,7 @@ import kh.semi.project.content.model.dto.Content;
 import kh.semi.project.content.model.dto.Reply;
 
 @Service
-public class ContetServiceImpl implements ContentService{
+public class ContentServiceImpl implements ContentService{
 
 	@Autowired
 	private ContentDAO dao;
@@ -164,13 +164,13 @@ public class ContetServiceImpl implements ContentService{
 		
 		return result;
 	}
-
-
-//	@Override
-//	public String mapSearch() {
-//		
-//		return dao.selectList(null);
-//	}
+/*
+	@Override
+	public String mapSearch() {
+		
+		return dao.mapSearch(null);
+	}
+	*/
 
 	/** 지도 핀 꽂기
 	 *

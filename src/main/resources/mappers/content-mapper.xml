@@ -158,7 +158,17 @@
 		FROM CONTENT
 		WHERE CONTENT_DEL_FL = 'N'
 	</select>
-
+	
+	<!--
+	<select id="mapSearch" resultType="_int">
+		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
+		AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, 
+		CONTENT_IMG, PLACE_INFO
+		FROM CONTENT
+		WHERE CONTENT_NO = #{contentNo}
+		AND CONTENT_DEL_FL = 'N'
+	</select>
+	  -->
 
 </mapper>
 

@@ -152,13 +152,12 @@ findIdFrm.addEventListener("submit", e=>{
 
             case "authKey": 
                 alert("인증 확인이 유효하지 않습니다."); break;
-
-            document.getElementById(key).focus();
-
-            e.preventDefault(); // form 태그 기본 이벤트 제거
-            return; // 함수 종료
+            }
+            
+            e.preventDefault(); 
+            return; 
         }
     }
 
-    }
+    
 });

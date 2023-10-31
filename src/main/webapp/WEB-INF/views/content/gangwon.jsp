@@ -51,7 +51,7 @@
 
 					<c:if test="${loginMember.memberManagerFlag == 'Y'}">
 	                    <!-- 세번째 네개 이미지(+) -->
-	                    <div id="testContent" class="placeSec">
+	                    <div class="placeSec" id="placePlus">
 	                        <div class="blank"></div>
 	                        <div class="placeImg">
 	                            <button type="button" id="plusBtn">+</button>
@@ -79,7 +79,8 @@
     
     	<c:when test="${loginMember.memberManagerFlag == 'Y'}">
     	<!-- 관리자 팝업 -->
-	        <jsp:include page="/WEB-INF/views/manager/adminEditPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/insertPopUp.jsp" />
+	        <jsp:include page="/WEB-INF/views/manager/updatePopUp.jsp" />
 		</c:when>
 
 		<c:otherwise>

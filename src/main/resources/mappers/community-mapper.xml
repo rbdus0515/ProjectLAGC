@@ -3,6 +3,7 @@
 
 <mapper namespace="communityMapper">
 
+	<!-- 커뮤니티 resultMap -->
 	<resultMap type="Community" id="community_rm">
 		<id property="communityNo" column="COMMUNITY_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
@@ -16,6 +17,21 @@
 		<result property="areaCode" column="AREA_CODE"/>
 	</resultMap>
 	
+	
+	<!-- 커뮤니티 댓글 resultMap -->
+	<resultMap type="CommunityComment" id="cComment_rm">
+	
+		<id property="communityCommentNo" column="COM_COMMENT_NO"/>
+		<result property="communityCommentContent" column="COM_COMMENT_CONTENT"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="communityNo" column="COMMUNITY_NO"/>
+		
+		<result property="memberNickname" column="MEMBER_NM"/>
+		<result property="profileImage" column="PROFILE_IMG"/>
+		
+	</resultMap>
+	
+	<!-- 커뮤니티 조회 (areaCode = seo) -->
 	<select id="selectCommunityList" resultMap="community_rm">
 		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE, PROFILE_IMG,
 		TO_CHAR(CREATE_DT, 'YYYY. MM. DD') CREATE_DT, NICKNAME
@@ -25,6 +41,7 @@
 		ORDER BY COMMUNITY_NO DESC
 	</select>
 	
+	<!-- 커뮤니티 조회 (지역에 따라) -->
 	<select id="selectLocalList" resultMap="community_rm">
 		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE, PROFILE_IMG,
 		TO_CHAR(CREATE_DT, 'YYYY. MM. DD') CREATE_DT, NICKNAME
@@ -34,7 +51,18 @@
 		ORDER BY COMMUNITY_NO DESC
 	</select>
 	
+	<!-- 커뮤니티 추가 -->
 	<insert id="insertCom">
 		INSERT INTO COMMUNITY VALUES(SEQ_COMMUNITY_NO.NEXTVAL, #{memberNo}, #{communityTitle}, #{communityContent}, DEFAULT, DEFAULT, DEFAULT, #{areaCode})
 	</insert>
+	
+	<!-- 커뮤니티 댓글 조회-->
+	<select id="selectCCommentList" resultMap="cComment_rm">
+		SELECT COM_COMMENT_NO, COM_COMMENT_CONTENT, MEMBER_NO, COMMUNITY_NO, MEMBER_NM, PROFILE_IMG
+		FROM COM_COMMENT
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE COMMUNITY_NO = #{communityNo}
+	</select>
+	
+	
 </mapper>

@@ -27,10 +27,10 @@
 		<typeAlias type="kh.semi.project.content.model.dto.Content" alias="Content" />
 		<typeAlias type="kh.semi.project.content.model.dto.Reply" alias="Reply" />
 		<typeAlias type="kh.semi.project.community.model.dto.Community" alias="Community"/>
+		<typeAlias type="kh.semi.project.community.model.dto.CommunityComment" alias="CommunityComment"/>
 		<typeAlias type="kh.semi.project.notice.model.dto.Notice" alias="Notice" />
 		<typeAlias type="kh.semi.project.manager.model.dto.QNA" alias="QNA" />
 		<typeAlias type="kh.semi.project.clientService.model.dto.ClientService" alias="ClientService"/>
-
 
 	</typeAliases>
 

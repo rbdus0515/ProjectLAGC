@@ -103,12 +103,11 @@
 									<div class="man-to-man">
 
 										<c:forEach var="QNA" items="${QNAList}">
-											<div class="qnaContainer">
 
+											<div class="qnaContainer">
+												<input type="hidden" class="qna" value="${QNA.QNA_NO}">
 												<div class="mtm-date">${QNA.CREATE_DATE}</div>
-												<div class="mtm-title">
-													<a href="#">${QNA.QNA_TITLE}</a>
-												</div>
+												<div class="mtm-title">${QNA.QNA_TITLE}</div>
 												<!-- hidden 넣은 관리자 1대1 문의에 연결  -->
 												<c:if test="${QNA.ANSWER_FL == 'Y '}">
 													<div class="mtm-status">답변완료</div>
@@ -176,7 +175,7 @@
 
 										<c:forEach var="reply" items="${replyList}">
 
-											<div class="comment">
+											<div class="comment" id="reply[${reply.REPLY_NO}]">
 												<div class="comment-loca">
 													<a href="/">${reply.TRAVEL_NAME}</a>
 												</div>
@@ -185,6 +184,7 @@
 													<button class="comment-delete">x</button>
 												</div>
 											</div>
+											<input type="hidden" class="replyNo" value="${reply.REPLY_NO}">
 
 										</c:forEach>
 
@@ -204,36 +204,61 @@
 
 								<c:forEach var="myPlan" items="${myPlanList}">
 
-									<div class="myPlanDetailContainer">
+									<div class="myPlanDetailContainer" id="myPlan[${myPlan.PLAN_NO}]">
 										
-									<a href="/myPlan/myPlans">
-										<img class="my-plan-img" src="/resources/img/myPage/추천 콘텐츠 18.jpg">
-									</a>
+										<div class="imgContainerMyPage">
+											
+											<c:forEach var="detail" items="${myPlanDetailList}" >
+												
+												<c:if test="${detail.PLAN_NO == myPlan.PLAN_NO}">
+													
+													<a href="/myPlan/myPlans">
+														<img class="my-plan-img" src="${detail.CONTENT_IMG}">
+													</a>
+													
+												</c:if>
+												
+											</c:forEach>
+										
+										</div>
+											
+										<div class="plan-main">
+										
+											<div class="plan-title">
+												<a href="/myPlan/myPlans">${myPlan.MYPLAN_NAME}</a>
+											</div>
+											
+											<c:if test="${myPlan.DDAY >= 0}">
+												<div class="plan-D-day">D + ${myPlan.DDAY}</div>
+											</c:if>
+										
+											<c:if test="${myPlan.DDAY < 0}">
+												<div class="plan-D-day">D - ${myPlan.DDAY - (myPlan.DDAY*2)}</div>
+											</c:if>
+										
+										<c:forEach var="detail" items="${myPlanDetailList}">
+										
+											<c:if test="${detail.PLAN_NO == myPlan.PLAN_NO}">
+										
+												<div class="plan-area">
+													<div class="plan-area-main">${detail.TRAVEL_NAME}</div>
+												</div>
+				
+											</c:if>
+										
+										</c:forEach>
+											<input type="hidden" class="myPlanHidden" value="${myPlan.PLAN_NO}">
+											<div class="plan-date">${myPlan.DEPART_DATE} ~ ${myPlan.ARRIVAL_DATE}</div>
+										
+											<div class="share-delete">
+												<button class="share-button">공유</button>
+												<button class="delete-button">삭제</button>
+											</div>
+										
+										</div>
 									
-									
-									<div class="plan-main">
-										
-										<div class="plan-title">
-											<a href="/myPlan/myPlans">${myPlan.MYPLAN_NAME}</a>
-										</div>
-										
-										<div class="plan-D-day">D-8</div>
-										
-										<div class="plan-area">
-											<div class="plan-area-title">서울</div>
-											<div class="plan-area-main">${myPlan.TRAVEL_NAME}</div>
-										</div>
-										
-										<div class="plan-date">${myPlan.DEPART_DATE} ~ ${myPlan.ARRIVAL_DATE}</div>
-										
-										<div class="share-delete">
-											<button class="share-button">공유</button>
-											<button class="delete-button">삭제</button>
-										</div>
-										
 									</div>
 									
-									</div>
 								</c:forEach>
 
 								<div class="my-plan-1">
@@ -344,10 +369,10 @@
 
 			</main>
 
-
-
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+			<jsp:include page="/WEB-INF/views/myPage/askPopup.jsp" />
 			<script src="/resources/js/myPage.js"></script>
+
 		</body>
 
 		</html>

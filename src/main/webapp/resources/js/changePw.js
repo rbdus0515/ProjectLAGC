@@ -1,6 +1,6 @@
 const newMemberPw = document.getElementById("newMemberPw");
 const newMemberPwConfirm = document.getElementById("newMemberPwConfirm");
-const changePw = document.getElementById("updatePw");
+const changePw = document.getElementById("changePw");
 
 if(changePw != null){ // 비밀번호 변경 페이지인 경우
 

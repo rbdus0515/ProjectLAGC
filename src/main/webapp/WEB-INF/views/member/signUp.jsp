@@ -25,7 +25,7 @@
         </section>
 
         <!-- 회원가입 input -->
-        <form action="/member/signUp" method="POST" name="singUpFrm" enctype="multipart/form-data">
+        <form action="/member/signUp" method="POST" name="singUpFrm" id="singUpFrm" enctype="multipart/form-data">
             <section id="input-area">
                 <section class="input-section">
                         <p><span>아이디</span></p>
@@ -53,7 +53,7 @@
                 </section>
                 
                 <section class="input-section">
-                    <p>생년월일</p>
+                    <p><span>생년월일</span></p>
                     <input type="date" name="memberPno" placeholder="아이디 입력">
                 </section>
                 

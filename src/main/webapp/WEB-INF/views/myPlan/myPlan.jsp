@@ -11,9 +11,11 @@
     <title>나의 일정</title>
     <link rel="stylesheet" href="/resources/css/myPlan/myPlan.css">
     
+   
 
 </head>
 <body>
+
     <form action="myPlan/myPlans" name="myPlan" method="get"></form>
     <main class="my-plan">
 
@@ -51,7 +53,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${seo.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${seo.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -77,7 +79,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gyeinc.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gyeinc.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -103,7 +105,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gan.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gan.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -128,7 +130,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${chu.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${chu.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -153,7 +155,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${jeo.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${jeo.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -178,7 +180,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${gye.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${gye.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -204,7 +206,7 @@
                                                 <div class="시간">소요시간 : 1시간 22분</div>
                                                 <div class="누적시간">누적 소요시간 : 1시간 41분</div>
                                                 <div class="여행지이름">${jej.travelName}</div>
-                                                <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
+                                                <div class="여행지위치">${jej.placeAddress}</div>
                                             </div>
                                         </div>
 
@@ -225,9 +227,8 @@
             </section>
             <section class="right-side">
                 <section class="empty-box">
-                    <button class="save">저장</button>
-                    <a class="save" href="/myPage/myPages">돌아가기</a>
-
+                	<a class="save" href="/myPage/myPages"> 돌아가기</a>
+                	<button class="save">저장</button>
                 </section>
                
                         <section class="plan">
@@ -245,8 +246,20 @@
                                     <input class="travelDate" type="date" name="arrivalDate" id="arrivalDate">
 
                                 </div>
+                                
+								<form name=mapSearch autocomplete="off">
+									<div class="mapSearchBox">
+										<input class="출발지검색" placeholder="출발지검색">
+										<button class=mapSearch-btn onclick="mapSearchList()">
+											<img id="search-img" src="/resources/img/common/main/Vector.png">
+										</button>
+									</div>
 
-                                <input type="text" class="출발지검색" name="dapartPlace" placeholder="출발지를 설정해주세요">
+								</form>
+
+
+                                <input class="출발지검색" placeholder="출발지를 검색해주세요"></input>
+
                             </div>
 
                             <div class="출발지설정1">
@@ -256,7 +269,7 @@
 
                             <div class="destinations">
                                 <div id="rightList" class="locaContents">
-                                    <div class="수도권여행">출발지 : 서울역</div>
+                                    <div class="수도권여행"><span>출발지 :</span> ${query}</div>
 
                                     <div class="선택한여행지">
                                         <button class="cansle-button" type="button">-</button>
@@ -286,6 +299,8 @@
                         </section>
                     </section>
 
+
+                   
                     <div id="map" style="width:70%;height:100vh;">
                         <div class="storage">
                             <img id="arrow" class="left-arrow" src="/resources/img/myPage/left-arrow.png">
@@ -293,13 +308,21 @@
 
                         <div class="이용방법"><a href="#">이용방법</a></div>
 
-                        <div class="log-in"><a href="/myPage/myPages"><img class="map-profile"
-                                    src="/resources/img/myPage/프로필 사진.png"></a></div>
+                        <div class="log-in">
+                        	<a href="/myPage/myPages" class="imgWrapperMyPlan">
+                        		<img class="map-profile" src="${loginMember.memberProfileImage}">
+                        	</a>
+                       	</div>
 
                     </div>
-                    <script type="text/javascript"
-                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d"></script>
 
+                    <!-- 지도 영역 -->
+
+                    <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d">
+                    
+                    </script>
+ 
                     </section>
 
                 </main>

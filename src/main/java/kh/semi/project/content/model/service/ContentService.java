@@ -77,7 +77,7 @@ public interface ContentService {
 	 */
 	Map<String, Object> searchContent(Map<String, Object> map);
 
-	/** 컨텐츠 업데이트
+	/** 이미지 변경 후 컨텐츠 업데이트
 	 * @param inputContent
 	 * @param uploadPlaceImg
 	 * @param webPath
@@ -86,5 +86,19 @@ public interface ContentService {
 	 */
 	int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException ;
 
-
+	/** 이미지 변경 없이 컨텐츠 업데이트
+	 * @param inputContent
+	 * @return
+	 */
+	int updateContentOriginImg(Content inputContent);
+	
+	/** 지도 핀 꽂기
+	 * @return
+	 */
+	List<Content> selectPlace();
 }
+
+
+//  String mapSearch();
+
+

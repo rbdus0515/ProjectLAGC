@@ -12,6 +12,14 @@
 
         </head>
 
+		<c:if test="${not empty msg}">
+
+		<script>
+			alert('${msg}')
+		</script>
+
+		</c:if>
+
             <body>
 
                 <!-- 홈 로고 ---------------------------------------------------------------------------------------->
@@ -75,7 +83,7 @@
                                     <div class="contentContainer">
 
                                         <p>이름</p>
-                                        <input type="text" name="memberName" id=memberName>
+                                        <input type="text" name="memberName" id="memberName">
 
                                         <div>
                                             <p>이메일</p>

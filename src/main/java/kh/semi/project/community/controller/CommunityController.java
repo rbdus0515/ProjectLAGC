@@ -73,11 +73,13 @@ public class CommunityController {
 	@ResponseBody
 	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
 		
+		System.out.println("communityNo : " + communityNo);
+		
 		List<CommunityComment> ccomentList = new ArrayList<CommunityComment>();
 		
 		ccomentList = service.selectCCommentList(communityNo);
 		
-		System.out.println(ccomentList);
+		System.out.println("ccomentList : " + ccomentList);
 		
 		return ccomentList;
 	}

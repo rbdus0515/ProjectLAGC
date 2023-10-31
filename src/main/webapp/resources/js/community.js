@@ -117,17 +117,17 @@ document.addEventListener("click", (e) => {
       for(var cc in ccomentList){
         
         // 반복 section
-        const PBS = document.createElement("section");
+        const PBS = document.createElement("div");
         PBS.classList.add("pop-botBox-sec");
 
         // -------------------------------------------------------
 
         // 프로필 부분 sec
-        const PBP = document.createElement("section");
+        const PBP = document.createElement("div");
         PBP.classList.add("pop-botBox-profileSec");
 
         // 프로필 부분 img sec
-        const PBPTSec = document.createElement("section");
+        const PBPTSec = document.createElement("div");
         PBPTSec.classList.add("pop-botBox-profileSec-topSec");
 
         // 프로필 부분 img
@@ -135,7 +135,7 @@ document.addEventListener("click", (e) => {
         peopleProfile.setAttribute("src", ccommentList[cc].profileImage);
 
         // 프로필 이름 부분
-        const PBPBSec = document.createElement("section");
+        const PBPBSec = document.createElement("div");
         PBPBSec.innerText = ccomentList[cc].memberNickName;
 
         PBP.append(PBPTSec);
@@ -146,7 +146,7 @@ document.addEventListener("click", (e) => {
         // -----------------------------------------------------------
 
         // 댓글 부분 sec
-        const CCommentSec = document.createElement("section");
+        const CCommentSec = document.createElement("div");
         CCommentSec.classList.add("pop-botBox-doubleComment-sec");
 
         // 댓글 부분 div
@@ -154,11 +154,11 @@ document.addEventListener("click", (e) => {
         CCommentBox.classList.add("pop-botBox-doubleComment-box");
 
         // 댓글 컨텐트
-        const CCommentContent = document.createElement("section");
+        const CCommentContent = document.createElement("div");
         CCommentContent.innerText = ccomentList[cc].communityCommentContent;
 
         // 삭제 버튼 sec
-        const deleteBtnSec = document.createElement("section");
+        const deleteBtnSec = document.createElement("div");
         deleteBtnSec.classList.add("pop-botBox-doubleComment-box-right");
 
         // 삭제 버튼

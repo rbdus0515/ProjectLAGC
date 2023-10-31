@@ -42,10 +42,9 @@
 
 			<!-- 검색창 부분 -->
 			<section>
-				<form action="#" method="GET">
+				<form action="/search" method="POST" id=searchForm>
 					<div class="search-bar">
-						<input type="text" id="input-search" name="" autocapitalize="off"
-							placeholder="">
+						<input type="text" id="input-search" name="inputSearch" autocapitalize="off">
 						<button id="searchBtn">
 							<img id="search-img" src="/resources/img/common/main/Vector.png">
 						</button>
@@ -83,6 +82,8 @@
 
 
 	<script src="/resources/js/weatherAPI.js"></script>
+	
+	<script src="/resources/js/search.js"></script>
 
 </body>
 </html>

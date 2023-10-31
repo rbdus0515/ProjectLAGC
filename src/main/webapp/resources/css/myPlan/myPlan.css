@@ -13,6 +13,7 @@ body {
 /* a 태그 밑줄 제거 */
 a {
     text-decoration: none;
+    color: black;
 }
 
 /* button 설정 */

@@ -244,7 +244,6 @@ public class MemberServiceImpl implements MemberService{
 
 		return dao.findId(map);
 	}
-
 	
 	/** 비밀번호 변경 서비스
 	 *

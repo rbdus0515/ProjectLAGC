@@ -36,28 +36,30 @@ for (let i = 0; i < expend.length; i++) {
 
 
 /* 헷갈리는 부분 */
-const cansle = document.querySelectorAll(".cansle-button");
-const divDes = document.querySelector('.destinations');
-const rightList = document.getElementById('rightList');
-
-for (let i = 0; i < cansle.length; i++) {
-    cansle[i].addEventListener('click', () => {
-        const selectedDestination = divDes.querySelector(".선택한여행지");
+// 선택한 여행지 이동 함수
+function moveSelectedLocation(cansle, destinations, rightList) {
+    cansle.addEventListener('click', () => {
+        const selectedDestination = destinations.querySelector(".선택한여행지");
         const selectedRightList = rightList.querySelector(".선택한여행지");
 
-
         if (selectedDestination) {
-            divDes.removeChild(selectedDestination);
+            destinations.removeChild(selectedDestination);
             rightList.appendChild(selectedDestination);
-        } else {
-
-            if (selectedRightList) {
-                rightList.removeChild(selectedRightList);
-                divDes.appendChild(selectedRightList);
-            }
+        } else if (selectedRightList) {
+            rightList.removeChild(selectedRightList);
+            destinations.appendChild(selectedRightList);
         }
-
     });
+}
+
+// 모든 cansle 버튼에 대해 처리
+const cansleButtons = document.querySelectorAll(".cansle-button");
+const destinationsList = document.querySelectorAll('.destinations');
+const rightList = document.querySelector('#rightList'); // 단일 rightList로 가정
+
+for (let i = 0; i < cansleButtons.length; i++) {
+    moveSelectedLocation(cansleButtons[i], destinationsList[i], rightList);
+}
 }
 
 /* 카카오맵 API */

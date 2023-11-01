@@ -1,7 +1,9 @@
 package kh.semi.project.common.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
@@ -12,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import kh.semi.project.common.model.dao.AjaxDAO;
+import kh.semi.project.content.model.dto.Content;
 
 @Service
 public class AjaxServiceImpl implements AjaxService{
@@ -156,6 +159,15 @@ public class AjaxServiceImpl implements AjaxService{
 	public int dupCheck(String memberEmail) {
 
 		return dao.dupCheck(memberEmail);
+	}
+
+	/** 추천 콘텐츠 조회
+	 *
+	 */
+	@Override
+	public List<Content> selectRecommend(Map<String, Object> map) {
+
+		return dao.selectRecommend(map);
 	}
 
 }

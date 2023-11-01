@@ -118,7 +118,17 @@
 	
 	<section id="recommend-img">
 		<section class="recommend-empty"></section>
-		<div><img class="recommend-place-btn" src="/resources/img/common/main/추천1.png"></div> <div><img class="recommend-place-btn" src="/resources/img/common/main/추천2.png"></div>
+
+		<div class="recommendContent">
+			<img class="recommend-place-btn" src="/resources/img/content/seoul/광화문.png">
+			<input type="hidden" class="recommendContentNo" id="recommendFirst" value="5">
+		</div>
+		
+		<div class="recommendContent">
+			<img class="recommend-place-btn" src="/resources/img/content/seoul/청계천.png">
+			<input type="hidden" class="recommendContentNo" id="recommendSecond"  value="8">
+		</div>
+
 		<section class="recommend-empty"></section>
 	</section>
 
@@ -323,9 +333,6 @@
 	<jsp:include page="/WEB-INF/views/content/popup.jsp" />
 
 	<script src="/resources/js/main.js"></script>
-	
-
-	
 
 
 </body>

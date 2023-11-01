@@ -21,11 +21,12 @@ if(addMyPlan != null) {
 
 	const addMyPlan = document.getElementById("addMyPlan");
 	
-	addMyPlan.addEventListener("click", () => {
+	addMyPlan.addEventListener("click", e => {
 	
 		if (memberNo == "") {
 
 		    alert("로그인 후 이용해주세요");
+		    e.preventDefault();
 		    return;
 	
 	  	}

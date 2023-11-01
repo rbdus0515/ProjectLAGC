@@ -165,10 +165,11 @@ public class ContentController {
 		return path;
 	}
 	
-	// 컨텐츠 업데이트를 위한 조회
+	// 관리자 모달창 오픈 시 컨텐츠 조회
 	@GetMapping("/searchContent")
 	@ResponseBody
-	public Map<String, Object> searchContent(int contentNo
+	public Map<String, Object> searchContent(int contentNo,
+											Model model
 								 ) throws Exception, IOException  {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -176,10 +177,20 @@ public class ContentController {
 		
 		map = service.searchContent(map);
 		
+		List<Reply> replyList = new ArrayList<Reply>();
+		
+		replyList = service.selectReply(contentNo);
+		
+		model.addAttribute("replyList", replyList);
+		
+		System.out.println(map);
+		
+		System.out.println(replyList);
+		
 		return map;
 	}
 	
-	// 컨텐츠 업데이트
+	// 관리자 컨텐츠 업데이트
 	@PostMapping("/updateContent")
 	public String updateContent(Content inputContent,
 								RedirectAttributes ra,

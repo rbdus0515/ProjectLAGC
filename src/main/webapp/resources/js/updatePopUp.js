@@ -19,6 +19,7 @@ const updateInputInfo = document.getElementById('updateInputInfo');
 const updateInputAddress = document.getElementById('updateInputAddress');
 const contentNum = document.getElementById('contentNum');
 
+// const reply = document.getElementById("review-controll-section-p");
 
 closeBtnUpdatePopup.addEventListener('click', () => {
     updatePopup.classList.add('hidden');
@@ -61,6 +62,7 @@ for(var i = 0; i < placeSec.length; i ++) {
             updatePlaceInfoUrl.value = data.PLACE_URL;
             updateInputInfo.value = data.PLACE_INFO;
             updateInputAddress.value = data.PLACE_ADDRESS;
+            
 
             // 기존 이미지 기억하고 jsp에 hidden으로 대입
             const imgHidden = document.createElement("input");
@@ -71,6 +73,7 @@ for(var i = 0; i < placeSec.length; i ++) {
             updateUploadPlaceImg.append(imgHidden);
 
             console.log(imgHidden);
+
 
 
         });

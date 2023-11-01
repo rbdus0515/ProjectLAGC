@@ -126,32 +126,28 @@
 						후기
 						<!-- 후기 삭제 부분 -->
 
-						<section id="review-controll-section" style="overflow: scroll;">
-							
-							<ul id="review-controll-section">
-							
-								<li>
-									<p id="review-controll-section-p"></p>
-									<button type="button" id="deleteBtn">
-										<img src="/resources/img/common/main/닫기버튼.png">
-									</button>
-								</li>
-								
-								<li>
-									<p>테스트 2</p>
-									<button type="button" id="deleteBtn">
-										<img src="/resources/img/common/main/닫기버튼.png">
-									</button>
-								</li>
-								
-								<li>
-									<p>테스트 3</p>
-									<button type="button" id="deleteBtn">
-										<img src="/resources/img/common/main/닫기버튼.png">
-									</button>
-								</li>
-								
-							</ul>
+						<section id="update-review-controll-section" style="overflow: scroll;">
+						
+							<div class="replyDiv">
+								<p class="replyPSection" id="review-controll-section-p">테스트</p>
+								<button type="button" id="deleteBtn">
+									<img src="/resources/img/common/main/닫기버튼.png" class="deleteReplyBtn">
+								</button>
+							</div>
+									
+							<div class="replyDiv">
+								<p class="replyPSection" id="review-controll-section-p">테스트 2</p>
+								<button type="button" id="deleteBtn">
+									<img src="/resources/img/common/main/닫기버튼.png">
+								</button>
+							</div>
+									
+							<div class="replyDiv">
+								<p class="replyPSection" id="review-controll-section-p">테스트 3</p>
+								<button type="button" id="deleteBtn">
+									<img src="/resources/img/common/main/닫기버튼.png">
+								</button>
+							</div>
 
 						</section>
 

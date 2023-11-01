@@ -64,6 +64,7 @@ for (var i = 0; i < placeSec.length; i++) {
                 updateInputAddress.value = data.PLACE_ADDRESS;
                 
                 const replyList = data.replyList;
+                replyPlace.innerHTML = "";
 
                 for (var i = 0; i < replyList.length ; i++) {
 

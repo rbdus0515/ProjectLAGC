@@ -19,7 +19,7 @@ const updateInputInfo = document.getElementById('updateInputInfo');
 const updateInputAddress = document.getElementById('updateInputAddress');
 const contentNum = document.getElementById('contentNum');
 
-// const reply = document.getElementById("review-controll-section-p");
+const replyPlace = document.getElementById("review-controll-section-p");
 
 closeBtnUpdatePopup.addEventListener('click', () => {
     updatePopup.classList.add('hidden');
@@ -31,12 +31,12 @@ let temp1 = 0;
 let temp2 = 0;
 
 
-for(var i = 0; i < placeSec.length; i ++) {
+for (var i = 0; i < placeSec.length; i++) {
 
     const tempNum = contentNo[i].value;
-    
+
     console.log(tempNum)
-    
+
     placeImg[i].addEventListener('click', () => {
 
         temp2 = tempNum;
@@ -44,51 +44,61 @@ for(var i = 0; i < placeSec.length; i ++) {
         updatePopup.classList.remove('hidden');
 
         fetch("/content/searchContent?contentNo=" + tempNum)
-        .then(resp => resp.json())
-        .then(data => {
+            .then(resp => resp.json())
+            .then(data => {
 
-            console.log(data)
+                console.log(data)
 
-            contentNum.value = tempNum;
-            updateAgeCode.value = data.AGE_CODE;
-            updateMemberCode.value = data.MEMBER_CODE;
-            updateSeasonCode.value = data.SEASON_CODE;
-            themeCode.value = data.THEME_CODE;
-            updateInputPlace.value = data.TRAVEL_NAME;
-            updateAreaCode.value = data.AREA_CODE;
-            updateLatitude.value = data.LATITUDE;
-            updateLongitude.value = data.LONGITUDE;
-            updateUploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
-            updatePlaceInfoUrl.value = data.PLACE_URL;
-            updateInputInfo.value = data.PLACE_INFO;
-            updateInputAddress.value = data.PLACE_ADDRESS;
+                contentNum.value = tempNum;
+                updateAgeCode.value = data.AGE_CODE;
+                updateMemberCode.value = data.MEMBER_CODE;
+                updateSeasonCode.value = data.SEASON_CODE;
+                themeCode.value = data.THEME_CODE;
+                updateInputPlace.value = data.TRAVEL_NAME;
+                updateAreaCode.value = data.AREA_CODE;
+                updateLatitude.value = data.LATITUDE;
+                updateLongitude.value = data.LONGITUDE;
+                updateUploadPlaceImg.setAttribute("src", data.CONTENT_IMG);
+                updatePlaceInfoUrl.value = data.PLACE_URL;
+                updateInputInfo.value = data.PLACE_INFO;
+                updateInputAddress.value = data.PLACE_ADDRESS;
+                
+                const replyList = data.replyList;
+
+                for (var i = 0; i < replyList.length ; i++) {
+
+                    replyPlace.innerHTML += replyList[i]+'<br>'
+                    
+                }
+
+                // 기존 이미지 기억하고 jsp에 hidden으로 대입
+                const imgHidden = document.createElement("input");
+                imgHidden.setAttribute("type", "hidden");
+                imgHidden.setAttribute("value", data.CONTENT_IMG);
+                imgHidden.setAttribute("name", "originImg");
+
+                updateUploadPlaceImg.append(imgHidden);
+
+                console.log(imgHidden);
+
+
+
+                
             
 
-            // 기존 이미지 기억하고 jsp에 hidden으로 대입
-            const imgHidden = document.createElement("input");
-            imgHidden.setAttribute("type", "hidden");
-            imgHidden.setAttribute("value" ,  data.CONTENT_IMG);
-            imgHidden.setAttribute("name" ,  "originImg");
+            })
 
-            updateUploadPlaceImg.append(imgHidden);
-
-            console.log(imgHidden);
-
-
-
-        });
-        
         // --------------------------------------------------------------
         // 컨텐츠 이미지 관련
 
         // 컨텐츠 이미지 추가/변경/삭제
         const imageInputUpdate = document.getElementById("imageInputUpdate"); // input 태그
 
-        let checkInit; 
-                        // 초기 컨텐츠 이미지 상태를 저장하는 변수
-                        // false == 기본 이미지,  true == 이전 업로드 이미지
+        let checkInit;
+        // 초기 컨텐츠 이미지 상태를 저장하는 변수
+        // false == 기본 이미지,  true == 이전 업로드 이미지
 
-        let checkDelete = -1; 
+        let checkDelete = -1;
         // 컨텐츠 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
         // -1 == 초기값,  1 == 새 이미지 업로드
 
@@ -97,18 +107,18 @@ for(var i = 0; i < placeSec.length; i ++) {
 
 
 
-        if(imageInputUpdate != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안해도 되긴 함 ) 
+        if (imageInputUpdate != null) { // 화면에 imageInput이 있을 경우 ( if 굳이 안해도 되긴 함 ) 
 
             // 프로필 이미지가 출력되는 img태그의 src 속성을 저장
-            imageOriginal = updateUploadPlaceImg.getAttribute("src"); 
+            imageOriginal = updateUploadPlaceImg.getAttribute("src");
 
 
             // 회원 프로필 화면 진입 시 
             // 현재 회원의 프로필 이미지 상태를 확인
-            if(updateUploadPlaceImg.getAttribute("src") == "/resources/img/common/main/프로필아이콘.png"){
+            if (updateUploadPlaceImg.getAttribute("src") == "/resources/img/common/main/프로필아이콘.png") {
                 // 기본 이미지인 경우
                 checkInit = false;
-            }else{
+            } else {
                 checkInit = true;
             }
 
@@ -132,7 +142,7 @@ for(var i = 0; i < placeSec.length; i ++) {
 
 
                 // 파일을 한번 선택한 후 취소했을 때 ( file이 undefined가 된다 ) 
-                if(file == undefined){ 
+                if (file == undefined) {
                     console.log("파일 선택이 취소됨");
                     checkDelete = -1; // 취소 == 파일 없음 == 초기상태
 
@@ -142,9 +152,9 @@ for(var i = 0; i < placeSec.length; i ++) {
                     return;
                 }
 
-                if( file.size > maxSize){ // 선택된 파일의 크기가 최대 크기를 초과한 경우
+                if (file.size > maxSize) { // 선택된 파일의 크기가 최대 크기를 초과한 경우
                     alert("2MB 이하의 이미지를 선택해주세요.");
-                    imageInputUpdate.value = ""; 
+                    imageInputUpdate.value = "";
                     // input type="file" 태그에 대입할 수 있는 value는 "" (빈칸) 뿐이다!
                     checkDelete = -1; // 취소 == 파일 없음 == 초기상태
 
@@ -154,7 +164,7 @@ for(var i = 0; i < placeSec.length; i ++) {
                     return;
                 }
 
-            
+
                 // JS에서 파일을 읽는 객체
                 // - 파일을 읽고 클라이언트 컴퓨터에 파일을 저장할 수 있음 
                 const reader = new FileReader();
@@ -185,9 +195,9 @@ for(var i = 0; i < placeSec.length; i ++) {
                 return true;
             });
         }
-    
+
     });
-    
+
 }
 
 

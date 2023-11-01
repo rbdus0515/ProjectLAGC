@@ -73,5 +73,20 @@
 		WHERE PLAN_NO = #{myPlanNo}		
 	</delete>
 	
+	<select id="selectMyPlanList" resultType="list">
+		SELECT PLAN_NO
+		FROM MYPLAN
+	</select>
+	
+	<select id="selectMyPlanDetailList" resultType="list">
+		SELECT PLAN_NO
+		FROM MYPLAN_DETAIL
+	</select>
+	
+	<delete id="deleteDetail">
+		DELETE FROM MYPLAN_DETAIL
+		WHERE PLAN_NO = #{pd}		
+	</delete>
+	
 
 </mapper>

@@ -96,6 +96,8 @@ public interface ContentService {
 	 * @return
 	 */
 	List<Content> selectPlace();
+
+	
 }
 
 

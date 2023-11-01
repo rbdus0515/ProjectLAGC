@@ -128,7 +128,9 @@
 
 						<section id="review-controll-section" style="overflow: scroll;">
 						
+
 								<p id="review-controll-section-p"></p>
+
 								<button type="button" id="deleteBtn">
 									<img src="/resources/img/common/main/닫기버튼.png">
 								</button>

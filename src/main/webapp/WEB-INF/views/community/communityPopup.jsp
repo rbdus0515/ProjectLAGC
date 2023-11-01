@@ -82,29 +82,31 @@
     
             <section class="CCSec3">
                 <div id="pop-botBox">
+                	<!-- ajax 반복 구문 -->
                     <section id="ajaxSec" class="CCViewSec">
-                        
+                        <!-- 반복 section -->
                         <section class="pop-botBox-sec">
-        
+        					<!-- 프로필 부분 sec -->
                             <section class="pop-botBox-profileSec">
-        
+        						<!-- 프로필 부분 img sec -->
                                 <section class="pop-botBox-profileSec-topSec">
                                     <img src="/semiProjectImage/가면 캐릭.jpg" class="pop-botBox-profileImges">
                                 </section>
-        
+        						<!-- 프로필 이름 부분 -->
                                 <section class="pop-botBox-profileSec-botSec">
                                     <p>김돌쇠</p>
                                 </section>
         
                             </section>
-        
+        					<!-- 댓글 부분 sec -->
                             <section class="pop-botBox-doubleComment-sec">
+                            	<!-- 댓글 부분 div -->
                                 <div class="pop-botBox-doubleComment-box">
-                                    
+                                    <!-- 댓글 컨텐트 -->
                                     <section class="pop-botBox-doubleComment-box-left">
                                         <p>뭐먹지 ㅜㅜ</p>
                                     </section>
-        
+        							<!-- 삭제 버튼 sec -->
                                     <section class="pop-botBox-doubleComment-box-right">                          
                                         <button>
                                             <img src="/resources/img/community/Vector.png" class="com-doubleComment-XIcon">

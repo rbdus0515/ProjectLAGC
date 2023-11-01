@@ -108,11 +108,10 @@ document.addEventListener("click", (e) => {
     .then(ccomentList => {
 
       console.log(ccomentList)
+
       // ajax 컨테이너
       const ajaxSec = document.getElementById("ajaxSec");
       ajaxSec.innerHTML = "";
-      ajaxSec.classList.add("CCViewSec");
-      ajaxSec.setAttribute("id", "ajaxSec");
 
       for(var cc in ccomentList){
         
@@ -120,10 +119,11 @@ document.addEventListener("click", (e) => {
         const PBS = document.createElement("div");
         PBS.classList.add("pop-botBox-sec");
 
+
         // -------------------------------------------------------
 
         // 프로필 부분 sec
-        const PBP = document.createElement("div");
+        const PBP = document.createElement("section");
         PBP.classList.add("pop-botBox-profileSec");
 
         // 프로필 부분 img sec
@@ -132,16 +132,15 @@ document.addEventListener("click", (e) => {
 
         // 프로필 부분 img
         const peopleProfile = document.createElement("img");
-        peopleProfile.setAttribute("src", ccommentList[cc].profileImage);
+        peopleProfile.classList.add("pop-botBox-profileImges");
+        peopleProfile.setAttribute("src", ccomentList[cc].profileImage);
 
         // 프로필 이름 부분
         const PBPBSec = document.createElement("div");
+        PBPBSec.classList.add("pop-botBox-profileSec-botSec");
         PBPBSec.innerText = ccomentList[cc].memberNickName;
 
-        PBP.append(PBPTSec);
-        PBP.append(PBPBSec);
-
-        PBPTSec.append(peopleProfile);
+        
       
         // -----------------------------------------------------------
 
@@ -155,6 +154,7 @@ document.addEventListener("click", (e) => {
 
         // 댓글 컨텐트
         const CCommentContent = document.createElement("div");
+        CCommentContent.classList.add("pop-botBox-doubleComment-box-left");
         CCommentContent.innerText = ccomentList[cc].communityCommentContent;
 
         // 삭제 버튼 sec
@@ -166,18 +166,29 @@ document.addEventListener("click", (e) => {
         
         // 삭제 버튼 이미지
         const deleteBtnImg = document.createElement("img");
-        deleteBtnImg.setAttribute("src", "semiProjectImage/Vector.png");
-        deleteBtnImg.classList("com-doubleComment-XIcon");
+        deleteBtnImg.setAttribute("src", "/resources/img/community/Vector.png");
+        deleteBtnImg.classList.add("com-doubleComment-XIcon");
 
-        CCommentSec.append(CCommentBox);
-        deleteBtn.append(deleteBtnImg);
-        deleteBtnSec.append(deleteBtn);
-        CCommentBox.append(CCommentContent, deleteBtnSec);
+       
 
         // --------------------------------------------------------------------------------
 
-        PBS.append(PBP, CCommentSec);
         ajaxSec.append(PBS);
+
+        PBS.append(PBP);
+        PBS.append(CCommentSec);
+
+        PBP.append(PBPTSec);
+        PBP.append(PBPBSec);
+
+        PBPTSec.append(peopleProfile);
+
+        CCommentSec.append(CCommentBox);
+        CCommentBox.append(CCommentContent);
+        CCommentBox.append(deleteBtnSec);
+        deleteBtnSec.append(deleteBtn);
+        deleteBtn.append(deleteBtnImg);
+
 
 
 

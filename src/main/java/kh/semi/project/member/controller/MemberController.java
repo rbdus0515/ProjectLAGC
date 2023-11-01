@@ -481,17 +481,12 @@ public class MemberController {
 		String path = "redirect:";
 		String msg = "";
 		
-		
 		member.setMemberName(memberName);
 		member.setMemberEmail(memberEmail);
 		member.setMemberPw(newMemberPw);
 		
-		System.out.println(newMemberPw);
-		
 		int result = service.changePw(member);
 
-		System.out.println(result);
-		
 		if(result > 0) {
 			
 			msg = "비밀번호 변경이 완료되었습니다.";

@@ -170,16 +170,11 @@ public class ContentServiceImpl implements ContentService{
 		return result;
 	}
 
-	
 	// 이미지 변경없이 컨텐츠 업데이트
 	@Override
 	public int updateContentOriginImg(Content inputContent) {
 		return dao.updateContentOriginImg(inputContent);
 	}
-
-
-
-
 
 	/** 지도 핀 꽂기
 	 *
@@ -190,7 +185,7 @@ public class ContentServiceImpl implements ContentService{
 		return dao.selectPlace();
 	}
 
-
+	
 
 	
 }

@@ -82,9 +82,6 @@ public class MyPlanController {
 		return "myPlan/myPlan";
 	}
 
-
-
-
 	/** 지도 핀 꽂기
 	 * @return
 	 */

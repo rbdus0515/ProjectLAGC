@@ -64,35 +64,58 @@
 		<section class="category">
 			<button class="dropbtn">연령별</button>
 			<div class="dropdown-category">
-				<a href="#">20대</a> <a href="#">30대</a> <a href="#">40대</a> <a
-					href="#">50대 이상</a>
+				<button type="button" value="20" class="recommendBtn">20대</button> 
+				<button type="button" value="30" class="recommendBtn">30대</button>
+				<button type="button" value="40" class="recommendBtn">40대</button>
+				<button type="button" value="50" class="recommendBtn">50대 이상</button>
 			</div>
 		</section>
 
 		<section class="category">
 			<button class="dropbtn">구성원별</button>
 			<div class="dropdown-category">
-				<a href="#">혼자</a> <a href="#">친구</a> <a href="#">연인</a> <a href="#">가족</a>
+				<button type="button" value="solo" class="recommendBtn">혼자</button>
+				<button type="button" value="friend" class="recommendBtn">친구</button>
+				<button type="button" value="couple" class="recommendBtn">연인</button>
+				<button type="button" value="family" class="recommendBtn">가족</button>
 			</div>
 		</section>
 
 		<section class="category">
 			<button class="dropbtn">계절별</button>
 			<div class="dropdown-category">
-				<a href="#">봄</a> <a href="#">여름</a> <a href="#">가을</a> <a href="#">겨울</a>
+				<button type="button" value="spring" class="recommendBtn">봄</button>
+				<button type="button" value="summer" class="recommendBtn">여름</button>
+				<button type="button" value="autumn" class="recommendBtn">가을</button>
+				<button type="button" value="winter" class="recommendBtn">겨울</button>
 			</div>
 		</section>
 
 		<section class="category">
 			<button class="dropbtn">테마별</button>
 			<div class="dropdown-category">
-				<a href="#">바다</a> <a href="#">도심</a> <a href="#">전통</a> <a href="#">힐링</a>
-				<a href="#">액티비티</a>
+				<button type="button" value="nature" class="recommendBtn">자연</button> 
+				<button type="button" value="downtown" class="recommendBtn">도심</button>
+				<button type="button" value="tradition" class="recommendBtn">전통</button>
+				<button type="button" value="healing" class="recommendBtn">힐링</button>
+				<button type="button" value="activity" class="recommendBtn">액티비티</button>
 			</div>
 		</section>
 
-		<section class="category-empty"></section>
+		<section class="category-empty"> </section>
 	</section>
+	
+	<section id="chooseCategoryContainer">
+		<section class="category-empty"></section>
+
+		<div class="chooseCategory" id="ageCategory"></div>
+		<div class="chooseCategory" id="memberCategory"></div>
+		<div class="chooseCategory" id="seasonCategory"></div>
+		<div class="chooseCategory" id="themeCategory"></div>
+
+		<section class="category-empty"> </section>
+	</section>
+	
 	<section id="recommend-img">
 		<section class="recommend-empty"></section>
 		<div><img class="recommend-place-btn" src="/resources/img/common/main/추천1.png"></div> <div><img class="recommend-place-btn" src="/resources/img/common/main/추천2.png"></div>

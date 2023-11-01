@@ -64,7 +64,8 @@ for (var i = 0; i < placeSec.length; i++) {
                 updateInputAddress.value = data.PLACE_ADDRESS;
                 
                 const replyList = data.replyList;
-                replyPlace.innerHTML = '';
+
+                replyPlace.innerHTML = "";
 
                 const replyListSection = document.getElementById("review-controll-section");
                 replyListSection.innerHTML = "";

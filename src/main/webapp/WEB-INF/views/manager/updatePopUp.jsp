@@ -127,15 +127,32 @@
 						<!-- 후기 삭제 부분 -->
 
 						<section id="review-controll-section" style="overflow: scroll;">
-						
-
-								<p id="review-controll-section-p"></p>
-
-								<button type="button" id="deleteBtn">
-									<img src="/resources/img/common/main/닫기버튼.png">
-								</button>
-								
 							
+							<ul id="review-controll-section">
+							
+								<li>
+									<p id="review-controll-section-p"></p>
+									<button type="button" id="deleteBtn">
+										<img src="/resources/img/common/main/닫기버튼.png">
+									</button>
+								</li>
+								
+								<li>
+									<p>테스트 2</p>
+									<button type="button" id="deleteBtn">
+										<img src="/resources/img/common/main/닫기버튼.png">
+									</button>
+								</li>
+								
+								<li>
+									<p>테스트 3</p>
+									<button type="button" id="deleteBtn">
+										<img src="/resources/img/common/main/닫기버튼.png">
+									</button>
+								</li>
+								
+							</ul>
+
 						</section>
 
 					</section>

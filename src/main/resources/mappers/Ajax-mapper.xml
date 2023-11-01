@@ -3,6 +3,39 @@
 
 <mapper namespace="ajaxMapper">
 
+<resultMap type="Content" id="content_rm">
+
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="contentNo" column="CONTENT_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="areaCode" column="AREA_CODE" />
+		<result property="travelName" column="TRAVEL_NAME" />
+		<result property="placeUrl" column="PLACE_URL" />
+		<result property="ageCode" column="AGE_CODE" />
+		<result property="seasonCode" column="SEASON_CODE" />
+		<result property="memberCode" column="MEMBER_CODE" />
+		<result property="themeCode" column="THEME_CODE" />
+		<result property="contentDelFl" column="CONTENT_DEL_FL" />
+		<result property="contentImg" column="CONTENT_IMG" />
+		<result property="placeInfo" column="PLACE_INFO" />
+		<result property="latitude" column="LATITUDE"/>
+		<result property="longitude" column="LONGITUDE"/>
+		<result property="placeAddress" column="PLACE_ADDRESS"/>
+		
+	</resultMap>
+	
+	<select id="selectRecommend" resultMap="content_rm">
+		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
+				AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG,
+				PLACE_INFO, LATITUDE, LONGITUDE, PLACE_ADDRESS
+		FROM CONTENT
+		WHERE (AGE_CODE LIKE #{age}) OR (SEASON_CODE LIKE #{season}) 
+		OR (MEMBER_CODE LIKE #{member}) OR (THEME_CODE LIKE #{theme})
+		AND CONTENT_DEL_FL = 'N'
+	</select>
+	
+
 	<select id="selectId" resultType="_int">
 		SELECT COUNT(*) 
 		FROM "MEMBER"

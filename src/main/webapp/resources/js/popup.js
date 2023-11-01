@@ -145,3 +145,136 @@ replyBtn.addEventListener("click", () => {
   }
 
 })
+
+const recommendBtn = document.getElementsByClassName("recommendBtn")
+const chooseCategory = document.getElementById("chooseCategory")
+const ageCategory = document.getElementById("ageCategory")
+const memberCategory = document.getElementById("memberCategory")
+const seasonCategory = document.getElementById("seasonCategory")
+const themeCategory = document.getElementById("themeCategory")
+const recommendArea = document.getElementsByClassName("recommend-place-btn")
+
+const recommendFirst = document.getElementById("recommendFirst")
+const recommendSecond = document.getElementById("recommendSecond")
+
+const recommendContent = document.getElementsByClassName("recommendContent")
+const recommendContentNo = document.getElementsByClassName("recommendContentNo")
+
+
+const value = {
+  "age" : '',
+  "member" : '',
+  "season" : '',
+  "theme" : '',
+};
+
+for(var i = 0 ; i < recommendBtn.length ; i ++){
+
+
+  recommendBtn[i].addEventListener("click", (e) => {
+
+    switch(e.target.value){
+
+      case '20': case '30': case '40': case '50': 
+      ageCategory.innerText = "#" + e.target.textContent; 
+      value.age = e.target.value;
+      break;
+      
+      case 'solo': case 'friend': case 'couple': case 'family': 
+      memberCategory.innerText = "#" + e.target.textContent; 
+      value.member = e.target.value;
+      break;
+      
+      case 'spring': case 'summer': case 'autumn': case 'winter': 
+      seasonCategory.innerText = "#" + e.target.textContent; 
+      value.season = e.target.value;
+      break;
+      
+      case 'nature': case 'downtown': case 'tradition': case 'healing': case 'activity': 
+      themeCategory.innerText = "#" + e.target.textContent; 
+      value.theme = e.target.value;
+      break;
+      
+    }
+
+    fetch("/recommend",{
+      method : "post",  // 방식
+      headers : {"Content-Type" : "application/json"}, 
+      body : JSON.stringify({
+        "age" : value.age,
+        "member" : value.member,
+        "season" : value.season,
+        "theme" : value.theme
+        })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+
+      for(var i = 0 ; i < 2 ; i++){
+        recommendArea[i].src = data[i].contentImg;
+        recommendContentNo[i].value = data[i].contentNo;
+
+        // if(i == 0 ){
+        //   recommendFirst.value = data[i].contentNo
+        // } else{
+        //   recommendSecond.value = data[i].contentNo
+        // }
+        
+        console.log(data[i].contentNo)
+
+      }
+
+    })
+
+
+  }) 
+
+
+}
+
+
+for (var i = 0; i < recommendContent.length; i++) {
+
+  const tempNum2 = recommendContentNo[i].value;
+  
+  recommendContent[i].addEventListener('click', () => {
+
+    modalContainerPopup.classList.remove('hidden');
+
+    likeCount.innerHTML = "";
+
+    fetch("/content/like?contentNo=" + tempNum2)
+      .then(response => response.json())
+      .then(data => {
+
+        travelName.innerText = data.TRAVEL_NAME;
+        webSite.setAttribute("href", data.PLACE_URL);
+        travelImg.setAttribute("src", data.CONTENT_IMG);
+        explain.innerHTML = data.PLACE_INFO;
+        comment1.innerHTML = data.reply0
+        comment2.innerHTML = data.reply1
+        comment3.innerHTML = data.reply2
+
+
+        likeCount.innerHTML += data.likeCount;
+
+        temp = likeCount.innerText;
+
+        if (data.likeYesOrNo == -1) {
+          console.log("좋아요 처리 실패");
+          return;
+        } else if (data.likeYesOrNo == 1) {
+          checkbox.checked = true;
+        } else {
+          checkbox.checked = false;
+        }
+
+      })
+
+
+
+
+  });
+
+}
+

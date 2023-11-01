@@ -1,20 +1,35 @@
 package kh.semi.project.common.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+
+import javax.mail.internet.ContentType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.semi.project.common.model.service.AjaxService;
+import kh.semi.project.content.model.dto.Content;
 import kh.semi.project.member.model.dto.Member;
 
 @Controller
 @SessionAttributes({"loginMember"})
 public class AjaxController {
 
+	Random random = new Random();
+	
 	@Autowired
 	private AjaxService service;
 	
@@ -109,4 +124,37 @@ public class AjaxController {
 		
 		return result;
 	}
+	
+	@PostMapping("/recommend")
+	@ResponseBody
+	public List<Content> recommend(@RequestBody Map<String, Object> map) {
+	
+		List<Content> list = service.selectRecommend(map);
+		
+		List<Content> randomList = new ArrayList<Content>();
+		
+		int tempNo = 0;
+		
+		for(int i = 0 ; i < 2 ; i++) {
+
+			int randomNo = random.nextInt(list.size());
+
+			if(randomNo == tempNo) {
+				
+				i-- ;
+				continue;
+				
+			} else {
+				
+				randomList.add(list.get(randomNo));
+				
+				tempNo = randomNo;
+				
+			}
+			
+		}
+		
+		return randomList; 
+	}
+	
 }

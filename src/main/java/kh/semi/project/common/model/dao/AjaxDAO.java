@@ -1,10 +1,14 @@
 package kh.semi.project.common.model.dao;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import kh.semi.project.content.model.dto.Content;
 
 @Repository
 public class AjaxDAO {
@@ -66,6 +70,11 @@ public class AjaxDAO {
 	public int dupCheck(String memberEmail) {
 
 		return sqlSession.selectOne("ajaxMapper.dupCheck", memberEmail);
+	}
+
+	public List<Content> selectRecommend(Map<String, Object> map) {
+
+		return sqlSession.selectList("ajaxMapper.selectRecommend", map);
 	}
 
 	

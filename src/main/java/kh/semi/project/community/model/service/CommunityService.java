@@ -16,7 +16,9 @@ public interface CommunityService {
 
 	int insertCom(Community inputCom);
 
-	List<CommunityComment> selectCCommentList(CommunityComment communityNo);
+	List<CommunityComment> selectCCommentList(int communityNo);
+
+	List<Community> selectComList(int communityNo);
 
 	
 

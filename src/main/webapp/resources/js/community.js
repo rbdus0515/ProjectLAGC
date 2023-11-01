@@ -32,11 +32,16 @@ localSelect.addEventListener('change', () => {
       const peopleImg = document.createElement("img");
       peopleImg.classList.add("com-peopleImg");
 
-      if(list[i].profileImage) {
+      if(list[i].profileImg == null) {
         peopleImg.src = "/resources/img/common/main/프로필아이콘.png";
-      } else {
+      }else{
         peopleImg.src = list[i].profileImg;
       }
+
+      
+      
+      
+      
 
       peopleImgSec.append(peopleImg);
 
@@ -97,6 +102,7 @@ document.addEventListener("click", (e) => {
   console.log(e.target);
 
   if(e.target.className == "PCDiv1"){
+
     modalContainer.classList.remove('hidden');
 
     const commNo = e.target.id.split("-")[1];
@@ -105,13 +111,37 @@ document.addEventListener("click", (e) => {
 
     fetch("/community/modal?communityNo=" + commNo)
     .then(resp => resp.json())
-    .then(ccomentList => {
+    .then(comboMap => {
 
-      console.log(ccomentList)
+      const ccomentList = comboMap.ccomentList;
+      const selectComList = comboMap.selectComList;
+
+      console.log(ccomentList);
+      console.log(selectComList);
 
       // ajax 컨테이너
       const ajaxSec = document.getElementById("ajaxSec");
       ajaxSec.innerHTML = "";
+
+      // 모달창 커뮤니티 제목
+      const loginMemberNo = document.getElementById("loginMemberNo").value;
+      
+      const comTitleDiv = document.getElementById("comTitleDiv");
+      comTitleDiv.innerHTML = "";
+      
+      const comTitle = document.createElement("div");
+      comTitle.innerText = selectComList[0].communityTitle;
+      comTitle.setAttribute("id", "Title");
+      comTitle.setAttribute("name", "inputTitle");
+
+      comTitleDiv.append(comTitle);
+
+      if(loginMemberNo == selectComList.memberNo) {
+        comTitle.setAttribute("placeholder", "제목을 입력해주세요.");
+      } else {
+        comTitle.setAttribute("readonly", "readonly");
+      }
+
 
       for(var cc in ccomentList){
         

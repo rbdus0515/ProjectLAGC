@@ -25,6 +25,8 @@
 		<result property="communityCommentContent" column="COM_COMMENT_CONTENT"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="communityNo" column="COMMUNITY_NO"/>
+		<result property="communityTitle" column="COMMUNITY_TITLE"/>
+		<result property="communityContent" column="COMMUNITY_CONTENT"/>
 		
 		<result property="memberNickname" column="MEMBER_NM"/>
 		<result property="profileImage" column="PROFILE_IMG"/>
@@ -64,5 +66,10 @@
 		WHERE COMMUNITY_NO = #{communityNo}
 	</select>
 	
+	<select id="selectComList" resultMap="community_rm">
+		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE
+		FROM COMMUNITY
+		WHERE COMMUNITY_NO = #{communityNo} AND COMMUNITY_DEL_FL = 'N'
+	</select>
 	
 </mapper>

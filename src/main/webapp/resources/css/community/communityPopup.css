@@ -65,9 +65,15 @@
     margin-top: 0.8rem;
 }
 
+#Title {
+	display: flex;
+	align-items: center;
+}
+
 #com-XIcon {
     width: 1.2rem;
     height: 1.2rem;
+    cursor: pointer;
 }
 
 #com-top-m-sec > div {

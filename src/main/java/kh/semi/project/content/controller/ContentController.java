@@ -170,6 +170,7 @@ public class ContentController {
 	@ResponseBody
 	public Map<String, Object> searchContent(int contentNo,
 											Model model
+											
 								 ) throws Exception, IOException  {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -181,11 +182,7 @@ public class ContentController {
 		
 		replyList = service.selectReply(contentNo);
 		
-		model.addAttribute("replyList", replyList);
-		
-		System.out.println(map);
-		
-		System.out.println(replyList);
+		map.put("replyList", replyList);
 		
 		return map;
 	}

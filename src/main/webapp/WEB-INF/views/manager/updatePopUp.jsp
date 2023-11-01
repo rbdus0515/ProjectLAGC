@@ -128,14 +128,11 @@
 
 						<section id="review-controll-section" style="overflow: scroll;">
 						
-							<c:forEach var="list" items="${replyList}">
-							
-								<p id="review-controll-section-p">${list}</p>
+								<p id="review-controll-section-p"></p>
 								<button type="button" id="deleteBtn">
 									<img src="/resources/img/common/main/닫기버튼.png">
 								</button>
 								
-							</c:forEach>
 							
 						</section>
 

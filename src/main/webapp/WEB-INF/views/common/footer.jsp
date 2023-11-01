@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div>
-                <a href="https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200805&lsiSeq=213857#0000">
+                <a href="https://www.law.go.kr/LSW/lsInfoP.do?efYd=20200805&lsiSeq=213857#0000" target="_blank">
                     개인정보 처리 방침
                 </a>
             </div>

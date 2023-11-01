@@ -1,3 +1,41 @@
+/*
+const inputLoca = document.getElementId("search");
+const search-btn = document.getElementId("search-btn"); 
+
+search-btn.addEventListener('click', () => {
+
+fetch("/searchLoca", {
+		method : "POST",
+		headers : {"Content-Type" : "application/json"},
+				// 요청보내는 자원을 명시
+				// -> js 객체를 json 형식으로 만들어 파라미터로 전달
+		body : JSON.stringify({"search" : search.value})
+	})
+	.then(resp => resp.json()) // 응답 객체를 자바스크립트 객체 형태로 파싱
+	
+	.then(content => {
+		console.log(content); // javascript 객체
+	
+	})
+	.catch( err => console.log(err) );
+
+
+});
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 선택한 여행지 div 숨기기 */
 const hidden = document.querySelector('.storage');
 const plan = document.querySelector('.right-side');
@@ -18,16 +56,15 @@ hidden.addEventListener('click', () => {
 /* 오른쪽 div 펼치기 */
 const expend = document.querySelectorAll(".expend");
 const destinations = document.querySelectorAll(".destinations");
-var newContent = "-";
 for (let i = 0; i < expend.length; i++) {
     expend[i].addEventListener('click', () => {
 
         if (destinations[i].style.display == 'none') {
             destinations[i].style.display = 'block';
-            expend.innerHTML = newContent;
+            expend[i].innerHTML = '-';
         } else {
             destinations[i].style.display = 'none';
-
+			expend[i].innerHTML = '+';
         }
     }
 
@@ -36,6 +73,37 @@ for (let i = 0; i < expend.length; i++) {
 
 
 /* 헷갈리는 부분 */
+/*
+const cansle = document.querySelectorAll(".cansle-button");
+const divDes = document.querySelector('.destinations');
+const rightList = document.getElementById('rightList');
+
+for (let i = 0; i < cansle.length; i++) {
+    cansle[i].addEventListener('click', () => {
+        const selectedDestination = divDes.querySelector(".선택한여행지");
+        const selectedRightList = rightList.querySelector(".선택한여행지");
+
+ 
+        if (selectedDestination) {
+
+            divDes.removeChild(selectedDestination);
+            rightList.appendChild(selectedDestination);
+
+        }if(selectedRightList) {
+
+            rightList.removeChild(selectedRightList);
+            divDes.appendChild(selectedRightList);
+            
+        }
+        
+    });
+}
+*/
+
+
+
+
+
 // 선택한 여행지 이동 함수
 function moveSelectedLocation(cansle, destinations, rightList) {
     cansle.addEventListener('click', () => {
@@ -60,7 +128,36 @@ const rightList = document.querySelector('#rightList'); // 단일 rightList로 �
 for (let i = 0; i < cansleButtons.length; i++) {
     moveSelectedLocation(cansleButtons[i], destinationsList[i], rightList);
 }
-}
+
+
+
+// 이용방법 모달
+const infoBtn = document.querySelector('.이용방법');
+const modal = document.querySelector('.modal');
+const closeBtnPopup = document.getElementById('closeBtnPopup');
+
+infoBtn.addEventListener('click', () => {
+
+      modal.classList.toggle('show');
+  
+    });
+
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.classList.toggle('show');
+
+    if (!modal.classList.contains('show')) {
+      body.style.overflow = 'auto';
+    }
+  }
+});
+
+closeBtnPopup.addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+
 
 /* 카카오맵 API */
 window.onload = function () {

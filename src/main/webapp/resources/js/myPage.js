@@ -1,5 +1,4 @@
 // 공유 버튼 모달
-const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const share = document.getElementsByClassName('share-button');
 const closeBtnPopup = document.getElementById('closeBtnPopup');

@@ -49,7 +49,7 @@
 	                </section>
 	            
 	                <section id="com-top-m-sec">
-	                    <div class="comTitleDiv">
+	                    <div id="comTitleDiv" class="comTitleDiv">
 	                    	<c:choose>
 	                    		<c:when test="${not empty loginMember}">
 	                    			<input id="Title" name="inputTitle" placeholder="제목을 입력해주세요."></input>
@@ -70,7 +70,7 @@
 	            <section class="CCSec2">
 	                <div id="com-pop-mainComment">
 	
-	                    <section>
+	                    <section id="comContentDiv">
 	                    	<c:choose>
 	                    		<c:when test="${not empty loginMember}">
 	                    			<textarea name="inputContent" placeholder="내용을 입력해주세요."></textarea>
@@ -82,10 +82,7 @@
 	                        
 	                    </section>
 	                    
-	                    <section>
-	                        <a>
-	                            <button class="editDelete-button" id="edit-button">수정</button>
-	                        </a>
+	                    <section>      
 	                        <a>
 	                            <button class="editDelete-button" id="delete-button">삭제</button>
 	                        </a>

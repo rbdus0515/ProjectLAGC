@@ -35,6 +35,10 @@ public class CommunityDAO {
 		return sqlSession.selectList("communityMapper.selectCCommentList", communityNo);
 	}
 
+	public List<Community> selectComList(int communityNo) {
+		return sqlSession.selectList("communityMapper.selectComList", communityNo);
+	}
+
 	
 
 

@@ -66,5 +66,10 @@
 		WHERE COMMUNITY_NO = #{communityNo}
 	</select>
 	
+	<select id="selectComList" resultMap="community_rm">
+		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE
+		FROM COMMUNITY
+		WHERE COMMUNITY_NO = #{communityNo} AND COMMUNITY_DEL_FL = 'N'
+	</select>
 	
 </mapper>

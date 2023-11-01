@@ -18,6 +18,8 @@ public interface CommunityService {
 
 	List<CommunityComment> selectCCommentList(int communityNo);
 
+	List<Community> selectComList(int communityNo);
+
 	
 
 

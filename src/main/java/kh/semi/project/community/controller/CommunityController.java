@@ -1,6 +1,7 @@
 package kh.semi.project.community.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,28 +72,36 @@ public class CommunityController {
 	
 	@GetMapping("/modal")
 	@ResponseBody
-	public List<CommunityComment> selectCCommentList(int communityNo) {
+	public Map<String, Object> selectCCommentList(int communityNo) {
 		
 		System.out.println("communityNo : " + communityNo);
 		
+	
+		// 커뮤
+		List<Community> selectComList = new ArrayList<Community>();
 		
-		// 본문 구하기
-		
-		// if 본문이 있다면 댓글 구하기
-		
-		// 본문 + 댓글 -> JSON 으로 변경
-		
+		selectComList = service.selectComList(communityNo);
 		
 		
+		// 댓글
 		List<CommunityComment> ccomentList = new ArrayList<CommunityComment>();
-		
+			
 		ccomentList = service.selectCCommentList(communityNo);
-		
+			
 		System.out.println("ccomentList : " + ccomentList);
 		
 		
+		// 본문 + 댓글 -> JSON 으로 변경
+		Map<String, Object> comboMap = new HashMap<String, Object>();
 		
-		return ccomentList;
+		comboMap.put("selectComList", selectComList);
+		comboMap.put("ccomentList", ccomentList);
+		
+		System.out.println("comboMap" + comboMap);
+		
+
+		
+		return comboMap;
 	}
 
 }

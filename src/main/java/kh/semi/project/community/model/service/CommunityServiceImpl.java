@@ -43,6 +43,11 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectCCommentList(communityNo);
 	}
 
+	@Override
+	public List<Community> selectComList(int communityNo) {
+		return dao.selectComList(communityNo);
+	}
+
 	
 
 	

@@ -31,7 +31,7 @@ public class CommunityDAO {
 		return sqlSession.insert("communityMapper.insertCom", inputCom);
 	}
 
-	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+	public List<CommunityComment> selectCCommentList(int communityNo) {
 		return sqlSession.selectList("communityMapper.selectCCommentList", communityNo);
 	}
 

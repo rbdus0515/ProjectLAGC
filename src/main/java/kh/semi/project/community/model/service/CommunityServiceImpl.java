@@ -39,7 +39,7 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+	public List<CommunityComment> selectCCommentList(int communityNo) {
 		return dao.selectCCommentList(communityNo);
 	}
 

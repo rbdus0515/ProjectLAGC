@@ -57,6 +57,9 @@
                                 <div class="PCDiv1" id="rep-${com.communityNo}" >
                                 	${com.communityTitle}
                                 </div>
+                                <input class="hCommunityTitle" type="hidden" value="${com.communityTitle}">
+                                <input class="hCommunityContent" type="hidden" value="${com.communityContent}">
+                                <input class="hMemberNo" type="hidden" value="${com.memberNo}" >
                                 <div class="PCDiv2"></div>
                                 <div class="PCDiv3">조회수 : ${com.readCount}</div>
                                 <div class="PCDiv4">작성인 : ${com.nickName}</div>

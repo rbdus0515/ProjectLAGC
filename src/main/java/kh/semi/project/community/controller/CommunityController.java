@@ -71,15 +71,26 @@ public class CommunityController {
 	
 	@GetMapping("/modal")
 	@ResponseBody
-	public List<CommunityComment> selectCCommentList(CommunityComment communityNo) {
+	public List<CommunityComment> selectCCommentList(int communityNo) {
 		
 		System.out.println("communityNo : " + communityNo);
+		
+		
+		// 본문 구하기
+		
+		// if 본문이 있다면 댓글 구하기
+		
+		// 본문 + 댓글 -> JSON 으로 변경
+		
+		
 		
 		List<CommunityComment> ccomentList = new ArrayList<CommunityComment>();
 		
 		ccomentList = service.selectCCommentList(communityNo);
 		
 		System.out.println("ccomentList : " + ccomentList);
+		
+		
 		
 		return ccomentList;
 	}

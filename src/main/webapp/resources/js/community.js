@@ -107,11 +107,42 @@ document.addEventListener("click", (e) => {
     .then(resp => resp.json())
     .then(ccomentList => {
 
-      console.log(ccomentList)
+      console.log("ccomentList:: ",ccomentList);
 
       // ajax 컨테이너
       const ajaxSec = document.getElementById("ajaxSec");
       ajaxSec.innerHTML = "";
+
+      // 모달창 커뮤니티 제목, 컨텐트
+      const hCommunityTitle = document.getElementsByClassName("hCommunityTitle");
+      const hCommunityContent = document.getElementsByClassName("hCommunityContent");
+      const loginMemberNo = document.getElementById("loginMemberNo");
+      const hMemberNo = document.getElementsByClassName("hMemberNo");
+      
+      const comTitleDiv = document.getElementsByClassName("comTitleDiv");
+      comTitleDiv.innerHTML = "";
+
+
+
+
+
+      // for(var i = 0; i < hMemberNo.length; i++) {
+
+      //   const temp = hMemberNo[i].value;
+
+      //   if(temp == loginMemberNo.value){
+      //     console.log("게시물 작성한 멤버 no::",temp);
+      //     console.log("로그인한 멤버 no::",loginMemberNo.value);
+      //     console.log("로그인 멤버임!");
+      //   }
+
+      // }
+
+      
+
+      
+
+
 
       for(var cc in ccomentList){
         

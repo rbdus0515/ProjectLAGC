@@ -49,9 +49,17 @@
 	                </section>
 	            
 	                <section id="com-top-m-sec">
-	                    <div>
-	                        <input id="Title" name="inputTitle" placeholder="제목을 입력해주세요."></input>
+	                    <div class="comTitleDiv">
+	                    	<c:choose>
+	                    		<c:when test="${not empty loginMember}">
+	                    			<input id="Title" name="inputTitle" placeholder="제목을 입력해주세요."></input>
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    			<input id="Title" name="inputTitle" placeholder="로그인 후 이용 가능." readonly="readonly"></input>
+	                    		</c:otherwise>
+	                    	</c:choose>
 	                    </div>
+	                    <input id="loginMemberNo" type="hidden" value="${loginMember.memberNo}">
 	                </section>
 	    
 	                <section id="com-top-r-sec">
@@ -63,7 +71,15 @@
 	                <div id="com-pop-mainComment">
 	
 	                    <section>
-	                        <textarea name="inputContent" placeholder="내용을 입력해주세요."></textarea>
+	                    	<c:choose>
+	                    		<c:when test="${not empty loginMember}">
+	                    			<textarea name="inputContent" placeholder="내용을 입력해주세요."></textarea>
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    			<textarea name="inputContent" readonly="readonly"></textarea>
+	                    		</c:otherwise>
+	                    	</c:choose>
+	                        
 	                    </section>
 	                    
 	                    <section>
@@ -128,18 +144,38 @@
                         <form id="upload" name="upload">
                             
                             <section id="myComment-l-sec">
-                                <img src="/semiProjectImage/귀여운 유령.jpg" class="pop-botBox-profileImges">
+                            	<c:choose>
+                            	
+                            		<c:when test="${not empty loginMember }">
+                            			 <img src="${loginMember.memberProfileImage }" class="pop-botBox-profileImges">
+                            		</c:when>
+                            		<c:otherwise>
+                            			<img src="/resources/img/common/main/프로필아이콘.png" class="pop-botBox-profileImges">
+                            		</c:otherwise>
+                            	</c:choose>
+                                
                             </section>
         
                             <section id="myComment-r-sec">
                                 <div id="myComment-write-sec">
         
                                     <section>
-                                        <textarea id="myComment-write" name="text" placeholder="댓글을 입력해주세요."></textarea>
+                                    	<c:choose>
+                                    		<c:when test="${not empty loginMember }">
+                                    			<textarea id="myComment-write" name="text" placeholder="댓글을 입력해주세요."></textarea>
+                                    		</c:when>
+                                    		<c:otherwise>
+                                    			<textarea id="myComment-write" name="text" placeholder="로그인 후 이용해주세요." readonly="readonly"></textarea>
+                                    		</c:otherwise>
+                                    	</c:choose>
+                                    	
+                                        
                                     </section>
         
                                     <section>
-                                        <button id="uploadBtn">올리기</button>
+                                    	<c:if test="${not empty loginMember }">                                    	
+	                                        <button id="uploadBtn">올리기</button>
+                                    	</c:if>
                                     </section>
         
                                 </div>

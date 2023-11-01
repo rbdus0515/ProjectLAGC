@@ -25,6 +25,8 @@
 		<result property="communityCommentContent" column="COM_COMMENT_CONTENT"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="communityNo" column="COMMUNITY_NO"/>
+		<result property="communityTitle" column="COMMUNITY_TITLE"/>
+		<result property="communityContent" column="COMMUNITY_CONTENT"/>
 		
 		<result property="memberNickname" column="MEMBER_NM"/>
 		<result property="profileImage" column="PROFILE_IMG"/>

@@ -237,21 +237,19 @@ label:hover {
     height: 50%;
 }
 
-#review-controll-section {
+#update-review-controll-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
+    width: 100%;
+    height: 100%;
 }
 
-#review-controll-section li {
+.replyDiv {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 5px;
+    margin: 5px;
 }
 
-#review-controll-section p {
+#update-review-controll-section p {
     background-color: #e6e6e6;
     width: 250px;
     border-radius: 10px;

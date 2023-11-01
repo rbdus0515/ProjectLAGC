@@ -64,6 +64,13 @@ body > section {
     padding-top: 20px;
 }
 
+/* 검색 결과 비어있을 때 */
+#emptySearch {
+	justify-content: center;
+	padding: 50px 0px;
+	font-size: 1.2rem;
+}
+
 /* 검색 정보 */
 .searchInfo {
     flex-basis: 95%;

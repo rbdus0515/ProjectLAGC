@@ -43,12 +43,10 @@
                         <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                     </div>
                     <div class="search-box">
-                    	<form name="inputSearch" >
-	                        <input class="search" name="inputLoca" type="text" autocapitalize="off" placeholder="여행지 검색">
-	                        <button class="search-btn" onclick="searchLoca()">
-	                        	<img id="search-img" src="/resources/img/common/main/Vector.png">
-	                        </button>
-                        </form>
+                        <input class="search" name="inputLoca" type="text" autocapitalize="off" placeholder="여행지 검색">
+                        <button class="search-btn" onclick="searchLoca()">
+                        	<img id="search-img" src="/resources/img/common/main/Vector.png">
+                        </button>
                     </div>
                 </section>
                   

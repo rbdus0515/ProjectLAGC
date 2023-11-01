@@ -161,16 +161,14 @@
 		WHERE CONTENT_DEL_FL = 'N'
 	</select>
 	
-	<!--
-	<select id="mapSearch" resultType="_int">
+	<select id="searchLoca" resultMap="content_rm">
 		SELECT CONTENT_NO, AREA_CODE, TRAVEL_NAME, PLACE_URL, 
-		AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, 
-		CONTENT_IMG, PLACE_INFO
+					AGE_CODE, SEASON_CODE, MEMBER_CODE, THEME_CODE, CONTENT_DEL_FL, CONTENT_IMG,
+					PLACE_INFO, LATITUDE, LONGITUDE, PLACE_ADDRESS
 		FROM CONTENT
-		WHERE CONTENT_NO = #{contentNo}
+		WHERE CONTENT_TITLE = #{inputLoca}
 		AND CONTENT_DEL_FL = 'N'
 	</select>
-	  -->
 
 </mapper>
 

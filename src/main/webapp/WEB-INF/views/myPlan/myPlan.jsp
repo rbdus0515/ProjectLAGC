@@ -16,6 +16,24 @@
 </head>
 <body>
 
+	<div class="modal">
+		<div class="modal_body">
+			<div class="modal_upside">
+				<button type="button" id="closeBtnPopup">
+					<img src="/resources/img/common/main/X버튼.png" alt="">
+				</button>
+			</div>
+			<div class= "modal_bottomside">
+				<img src="/resources/img/common/main/4) 나의 일정 이용방법3.png" alt="">
+			</div>
+ 				
+		</div>
+
+	</div>
+
+
+
+
     <form action="myPlan/myPlans" name="myPlan" method="get"></form>
     <main class="my-plan">
 
@@ -25,9 +43,9 @@
                         <a href="/"><img class="logo" src="/resources/img/myPage/LAGC-logo.png"></a>
                     </div>
                     <div class="search-box">
-                    	<form action="#" method="GET">
-	                        <input class="search" type="text" autocapitalize="off" placeholder="여행지 검색">
-	                        <button class=search-btn>
+                    	<form name="inputSearch" >
+	                        <input class="search" name="inputLoca" type="text" autocapitalize="off" placeholder="여행지 검색">
+	                        <button class="search-btn" onclick="searchLoca()">
 	                        	<img id="search-img" src="/resources/img/common/main/Vector.png">
 	                        </button>
                         </form>
@@ -267,29 +285,24 @@
 
                             <div class="destinations">
                                 <div id="rightList" class="locaContents">
-                                    <div class="수도권여행"><span>출발지 :</span> ${query}</div>
+                                    <div class="수도권여행"><span>출발지 :</span>${query}</div>
+                                    
+	                                    
+	
+	                                        <div class="선택한여행지">
+	                                            <button class="cansle-button" type="button">+</button>
+	                                            <img class="선택한-여행지-이미지" src="${seo.contentImg}">
+	                                            <div class="메뉴">
+	                                                <div class="시간">소요시간 : 1시간 22분</div>
+	                                                <div class="누적시간">누적 소요시간 : 1시간 41분</div>
+	                                                <div class="여행지이름">${seo.travelName}</div>
+	                                                <div class="여행지위치">${seo.placeAddress}</div>
+	                                            </div>
+	                                        </div>
+	
+	                                    
+                                    
 
-                                    <div class="선택한여행지">
-                                        <button class="cansle-button" type="button">-</button>
-                                        <img class="선택한-여행지-이미지" src="/resources/img/myPage/추천 콘텐츠 18.jpg">
-                                        <div class="메뉴">
-                                            <div class="시간">소요시간 : 19분</div>
-                                            <div class="누적시간">누적 소요시간 : 19분</div>
-                                            <div class="여행지이름">남산 타워</div>
-                                            <div class="여행지위치">서울특별시 용산구 남산공원길 105</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="선택한여행지">
-                                        <button class="cansle-button" type="button">-</button>
-                                        <img class="선택한-여행지-이미지" src="/resources/img/myPage/추천 콘텐츠 6.png">
-                                        <div class="메뉴">
-                                            <div class="시간">소요시간 : 1시간 22분</div>
-                                            <div class="누적시간">누적 소요시간 : 1시간 41분</div>
-                                            <div class="여행지이름">에버랜드</div>
-                                            <div class="여행지위치">경기도 용인시 에버랜드로 199</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -297,6 +310,8 @@
                         </section>
                     </section>
 
+                       <button class="이용방법">이용방법</button>
+                       
 
                    
                     <div id="map" style="width:70%;height:100vh;">
@@ -304,7 +319,7 @@
                             <img id="arrow" class="left-arrow" src="/resources/img/myPage/left-arrow.png">
                         </div>
 
-                        <div class="이용방법"><a href="#">이용방법</a></div>
+
 
                         <div class="log-in">
                         	<a href="/myPage/myPages" class="imgWrapperMyPlan">

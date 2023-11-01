@@ -46,7 +46,7 @@
 						</div>
 
 					</div>
-					</div>
+					
 					<section>
 						<section class="top">
 							<section class="top-1">

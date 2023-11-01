@@ -64,12 +64,29 @@ for (var i = 0; i < placeSec.length; i++) {
                 updateInputAddress.value = data.PLACE_ADDRESS;
                 
                 const replyList = data.replyList;
+
                 replyPlace.innerHTML = "";
 
+                const replyListSection = document.getElementById("review-controll-section");
+                replyListSection.innerHTML = "";
+                
                 for (var i = 0; i < replyList.length ; i++) {
-
-                    replyPlace.innerHTML += replyList[i]+'<br>'
                     
+                    const replyPlace = document.createElement("p");
+                    replyPlace.classList.add("cpmment-content");
+
+                    console.log("replay : " + replyPlace);
+
+                    const replyRow = document.createElement("li");
+                    replyRow.classList.add("reply-row");
+
+                    replyPlace.innerHTML += replyList[i]
+
+                    const deleteBtn = document.createElement("button");
+
+                    replyRow.append(deleteBtn);
+
+                    replyListSection.append(replyRow);
                 }
 
                 // 기존 이미지 기억하고 jsp에 hidden으로 대입

@@ -39,6 +39,10 @@ public class CommunityDAO {
 		return sqlSession.selectList("communityMapper.selectComList", communityNo);
 	}
 
+	public int deleteCom(int communityNo) {
+		return sqlSession.update("communityMapper.deleteCom", communityNo);
+	}
+
 	
 
 

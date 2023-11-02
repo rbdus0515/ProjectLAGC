@@ -20,6 +20,8 @@ public interface CommunityService {
 
 	List<Community> selectComList(int communityNo);
 
+	int deleteCom(int communityNo);
+
 	
 
 

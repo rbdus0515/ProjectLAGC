@@ -16,13 +16,15 @@
 	<div id="modalContainer" class="hidden">
 
         <main id="communityPopup-container">
-            <form class="popupForm" action="" method="post">
+            <form class="popupForm" action="/" method="post">
+                       
+                       <div id="CCSec1TopBlank"></div>
                        
 	            <section class="CCSec1">
 	    
 	                <section id="com-top-l-sec">
 	                    
-	                    <section>
+	                    <section id="comProfileImgSec">
 	                    
 	                    	<c:choose>
 	                    		<c:when test="${not empty loginMember}">
@@ -35,13 +37,13 @@
 	                    	
 	                    </section>
 	    
-	                    <section>
+	                    <section id="cComProfileNickname">
 	                    	<c:choose>
 	                    		<c:when test="${not empty loginMember}">
 	                       			<p>${loginMember.memberNickname}</p>
 	                    		</c:when>
 	                    		<c:otherwise>
-	                    			<p>방문자</p>
+	                    			<p></p>
 	                    		</c:otherwise>
 	                    	</c:choose>
 	                    </section>
@@ -82,10 +84,12 @@
 	                        
 	                    </section>
 	                    
-	                    <section>      
-	                        <a>
-	                            <button class="editDelete-button" id="delete-button">삭제</button>
-	                        </a>
+	                    <section>
+	                    
+	                            <button type="submit" class="editDelete-button" id="edit-button">수정</button>
+	                        
+	                            <button type="button" class="editDelete-button" id="delete-button" onclick="">삭제</button>
+	                        
 	                    </section>
 	    
 	                </div>
@@ -171,7 +175,7 @@
         
                                     <section>
                                     	<c:if test="${not empty loginMember }">                                    	
-	                                        <button id="uploadBtn">올리기</button>
+	                                        <button id="uploadBtn" type="submit">올리기</button>
                                     	</c:if>
                                     </section>
         

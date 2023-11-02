@@ -20,4 +20,9 @@
 		]]>
 	</select>
 	
+	<insert id="insertQNA">
+		INSERT INTO QNA
+		VALUES(SEQ_QNA_NO.NEXTVAL, #{QNATitle}, #{QNAContent}, DEFAULT, DEFAULT, #{memberNo}, DEFAULT)
+	</insert>
+	
 </mapper>

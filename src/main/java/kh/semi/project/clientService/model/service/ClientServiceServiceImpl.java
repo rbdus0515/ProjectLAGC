@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kh.semi.project.clientService.model.dao.ClientServiceDAO;
 import kh.semi.project.clientService.model.dto.ClientService;
+import kh.semi.project.manager.model.dto.QNA;
 
 @Service
 public class ClientServiceServiceImpl implements ClientServiceService{
@@ -18,6 +19,15 @@ public class ClientServiceServiceImpl implements ClientServiceService{
 	public List<ClientService> noticeList() {
 		
 		return dao.noticeList();
+	}
+
+	/** 문의사항 삽입
+	 *
+	 */
+	@Override
+	public int insertQNA(QNA qna) {
+
+		return dao.insertQNA(qna);
 	}
 	
 	

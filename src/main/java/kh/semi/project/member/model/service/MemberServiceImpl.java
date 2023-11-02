@@ -90,7 +90,7 @@ public class MemberServiceImpl implements MemberService{
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage) throws IllegalStateException, IOException {
+	public int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage, Member loginMember) throws IllegalStateException, IOException {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
 		
@@ -107,7 +107,7 @@ public class MemberServiceImpl implements MemberService{
 			
 		} else {
 			
-			inputMember.setMemberProfileImage(null);
+			inputMember.setMemberProfileImage(loginMember.getMemberProfileImage());
 			
 		}
 		

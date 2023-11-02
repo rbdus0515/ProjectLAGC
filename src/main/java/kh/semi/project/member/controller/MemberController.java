@@ -200,7 +200,7 @@ public class MemberController {
 			
 		}
 		
-		int result =  service.updateMember(inputMember, webPath, filePath, profileImage);
+		int result =  service.updateMember(inputMember, webPath, filePath, profileImage, loginMember);
 		
 		if(result > 0 ) {
 			

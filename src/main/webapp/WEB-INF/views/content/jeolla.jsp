@@ -41,7 +41,7 @@
 	                            </div>
 	                            <c:if test="${loginMember.memberManagerFlag == 'Y'}">
 		                            <div class="delArea">
-		                                <a href="/content/delete?contentNo=${img.contentNo}&areaCode=${img.areaCode}"><button type="button" class="xBtn" onclick="contentDeleteConfirm()">X</button></a>
+		                                <button type="button" class="xBtn" onclick="contentDeleteConfirm('${img.contentNo}', '${img.areaCode}')">X</button>
 		                            </div>
 	                            </c:if>
 	                            <input type="hidden" class="contentNo" value="${img.contentNo}">

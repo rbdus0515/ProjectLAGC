@@ -139,6 +139,14 @@ public class ContentDAO {
 		return sqlSession.selectList("contentMapper.selectPlace");
 	}
 
+	/** 관리자 팝업 후기 삭제
+	 * @param replyNo
+	 * @return
+	 */
+	public int deleteReply(int replyNo) {
+		return sqlSession.update("contentMapper.deleteReply",replyNo);
+	}
+
 	
 	
 

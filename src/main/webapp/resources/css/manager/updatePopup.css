@@ -236,6 +236,7 @@ label:hover {
     flex-basis: 52%;
     border-radius: 10px;
     height: 50%;
+    overflow: scroll;
 }
 
 #update-review-controll-section {
@@ -250,20 +251,20 @@ label:hover {
     margin: 5px;
 }
 
-#update-review-controll-section p {
+.replyPSection {
     background-color: #e6e6e6;
-    width: 250px;
+    width: 85%;
     border-radius: 10px;
 }
 
-#deleteBtn {
+.deleteReplyBtn {
     background-color: transparent;
     border: none;
     margin-top: 5px;
     cursor: pointer;
 }
 
-#deleteBtn > img{
+.deleteReplyBtn > img{
     width: 1rem;
 }
 

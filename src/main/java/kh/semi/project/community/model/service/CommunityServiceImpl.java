@@ -48,6 +48,12 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectComList(communityNo);
 	}
 
+	@Override
+	@Transactional
+	public int deleteCom(int communityNo) {
+		return dao.deleteCom(communityNo);
+	}
+
 	
 
 	

@@ -5,6 +5,16 @@ comXIcon.addEventListener('click', () => {
   modalContainer.classList.add('hidden');
 });
 
+(function(){
+  document.addEventListener('keydown', function(e){
+    const keyCode = e.keyCode;
+
+    if(keyCode == 27){
+      modalContainer.classList.add('hidden');
+    }
+  })
+})();
+
 // 커뮤니티 메인 ajax
 const localSelect = document.getElementById("localSelect");
 
@@ -119,9 +129,40 @@ document.addEventListener("click", (e) => {
       console.log(ccomentList);
       console.log(selectComList);
 
+
+
+      // 모달창 커뮤니티 이미지
+      const comProfileImgSec = document.getElementById("comProfileImgSec");
+      comProfileImgSec.innerHTML = "";
+
+      const comProfileImg = document.createElement("img");
+      comProfileImg.setAttribute("id", "com-cuteGhost");
+      comProfileImg.classList.add("comProfileImg");
+
+      if(selectComList[0].profileImg == null){
+        comProfileImg.src = "/resources/img/common/main/프로필아이콘.png";
+      }else{
+        comProfileImg.src = selectComList[0].profileImg;
+      }
+
+      comProfileImgSec.append(comProfileImg);
+
+
+
+      // 모달창 커뮤니티 닉네임
+      const cComProfileImgSec = document.getElementById("cComProfileNickname");
+      cComProfileImgSec.innerHTML = "";
+      cComProfileImgSec.innerText = selectComList[0].nickName;
+      
+
+
+
       // ajax 컨테이너
       const ajaxSec = document.getElementById("ajaxSec");
       ajaxSec.innerHTML = "";
+
+
+
 
       // 모달창 커뮤니티 제목
       const loginMemberNo = document.getElementById("loginMemberNo").value;
@@ -142,6 +183,29 @@ document.addEventListener("click", (e) => {
         comTitle.setAttribute("readonly", "readonly");
       }
 
+
+
+      // 삭제 버튼
+      // const deleteButtonDiv = document.getElementById("delete-buttonDiv");
+      // deleteButtonDiv.innerHTML = "";
+
+      // const deleteATag = document.createElement("a");
+      // deleteATag.setAttribute("id", "delete-button");
+      // deleteATag.setAttribute("href", "/community/deleteCom?communityNo=" + selectComList[0].communityNo);
+      // deleteATag.innerText = "삭제";
+
+      // deleteButtonDiv.append(deleteATag);
+
+      // 모달창 커뮤니티
+      const comContentDiv = document.getElementById("comContentDiv");
+      comContentDiv.innerHTML = "";
+
+      const cCinputContent = document.createElement("textarea");
+      cCinputContent.setAttribute("name", "inputContent");
+      cCinputContent.setAttribute("placeholder", "내용을 입력해주세요.");
+      cCinputContent.innerText = selectComList[0].communityContent;
+
+      comContentDiv.append(cCinputContent);
 
       for(var cc in ccomentList){
         
@@ -168,7 +232,7 @@ document.addEventListener("click", (e) => {
         // 프로필 이름 부분
         const PBPBSec = document.createElement("div");
         PBPBSec.classList.add("pop-botBox-profileSec-botSec");
-        PBPBSec.innerText = ccomentList[cc].memberNickName;
+        PBPBSec.innerText = ccomentList[cc].memberNickname;
 
         
       

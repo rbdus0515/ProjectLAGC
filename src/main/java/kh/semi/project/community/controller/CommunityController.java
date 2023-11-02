@@ -103,5 +103,17 @@ public class CommunityController {
 		
 		return comboMap;
 	}
+	
+	@GetMapping("/deleteCom")
+	public String deleteCom(int communityNo) {
+		
+		int result = service.deleteCom(communityNo);
+		
+		if(result > 0) {
+			
+		}
+		
+		return "/community/communityPage";
+	}
 
 }

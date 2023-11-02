@@ -1,20 +1,18 @@
 /*
-const inputLoca = document.getElementId("search");
-const search-btn = document.getElementId("search-btn"); 
+
+const search-btn = document.querySelector(".search-btn"); 
+const searchdestinations = document.querySelectorAll(".destinations"); 
+
 
 search-btn.addEventListener('click', () => {
 
-fetch("/searchLoca", {
-		method : "POST",
-		headers : {"Content-Type" : "application/json"},
-				// 요청보내는 자원을 명시
-				// -> js 객체를 json 형식으로 만들어 파라미터로 전달
-		body : JSON.stringify({"search" : search.value})
-	})
+const inputLoca = document.querySelector(".search");
+
+fetch("/myPlan/myPlans/searchLoca?inputLoca" + inputLoca, {
 	.then(resp => resp.json()) // 응답 객체를 자바스크립트 객체 형태로 파싱
-	
 	.then(content => {
-		console.log(content); // javascript 객체
+	
+		console.log(list); // javascript 객체
 	
 	})
 	.catch( err => console.log(err) );
@@ -23,10 +21,42 @@ fetch("/searchLoca", {
 });
 */
 
+/*
+function searchLoca() {
 
+	var searchInput = document.querySelector('.search').value;
+	
+	 fetch('/myPlan/myPlans/searchLoca?searchInput=' + searchInput)
+        .then(response => response.json())
+        .then(data => {
+            // JSON 데이터에서 검색어와 일치하는 결과 필터링
+            var searchDestinations = data.filter(item => item.title.includes(searchInput));
 
+            // 검색 결과를 화면에 표시
+            displayResults(searchDestinations);
+        })
+        .catch(error => {
+            console.error('데이터 가져오기 중 오류 발생:', error);
+        });
 
+}
 
+function displayResults(results) {
+    var searchDestinationsElement = document.getElementById('searchResults');
+    searchResultsElement.innerHTML = '';
+
+    if (results.length === 0) {
+        searchResultsElement.textContent = '일치하는 결과가 없습니다.';
+        return;
+    }
+
+    results.forEach(result => {
+        var resultElement = document.createElement('div');
+        resultElement.textContent = result.title;
+        searchResultsElement.appendChild(resultElement);
+    });
+}
+*/
 
 
 
@@ -53,7 +83,9 @@ hidden.addEventListener('click', () => {
     }
 });
 
-/* 오른쪽 div 펼치기 */
+
+
+/* 오른쪽(서울, 경기, 인천 등등) div 펼치기 */
 const expend = document.querySelectorAll(".expend");
 const destinations = document.querySelectorAll(".destinations");
 for (let i = 0; i < expend.length; i++) {

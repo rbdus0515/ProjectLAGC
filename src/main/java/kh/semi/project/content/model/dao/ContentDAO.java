@@ -139,6 +139,19 @@ public class ContentDAO {
 		return sqlSession.selectList("contentMapper.selectPlace");
 	}
 
+	
+	
+
+//	 * 	/** 여행지 검색
+//	 */
+//	 * @return
+//	 */
+//	public List<Content> searchLoca(String inputLoca) {
+//		
+//		return sqlSession.searchLoca("contentMapper.searchLoca", inputLoca);
+//	}
+//	
+//	 
 
 	
 }

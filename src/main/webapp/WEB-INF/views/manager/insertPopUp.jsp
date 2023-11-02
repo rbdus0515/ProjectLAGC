@@ -113,7 +113,7 @@
 	            
 	            <!-- 오른쪽 부분 (설명, 후기) -->
 	            <div id="div2">
-	                <section id="place-info">설명
+	                <section id="insert-place-info">설명
 	                    <textarea name="placeInfo" id="inputInfo" style="resize: none;"></textarea>
 	                </section>
 	            </div> 

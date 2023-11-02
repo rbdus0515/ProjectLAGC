@@ -197,6 +197,8 @@ public class ContentController {
 								@RequestHeader("referer") String referer
 								) throws IOException, Exception {
 		
+		
+		
 		if(uploadPlaceImg.getSize() == 0) {
 			// uploadPlaceImg에 값이 없다면 ( == 이미지 변경 안함 )
 			// -> 기존 이미지를 저장한 값을 가지고 업데이트 sql 구문
@@ -248,6 +250,20 @@ public class ContentController {
 		
 		
 	}
+	
+	// 관리자 팝업 후기 삭제
+	@GetMapping("/deleteReply")
+	@ResponseBody
+	public int deleteReply(@RequestParam(name = "replyNo") int replyNo
+							) {
+		
+		System.out.println(replyNo);
+		
+		int result = service.deleteReply(replyNo);
+		
+		return result;
+	}
+	
 	
 	/** 모달창 오픈시 정보 가져오기
 	 * @return

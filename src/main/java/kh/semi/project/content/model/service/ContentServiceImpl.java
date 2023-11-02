@@ -185,6 +185,12 @@ public class ContentServiceImpl implements ContentService{
 		return dao.selectPlace();
 	}
 
+	// 관리자 팝업 후기 삭제
+	@Override
+	public int deleteReply(int replyNo) {
+		return dao.deleteReply(replyNo);
+	}
+
 //	/** 여행지 검색
 //	 *
 //	 */

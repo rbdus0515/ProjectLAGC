@@ -116,14 +116,6 @@
 	                <section id="place-info">설명
 	                    <textarea name="placeInfo" id="inputInfo" style="resize: none;"></textarea>
 	                </section>
-	                <section id="review-controll">후기
-	                    <section id="review-controll-section">
-	                        <p>DB에서 리스트 뽑아오기</p>
-	                        <button type="button" id="deleteBtn">
-					                <img src="/resources/img/common/main/닫기버튼.png" alt="">
-	                        </button>
-	                    </section>
-                	</section>
 	            </div> 
 	        </div>
 	    </form>

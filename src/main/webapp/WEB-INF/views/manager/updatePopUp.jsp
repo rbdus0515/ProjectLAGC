@@ -123,33 +123,17 @@
 							style="resize: none;"></textarea>
 					</section>
 					<section id="review-controll">
-						후기
-						<!-- 후기 삭제 부분 -->
+						<p>후기</p>
 
-						<section id="update-review-controll-section" style="overflow: scroll;">
+						<!-- 후기동적 추가 부분 -->
+						<div id="update-review-controll-section" class="replySection">
 						
-							<div class="replyDiv">
-								<p class="replyPSection" id="review-controll-section-p">테스트</p>
-								<button type="button" id="deleteBtn">
-									<img src="/resources/img/common/main/닫기버튼.png" class="deleteReplyBtn">
-								</button>
+							 <div class="replyDiv">
+								<p class="replyPSection" id="review-controll-section-p"></p>
+								<button type="button" id="deleteBtn" class="deleteReplyBtn"></button>
 							</div>
 									
-							<div class="replyDiv">
-								<p class="replyPSection" id="review-controll-section-p">테스트 2</p>
-								<button type="button" id="deleteBtn">
-									<img src="/resources/img/common/main/닫기버튼.png">
-								</button>
-							</div>
-									
-							<div class="replyDiv">
-								<p class="replyPSection" id="review-controll-section-p">테스트 3</p>
-								<button type="button" id="deleteBtn">
-									<img src="/resources/img/common/main/닫기버튼.png">
-								</button>
-							</div>
-
-						</section>
+						</div>
 
 					</section>
 				</div>

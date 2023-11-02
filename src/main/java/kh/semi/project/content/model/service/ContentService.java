@@ -97,6 +97,12 @@ public interface ContentService {
 	 */
 	List<Content> selectPlace();
 
+	/** 관리자 팝업 후기 삭제
+	 * @param replyNo
+	 * @return
+	 */
+	int deleteReply(int replyNo);
+
 //	/** 여행지 검색
 //	 * @return
 //	 */

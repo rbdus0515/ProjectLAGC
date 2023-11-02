@@ -18,6 +18,7 @@ const updatePlaceInfoUrl = document.getElementById('updatePlaceInfoUrl');
 const updateInputInfo = document.getElementById('updateInputInfo');
 const updateInputAddress = document.getElementById('updateInputAddress');
 const contentNum = document.getElementById('contentNum');
+const reviewControll = document.getElementById("review-controll")
 
 const replyPlace = document.getElementById("review-controll-section-p");
 
@@ -28,26 +29,20 @@ closeBtnUpdatePopup.addEventListener('click', () => {
 
 // 팝업창 관련
 let temp1 = 0;
-let temp2 = 0;
 
 
 for (var i = 0; i < placeSec.length; i++) {
 
     const tempNum = contentNo[i].value;
 
-    console.log(tempNum)
-
     placeImg[i].addEventListener('click', () => {
 
-        temp2 = tempNum;
-
+        temp1 = tempNum;
         updatePopup.classList.remove('hidden');
 
         fetch("/content/searchContent?contentNo=" + tempNum)
             .then(resp => resp.json())
             .then(data => {
-
-                console.log(data)
 
                 contentNum.value = tempNum;
                 updateAgeCode.value = data.AGE_CODE;
@@ -64,31 +59,44 @@ for (var i = 0; i < placeSec.length; i++) {
                 updateInputAddress.value = data.PLACE_ADDRESS;
                 
                 const replyList = data.replyList;
-                replyPlace.innerHTML = '';
+                replyPlace.innerHTML = "";
 
+                const replySection = document.createElement("section");
+                replySection.classList.add("replySection");
+                replySection.setAttribute("id", "update-review-controll-section");
+                
                 for (var i = 0; i < replyList.length ; i++) {
                     
-                    replyPlace.innerHTML += replyList[i]
                     
+                    const replyDiv = document.createElement("div");
+                    replyDiv.classList.add("replyDiv")
                     
-
-                    // const replyLiSection = document.createElement("li");
-                    // replyLiSection.classList.add("replyLiSection");
+                    const replyPSection = document.createElement("p");
+                    replyPSection.classList.add("replyPSection");
+                    replyPSection.innerHTML = replyList[i];
                     
-                    // const replyPSection = document.createElement("p");
-                    // replyPSection.classList.add("replyPSection");
+                    const deleteReplyBtn = document.createElement("button");
+                    deleteReplyBtn.classList.add("deleteReplyBtn");
+                    deleteReplyBtn.innerText = "삭제";
 
-                    // const deleteReplyBtn = document.createElement("button");
-                    // deleteReplyBtn.classList.add("deleteReplyBtn");
+                    deleteReplyBtn.setAttribute("data-seq", replyList[i].seq); // 예를 들어, replyList의 속성에 seq가 있다고 가정
 
-                    // console.log("테스트 : " + replyPlace);
-
-                    // replyLiSection.appendChild(deleteReplyBtn);
-                    // replyPSection.appendChild(replyLiSection);
-                    // replyPlace.appendChild(replyPSection);
+                    
+                    replyDiv.append(replyPSection, deleteReplyBtn);
+                    
+                    replySection.append(replyDiv);
+                    
                     
                 }
 
+                // 여기는 찍히는데 시발...
+                console.log(replyList);
+                // 뭐가 문제냐...
+                reviewControll.innerHTML = "";
+                reviewControll.append(replySection);
+
+                
+                
                 // 기존 이미지 기억하고 jsp에 hidden으로 대입
                 const imgHidden = document.createElement("input");
                 imgHidden.setAttribute("type", "hidden");
@@ -97,16 +105,9 @@ for (var i = 0; i < placeSec.length; i++) {
 
                 updateUploadPlaceImg.append(imgHidden);
 
-                console.log(imgHidden);
-
-
-
-                
-            
-
             })
 
-        // --------------------------------------------------------------
+        // -------------------------------------------------------------
         // 컨텐츠 이미지 관련
 
         // 컨텐츠 이미지 추가/변경/삭제
@@ -161,7 +162,6 @@ for (var i = 0; i < placeSec.length; i++) {
 
                 // 파일을 한번 선택한 후 취소했을 때 ( file이 undefined가 된다 ) 
                 if (file == undefined) {
-                    console.log("파일 선택이 취소됨");
                     checkDelete = -1; // 취소 == 파일 없음 == 초기상태
 
                     // 취소 시 기존 프로필 이미지로 변경 ( 기존 이미지에서 변경되는게 없게 하겠다는거죠 ) 
@@ -193,7 +193,6 @@ for (var i = 0; i < placeSec.length; i++) {
 
                 // 다 읽었을 때
                 reader.onload = e => {
-                    //console.log(e.target);
                     console.log(e.target.result); // 읽은 파일의 URL 
                     /* 개발자도구에서 Application탭에서 Frames > top > images 안에서 확인가능 */
 
@@ -207,17 +206,42 @@ for (var i = 0; i < placeSec.length; i++) {
             });
 
 
-            // #profileFrm이 제출 되었을 때
-            document.getElementById("updatePopup").addEventListener("submit", e => {
-
-                return true;
-            });
         }
+
+        // #profileFrm이 제출 되었을 때
+        document.getElementById("updatePopup").addEventListener("submit", e => {
+            
+            return true;
+        });
+
+        reviewControll.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("deleteReplyBtn")) {
+                const replyDiv = target.parentElement;
+                const replyNo = replyDiv.getAttribute("data-seq");
+        
+                console.log(replyNo);
+
+                // 서버로 리뷰 삭제 요청을 보냅니다.
+                fetch("/content/deleteReply?replyNo=" + replyNo)
+                .then((resp) => resp.json())
+                .then((result) => {
+                    if (result > 0) {
+                        alert("삭제되었습니다.");
+                        // 삭제 성공 시 화면에서 해당 후기를 제거합니다.
+                        replyDiv.remove();
+                    } else {
+                        alert("삭제 실패");
+                    }
+                })
+                .catch((error) => {
+                    console.error("삭제 요청 중 오류 발생:", error);
+                    alert("삭제 요청 중 오류가 발생했습니다.");
+                });
+            }
+        });
 
     });
 
 }
-
-
-
 

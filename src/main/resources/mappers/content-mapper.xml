@@ -170,6 +170,13 @@
 		AND CONTENT_DEL_FL = 'N'
 	</select>
 
+	<!-- 관리자 팝업 후기 삭제 -->
+	<update id="deleteReply">
+		UPDATE "REPLY" SET
+		REPLY_DEL_FL = 'Y'
+		WHERE REPLY_NO = #{replyNo}	
+	</update>
+
 </mapper>
 
 

@@ -21,6 +21,7 @@ fetch("/myPlan/myPlans/searchLoca?inputLoca" + inputLoca, {
 });
 */
 
+/*
 function searchLoca() {
 
 	var searchInput = document.querySelector('.search').value;
@@ -55,7 +56,7 @@ function displayResults(results) {
         searchResultsElement.appendChild(resultElement);
     });
 }
-
+*/
 
 
 

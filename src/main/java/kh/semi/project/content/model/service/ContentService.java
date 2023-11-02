@@ -97,12 +97,12 @@ public interface ContentService {
 	 */
 	List<Content> selectPlace();
 
-	/** 여행지 검색
-	 * @return
-	 */
-	List<Content> searchLoca(String inputLoca);
-
-	
+//	/** 여행지 검색
+//	 * @return
+//	 */
+//	List<Content> searchLoca(String inputLoca);
+//
+//	
 }
 
 

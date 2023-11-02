@@ -185,14 +185,14 @@ public class ContentServiceImpl implements ContentService{
 		return dao.selectPlace();
 	}
 
-	/** 여행지 검색
-	 *
-	 */
-	@Override
-	public List<Content> searchLoca(String inputLoca) {
-		
-		return dao.searchLoca(inputLoca);
-	}
+//	/** 여행지 검색
+//	 *
+//	 */
+//	@Override
+//	public List<Content> searchLoca(String inputLoca) {
+//		
+//		return dao.searchLoca(inputLoca);
+//	}
 
 	
 

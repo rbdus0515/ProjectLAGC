@@ -96,14 +96,14 @@ public class MyPlanController {
 	}
 	
 	
-	@GetMapping("/searchLoca")
-	@ResponseBody
-	public List<Content> searchLoca(String inputLoca, Model model) {
-		
-		List<Content> list = service.searchLoca(inputLoca);
-		
-		
-		return list;
-		
-	}
+//	@GetMapping("/searchLoca")
+//	@ResponseBody
+//	public List<Content> searchLoca(String inputLoca, Model model) {
+//		
+//		List<Content> list = service.searchLoca(inputLoca);
+//		
+//		
+//		return list;
+//		
+//	}
 }

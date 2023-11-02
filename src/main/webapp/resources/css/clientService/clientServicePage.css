@@ -257,11 +257,6 @@ main {
 }
 
 #ask-box {
-    display: flex;
-    flex-direction: column;
-}
-
-#ask-area > div {
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
@@ -275,16 +270,14 @@ main {
     margin-left: 1rem;
 }
 
-#ask-box > section:nth-of-type(1) {
+#ask-box > section:nth-of-type(1) { /* 1:1 문의 타이틀*/
     height: 4rem;
     font-size: x-large;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    margin-left: 2rem;
 }
 
-#ask-box > section:nth-of-type(2) {
+#ask-box > section:nth-of-type(2) { /* 1:1 문의 작성자 정보*/
     display: flex;
     height: 11rem;
 }
@@ -300,16 +293,22 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.4rem;
     width: 4rem;
     border-radius: 7px;
     background-color: #D9D9D9;
+    font-size: 1rem;
+    height: 1.71rem;
 }
 
 #ask-title-answers {
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
+}
+
+#ask-title-answers input {
+    font-size: 0.8rem;
 }
 
 #classificationSelect {
@@ -328,7 +327,7 @@ main {
 }
 
 #ask-title-answers > input {
-    margin-bottom: 0.54rem;
+    margin-bottom: 0.4rem;
     width: 11rem;
     height: 1.71rem;
     border-radius: 7px;
@@ -357,6 +356,7 @@ main {
     resize: none;
     outline: none;
     border: none;
+    white-space: pre-wrap;
 }
 
 #ask-box > section:nth-of-type(4) {

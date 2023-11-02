@@ -10,7 +10,7 @@
 <title>고객지원 페이지</title>
 </head>
 <body>
-	
+
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<section id="clientServicePage">
 
@@ -82,7 +82,7 @@
                         </section>
 
 						<c:forEach var="noticeList" items="${list}">				
-	                        <section id="noticeBox-b" onclick="noticeDetail(${noticeList.noticeNo})">
+	                        <section id="noticeBox-b" onclick="noticeDetail('${noticeList.noticeNo}')">
 	                            <p>${noticeList.noticeTitle}</p>
 	                            <div></div>
 	                            <p>${noticeList.noticeUpload}</p>
@@ -126,7 +126,7 @@
 
             </section>
 
-            <form>
+            <form action="/clientService/submitQna" method="post" id="qnaFrm">
                 <section id="ask-area">
     
                     <div id="ask-box">
@@ -136,34 +136,46 @@
                         <section>
     
                             <section id="ask-title-boxes">
-                                <div>분류</div>
+                                <div>작성자</div>
                                 <div>이메일</div>
                                 <div>휴대폰</div>
                                 <div>제목</div>
                             </section>
     
-                            <section id="ask-title-answers">
-                                <select id="classificationSelect">
-                                    <option selected>== 선택 ==</option>
-                                    <option value="securityAsk">보안 문의</option>
-                                    <option value="limitAsk">이용 제한 문의</option>
-                                    <option value="accountAsk">계정 문의</option>
-                                    <option value="declarationAsk">불건전한 이용자 신고</option>
-                                    <option value="etcAsk">기타</option>
-                                </select>
-                                <input name="inputEmail">
-                                <input name="inputPhone">
-                                <input name="inputTitle">
-                            </section>
+                            <c:if test = "${not empty loginMember}">
+                                <section id="ask-title-answers">
+                                    <input name="inputNickname" value="${loginMember.memberNickname}" disabled>
+                                    <input name="inputEmail" value="${loginMember.memberEmail}" disabled>
+                                    <input name="inputPhone" value="${loginMember.memberPhone}" disabled>
+                                    <input id="qnaTitle" name="QNATitle">
+                                </section>
+                            </c:if>
+
+                             <c:if test = "${empty loginMember}">
+                                <section class="noUse" id="ask-title-answers">
+                                    <input name="memberNickname">
+                                    <input name="inputEmail">
+                                    <input name="inputPhone">
+                                    <input id="qnaTitle" name="QNATitle">
+                                </section>
+                            </c:if>
     
                         </section>
     
-                        <section>
-                            <textarea name="inputAsk" placeholder="문의 내용을 작성해주세요." id="askText"></textarea>
+                        <section> 
+                            <c:if test = "${not empty loginMember}">
+                                <textarea name="QNAContent" placeholder="문의 내용을 작성해주세요." id="askText"></textarea>
+                            </c:if>
+
+                            <c:if test = "${empty loginMember}">
+                                <textarea class="noUse" name="QNAContent" placeholder="문의 내용을 작성해주세요." id="askText"></textarea>
+                            </c:if>
                         </section>
     
                         <section>
-                            <button>문의 내용 등록</button>
+                            <c:if test = "${not empty loginMember}">
+                                <button>문의 내용 등록</button>
+                            </c:if>
                         </section>
     
                     </div>   
@@ -178,5 +190,6 @@
     <script src="https://kit.fontawesome.com/27d1f811dc.js" crossorigin="anonymous"></script>
 
     <script src="/resources/js/notice.js"></script>
+    <script src="/resources/js/clientService.js"></script>
 </body>
 </html>

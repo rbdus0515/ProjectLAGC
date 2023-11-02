@@ -1,7 +1,7 @@
 // 공유 버튼 모달
 const modal = document.querySelector('.modal');
 const share = document.getElementsByClassName('share-button');
-const closeBtnPopup = document.getElementById('closeBtnPopup');
+const closeShare = document.getElementById('closeBtnPopupShare');
 
 
 for (let i = 0; i < share.length; i++) {
@@ -22,7 +22,7 @@ modal.addEventListener('click', (event) => {
   }
 });
 
-closeBtnPopup.addEventListener('click', () => {
+closeShare.addEventListener('click', () => {
   modal.classList.remove('show');
 });
 
@@ -143,8 +143,6 @@ for (var i = 0; i < qnaContainer.length; i++) {
       .then(resp => resp.json())
       .then(data => {
 
-        console.log(data)
-
         createDate.innerText = data.createDate;
         QNATitle.innerText = data.qnatitle;
         whatPeopleAsk.innerText = data.qnacontent;
@@ -162,6 +160,3 @@ askCloseBtn.addEventListener('click', () => {
   askContentModal.classList.add('hidden');
 });
 
-
-
-// 게시물 업로드

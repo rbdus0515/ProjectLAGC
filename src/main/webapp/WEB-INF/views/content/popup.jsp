@@ -109,8 +109,7 @@
 								</div>
 
 								<div class="textArea">
-									<textarea class="commentArea" id="reply" placeholder="글을 입력해주세요"
-										style="resize: none;"></textarea>
+									<textarea class="commentArea" id="reply" placeholder="글을 입력해주세요" maxlength="36" style="resize: none;"></textarea>
 									<button class="button" id="replyBtn">올리기</button>
 								</div>
 

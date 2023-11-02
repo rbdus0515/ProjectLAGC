@@ -23,7 +23,7 @@
 					<div class="modal">
 						<div class="modal_body">
 							<div class="modal_upside">
-								<button type="button" id="closeBtnPopup">
+								<button type="button" id="closeBtnPopupShare">
 									<img src="/resources/img/common/main/X버튼.png" alt="">
 								</button>
 							</div>
@@ -374,7 +374,7 @@
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/myPage/askPopup.jsp" />
 			<script src="/resources/js/myPage.js"></script>
-
+			
 		</body>
 
 		</html>

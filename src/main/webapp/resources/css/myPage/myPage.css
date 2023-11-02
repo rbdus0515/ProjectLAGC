@@ -56,14 +56,14 @@
 }
 
 /* 모달 x버튼 */
-#closeBtnPopup {
+#closeBtnPopupShare {
   background-color: transparent;
   border: none;
   margin: 10px;
   cursor: pointer;
 }
 
-#closeBtnPopup > img{
+#closeBtnPopupShare > img{
   width: 1rem;
 }
 
@@ -564,7 +564,7 @@ footer {
 .comment {
     display: flex;
     width: 98%;
-    height: 15%;
+    height: 20%;
     margin: 5px 0;
     justify-content: center;
 }
@@ -604,6 +604,7 @@ footer {
     border-radius: 10px;
     align-items: center;
     padding-left: 10px;
+
 }
 
 
@@ -880,7 +881,7 @@ footer {
     font-size: 1rem;
 }
 
-.managingContent a:hover, button:hover{
+.managingContent > a:hover, #placePlus:hover{
     background-color: #868686;
     color: #fff;
     transition-duration: 0.3s;

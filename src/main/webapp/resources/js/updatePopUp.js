@@ -65,7 +65,7 @@ for (var i = 0; i < placeSec.length; i++) {
                 replySection.classList.add("replySection");
                 replySection.setAttribute("id", "update-review-controll-section");
                 
-                for (var i = 0; i < replyList.length ; i++) {
+                for (let i = 0; i < replyList.length ; i++) {
                     
                     
                     const replyDiv = document.createElement("div");
@@ -77,10 +77,38 @@ for (var i = 0; i < placeSec.length; i++) {
                     
                     const deleteReplyBtn = document.createElement("button");
                     deleteReplyBtn.classList.add("deleteReplyBtn");
+                    deleteReplyBtn.setAttribute("type", "button");
                     deleteReplyBtn.innerText = "삭제";
 
-                    deleteReplyBtn.setAttribute("data-seq", replyList[i].seq); // 예를 들어, replyList의 속성에 seq가 있다고 가정
 
+                    // ----------------------------------------
+
+                    replyPSection.setAttribute("data-replyNo", replyList[i].replyNo);
+
+                    deleteReplyBtn.addEventListener('click', function () {
+                        const replySeq = replyPSection.getAttribute("data-replyNo");
+                        if (confirm('댓글을 삭제하시겠습니까?')) {
+                            fetch("/content/deleteReply?replyNo=" + replySeq, {
+                                method: 'GET',
+                            })
+                            .then(resp => resp.json())
+                            .then(data => {
+                                if (data.result === 'success') {
+                                    // 삭제가 성공하면 DB에서 업데이트하려는 값을 변경하여 다시 로드하십시오.
+                                    // 이 예시에서는 페이지를 새로 고치는 것으로 가정합니다.
+                                    location.reload();
+                                } else {
+                                    alert('삭제에 실패하였습니다.');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('에러 발생:', error);
+                            });
+                        }
+                    });
+
+
+                    // ----------------------------------------
                     
                     replyDiv.append(replyPSection, deleteReplyBtn);
                     
@@ -214,34 +242,7 @@ for (var i = 0; i < placeSec.length; i++) {
             return true;
         });
 
-        reviewControll.addEventListener("click", (e) => {
-            const target = e.target;
-            if (target.classList.contains("deleteReplyBtn")) {
-                const replyDiv = target.parentElement;
-                const replyNo = replyDiv.getAttribute("data-seq");
         
-                console.log(replyNo);
-
-                // 서버로 리뷰 삭제 요청을 보냅니다.
-                fetch("/content/deleteReply?replyNo=" + replyNo)
-                .then((resp) => resp.json())
-                .then((result) => {
-                    if (result > 0) {
-                        alert("삭제되었습니다.");
-                        // 삭제 성공 시 화면에서 해당 후기를 제거합니다.
-                        replyDiv.remove();
-                    } else {
-                        alert("삭제 실패");
-                    }
-                })
-                .catch((error) => {
-                    console.error("삭제 요청 중 오류 발생:", error);
-                    alert("삭제 요청 중 오류가 발생했습니다.");
-                });
-            }
-        });
-
     });
-
+    
 }
-

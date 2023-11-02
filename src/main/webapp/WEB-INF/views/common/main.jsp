@@ -119,12 +119,12 @@
 	<section id="recommend-img">
 		<section class="recommend-empty"></section>
 
-		<div class="recommendContent">
+		<div class="recommendContent" id="recommendContentFirst">
 			<img class="recommend-place-btn" src="/resources/img/content/seoul/광화문.png">
 			<input type="hidden" class="recommendContentNo" id="recommendFirst" value="5">
 		</div>
 		
-		<div class="recommendContent">
+		<div class="recommendContent" id="recommendContentSecond">
 			<img class="recommend-place-btn" src="/resources/img/content/seoul/청계천.png">
 			<input type="hidden" class="recommendContentNo" id="recommendSecond"  value="8">
 		</div>

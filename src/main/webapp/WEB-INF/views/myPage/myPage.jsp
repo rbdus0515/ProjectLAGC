@@ -342,13 +342,15 @@
 							<!----- 관리 메뉴 ----------------------------------------------------------------------------------------->
 
 							<section class="managingContent">
-								<a href="/manager/managingQNA">1:1문의 목록 <c:if test="${QNACount != 0}">
+								<a href="/manager/managingQNA">1:1문의 목록 
+									<c:if test="${QNACount != 0}">
 										<span id="newAlarm"> ${QNACount} </span>
 									</c:if>
-
-
-								</a> <a href="/notice/noticeList">공지사항</a> <a href="#">게시물 업로드</a> <a
-									href="/community/communityPage">커뮤니티</a>
+								</a> 
+								
+								<a href="/notice/noticeList">공지사항</a> 
+								<button id="placePlus" type="button">게시물 업로드</button> 
+								<a href="/community/communityPage">커뮤니티</a>
 
 							</section>
 
@@ -368,7 +370,7 @@
 
 
 			</main>
-
+			<jsp:include page="/WEB-INF/views/manager/insertPopUp.jsp" />
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/myPage/askPopup.jsp" />
 			<script src="/resources/js/myPage.js"></script>

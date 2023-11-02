@@ -34,9 +34,10 @@ public interface MemberService {
 	 * @param filePath 
 	 * @param webPath 
 	 * @param profileImage 
+	 * @param loginMember 
 	 * @return
 	 */
-	int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage) throws IllegalStateException, IOException;
+	int updateMember(Member inputMember, String webPath, String filePath, MultipartFile profileImage, Member loginMember) throws IllegalStateException, IOException;
 
 	/** 비밀번호 조회 서비스
 	 * @param inputMember

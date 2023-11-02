@@ -856,7 +856,7 @@ footer {
     justify-content: space-between;
 }
 
-.managingContent a{
+.managingContent a, #placePlus{
     flex-basis: 45%;
     height: 5rem;
     background-color: #e6e6e6;
@@ -868,9 +868,10 @@ footer {
     text-decoration: none;
     color: #000;
     margin: 0.5rem;
+    font-size: 1rem;
 }
 
-.managingContent a:hover{
+.managingContent a:hover, button:hover{
     background-color: #868686;
     color: #fff;
     transition-duration: 0.3s;

@@ -161,3 +161,7 @@ const askCloseBtn = document.getElementById("askCloseBtn");
 askCloseBtn.addEventListener('click', () => {
   askContentModal.classList.add('hidden');
 });
+
+
+
+// 게시물 업로드

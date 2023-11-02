@@ -34,6 +34,7 @@
 		FROM QNA
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE ANSWER_FL = 'N'
+		ORDER BY CREATE_DATE ASC
 	</select>
 
 	<select id="selectQNADone" resultMap="QNA_rm">
@@ -42,6 +43,7 @@
 		FROM QNA
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE ANSWER_FL = 'Y'
+		ORDER BY CREATE_DATE ASC
 	</select>
 
 	<update id="insertAnswer">

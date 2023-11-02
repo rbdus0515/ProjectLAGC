@@ -85,8 +85,7 @@
 
                                             <div class="answer">
                                                 <p>답변</p>
-                                                <textarea class="answerArea" name="answerArea" id=""
-                                                    style="resize: none;"></textarea>
+                                                <textarea class="answerArea" name="answerArea"></textarea>
                                                 <button class="answerBtn">답변 달기</button>
                                             </div>
 

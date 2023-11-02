@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*", "/myPlan/*", "/manager/*", "/member/updatePw", "/member/delete", "/member/info", "/member/memberDelete", "/member/findPwAfterId", "/member/changePw", "/member/changePw2"}) 
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*", "/myPlan/*", "/manager/*", "/member/updatePw", "/member/delete", "/member/info", "/member/memberDelete"}) 
 public class LoginFilter implements Filter {
 
 	/**

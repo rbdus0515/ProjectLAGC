@@ -65,6 +65,87 @@ for (var i = 0; i < content.length; i++) {
 
 }
 
+const recommendContentFirst = document.getElementById("recommendContentFirst")
+const recommendContentSecond = document.getElementById("recommendContentSecond")
+
+recommendContentFirst.addEventListener("click", () => {
+
+  temp2 = recommendFirst.value;
+
+  modalContainerPopup.classList.remove('hidden');
+
+  likeCount.innerHTML = "";
+
+  fetch("/content/like?contentNo=" + recommendFirst.value)
+    .then(response => response.json())
+    .then(data => {
+
+      travelName.innerText = data.TRAVEL_NAME;
+      webSite.setAttribute("href", data.PLACE_URL);
+      travelImg.setAttribute("src", data.CONTENT_IMG);
+      explain.innerHTML = data.PLACE_INFO;
+      comment1.innerHTML = data.reply0
+      comment2.innerHTML = data.reply1
+      comment3.innerHTML = data.reply2
+
+
+      likeCount.innerHTML += data.likeCount;
+
+      temp = likeCount.innerText;
+
+      if (data.likeYesOrNo == -1) {
+        console.log("좋아요 처리 실패");
+        return;
+      } else if (data.likeYesOrNo == 1) {
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = false;
+      }
+
+    })
+
+
+})
+
+recommendContentSecond.addEventListener("click", () => {
+
+  temp2 = recommendSecond.value;
+
+  modalContainerPopup.classList.remove('hidden');
+
+  likeCount.innerHTML = "";
+
+  fetch("/content/like?contentNo=" + recommendSecond.value)
+    .then(response => response.json())
+    .then(data => {
+
+      travelName.innerText = data.TRAVEL_NAME;
+      webSite.setAttribute("href", data.PLACE_URL);
+      travelImg.setAttribute("src", data.CONTENT_IMG);
+      explain.innerHTML = data.PLACE_INFO;
+      comment1.innerHTML = data.reply0
+      comment2.innerHTML = data.reply1
+      comment3.innerHTML = data.reply2
+
+
+      likeCount.innerHTML += data.likeCount;
+
+      temp = likeCount.innerText;
+
+      if (data.likeYesOrNo == -1) {
+        console.log("좋아요 처리 실패");
+        return;
+      } else if (data.likeYesOrNo == 1) {
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = false;
+      }
+
+    })
+
+
+})
+
 checkbox.addEventListener("click", () => {
 
   temp = parseInt(temp);
@@ -213,16 +294,12 @@ for(var i = 0 ; i < recommendBtn.length ; i ++){
       for(var i = 0 ; i < 2 ; i++){
         recommendArea[i].src = data[i].contentImg;
         recommendContentNo[i].value = data[i].contentNo;
-
-        // if(i == 0 ){
-        //   recommendFirst.value = data[i].contentNo
-        // } else{
-        //   recommendSecond.value = data[i].contentNo
-        // }
         
-        console.log(data[i].contentNo)
 
       }
+
+      
+      
 
     })
 
@@ -230,51 +307,7 @@ for(var i = 0 ; i < recommendBtn.length ; i ++){
   }) 
 
 
-}
 
-
-for (var i = 0; i < recommendContent.length; i++) {
-
-  const tempNum2 = recommendContentNo[i].value;
-  
-  recommendContent[i].addEventListener('click', () => {
-
-    modalContainerPopup.classList.remove('hidden');
-
-    likeCount.innerHTML = "";
-
-    fetch("/content/like?contentNo=" + tempNum2)
-      .then(response => response.json())
-      .then(data => {
-
-        travelName.innerText = data.TRAVEL_NAME;
-        webSite.setAttribute("href", data.PLACE_URL);
-        travelImg.setAttribute("src", data.CONTENT_IMG);
-        explain.innerHTML = data.PLACE_INFO;
-        comment1.innerHTML = data.reply0
-        comment2.innerHTML = data.reply1
-        comment3.innerHTML = data.reply2
-
-
-        likeCount.innerHTML += data.likeCount;
-
-        temp = likeCount.innerText;
-
-        if (data.likeYesOrNo == -1) {
-          console.log("좋아요 처리 실패");
-          return;
-        } else if (data.likeYesOrNo == 1) {
-          checkbox.checked = true;
-        } else {
-          checkbox.checked = false;
-        }
-
-      })
-
-
-
-
-  });
 
 }
 

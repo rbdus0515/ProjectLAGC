@@ -180,7 +180,7 @@ public class ContentController {
 		
 		List<Reply> replyList = new ArrayList<Reply>();
 		
-		replyList = service.selectReply(contentNo);
+		replyList = service.selectReply2(contentNo);
 		
 		map.put("replyList", replyList);
 		

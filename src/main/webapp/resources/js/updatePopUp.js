@@ -44,6 +44,8 @@ for (var i = 0; i < placeSec.length; i++) {
             .then(resp => resp.json())
             .then(data => {
 
+                console.log(data);
+
                 contentNum.value = tempNum;
                 updateAgeCode.value = data.AGE_CODE;
                 updateMemberCode.value = data.MEMBER_CODE;
@@ -83,7 +85,9 @@ for (var i = 0; i < placeSec.length; i++) {
 
                     // ----------------------------------------
 
-                    replyPSection.setAttribute("data-replyNo", replyList[i].replyNo);
+                    replyPSection.setAttribute("id", replyList[i].replyNo);
+                    
+                    console.log(replyList[i].replyNo);
 
                     deleteReplyBtn.addEventListener('click', function () {
                         const replySeq = replyPSection.getAttribute("data-replyNo");

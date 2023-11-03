@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -22,6 +24,7 @@ import kh.semi.project.manager.model.dto.QNA;
 import kh.semi.project.manager.model.service.ManagerService;
 import kh.semi.project.member.model.dto.Member;
 import kh.semi.project.myPage.model.service.MyPageService;
+import kh.semi.project.myPlan.model.dto.MyPlan;
 
 
 @Controller
@@ -139,6 +142,20 @@ public class MyPageController {
 		int result = service.deleteMyPlan(myPlanNo);
 		
 		return result;
+	}
+	
+	@PostMapping("/save")
+	public String save(MyPlan myPlan, 
+			@RequestHeader(value = "referer") String referer,
+			@SessionAttribute("loginMember") Member loginMember) {
+		
+		myPlan.setMemberNo(loginMember.getMemberNo());
+		
+		String referer1 = "/myPage/myPages";
+		
+		int result = service.save(myPlan);
+		
+		return "redirect:" + referer1;
 	}
 	
 }

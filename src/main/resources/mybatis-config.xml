@@ -32,6 +32,7 @@
 		<typeAlias type="kh.semi.project.manager.model.dto.QNA" alias="QNA" />
 		<typeAlias type="kh.semi.project.clientService.model.dto.ClientService" alias="ClientService"/>
 		<typeAlias type="kh.semi.project.search.model.dto.Search" alias="Search"/>
+		<typeAlias type="kh.semi.project.myPlan.model.dto.MyPlan" alias="MyPlan"/>
 
 	</typeAliases>
 

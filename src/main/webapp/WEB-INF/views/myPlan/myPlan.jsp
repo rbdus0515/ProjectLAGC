@@ -62,7 +62,7 @@
 
                                     <c:forEach var="seo" items="${seoList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${seo.contentImg}">
                                             <div class="메뉴">
@@ -88,7 +88,7 @@
 
                                     <c:forEach var="gyeinc" items="${gyeincList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${gyeinc.contentImg}">
                                             <div class="메뉴">
@@ -114,7 +114,7 @@
 
                                     <c:forEach var="gan" items="${ganList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${gan.contentImg}">
                                             <div class="메뉴">
@@ -139,7 +139,7 @@
 
                                     <c:forEach var="chu" items="${chuList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${chu.contentImg}">
                                             <div class="메뉴">
@@ -164,7 +164,7 @@
 
                                     <c:forEach var="jeo" items="${jeoList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${jeo.contentImg}">
                                             <div class="메뉴">
@@ -189,7 +189,7 @@
 
                                     <c:forEach var="gye" items="${gyeList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${gye.contentImg}">
                                             <div class="메뉴">
@@ -215,7 +215,7 @@
 
                                     <c:forEach var="jej" items="${jejList}">
 
-                                        <div class="선택한여행지">
+                                        <div class="selectedPlace">
                                             <button class="cansle-button" type="button">+</button>
                                             <img class="선택한-여행지-이미지" src="${jej.contentImg}">
                                             <div class="메뉴">
@@ -244,7 +244,10 @@
             <section class="right-side">
                 <section class="empty-box">
                 	<a class="save" href="/myPage/myPages"> 돌아가기</a>
-                	<button class="save">저장</button>
+                	<form action="/myPage/save" method="post" enctype="multipart/form-data">
+                		<button type="submit" id="save" class="save">저장</button>
+                	
+                	
                 </section>
                
                         <section class="plan">
@@ -253,7 +256,7 @@
                                 <button class="expend">-</button>
                             </div>
                             <div class="destinations">
-                                <input type="text" class="수도권여행" placeholder="일정명을 설정해주세요">
+                                <input type="text" name="myPlanName" id="myPlanName" class="수도권여행" placeholder="일정명을 설정해주세요">
 
                                 <div class="dateContainer">
 
@@ -265,7 +268,7 @@
                                 
 								<form name=mapSearch autocomplete="off">
 									<div class="mapSearchBox">
-										<input class="출발지검색" placeholder="출발지검색">
+										<input type="text" class="출발지검색" name="departPlace" id="departPlace" placeholder="출발지 검색">
 										<button class=mapSearch-btn onclick="mapSearchList()">
 											<img id="search-img" src="/resources/img/common/main/Vector.png">
 										</button>
@@ -283,29 +286,17 @@
 
                             <div class="destinations">
                                 <div id="rightList" class="locaContents">
-                                    <div class="수도권여행"><span>출발지 :</span>${query}</div>
+                                    <div class="수도권여행"><span>출발지 :</span>${departPlace}</div>
                                     
-	                                    
-	
-	                                        <div class="선택한여행지">
-	                                            <button class="cansle-button" type="button">+</button>
-	                                            <img class="선택한-여행지-이미지" src="${seo.contentImg}">
-	                                            <div class="메뉴">
-	                                                <div class="시간">소요시간 : 1시간 22분</div>
-	                                                <div class="누적시간">누적 소요시간 : 1시간 41분</div>
-	                                                <div class="여행지이름">${seo.travelName}</div>
-	                                                <div class="여행지위치">${seo.placeAddress}</div>
-	                                            </div>
-	                                        </div>
-	
-	                                    
-                                    
+
+   
 
                                 </div>
                             </div>
 
 
                         </section>
+                        </form>
                     </section>
 
                        <button class="이용방법">이용방법</button>
@@ -321,7 +312,9 @@
 
                         <div class="log-in">
                         	<a href="/myPage/myPages" class="imgWrapperMyPlan">
+                        		
                         		<img class="map-profile" src="${loginMember.memberProfileImage}">
+                        		
                         	</a>
                        	</div>
 

@@ -170,6 +170,7 @@ button {
 .plan > .destinations {
     height: 150px;
     display: flex;
+    overflow-x: auto;
     flex-direction: column;
 }
 
@@ -195,7 +196,7 @@ button {
 /* 여행 계획 제목 */
 .수도권여행 {
     width: 60%;
-    height: 36px;
+    height: 28px;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -238,7 +239,7 @@ button {
 
 
 /* 선택한 여행지 설정 */
-.선택한여행지 {
+.selectedPlace {
     display: flex;
     flex-direction: row;
     margin: 15px;
@@ -458,7 +459,7 @@ button {
 }
 
 .imgWrapperMyPlan{
-    width: 100px;
+    width: 100px;s
     height: 70px;
     overflow: hidden;
     border-radius: 50%;

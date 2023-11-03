@@ -1,7 +1,7 @@
 /*
 
 const search-btn = document.querySelector(".search-btn"); 
-const searchdestinations = document.querySelectorAll(".destinations"); 
+const searchDes = document.querySelectorAll(".destinations"); 
 
 
 search-btn.addEventListener('click', () => {
@@ -105,62 +105,93 @@ for (let i = 0; i < expend.length; i++) {
 
 
 /* 헷갈리는 부분 */
+
 /*
 const cansle = document.querySelectorAll(".cansle-button");
-const divDes = document.querySelector('.destinations');
+const divDes = document.querySelectorAll('.destinations');
 const rightList = document.getElementById('rightList');
+const selPlace = document.querySelectorAll('.selectedPlace');
+/*
+cansle.forEach((button) => {
+    button.addEventListener('click', () => {
+        rightList.classList.toggle('selectedPlace');
+    });
+});
+*/
 
+/*
 for (let i = 0; i < cansle.length; i++) {
     cansle[i].addEventListener('click', () => {
-        const selectedDestination = divDes.querySelector(".선택한여행지");
-        const selectedRightList = rightList.querySelector(".선택한여행지");
+        const selectedDestination = divDes.querySelectorAll(".selectedPlace");
+        const selectedRightList = rightList.querySelector(".selectedPlace");
 
- 
         if (selectedDestination) {
-
             divDes.removeChild(selectedDestination);
             rightList.appendChild(selectedDestination);
+        }
 
-        }if(selectedRightList) {
-
+        if (selectedRightList) {
             rightList.removeChild(selectedRightList);
             divDes.appendChild(selectedRightList);
-            
         }
-        
     });
 }
 */
 
+const cansle = document.querySelectorAll('.cansle-button');
+const divDes = document.querySelectorAll('.destinations');
+const rightList = document.getElementById('rightList');
 
-
-
-
-// 선택한 여행지 이동 함수
-function moveSelectedLocation(cansle, destinations, rightList) {
-    cansle.addEventListener('click', () => {
-        const selectedDestination = destinations.querySelector(".선택한여행지");
-        const selectedRightList = rightList.querySelector(".선택한여행지");
+cansle.forEach((button, i) => {
+    button.addEventListener('click', () => {
+        const selectedDestination = divDes[i].querySelector(".selectedPlace");
+        const selectedRightList = rightList.querySelector(".selectedPlace");
 
         if (selectedDestination) {
-            destinations.removeChild(selectedDestination);
+            divDes[i].removeChild(selectedDestination);
             rightList.appendChild(selectedDestination);
+            button.innerHTML = '-';
         } else if (selectedRightList) {
             rightList.removeChild(selectedRightList);
-            destinations.appendChild(selectedRightList);
+            divDes[i].appendChild(selectedRightList);
+            button.innerHTML = '+';
         }
     });
-}
+});
 
-// 모든 cansle 버튼에 대해 처리
-const cansleButtons = document.querySelectorAll(".cansle-button");
-const destinationsList = document.querySelectorAll('.destinations');
-const rightList = document.querySelector('#rightList'); // 단일 rightList로 가정
 
-for (let i = 0; i < cansleButtons.length; i++) {
-    moveSelectedLocation(cansleButtons[i], destinationsList[i], rightList);
-}
+/*
+const cansle = document.querySelectorAll('.cansle-button');
+const divDes = document.querySelectorAll('.destinations');
+const rightList = document.getElementById('rightList');
 
+cansle.forEach((button, i) => {
+    button.addEventListener('click', () => {
+        // divDes[i]에서 selectedPlace를 선택
+        const selectedDestination = divDes[i].querySelectorAll(".selectedPlace");
+        // rightList에서 selectedPlace를 선택
+        const selectedRightList = rightList.querySelectorAll(".selectedPlace");
+
+        // divDes[i]에 있는 selectedPlace를 rightList로 이동
+        selectedDestination.forEach((element) => {
+            rightList.appendChild(element);
+        });
+
+        // rightList에 있는 selectedPlace를 divDes[i]로 이동
+        selectedRightList.forEach((element) => {
+            divDes[i].appendChild(element);
+        });
+
+        // 버튼 내용 변경
+        if (button.innerHTML == '-') {
+            button.innerHTML = '+';
+        } else {
+            button.innerHTML = '-';
+        }
+    });
+});
+
+*/
 
 
 // 이용방법 모달
@@ -277,4 +308,7 @@ window.onload = function () {
 //     }); 
     
 // };
+
+
+
 

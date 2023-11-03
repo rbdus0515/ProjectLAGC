@@ -67,24 +67,29 @@ const replyNo = document.getElementsByClassName("replyNo")
 for (var i = 0; i < comment.length; i++) {
 
   const tempNo = replyNo[i].value
-  
+
   let reply = document.getElementById(`reply[${tempNo}]`)
 
+  
   replyDelete[i].addEventListener("click", () => {
 
-    fetch("/myPage/replyDelete?replyNo=" + tempNo)
-      .then(resp => resp.text())
-      .then(count => {
+    if(confirm("삭제하시겠습니까?")){
 
-        if (count > 0) {
-          alert("후기가 삭제되었습니다.")
-          reply.remove();
-        }
-      })
+      fetch("/myPage/replyDelete?replyNo=" + tempNo)
+        .then(resp => resp.text())
+        .then(count => {
+  
+          if (count > 0) {
+            alert("후기가 삭제되었습니다.")
+            reply.remove();
+          }
+        })
 
+      } else {
 
+        alert("삭제를 취소했습니다.");
 
-
+      } 
   })
 }
 

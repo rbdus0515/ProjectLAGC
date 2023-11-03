@@ -32,7 +32,7 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int insertCom(Community inputCom) {
 		
 		return dao.insertCom(inputCom);
@@ -49,30 +49,31 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteCom(int communityNo) {
 		return dao.deleteCom(communityNo);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int editCom(Community com) {
 		return dao.editCom(com);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int readCountPlus(Map<String, Object> readMap) {
 		return dao.readCountPlus(readMap);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int insertCComment(CommunityComment cCom) {
 		return dao.insertCComment(cCom);
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteCComment(int communityCommentNo) {
 		return dao.deleteCComment(communityCommentNo);
 	}

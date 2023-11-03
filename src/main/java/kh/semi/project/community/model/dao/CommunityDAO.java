@@ -60,10 +60,6 @@ public class CommunityDAO {
 		return sqlSession.update("communityMapper.deleteCComment", communityCommentNo);
 	}
 
-	
-
-	
-	
 
 
 

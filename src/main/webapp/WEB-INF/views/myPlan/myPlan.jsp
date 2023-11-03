@@ -15,6 +15,16 @@
 </head>
 <body>
 
+  	<c:if test="${not empty msg}">
+
+	<script>
+	
+		alert('${msg}')
+
+	</script>
+
+	</c:if>
+
 	<div class="modal">
 		<div class="modal_body">
 			<div class="modal_upside">
@@ -241,14 +251,13 @@
 
             </section>
             <section class="right-side">
-                <section class="empty-box">
+                <div class="empty-box">
                 	<a class="save" href="/myPage/myPages"> 돌아가기</a>
-                	<form action="/myPage/save" method="post" enctype="multipart/form-data">
+                	<form id="saveForm" action="/myPage/save" method="post" enctype="multipart/form-data">
                 		<button type="submit" id="save" class="save">저장</button>
-                	
-                	
-                </section>
-               
+                	          	
+                </div>
+               		
                         <section class="plan">
                             <div class="출발지설정1">
                                 <div>출발지 설정</div>
@@ -265,15 +274,15 @@
 
                                 </div>
                                 
-								<form name=mapSearch autocomplete="off">
+								
 									<div class="mapSearchBox">
-										<input type="text" class="출발지검색" name="departPlace" id="departPlace" placeholder="출발지 검색">
-										<button class=mapSearch-btn onclick="mapSearchList()">
+										<input type="text" id="departPlace" class="출발지검색" name="departPlace" placeholder="출발지 검색">
+										<button class=mapSearch-btn type="button" id="mapSearchBtn">
 											<img id="search-img" src="/resources/img/common/main/Vector.png">
 										</button>
 									</div>
-
-								</form>
+								
+								
 
 
                             </div>
@@ -285,17 +294,17 @@
 
                             <div class="destinations">
                                 <div id="rightList" class="locaContents">
-                                    <div class="수도권여행"><span>출발지 :</span>${departPlace}</div>
-                                    
+                                    <div class="수도권여행"><span>출발지 : </span> <span id="searchedPlace"> </span></div>
+                                    </form>
 
    
 
                                 </div>
                             </div>
 
-
+							
                         </section>
-                        </form>
+                        
                     </section>
 
                        <button class="이용방법">이용방법</button>
@@ -325,7 +334,7 @@
                         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=246a0fc52dbb0ac008083682df20832d&libraries=services">
                     
                     </script>
- 
+ 			
                     </section>
 
                 </main>

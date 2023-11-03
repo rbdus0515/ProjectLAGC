@@ -147,15 +147,27 @@ public class MyPageController {
 	@PostMapping("/save")
 	public String save(MyPlan myPlan, 
 			@RequestHeader(value = "referer") String referer,
-			@SessionAttribute("loginMember") Member loginMember) {
+			@SessionAttribute("loginMember") Member loginMember,
+			RedirectAttributes ra) {
 		
 		myPlan.setMemberNo(loginMember.getMemberNo());
 		
-		String referer1 = "/myPage/myPages";
+		
 		
 		int result = service.save(myPlan);
 		
-		return "redirect:" + referer1;
+		if(result > 0) {
+			String referer1 = "/myPage/myPages";
+			ra.addFlashAttribute("msg", "저장에 성공했습니다.");
+			
+			return "redirect:" + referer1;
+		}else {
+			ra.addFlashAttribute("msg", "저장 실패.");
+			
+			return "redirect:" + referer;
+		}
+		
+		
 	}
 	
 }

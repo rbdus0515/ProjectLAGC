@@ -58,12 +58,65 @@ function displayResults(results) {
 }
 */
 
+// 여행지 저장 유효성 검사
+const saveBtn = document.querySelector('#saveForm');
 
 
+saveBtn.addEventListener('submit', e => {
+	
+	var pn = document.querySelector('#myPlanName').value;
+	var dd = document.querySelector('#departDate').value;
+	var ad = document.querySelector('#arrivalDate').value;
+	var dp = document.querySelector('#departPlace').value;
+	
 
+	 if(pn == "") {
+		alert("일정명을 입력해주세요") ;
+		e.preventDefault();
+		return;
+	 }
+	 
+	  if(dd == "") {
+		alert("날짜를 입력해주세요") ;
+		e.preventDefault();
+		return;
+		
+	 } 
+	 
+	 if(ad == "") {
+		alert("날짜를 입력해주세요") ;
+		e.preventDefault();
+		return;
+	} 
+	
+	if(dp == "") {
+		alert("출발지를 입력해주세요") ;
+		e.preventDefault();
+		return;
+	}
 
+	
+});
 
+// 출발지
+var msBtn = document.querySelector('#mapSearchBtn');
+var dPlace = document.querySelector('#departPlace');
+var searchedPlace = document.querySelector('#searchedPlace');
 
+msBtn.addEventListener('click', e => {
+
+	var dpv = document.querySelector('#departPlace').value;
+	
+	if(dpv == ""){
+		alert("출발지를 입력해주세요") ;
+		e.preventDefault();
+		return;
+		
+	} else {
+		searchedPlace.textContent = dpv;
+	}
+
+});
 
 
 /* 선택한 여행지 div 숨기기 */

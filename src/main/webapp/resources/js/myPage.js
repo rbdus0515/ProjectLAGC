@@ -67,6 +67,7 @@ const replyNo = document.getElementsByClassName("replyNo")
 for (var i = 0; i < comment.length; i++) {
 
   const tempNo = replyNo[i].value
+  
   let reply = document.getElementById(`reply[${tempNo}]`)
 
   replyDelete[i].addEventListener("click", () => {

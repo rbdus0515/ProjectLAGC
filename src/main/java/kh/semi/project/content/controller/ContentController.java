@@ -179,10 +179,14 @@ public class ContentController {
 		map = service.searchContent(map);
 		
 		List<Reply> replyList = new ArrayList<Reply>();
+		List<Reply> replyNoList = new ArrayList<Reply>();
 		
 		replyList = service.selectReply(contentNo);
 		
+		replyNoList = service.selecReplyNo(contentNo);
+		
 		map.put("replyList", replyList);
+		map.put("replyNoList", replyNoList);
 		
 		return map;
 	}
@@ -256,8 +260,6 @@ public class ContentController {
 	@ResponseBody
 	public int deleteReply(@RequestParam(name = "replyNo") int replyNo
 							) {
-		
-		System.out.println(replyNo);
 		
 		int result = service.deleteReply(replyNo);
 		

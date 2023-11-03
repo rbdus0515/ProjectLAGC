@@ -1,4 +1,3 @@
-const content = document.getElementsByClassName('content');
 
 const modalContainerPopup = document.getElementById('modalContainerPopup');
 const closeBtnPopup = document.getElementById('closeBtnPopup');
@@ -14,14 +13,17 @@ const comment1 = document.getElementById("comment1")
 const comment2 = document.getElementById("comment2")
 const comment3 = document.getElementById("comment3")
 
-
 let temp = 0;
 let temp2 = 0;
+
+
+
+const content = document.getElementsByClassName('content');
 
 for (var i = 0; i < content.length; i++) {
 
   const tempNum = contentNo[i].value
-
+   
   content[i].addEventListener('click', () => {
 
     temp2 = tempNum;

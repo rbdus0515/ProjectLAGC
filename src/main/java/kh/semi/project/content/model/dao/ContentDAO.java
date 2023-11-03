@@ -144,7 +144,13 @@ public class ContentDAO {
 	 * @return
 	 */
 	public int deleteReply(int replyNo) {
+		
 		return sqlSession.update("contentMapper.deleteReply",replyNo);
+	}
+
+	public List<Reply> selectReplyNo(int contentNo) {
+		
+		return sqlSession.selectList("contentMapper.selectReplyNo", contentNo);
 	}
 
 	

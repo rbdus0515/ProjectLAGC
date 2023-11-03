@@ -103,7 +103,10 @@ public interface ContentService {
 	 */
 	int deleteReply(int replyNo);
 
-
+	/** 후기 번호 조회
+	 * @param contentNo
+	 * @return
+	 */
 	List<Reply> selectReplyNo(int contentNo);
 
 

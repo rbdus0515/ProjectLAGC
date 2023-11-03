@@ -66,5 +66,6 @@
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE QNA_NO = #{qnaNo}
 	</select>
+	
  
 </mapper>

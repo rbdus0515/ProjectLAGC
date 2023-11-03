@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로필 관리</title>
-
+    <title>회원 탈퇴</title>
+	<link rel="icon" href="/resources/img/common/main/favicon.png">
     <link rel="stylesheet" href="/resources/css/member/memberDelete.css" type="text/css">
 </head>
 

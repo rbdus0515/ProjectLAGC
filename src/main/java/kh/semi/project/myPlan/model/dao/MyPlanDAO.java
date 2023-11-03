@@ -31,6 +31,10 @@ public class MyPlanDAO {
 	}
 
 
+	/** 나의 여행 계획 세부 제거(매주 월요일)
+	 * @param pd
+	 * @return
+	 */
 	public int deleteDetail(Integer pd) {
 
 		return sqlSession.delete("myPageMapper.deleteDetail", pd);

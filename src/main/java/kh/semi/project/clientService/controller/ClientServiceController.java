@@ -35,6 +35,14 @@ public class ClientServiceController {
 		return "/clientService/clientServicePage";
 	}
 	
+	/** 1:1 문의 입력
+	 * @param QNATitle
+	 * @param QNAContent
+	 * @param loginMember
+	 * @param ra
+	 * @param referer
+	 * @return
+	 */
 	@PostMapping("/submitQna")
 	public String submitQna(String QNATitle,
 							String QNAContent,

@@ -7,7 +7,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>비밀번호 변경</title>
-
+			<link rel="icon" href="/resources/img/common/main/favicon.png">
             <link rel="stylesheet" href="/resources/css/member/updatePw.css" type="text/css">
         </head>
 

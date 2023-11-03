@@ -65,5 +65,4 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 	
-	
 }

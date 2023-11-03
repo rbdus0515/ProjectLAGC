@@ -44,7 +44,6 @@ public class ContentDAO {
 		return sqlSession.insert("contentMapper.insertContent", inputContent);
 	}
 
-	
 	/** 메인화면에 뿌려줄 전체 컨텐츠 조회
 	 * @return
 	 */
@@ -148,7 +147,10 @@ public class ContentDAO {
 		return sqlSession.update("contentMapper.deleteReply",replyNo);
 	}
 
-
+	/** 후기 번호 조회
+	 * @param contentNo
+	 * @return
+	 */
 	public List<Reply> selectReplyNo(int contentNo) {
 		
 		return sqlSession.selectList("contentMapper.selectReplyNo", contentNo);

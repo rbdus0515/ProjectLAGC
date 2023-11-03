@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kh.semi.project.myPlan.model.dao.MyPlanDAO;
 
@@ -31,7 +32,11 @@ public class MyPlanServiceImpl implements MyPlanService{
 		return dao.selectMyPlanDetailList();
 	}
 
+	/** 나의 일정 디테일 삭제(스케줄링)
+	 *
+	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteDetail(Integer pd) {
 
 		return dao.deleteDetail(pd);

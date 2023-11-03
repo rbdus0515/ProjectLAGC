@@ -19,6 +19,7 @@ public class Community {
 	private int readCount;
 	private String communityDelFl;
 	private String areaCode;
+	private String memberManagerFlag; 
 	
 	private String profileImg;
 	private String nickName;

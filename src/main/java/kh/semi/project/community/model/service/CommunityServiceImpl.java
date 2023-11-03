@@ -54,13 +54,40 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.deleteCom(communityNo);
 	}
 
-	
+	@Override
+	@Transactional
+	public int editCom(Community com) {
+		return dao.editCom(com);
+	}
 
-	
+	@Override
+	@Transactional
+	public int readCountPlus(Map<String, Object> readMap) {
+		return dao.readCountPlus(readMap);
+	}
 
-	
-	
+	@Override
+	@Transactional
+	public int insertCComment(CommunityComment cCom) {
+		return dao.insertCComment(cCom);
+	}
+
+	@Override
+	public int deleteCComment(int communityCommentNo) {
+		return dao.deleteCComment(communityCommentNo);
+	}
 
 	
 
 }
+
+	
+
+	
+
+	
+	
+
+	
+
+

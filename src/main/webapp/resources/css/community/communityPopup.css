@@ -150,6 +150,26 @@
     cursor: pointer;
 }
 
+#edit-button {
+	width: 4rem;
+    height: 1.7rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    border: none;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+#delete-button {
+	width: 4rem;
+    height: 1.7rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    border: none;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
 #edit-button:hover {
     color: white;
     background-color: #4B89DC;
@@ -339,6 +359,11 @@
     cursor: pointer;
 }
 
+#uploadBtn:hover {
+	background-color: darkgray;
+	color: white;
+}
+
 #upload{
     display: flex;
     flex-basis: 100%;
@@ -357,6 +382,14 @@
 }
 
 #modalContainer.hidden {
+	display: none;
+}
+
+#edit-button.hidden {
+	display: none;
+}
+
+#delete-button.hidden {
 	display: none;
 }
 

@@ -16,7 +16,7 @@
 	<div id="modalContainer" class="hidden">
 
         <main id="communityPopup-container">
-            <form class="popupForm" action="/" method="post">
+            <form class="popupForm" action="/community/editCom" method="post" id="popupForm">
                        
                        <div id="CCSec1TopBlank"></div>
                        
@@ -84,12 +84,14 @@
 	                        
 	                    </section>
 	                    
-	                    <section>
-	                    
-	                            <button type="submit" class="editDelete-button" id="edit-button">수정</button>
+	                    <section id="editDeleteSection">
+	                    		
+	                    		<!-- ajax처리 -->
+	                    		
+	                            <button type="submit"  id="edit-button">수정</button>
 	                        
-	                            <button type="button" class="editDelete-button" id="delete-button" onclick="">삭제</button>
-	                        
+	                            <button type="button"  id="delete-button">삭제</button>
+	                        	<!-- --------------------------------- -->
 	                    </section>
 	    
 	                </div>
@@ -142,13 +144,12 @@
     
                     <section id="insertCCommentSec">
     
-                        <form id="upload" name="upload">
+                        <form id="upload" name="upload" action="/community/insertCComment" method="post">
                             
                             <section id="myComment-l-sec">
-                            	<c:choose>
-                            	
-                            		<c:when test="${not empty loginMember }">
-                            			 <img src="${loginMember.memberProfileImage }" class="pop-botBox-profileImges">
+                            	<c:choose>                           	
+                            		<c:when test="${not empty loginMember and not empty loginMember.memberProfileImage}">
+                            			 <img src="${loginMember.memberProfileImage}" class="pop-botBox-profileImges">
                             		</c:when>
                             		<c:otherwise>
                             			<img src="/resources/img/common/main/프로필아이콘.png" class="pop-botBox-profileImges">
@@ -157,16 +158,17 @@
                                 
                             </section>
         
+        					
                             <section id="myComment-r-sec">
                                 <div id="myComment-write-sec">
         
                                     <section>
                                     	<c:choose>
                                     		<c:when test="${not empty loginMember }">
-                                    			<textarea id="myComment-write" name="text" placeholder="댓글을 입력해주세요."></textarea>
+                                    			<textarea id="myComment-write" name="communityCommentContent" placeholder="댓글을 입력해주세요."></textarea>
                                     		</c:when>
                                     		<c:otherwise>
-                                    			<textarea id="myComment-write" name="text" placeholder="로그인 후 이용해주세요." readonly="readonly"></textarea>
+                                    			<textarea id="myComment-write" name="communityCommentContent" placeholder="로그인 후 이용해주세요." readonly="readonly"></textarea>
                                     		</c:otherwise>
                                     	</c:choose>
                                     	

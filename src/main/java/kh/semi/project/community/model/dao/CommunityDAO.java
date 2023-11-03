@@ -1,6 +1,7 @@
 package kh.semi.project.community.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,25 @@ public class CommunityDAO {
 		return sqlSession.update("communityMapper.deleteCom", communityNo);
 	}
 
+	public int editCom(Community com) {
+		return sqlSession.update("communityMapper.editCom", com);
+	}
+
+	public int readCountPlus(Map<String, Object> readMap) {
+		return sqlSession.update("communityMapper.readCountPlus", readMap);
+	}
+
+	public int insertCComment(CommunityComment cCom) {
+		return sqlSession.insert("communityMapper.insertCComment", cCom);
+	}
+
+	public int deleteCComment(int communityCommentNo) {
+		return sqlSession.update("communityMapper.deleteCComment", communityCommentNo);
+	}
+
+	
+
+	
 	
 
 

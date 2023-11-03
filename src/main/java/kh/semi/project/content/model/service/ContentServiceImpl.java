@@ -192,7 +192,9 @@ public class ContentServiceImpl implements ContentService{
 		return dao.deleteReply(replyNo);
 	}
 
-
+	/** 후기 번호 조회
+	 *
+	 */
 	@Override
 	public List<Reply> selectReplyNo(int contentNo) {
 

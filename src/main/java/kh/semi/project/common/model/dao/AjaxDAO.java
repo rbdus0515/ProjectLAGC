@@ -72,6 +72,10 @@ public class AjaxDAO {
 		return sqlSession.selectOne("ajaxMapper.dupCheck", memberEmail);
 	}
 
+	/** 추천 컨텐츠 조회
+	 * @param map
+	 * @return
+	 */
 	public List<Content> selectRecommend(Map<String, Object> map) {
 
 		return sqlSession.selectList("ajaxMapper.selectRecommend", map);

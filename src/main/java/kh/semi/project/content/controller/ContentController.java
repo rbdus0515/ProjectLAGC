@@ -265,7 +265,6 @@ public class ContentController {
 		return result;
 	}
 	
-	
 	/** 모달창 오픈시 정보 가져오기
 	 * @return
 	 */

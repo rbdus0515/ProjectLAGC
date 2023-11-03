@@ -125,6 +125,10 @@ public class AjaxController {
 		return result;
 	}
 	
+	/** 추천 콘텐츠 반환 및 중복검사
+	 * @param map
+	 * @return
+	 */
 	@PostMapping("/recommend")
 	@ResponseBody
 	public List<Content> recommend(@RequestBody Map<String, Object> map) {

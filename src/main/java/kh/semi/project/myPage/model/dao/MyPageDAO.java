@@ -80,11 +80,19 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectMyPlanDetailAll", memberNo);
 	}
 
+	/** 나의 일정 지우기
+	 * @param myPlanNo
+	 * @return
+	 */
 	public int deleteMyPlan(int myPlanNo) {
 		
 		return sqlSession.delete("myPageMapper.deleteMyPlan", myPlanNo);
 	}
 
+	/** 나의 일정 저장
+	 * @param myPlan
+	 * @return
+	 */
 	public int save(MyPlan myPlan) {
 		
 		return sqlSession.insert("myPageMapper.save", myPlan);

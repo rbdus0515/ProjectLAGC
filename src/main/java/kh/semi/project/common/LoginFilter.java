@@ -42,7 +42,7 @@ public class LoginFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException { // 필터링 코드 작성
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException { 
 
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
@@ -59,8 +59,9 @@ public class LoginFilter implements Filter {
 			
 		}
 		
-		
 
 	}
+	
+	
 	
 }

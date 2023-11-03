@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="/resources/img/common/main/favicon.png">
 <link rel="stylesheet" href="/resources/css/clientService/clientServicePage.css">
 <title>고객지원 페이지</title>
 </head>

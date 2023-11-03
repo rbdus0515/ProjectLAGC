@@ -150,7 +150,6 @@ public class AjaxServiceImpl implements AjaxService{
 		
 	    return dao.checkAuthKey(map);
 	}
-
 	
 	/** 이메일 중복 확인
 	 *

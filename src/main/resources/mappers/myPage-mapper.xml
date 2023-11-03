@@ -96,5 +96,8 @@
 									TO_CHAR(TO_DATE(#{arrivalDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
 									#{departPlace})
 	</insert>
+	
+	
+	
 
 </mapper>

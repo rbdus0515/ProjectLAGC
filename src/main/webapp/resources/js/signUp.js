@@ -4,7 +4,7 @@ const checkObj = {
     "memberPwConfirm" : false,
     "memberName" : false,
     "memberEmail" : false,
-    "phoneNo" : false,
+    "phoneNo" : true,
     "nickname" : false,
     "authKey" : false
 };
@@ -195,13 +195,13 @@ const phoneMessage = document.getElementById('phoneMessage');
 phoneNo.addEventListener("input", () => {
 
     // 전화번호 입력이 되지 않은 경우
-    if(phoneNo.value.trim() == ''){
-        phoneMessage.innerText = "숫자만 입력해주세요.";
-        phoneMessage.classList.remove("confirm", "error");
-        checkObj.phoneNo = false;
-        phoneNo.value = ""; 
-        return;
-    }
+    // if(phoneNo.value.trim() == ''){
+    //     phoneMessage.innerText = "숫자만 입력해주세요.";
+    //     phoneMessage.classList.remove("confirm", "error");
+    //     checkObj.phoneNo = false;
+    //     phoneNo.value = ""; 
+    //     return;
+    // }
 
     // 정규표현식으로 유효성 검사
     const regEx = /^[0-9]{10,11}$/;

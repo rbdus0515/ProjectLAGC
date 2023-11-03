@@ -30,7 +30,6 @@ closeBtnUpdatePopup.addEventListener('click', () => {
 // 팝업창 관련
 let temp1 = 0;
 
-
 for (var i = 0; i < placeSec.length; i++) {
 
     const tempNum = contentNo[i].value;
@@ -39,7 +38,7 @@ for (var i = 0; i < placeSec.length; i++) {
 
         temp1 = tempNum;
         updatePopup.classList.remove('hidden');
-
+        
         fetch("/content/searchContent?contentNo=" + tempNum)
             .then(resp => resp.json())
             .then(data => {
@@ -61,14 +60,15 @@ for (var i = 0; i < placeSec.length; i++) {
                 updateInputAddress.value = data.PLACE_ADDRESS;
                 
                 const replyList = data.replyList;
+                const replyNoList = data.replyNoList;
                 replyPlace.innerHTML = "";
 
                 const replySection = document.createElement("section");
                 replySection.classList.add("replySection");
                 replySection.setAttribute("id", "update-review-controll-section");
                 
+
                 for (let i = 0; i < replyList.length ; i++) {
-                    
                     
                     const replyDiv = document.createElement("div");
                     replyDiv.classList.add("replyDiv")
@@ -76,7 +76,9 @@ for (var i = 0; i < placeSec.length; i++) {
                     const replyPSection = document.createElement("p");
                     replyPSection.classList.add("replyPSection");
                     replyPSection.innerHTML = replyList[i];
+                    replyPSection.setAttribute("id", replyNoList[i]);
                     
+
                     const deleteReplyBtn = document.createElement("button");
                     deleteReplyBtn.classList.add("deleteReplyBtn");
                     deleteReplyBtn.setAttribute("type", "button");
@@ -86,21 +88,21 @@ for (var i = 0; i < placeSec.length; i++) {
                     // ----------------------------------------
 
                     replyPSection.setAttribute("id", replyList[i].replyNo);
-                    
-                    console.log(replyList[i].replyNo);
 
                     deleteReplyBtn.addEventListener('click', function () {
-                        const replySeq = replyPSection.getAttribute("data-replyNo");
+
+                        const replySeq = replyPSection.getAttribute("id");
+
                         if (confirm('댓글을 삭제하시겠습니까?')) {
-                            fetch("/content/deleteReply?replyNo=" + replySeq, {
-                                method: 'GET',
-                            })
-                            .then(resp => resp.json())
+                            fetch("/content/deleteReply?replyNo=" + replySeq)
+                            .then(resp => resp.text())
                             .then(data => {
-                                if (data.result === 'success') {
-                                    // 삭제가 성공하면 DB에서 업데이트하려는 값을 변경하여 다시 로드하십시오.
-                                    // 이 예시에서는 페이지를 새로 고치는 것으로 가정합니다.
+
+                                console.log(replySeq)
+
+                                if (data > 0) {
                                     location.reload();
+                                    alert("삭제에 성공했습니다.")
                                 } else {
                                     alert('삭제에 실패하였습니다.');
                                 }
@@ -121,14 +123,9 @@ for (var i = 0; i < placeSec.length; i++) {
                     
                 }
 
-                // 여기는 찍히는데 시발...
-                console.log(replyList);
-                // 뭐가 문제냐...
                 reviewControll.innerHTML = "";
                 reviewControll.append(replySection);
 
-                
-                
                 // 기존 이미지 기억하고 jsp에 hidden으로 대입
                 const imgHidden = document.createElement("input");
                 imgHidden.setAttribute("type", "hidden");

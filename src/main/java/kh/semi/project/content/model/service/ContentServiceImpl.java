@@ -188,13 +188,16 @@ public class ContentServiceImpl implements ContentService{
 	// 관리자 팝업 후기 삭제
 	@Override
 	public int deleteReply(int replyNo) {
+		
 		return dao.deleteReply(replyNo);
 	}
 
-	// 관리자 후기 삭제를 위한 서비스
+
 	@Override
-	public List<Reply> selectReply2(int contentNo) {
-		return dao.selectReply2(contentNo);
+	public List<Reply> selecReplyNo(int contentNo) {
+
+		return dao.selectReplyNo(contentNo);
+
 	}
 
 //	/** 여행지 검색

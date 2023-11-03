@@ -99,8 +99,9 @@
 		ORDER BY CREATE_DATE DESC
 	</select>
 	
-	<select id="selectReply2" resultType="string">
-		SELECT REPLY_NO, REPLY_CONTENT
+
+	<select id="selectReplyNo" resultType="string">
+		SELECT REPLY_NO
 		FROM REPLY
 		WHERE CONTENT_NO = #{contentNo}
 		AND REPLY_DEL_FL = 'N'

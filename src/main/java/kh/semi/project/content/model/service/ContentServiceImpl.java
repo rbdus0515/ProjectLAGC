@@ -134,8 +134,8 @@ public class ContentServiceImpl implements ContentService{
 	}
 
 	// 이미지 변경있이 컨텐츠 업데이트
-
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updateContent(Content inputContent, MultipartFile uploadPlaceImg, String webPath, String filePath) throws Exception, IOException {
 		
 		String temp = inputContent.getContentImg();
@@ -172,6 +172,7 @@ public class ContentServiceImpl implements ContentService{
 
 	// 이미지 변경없이 컨텐츠 업데이트
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updateContentOriginImg(Content inputContent) {
 		return dao.updateContentOriginImg(inputContent);
 	}
@@ -187,6 +188,7 @@ public class ContentServiceImpl implements ContentService{
 
 	// 관리자 팝업 후기 삭제
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteReply(int replyNo) {
 		
 		return dao.deleteReply(replyNo);

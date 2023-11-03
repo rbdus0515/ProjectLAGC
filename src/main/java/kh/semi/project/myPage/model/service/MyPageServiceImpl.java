@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.manager.model.dto.QNA;
@@ -57,6 +58,7 @@ public class MyPageServiceImpl implements MyPageService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int replyDelete(int replyNo) {
 		
 		return dao.replyDelete(replyNo);
@@ -71,7 +73,6 @@ public class MyPageServiceImpl implements MyPageService{
 		return dao.selectQNA(qnaNo);
 	}
 
-	
 	/** 나의 일정 세부 조회
 	 *
 	 */
@@ -85,6 +86,7 @@ public class MyPageServiceImpl implements MyPageService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteMyPlan(int myPlanNo) {
 
 		return dao.deleteMyPlan(myPlanNo);
@@ -94,6 +96,7 @@ public class MyPageServiceImpl implements MyPageService{
 	 *
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int save(MyPlan myPlan) {
 		
 		return dao.save(myPlan);

@@ -194,7 +194,7 @@ public class ContentServiceImpl implements ContentService{
 
 
 	@Override
-	public List<Reply> selecReplyNo(int contentNo) {
+	public List<Reply> selectReplyNo(int contentNo) {
 
 		return dao.selectReplyNo(contentNo);
 

@@ -182,8 +182,7 @@ public class ContentController {
 		List<Reply> replyNoList = new ArrayList<Reply>();
 		
 		replyList = service.selectReply(contentNo);
-		
-		replyNoList = service.selecReplyNo(contentNo);
+		replyNoList = service.selectReplyNo(contentNo);
 		
 		map.put("replyList", replyList);
 		map.put("replyNoList", replyNoList);

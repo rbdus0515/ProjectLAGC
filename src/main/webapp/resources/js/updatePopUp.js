@@ -88,9 +88,11 @@ for (var i = 0; i < placeSec.length; i++) {
                     // ----------------------------------------
 
                     replyPSection.setAttribute("id", replyList[i].replyNo);
-
+                    
+                    console.log(replyList[i].replyNo);
+                    
                     deleteReplyBtn.addEventListener('click', function () {
-
+                        
                         const replySeq = replyPSection.getAttribute("id");
 
                         if (confirm('댓글을 삭제하시겠습니까?')) {

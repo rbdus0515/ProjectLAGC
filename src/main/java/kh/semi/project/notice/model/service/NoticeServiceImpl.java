@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kh.semi.project.notice.model.dao.NoticeDAO;
 import kh.semi.project.notice.model.dto.Notice;
@@ -56,6 +57,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	// 공지사항 INSERT
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insertNotice(Notice notice) {
 		
 		return dao.insertNotice(notice);
@@ -63,6 +65,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	// 공지사항 UPDATE
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int updateNotice(Notice notice) {
 		
 		return dao.updateNotice(notice);
@@ -70,6 +73,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	// 공지사항 DELETE
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int deleteNotice(int noticeNo) {
 		
 		return dao.deleteNotice(noticeNo);

@@ -31,6 +31,7 @@ public class ContentServiceImpl implements ContentService{
 
 	// 이미지 삭제
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int contentDelete(Content content) {
 		
 		return dao.contentDelete(content);

@@ -205,14 +205,7 @@ public class ContentServiceImpl implements ContentService{
 
 	}
 
-//	/** 여행지 검색
-//	 *
-//	 */
-//	@Override
-//	public List<Content> searchLoca(String inputLoca) {
-//		
-//		return dao.searchLoca(inputLoca);
-//	}
+
 
 	
 

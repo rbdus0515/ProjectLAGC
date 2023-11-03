@@ -144,6 +144,7 @@ public class MyPageController {
 		return result;
 	}
 	
+	
 	@PostMapping("/save")
 	public String save(MyPlan myPlan, 
 			@RequestHeader(value = "referer") String referer,

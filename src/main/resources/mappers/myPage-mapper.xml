@@ -89,15 +89,20 @@
 	</delete>
 	
 	<insert id="save">
-		INSERT INTO MYPLAN VALUES (SEQ_PLAN_NO.NEXTVAL, 
-									#{memberNo}, 
-									#{myPlanName}, 
-									TO_CHAR(TO_DATE(#{departDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
-									TO_CHAR(TO_DATE(#{arrivalDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
-									#{departPlace})
+		INSERT INTO MYPLAN (PLAN_NO, MEMBER_NO , MYPLAN_NAME , DEPART_DATE , ARRIVAL_DATE , DEPART_PLACE)
+		 VALUES (SEQ_PLAN_NO.NEXTVAL, 
+				#{memberNo}, 
+				#{myPlanName}, 
+				TO_CHAR(TO_DATE(#{departDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
+				TO_CHAR(TO_DATE(#{arrivalDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
+				#{departPlace})
 	</insert>
 	
-	
+	<insert id="insertDetail">
+		INSERT INTO MYPLAN_DETAIL (PLAN_NO, CONTENT_NO, TRAVEL_NAME, AREA_CODE, MEMBER_NO)
+		VALUES (SEQ_PLAN_NO.NEXTVAL,#{contentNo},#{myPlanName},#{areaCode},#{memberNo})
+		
+	</insert>
 	
 
 </mapper>

@@ -85,7 +85,7 @@
                 
                 <section class="input-section">
                     <p><span>닉네임</span></p>
-                    <input type="text" name="memberNickname" id="nickname" placeholder="닉네임 입력">
+                    <input type="text" name="memberNickname" id="memberNickname" placeholder="닉네임 입력">
                     <div id="nicknameMessage"></div>
                 </section>
 

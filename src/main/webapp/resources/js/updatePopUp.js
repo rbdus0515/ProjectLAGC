@@ -62,9 +62,6 @@ for (var i = 0; i < placeSec.length; i++) {
                 const replyList = data.replyList;
                 const replyNoList = data.replyNoList;
 
-                console.log(replyList)
-                console.log(replyNoList)
-                
                 replyPlace.innerHTML = "";
                 
                 const replySection = document.createElement("section");
@@ -74,7 +71,6 @@ for (var i = 0; i < placeSec.length; i++) {
                 
                 for (let i = 0; i < replyList.length ; i++) {
                     
-                    console.log(replyNoList[i])
                     
                     const replyDiv = document.createElement("div");
                     replyDiv.classList.add("replyDiv")
@@ -94,13 +90,10 @@ for (var i = 0; i < placeSec.length; i++) {
 
                     replyPSection.setAttribute("id", replyList[i].replyNo);
                     
-                    console.log(replyList[i].replyNo);
                     
                     deleteReplyBtn.addEventListener('click', function () {
-
-
+                        
                         const replySeq = replyPSection.getAttribute("value");
-
 
                         if (confirm('댓글을 삭제하시겠습니까?')) {
                             fetch("/content/deleteReply?replyNo=" + replySeq)

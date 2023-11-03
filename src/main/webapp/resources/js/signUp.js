@@ -4,8 +4,8 @@ const checkObj = {
     "memberPwConfirm" : false,
     "memberName" : false,
     "memberEmail" : false,
-    "phoneNo" : false,
-    "nickname" : false,
+    "phoneNo" : true,
+    "memberNickname" : false,
     "authKey" : false
 };
 
@@ -195,13 +195,13 @@ const phoneMessage = document.getElementById('phoneMessage');
 phoneNo.addEventListener("input", () => {
 
     // 전화번호 입력이 되지 않은 경우
-    if(phoneNo.value.trim() == ''){
-        phoneMessage.innerText = "숫자만 입력해주세요.";
-        phoneMessage.classList.remove("confirm", "error");
-        checkObj.phoneNo = false;
-        phoneNo.value = ""; 
-        return;
-    }
+    // if(phoneNo.value.trim() == ''){
+    //     phoneMessage.innerText = "숫자만 입력해주세요.";
+    //     phoneMessage.classList.remove("confirm", "error");
+    //     checkObj.phoneNo = false;
+    //     phoneNo.value = ""; 
+    //     return;
+    // }
 
     // 정규표현식으로 유효성 검사
     const regEx = /^[0-9]{10,11}$/;
@@ -222,40 +222,40 @@ phoneNo.addEventListener("input", () => {
 });
 
 // ---------------- 닉네임 유효성 검사 ------------------------
-const nickname = document.getElementById("nickname");
+const memberNickname = document.getElementById("memberNickname");
 const nicknameMessage = document.getElementById("nicknameMessage");
 
-nickname.addEventListener("input", () => {
+memberNickname.addEventListener("input", () => {
 
-    if(nickname.value.trim().length == 0){
-        nickname.value = ""; 
+    if(memberNickname.value.trim().length == 0){
+        memberNickname.value = ""; 
 
         nicknameMessage.innerText = "영어, 한글, 숫자 포함 10글자 이내로 입력해주세요.";
 
         // confirm, error 클래스 삭제해서 검정 글씨로 만들기
         nicknameMessage.classList.remove("confirm", "error");
 
-        checkObj.nickname = false; // 빈칸 == 유효 X
+        checkObj.memberNickname = false; // 빈칸 == 유효 X
         return;
     }
 
     const regEx = /^[가-힣a-zA-Z0-9]{1,10}$/;
 
-    if(  regEx.test(nickname.value)  ){ // 유효한 경우
+    if(  regEx.test(memberNickname.value)  ){ // 유효한 경우
 
-        fetch("/selectNickname?nickname=" + nickname.value)
+        fetch("/selectNickname?nickname=" + memberNickname.value)
         .then(res => res.text())
         .then(count => {
             if(count == 0) {
                 nicknameMessage.innerText = "사용 가능한 닉네임입니다";
                 nicknameMessage.classList.add("confirm"); // .confirm 스타일 적용
                 nicknameMessage.classList.remove("error"); // .error 스타일 제거
-                checkObj.nickname = true; // 유효 O
+                checkObj.memberNickname = true; // 유효 O
             } else {
                 nicknameMessage.innerText = "이미 사용중인 닉네임입니다";
                 nicknameMessage.classList.add("error"); // .error 스타일 적용
                 nicknameMessage.classList.remove("confirm"); // .confirm 스타일 제거
-                checkObj.nickname = false; // 유효 X
+                checkObj.memberNickname = false; // 유효 X
 
             }
         })
@@ -268,7 +268,7 @@ nickname.addEventListener("input", () => {
         nicknameMessage.classList.add("error"); // .error 스타일 적용
         nicknameMessage.classList.remove("confirm"); // .confirm 스타일 제거
 
-        checkObj.nickname = false; // 유효 X
+        checkObj.memberNickname = false; // 유효 X
     }
 });
 
@@ -527,13 +527,15 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우 ( if 굳이 안
 // 회원 가입 form태그가 제출 되었을 때
 document.getElementById("singUpFrm").addEventListener("submit", e=>{
 
+    console.log("test"); 
+
     for(let key in checkObj){
 
         if(!checkObj[key]){ // 각 key에 대한 value(true/false)를 얻어와
                             // false인 경우 == 유효하지 않다!
 
             switch(key){
-            case "memberId": 
+            case "memberId":
                 alert("아이디가 유효하지 않습니다"); break;
             
             case "memberName" : 
@@ -542,8 +544,8 @@ document.getElementById("singUpFrm").addEventListener("submit", e=>{
             case "memberEmail" : 
                 alert("이메일 주소가 유효하지 않습니다"); break;
            
-            case "memberPhone" : 
-                alert("전화번호가 유효하지 않습니다"); break;
+            // case "memberPhone" :
+            //     alert("전화번호가 유효하지 않습니다"); break;
             
             case "memberNickname" : 
                 alert("닉네임이 유효하지 않습니다"); break;

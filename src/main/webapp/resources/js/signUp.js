@@ -543,9 +543,6 @@ document.getElementById("singUpFrm").addEventListener("submit", e=>{
             
             case "memberEmail" : 
                 alert("이메일 주소가 유효하지 않습니다"); break;
-           
-            // case "memberPhone" :
-            //     alert("전화번호가 유효하지 않습니다"); break;
             
             case "memberNickname" : 
                 alert("닉네임이 유효하지 않습니다"); break;

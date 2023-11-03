@@ -113,8 +113,7 @@ public class MemberController {
 		System.out.println("test");
 		
 		if(result > 0) {
-			model.addAttribute("loginMember", inputMember);
-			path += "/";
+			path += "/member/login";
 			msg = inputMember.getMemberNickname() + "님 가입을 환영합니다.";
 		} else {
 			path += "signUp";

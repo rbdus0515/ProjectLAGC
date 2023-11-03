@@ -17,6 +17,8 @@ public class CommunityComment {
 	private int communityNo;
 	private String communityTitle;
 	private String communityContent;
+	private String communityDelFl;
+	private String comCommentDelFl;
 	
 	private String memberNickname;
 	private String profileImage;

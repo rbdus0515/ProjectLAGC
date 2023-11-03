@@ -14,7 +14,7 @@
 
 <body>
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-	<form action="/community/insertCom" method="post">
+	<form action="/community/insertCom" method="post" id="insertCom">
 
         <secion id="communityPage">
             <section>커뮤니티</section>
@@ -79,6 +79,7 @@
                 </div>
             </section>
     
+    		<input type="hidden" id="loginMemberManagerFl" value="${loginMember.memberManagerFlag}">
             <section>
                 <div id="com-myComment-container">
     
@@ -112,7 +113,9 @@
                         </section>
     
                         <section id="com-upload-sec">
-                            <button>올리기</button>
+                        	<c:if test="${not empty loginMember}">                        	
+	                            <button type="submit">올리기</button>
+                        	</c:if>
                         </section>                  
                     </section>
                     

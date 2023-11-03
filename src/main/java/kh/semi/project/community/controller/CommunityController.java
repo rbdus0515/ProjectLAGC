@@ -70,6 +70,7 @@ public class CommunityController {
 		return "redirect:/community/communityPage";
 	}
 	
+	// 모달창 조회
 	@GetMapping("/modal")
 	@ResponseBody
 	public Map<String, Object> selectCCommentList(int communityNo) {
@@ -81,6 +82,27 @@ public class CommunityController {
 		List<Community> selectComList = new ArrayList<Community>();
 		
 		selectComList = service.selectComList(communityNo);
+		
+		// 조회수 + 1
+		int readCountUp = selectComList.get(0).getReadCount();	
+		int newReadCountNo = readCountUp + 1;
+		selectComList.get(0).setReadCount(newReadCountNo);
+		
+		int selectedCommunityNo = selectComList.get(0).getCommunityNo();
+		
+		System.out.println(newReadCountNo);
+		System.out.println(selectedCommunityNo);
+		
+		Map<String, Object> readMap = new HashMap<String, Object>();
+		
+		readMap.put("communityNo", selectedCommunityNo);
+		readMap.put("readCount", newReadCountNo);
+		
+		System.out.println(readMap);
+		
+		int result = service.readCountPlus(readMap);
+		
+		System.out.println(result);
 		
 		
 		// 댓글
@@ -100,20 +122,57 @@ public class CommunityController {
 		System.out.println("comboMap" + comboMap);
 		
 
-		
 		return comboMap;
 	}
 	
+	
+	// 커뮤니티 삭제
 	@GetMapping("/deleteCom")
 	public String deleteCom(int communityNo) {
 		
 		int result = service.deleteCom(communityNo);
 		
 		if(result > 0) {
-			
+			System.out.println(communityNo + "번 커뮤니티 삭제 완료");
+		}else {
+			System.out.println(communityNo + "번 커뮤니티 삭제 실패");
 		}
 		
-		return "/community/communityPage";
+		return "redirect:/community/communityPage";
 	}
+	
+	// 커뮤니티 수정
+	@PostMapping("/editCom")
+	public String editCom(Community com) {
+		
+		System.out.println("커뮤니티 수정 com: " + com);
+		
+		int result = service.editCom(com);
+		
+		return "redirect:/community/communityPage";
+		
+	}
+	
+	@PostMapping("/insertCComment")
+	public String insertCComment(CommunityComment cCom, @SessionAttribute("loginMember") Member loginMember) {
+		
+		System.out.println("cCom : " + cCom);
+		
+		cCom.setMemberNo(loginMember.getMemberNo());
+		
+		int result = service.insertCComment(cCom);
+		
+		return "redirect:/community/communityPage";
+	}
+	
+	@GetMapping("/deleteCComment")
+	public String deleteCComment(int communityCommentNo) {
+		
+		int result = service.deleteCComment(communityCommentNo);
+		
+		return "redirect:/community/communityPage";
+	}
+	
+
 
 }

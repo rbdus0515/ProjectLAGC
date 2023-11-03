@@ -5,6 +5,7 @@
 
 	<!-- 커뮤니티 resultMap -->
 	<resultMap type="Community" id="community_rm">
+	
 		<id property="communityNo" column="COMMUNITY_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="communityTitle" column="COMMUNITY_TITLE"/>
@@ -15,6 +16,8 @@
 		<result property="profileImg" column="PROFILE_IMG"/>
 		<result property="nickName" column="NICKNAME"/>
 		<result property="areaCode" column="AREA_CODE"/>
+		<result property="memberManagerFlag" column="MEMBER_MANAGER_FL"/>
+		
 	</resultMap>
 	
 	
@@ -27,6 +30,8 @@
 		<result property="communityNo" column="COMMUNITY_NO"/>
 		<result property="communityTitle" column="COMMUNITY_TITLE"/>
 		<result property="communityContent" column="COMMUNITY_CONTENT"/>
+		<result property="comCommentDelFl" column="COM_COMMENT_DEL_FL"/>
+		<result property="communityDelFl" column="COMMUNITY_DEL_FL"/>
 		
 		<result property="memberNickname" column="MEMBER_NM"/>
 		<result property="profileImage" column="PROFILE_IMG"/>
@@ -60,14 +65,15 @@
 	
 	<!-- 커뮤니티 댓글 조회-->
 	<select id="selectCCommentList" resultMap="cComment_rm">
-		SELECT COM_COMMENT_NO, COM_COMMENT_CONTENT, MEMBER_NO, COMMUNITY_NO, MEMBER_NM, PROFILE_IMG
+		SELECT COM_COMMENT_NO, COM_COMMENT_CONTENT, "MEMBER".MEMBER_NO, COMMUNITY_NO, MEMBER_NM, PROFILE_IMG
 		FROM COM_COMMENT
-		JOIN "MEMBER" USING(MEMBER_NO)
-		WHERE COMMUNITY_NO = #{communityNo} AND COMMUNITY_DEL_FL = 'N' 
+		JOIN COMMUNITY USING(COMMUNITY_NO)
+		JOIN "MEMBER" ON COM_COMMENT.MEMBER_NO = "MEMBER".MEMBER_NO 
+		WHERE COMMUNITY_DEL_FL = 'N' AND COMMUNITY_NO = #{communityNo} AND COM_COMMENT_DEL_FL = 'N'
 	</select>
 	
 	<select id="selectComList" resultMap="community_rm">
-		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE, NICKNAME, PROFILE_IMG 
+		SELECT COMMUNITY_NO, MEMBER_NO, COMMUNITY_TITLE, COMMUNITY_CONTENT, READ_COUNT, COMMUNITY_DEL_FL, AREA_CODE, NICKNAME, PROFILE_IMG, MEMBER_MANAGER_FL 
 		FROM COMMUNITY
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE COMMUNITY_NO = #{communityNo} AND COMMUNITY_DEL_FL = 'N'
@@ -78,5 +84,25 @@
 		COMMUNITY_DEL_FL = 'Y'
 		WHERE COMMUNITY_NO = #{communityNo}
 	</update>
+	
+	<update id="editCom">
+		UPDATE COMMUNITY SET COMMUNITY_CONTENT = #{communityContent}
+		WHERE COMMUNITY_NO = #{communityNo}
+	</update>
+	
+	<update id="readCountPlus">
+		UPDATE COMMUNITY SET READ_COUNT = #{readCount}
+		WHERE COMMUNITY_NO = #{communityNo}
+	</update>
+	
+	<insert id="insertCComment">
+		INSERT INTO COM_COMMENT VALUES(SEQ_COM_COMMENT_NO.NEXTVAL, #{communityCommentContent}, #{memberNo}, #{communityNo}, DEFAULT)
+	</insert>
+	
+	<update id="deleteCComment">
+		UPDATE COM_COMMENT SET "COM_COMMENT_DEL_FL" = 'Y'
+		WHERE COM_COMMENT_NO = #{communityCommentNo}
+	</update>
+	
 	
 </mapper>

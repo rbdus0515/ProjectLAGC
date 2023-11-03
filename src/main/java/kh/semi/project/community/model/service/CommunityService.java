@@ -22,6 +22,18 @@ public interface CommunityService {
 
 	int deleteCom(int communityNo);
 
+	int editCom(Community com);
+
+	int readCountPlus(Map<String, Object> readMap);
+
+	int insertCComment(CommunityComment cCom);
+
+	int deleteCComment(int communityCommentNo);
+
+	
+
+	
+
 	
 
 

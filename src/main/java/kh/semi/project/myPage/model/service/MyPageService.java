@@ -5,6 +5,7 @@ import java.util.Map;
 
 import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.manager.model.dto.QNA;
+import kh.semi.project.myPlan.model.dto.MyPlan;
 
 public interface MyPageService {
 
@@ -55,6 +56,12 @@ public interface MyPageService {
 	 * @return
 	 */
 	int deleteMyPlan(int myPlanNo);
+
+	/** 나의 일정 만들기
+	 * @param myPlan
+	 * @return
+	 */
+	int save(MyPlan myPlan);
 
 
 }

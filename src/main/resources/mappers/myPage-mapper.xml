@@ -88,5 +88,13 @@
 		WHERE PLAN_NO = #{pd}		
 	</delete>
 	
+	<insert id="save">
+		INSERT INTO MYPLAN VALUES (SEQ_PLAN_NO.NEXTVAL, 
+									#{memberNo}, 
+									#{myPlanName}, 
+									TO_CHAR(TO_DATE(#{departDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
+									TO_CHAR(TO_DATE(#{arrivalDate}, 'YYYY-MM-DD'), 'YYMMDD'), 
+									#{departPlace})
+	</insert>
 
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.manager.model.dto.QNA;
+import kh.semi.project.myPlan.model.dto.MyPlan;
 
 @Repository
 public class MyPageDAO {
@@ -82,6 +83,11 @@ public class MyPageDAO {
 	public int deleteMyPlan(int myPlanNo) {
 		
 		return sqlSession.delete("myPageMapper.deleteMyPlan", myPlanNo);
+	}
+
+	public int save(MyPlan myPlan) {
+		
+		return sqlSession.insert("myPageMapper.save", myPlan);
 	}
 
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kh.semi.project.content.model.dto.Reply;
 import kh.semi.project.manager.model.dto.QNA;
 import kh.semi.project.myPage.model.dao.MyPageDAO;
+import kh.semi.project.myPlan.model.dto.MyPlan;
 
 @Service
 public class MyPageServiceImpl implements MyPageService{
@@ -87,6 +88,15 @@ public class MyPageServiceImpl implements MyPageService{
 	public int deleteMyPlan(int myPlanNo) {
 
 		return dao.deleteMyPlan(myPlanNo);
+	}
+
+	/** 나의 일정 만들기
+	 *
+	 */
+	@Override
+	public int save(MyPlan myPlan) {
+		
+		return dao.save(myPlan);
 	}
 
 

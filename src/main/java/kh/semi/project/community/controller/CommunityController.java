@@ -51,8 +51,8 @@ public class CommunityController {
 		
 		list = service.selectLocalList(areaCode);
 		
-		System.out.println(list);
-		System.out.println(areaCode);
+//		System.out.println(list);
+//		System.out.println(areaCode);
 		
 		
 		return list;
@@ -75,7 +75,7 @@ public class CommunityController {
 	@ResponseBody
 	public Map<String, Object> selectCCommentList(int communityNo) {
 		
-		System.out.println("communityNo : " + communityNo);
+//		System.out.println("communityNo : " + communityNo);
 		
 	
 		// 커뮤
@@ -90,19 +90,19 @@ public class CommunityController {
 		
 		int selectedCommunityNo = selectComList.get(0).getCommunityNo();
 		
-		System.out.println(newReadCountNo);
-		System.out.println(selectedCommunityNo);
+//		System.out.println(newReadCountNo);
+//		System.out.println(selectedCommunityNo);
 		
 		Map<String, Object> readMap = new HashMap<String, Object>();
 		
 		readMap.put("communityNo", selectedCommunityNo);
 		readMap.put("readCount", newReadCountNo);
 		
-		System.out.println(readMap);
+//		System.out.println(readMap);
 		
 		int result = service.readCountPlus(readMap);
 		
-		System.out.println(result);
+//		System.out.println(result);
 		
 		
 		// 댓글
@@ -110,7 +110,7 @@ public class CommunityController {
 			
 		ccomentList = service.selectCCommentList(communityNo);
 			
-		System.out.println("ccomentList : " + ccomentList);
+//		System.out.println("ccomentList : " + ccomentList);
 		
 		
 		// 본문 + 댓글 -> JSON 으로 변경
@@ -119,7 +119,7 @@ public class CommunityController {
 		comboMap.put("selectComList", selectComList);
 		comboMap.put("ccomentList", ccomentList);
 		
-		System.out.println("comboMap" + comboMap);
+//		System.out.println("comboMap" + comboMap);
 		
 
 		return comboMap;
@@ -145,26 +145,40 @@ public class CommunityController {
 	@PostMapping("/editCom")
 	public String editCom(Community com) {
 		
-		System.out.println("커뮤니티 수정 com: " + com);
+//		System.out.println("커뮤니티 수정 com: " + com);
 		
 		int result = service.editCom(com);
+		
+		if(result > 0) {
+			System.out.println("수정완료");
+		}else {
+			System.out.println("수정실패");
+		}
 		
 		return "redirect:/community/communityPage";
 		
 	}
 	
+	// 댓글 추가
 	@PostMapping("/insertCComment")
 	public String insertCComment(CommunityComment cCom, @SessionAttribute("loginMember") Member loginMember) {
 		
-		System.out.println("cCom : " + cCom);
+//		System.out.println("cCom : " + cCom);
 		
 		cCom.setMemberNo(loginMember.getMemberNo());
 		
 		int result = service.insertCComment(cCom);
 		
+		if(result > 0) {
+			System.out.println("댓글 추가 성공");
+		}else {
+			System.out.println("댓글 추가 실패");
+		}
+		
 		return "redirect:/community/communityPage";
 	}
 	
+	// 댓글 삭제
 	@GetMapping("/deleteCComment")
 	public String deleteCComment(int communityCommentNo) {
 		

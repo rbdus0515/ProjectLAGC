@@ -30,7 +30,7 @@ localSelect.addEventListener('change', () => {
   .then(resp => resp.json())
   .then(list => {
 
-    console.log(list);
+    // console.log(list);
     
     const contentContainer = document.getElementById("community-peopleComment-container");
     contentContainer.innerHTML = "";
@@ -113,7 +113,7 @@ localSelect.addEventListener('change', () => {
 
 document.addEventListener("click", (e) => {
 
-  console.log(e.target);
+  // console.log(e.target);
 
   if(e.target.className == "PCDiv1"){
 
@@ -121,7 +121,7 @@ document.addEventListener("click", (e) => {
 
     const commNo = e.target.id.split("-")[1];
 
-    console.log(commNo);
+    // console.log(commNo);
 
     fetch("/community/modal?communityNo=" + commNo)
     .then(resp => resp.json())
@@ -130,8 +130,8 @@ document.addEventListener("click", (e) => {
       const ccomentList = comboMap.ccomentList;
       const selectComList = comboMap.selectComList;
 
-      console.log(ccomentList);
-      console.log(selectComList);
+      // console.log(ccomentList);
+      // console.log(selectComList);
 
 
 
@@ -219,9 +219,9 @@ document.addEventListener("click", (e) => {
       const loginMemberManagerFl = document.getElementById("loginMemberManagerFl").value;
 
 
-      console.log(loginMemberNo);
-      console.log(selectComList[0].memberNo);
-      console.log(loginMemberManagerFl);
+      // console.log(loginMemberNo);
+      // console.log(selectComList[0].memberNo);
+      // console.log(loginMemberManagerFl);
 
 
       if(loginMemberNo == selectComList[0].memberNo || loginMemberManagerFl == 'Y') {
@@ -318,9 +318,9 @@ document.addEventListener("click", (e) => {
         deleteBtnSec.classList.add("pop-botBox-doubleComment-box-right");
 
 
-        console.log("로그인멤버넘버" + loginMemberNo);
-        console.log("매니저 유무" + loginMemberManagerFl);
-        console.log(ccomentList[cc].memberNo);
+        // console.log("로그인멤버넘버" + loginMemberNo);
+        // console.log("매니저 유무" + loginMemberManagerFl);
+        // console.log(ccomentList[cc].memberNo);
 
         // 삭제 버튼 이미지
         const deleteBtnImg = document.createElement("img");
@@ -371,7 +371,7 @@ document.addEventListener("click", (e) => {
 // 커뮤니티 삭제 function
 function comDeleteConfirm(communityNo) {
 
-  console.log(communityNo);
+  // console.log(communityNo);
 
   if(!confirm("정말 삭제 하시겠습니까?")) {
     return;

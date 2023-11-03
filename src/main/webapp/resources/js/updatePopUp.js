@@ -61,14 +61,20 @@ for (var i = 0; i < placeSec.length; i++) {
                 
                 const replyList = data.replyList;
                 const replyNoList = data.replyNoList;
-                replyPlace.innerHTML = "";
 
+                console.log(replyList)
+                console.log(replyNoList)
+                
+                replyPlace.innerHTML = "";
+                
                 const replySection = document.createElement("section");
                 replySection.classList.add("replySection");
                 replySection.setAttribute("id", "update-review-controll-section");
                 
-
+                
                 for (let i = 0; i < replyList.length ; i++) {
+                    
+                    console.log(replyNoList[i])
                     
                     const replyDiv = document.createElement("div");
                     replyDiv.classList.add("replyDiv")
@@ -76,8 +82,7 @@ for (var i = 0; i < placeSec.length; i++) {
                     const replyPSection = document.createElement("p");
                     replyPSection.classList.add("replyPSection");
                     replyPSection.innerHTML = replyList[i];
-                    replyPSection.setAttribute("id", replyNoList[i]);
-                    
+                    replyPSection.setAttribute("value", replyNoList[i]);
 
                     const deleteReplyBtn = document.createElement("button");
                     deleteReplyBtn.classList.add("deleteReplyBtn");
@@ -92,8 +97,13 @@ for (var i = 0; i < placeSec.length; i++) {
                     console.log(replyList[i].replyNo);
                     
                     deleteReplyBtn.addEventListener('click', function () {
+<<<<<<< HEAD
                         
                         const replySeq = replyPSection.getAttribute("id");
+=======
+
+                        const replySeq = replyPSection.getAttribute("value");
+>>>>>>> 3801d3909f8dec2666741a61fb44263da19b713d
 
                         if (confirm('댓글을 삭제하시겠습니까?')) {
                             fetch("/content/deleteReply?replyNo=" + replySeq)

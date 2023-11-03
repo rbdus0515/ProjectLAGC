@@ -237,6 +237,7 @@ label:hover {
     border-radius: 10px;
     height: 50%;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 #update-review-controll-section {

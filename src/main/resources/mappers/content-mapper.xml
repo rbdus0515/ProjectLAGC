@@ -99,6 +99,7 @@
 		ORDER BY CREATE_DATE DESC
 	</select>
 	
+
 	<select id="selectReplyNo" resultType="string">
 		SELECT REPLY_NO
 		FROM REPLY
@@ -106,7 +107,7 @@
 		AND REPLY_DEL_FL = 'N'
 		ORDER BY CREATE_DATE DESC
 	</select>
-	
+
 	<!-- 후기 -->
 	<insert id="insertReply">
 		INSERT INTO "REPLY"

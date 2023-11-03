@@ -181,7 +181,7 @@ public class ContentController {
 		List<Reply> replyList = new ArrayList<Reply>();
 		List<Reply> replyNoList = new ArrayList<Reply>();
 		
-		replyList = service.selectReply(contentNo);
+		replyList = service.selectReply2(contentNo);
 		
 		replyNoList = service.selecReplyNo(contentNo);
 		

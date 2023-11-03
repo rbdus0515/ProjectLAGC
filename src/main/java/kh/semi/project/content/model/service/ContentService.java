@@ -103,7 +103,9 @@ public interface ContentService {
 	 */
 	int deleteReply(int replyNo);
 
+
 	List<Reply> selecReplyNo(int contentNo);
+
 
 //	/** 여행지 검색
 //	 * @return

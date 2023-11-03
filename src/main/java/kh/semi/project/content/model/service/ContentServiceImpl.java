@@ -192,10 +192,12 @@ public class ContentServiceImpl implements ContentService{
 		return dao.deleteReply(replyNo);
 	}
 
+
 	@Override
 	public List<Reply> selecReplyNo(int contentNo) {
 
 		return dao.selectReplyNo(contentNo);
+
 	}
 
 //	/** 여행지 검색

@@ -102,3 +102,68 @@ header {
     font-size: 20px;
 }
 
+
+@media all and (max-width:1430px) {
+
+    #menu-Btn a{
+
+        font-size: 1rem;
+        padding: 0;
+    }
+    
+    #bar-empty{
+        flex-basis: 20%;
+    }
+
+}
+
+@media all and (max-width:1361px) {
+
+    #menu-Btn a{
+        font-size: 0.8rem;
+        padding: 0;
+    }
+
+    #bar-empty{
+        flex-basis: 15%;
+    }
+    
+
+}
+
+@media all and (max-width:1197px) {
+
+    #menu-Btn a{
+        font-size: 0.6rem;
+        padding: 0;
+    }
+
+    
+    #bar-empty{
+        flex-basis: 10%;
+    }
+    
+    .search-bar{
+        width: 100%;
+    }
+
+}
+
+@media all and (max-width:767px) {
+
+    #menu-Btn a{
+
+        font-size: 0.5rem;
+        padding: 0;
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    #searchArea{
+        width: 80px;
+    }
+
+
+}

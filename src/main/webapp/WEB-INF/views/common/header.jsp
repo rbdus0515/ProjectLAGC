@@ -41,7 +41,7 @@
 			<section id="bar-empty"></section>
 
 			<!-- 검색창 부분 -->
-			<section>
+			<section id="searchArea">
 
 				<form action="/search" method="POST" id=searchForm>
 

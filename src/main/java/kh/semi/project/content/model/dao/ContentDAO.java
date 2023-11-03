@@ -147,6 +147,14 @@ public class ContentDAO {
 		return sqlSession.update("contentMapper.deleteReply",replyNo);
 	}
 
+	/** 관리자 후기 삭제를 위한 서비스
+	 * @param contentNo
+	 * @return
+	 */
+	public List<Reply> selectReply2(int contentNo) {
+		return sqlSession.selectList("contentMapper.selectReply2", contentNo);
+	}
+
 	
 	
 

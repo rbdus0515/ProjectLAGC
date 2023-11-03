@@ -217,7 +217,6 @@ label:hover {
     margin-top: 10px;
     flex-basis: 40%;
     border-radius: 10px;
-    white-space: pre-wrap;
 }
 
 #updateInputInfo {
@@ -225,6 +224,7 @@ label:hover {
     width: 95%;
     height: 85%;
     border-radius: 10px;
+    white-space: pre-wrap;
 }
 
 #review-controll {

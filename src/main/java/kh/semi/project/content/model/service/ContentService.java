@@ -103,6 +103,12 @@ public interface ContentService {
 	 */
 	int deleteReply(int replyNo);
 
+	/** 관리자 후기 삭제를 위한 서비스
+	 * @param contentNo
+	 * @return
+	 */
+	List<Reply> selectReply2(int contentNo);
+
 //	/** 여행지 검색
 //	 * @return
 //	 */

@@ -103,14 +103,12 @@ public class NoticeController {
 		
 		String path = "notice/";
 		
-		/* if(result > 0) {
-			System.out.println("공지사항 수정 성공");
+		if(result > 0) {
+			Notice noti = service.selectNoticeDetail(notice.getNoticeNo());
 			
+			model.addAttribute("notice", noti);
 			
-		} else {
-			System.out.println("공지사항 수정 실패");
-			
-		} */
+		}
 		
 		path += "noticeDetail";
 		

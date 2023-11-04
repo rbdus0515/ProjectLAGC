@@ -76,7 +76,7 @@
 			                                    <div class="linkDetail"><a href="${list.placeUrl}" target="_blank">자세히 보기</a></div>
 			
 			                                    <!-- 내 일정 추가 -->
-			                                    <div class="addMyPlan"><a href="/myPlan/myPlans" id="addMyPlan">내 일정 추가</a></div>
+			                                    <div class="addMyPlan"><a href="javascript:void(0)" onclick="addMyPlan(event)">내 일정 추가</a></div>
 			                                </div>
 			                            </div>
 			                        </div>

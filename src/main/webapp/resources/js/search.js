@@ -17,20 +17,16 @@ if(searchForm != null) {
 };
 
 // --------------- 비회원이 내 일정 추가 클릭 시, 유효성 검사 ---------------
-if(addMyPlan != null) {
-
-	const addMyPlan = document.getElementById("addMyPlan");
+function addMyPlan(e) {
 	
-	addMyPlan.addEventListener("click", e => {
-	
-		if (memberNo == "") {
+	if (memberNo == "") {
 
-		    alert("로그인 후 이용해주세요");
-		    e.preventDefault();
-		    return;
-	
-	  	}
-		
-	})
+	    alert("로그인 후 이용해주세요");
+	    e.preventDefault();
+	    return;
 
+  	}
+  	
+  	location.href = "/myPlan/myPlans";
+  	
 };
